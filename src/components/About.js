@@ -3,7 +3,7 @@ import React from 'react';
 const About = () => {
     return (
         <div className="tab-content about-container">
-            <h2>About FairBite</h2>
+            <h2 className="about-title">About FairBite</h2>
             <p>
                 FairBite is an end-to-end system designed to automate fairness-aware metadata generation and representation-bias auditing
                 for datasets. Motivated by the increasing need for transparent, accountable, and reproducible data documentation practices,

@@ -120,7 +120,7 @@ const Dataset = ({ datasetId, initialPath, onUpdateName }) => {
                     <strong>Source:</strong> <span style={{ color: '#0066cc' }}>{metadata.croissant_url}</span>
                 </div>
                 <div className="meta-detail">
-                    {displayedDescription}
+                    <strong>Description:</strong> {displayedDescription}
                     {isLongDesc && (
                         <span
                             className="meta-link"
@@ -140,7 +140,7 @@ const Dataset = ({ datasetId, initialPath, onUpdateName }) => {
                 <h3 className="section-header">Representation Bias Audit Parameters</h3>
                 <div className="controls-grid">
                     <div className="input-group">
-                        <label className="input-label">Sensitivity Threshold (0 - 100)</label>
+                        <label className="input-label">Sensitivity Threshold (0 - 100):</label>
                         <input
                             type="number"
                             className="clean-input"
@@ -149,7 +149,7 @@ const Dataset = ({ datasetId, initialPath, onUpdateName }) => {
                         />
                     </div>
                     <div className="input-group">
-                        <label className="input-label">Level of intersectionality</label>
+                        <label className="input-label">Level of intersectionality:</label>
                         <input
                             type="number"
                             className="clean-input"
@@ -158,7 +158,7 @@ const Dataset = ({ datasetId, initialPath, onUpdateName }) => {
                         />
                     </div>
                     <div className="input-group">
-                        <label className="input-label">Under-representation ratio</label>
+                        <label className="input-label">Under-representation ratio:</label>
                         <input
                             type="number"
                             step="0.1"
@@ -168,7 +168,7 @@ const Dataset = ({ datasetId, initialPath, onUpdateName }) => {
                         />
                     </div>
                     <div className="input-group">
-                        <label className="input-label">Over-representation ratio</label>
+                        <label className="input-label">Over-representation ratio:</label>
                         <input
                             type="number"
                             step="0.1"

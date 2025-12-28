@@ -120,6 +120,52 @@ body {
   padding: 40px;
 }
 
+/* About Component */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.about-container p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: #555;
+  max-width: 2000px;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Help Component */
+.help-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.help-container p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: #555;
+  max-width: 2000px;
+}
+
+.help-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+}
+
 /* Home Component */
 .home-container {
   display: flex;
@@ -135,7 +181,7 @@ body {
   align-items: center;
   width: 100%;
   max-width: 800px;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .home-logo-section {
@@ -147,12 +193,13 @@ body {
 }
 
 .home-logo-img {
-  width: 60px;
-  height: 60px;
+  width: 10vw;
+  max-width: 120px;
+  height: auto;
 }
 
 .home-title {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: bold;
   margin: 0;
 }

@@ -21,7 +21,6 @@ const Home = ({ openTab }) => {
         <div className="tab-content home-container">
             <div className="home-centered-content">
                 <div className="home-logo-section">
-                    {/* Assuming HomeIcon is the croissant logo based on previous context, or use FairBiteIcon if available */}
                     <img src={FairBiteIcon} alt="FairBite Logo" className="home-logo-img" />
                     <h1 className="home-title">FairBite</h1>
                 </div>
