@@ -10,8 +10,6 @@ from google.genai import types as genai_types
 
 
 GEMINI_CLIENT = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
-# GEMINI_CLIENT = genai.Client(api_key="AIzaSyABMiNVpmlRGhEgGerYRP7snCOLZ1UXSts")
-
 
 
 # Keep as key the name with fallback to id
