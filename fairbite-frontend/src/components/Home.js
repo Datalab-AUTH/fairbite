@@ -1,0 +1,73 @@
+import React, { useState } from 'react';
+import FairBiteIcon from '../icons/FairBiteIcon.svg';
+
+const Home = ({ openTab }) => {
+    const [datasetPath, setDatasetPath] = useState('');
+
+    const handleTakeABite = () => {
+        if (!datasetPath.trim()) {
+            alert("Please provide a valid path to a Croissant file!");
+            return;
+        }
+        // Logic to open dataset tab is handled by the parent via openTab
+        // We pass the path or name. For now, we'll assume the user entered a name or path that becomes the tab name/id
+        openTab('dataset', datasetPath);
+    };
+
+    return (
+        <div className="tab-content home-container">
+            <div className="home-centered-content">
+                <div className="home-logo-section">
+                    <img src={FairBiteIcon} alt="FairBite Logo" className="home-logo-img" />
+                    <h1 className="home-title">FairBite</h1>
+                </div>
+                <p className="home-subtitle">Analyze datasets for representaion bias in seconds.</p>
+
+                <div className="search-section">
+                    <div className="search-bar-container">
+                        <div className="search-icon-wrapper">
+                            {/* Simple file icon placeholder or SVG */}
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                <polyline points="13 2 13 9 20 9"></polyline>
+                            </svg>
+                        </div>
+                        <input
+                            type="text"
+                            placeholder="Paste Croissant file path or browse..."
+                            value={datasetPath}
+                            onChange={(e) => setDatasetPath(e.target.value)}
+                            className="home-search-input"
+                        />
+                        <button className="home-search-button" onClick={handleTakeABite}>
+                            Take a Bite
+                        </button>
+                    </div>
+                    <p className="search-helper-text">We'll analyze it locally and generate a fairness report.</p>
+                </div>
+
+                <div className="info-cards-container">
+                    <div className="info-card">
+                        <div className="card-icon-circle orange">
+                            <span className="icon-text">i</span>
+                        </div>
+                        <h3>Learn More</h3>
+                        <p>Learn what FairBite checks and why it matters.</p>
+                        <button className="card-button primary" onClick={() => openTab('about')}>Learn More</button>
+                    </div>
+
+                    <div className="info-card">
+                        <div className="card-icon-circle orange">
+                            <span className="icon-text">?</span>
+                        </div>
+                        <h3>How to Use</h3>
+                        <p>Step-by-step guide to run your first evaluation.</p>
+                        <button className="card-button primary" onClick={() => openTab('help')}>How to Use</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Home;
