@@ -1,0 +1,13 @@
+# Backend (Python)
+fairbite-backend/.venv/
+fairbite-backend/__pycache__/
+**/__pycache__/
+*.pyc
+
+# Frontend (React)
+fairbite-frontend/node_modules/
+fairbite-frontend/build/
+
+# OS / Editor
+.DS_Store
+.vscode/
