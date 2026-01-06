@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import adultCensusData from '../sen_attr_Adult_Census_Income.json';
 import ArrowUpIcon from '../icons/keyboard_arrow_up.svg';
 import TableIcon from '../icons/Table.svg';
+import { getAuditStatus, getAuditResults, createAudit } from "../api";
 
 const RecordSetResult = ({ recordSet }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -57,9 +57,11 @@ const RecordSetResult = ({ recordSet }) => {
     );
 };
 
-const Dataset = ({ datasetId, initialPath, onUpdateName }) => {
+const Dataset = ({ datasetId, initialData, onUpdateName }) => {
     const [status, setStatus] = useState('LOADING_INFO');
     const [metadata, setMetadata] = useState(null);
+    const [repAudit, setRepAudit] = useState(null);  
+    const [summary, setSummary] = useState(null);     
     const [showFullDescription, setShowFullDescription] = useState(false);
 
     const [auditParams, setAuditParams] = useState({
@@ -70,12 +72,47 @@ const Dataset = ({ datasetId, initialPath, onUpdateName }) => {
     });
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setMetadata(adultCensusData);
-            setStatus('READY');
-        }, 1500);
-        return () => clearTimeout(timer);
-    }, []);
+        if (!initialData?.audit_id) return;
+
+        setStatus("LOADING_INFO");
+
+        let cancelled = false;
+
+        const poll = async () => {
+            try {
+                const s = await getAuditStatus(initialData.audit_id);
+                if (cancelled) return;
+
+                if (s.status === "failed") {
+                    setStatus("ERROR");
+                    alert(s.error || "Audit failed");
+                    return;
+                }
+
+                if (s.status === "completed") {
+                    const r = await getAuditResults(initialData.audit_id);
+                    if (cancelled) return;
+
+                    setMetadata(r.dataset_report);
+                    setRepAudit(r.rep_audit);
+                    setSummary(r.summary);
+
+                    setStatus("READY");
+                    return;
+                }
+
+                setTimeout(poll, 1500);
+            } catch (e) {
+                if (!cancelled) {
+                    setStatus("ERROR");
+                    alert(e.message);
+                }
+            }
+        };
+
+        poll();
+        return () => { cancelled = true; };
+    }, [initialData]);
 
     useEffect(() => {
         if (metadata && onUpdateName) {

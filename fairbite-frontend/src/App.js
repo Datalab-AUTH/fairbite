@@ -105,7 +105,7 @@ function App() {
       case 'dataset':
         return <Dataset
           datasetId={activeTab.id}
-          initialPath={activeTab.data}
+          initialData={activeTab.data}
           onUpdateName={(name) => updateTabLabel(activeTab.id, name)}
         />;
       default:

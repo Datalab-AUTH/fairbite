@@ -1,17 +1,35 @@
 import React, { useState } from 'react';
 import FairBiteIcon from '../icons/FairBiteIcon.svg';
+import { createAudit } from "../api";
 
 const Home = ({ openTab }) => {
     const [datasetPath, setDatasetPath] = useState('');
 
-    const handleTakeABite = () => {
-        if (!datasetPath.trim()) {
-            alert("Please provide a valid path to a Croissant file!");
-            return;
-        }
-        // Logic to open dataset tab is handled by the parent via openTab
-        // We pass the path or name. For now, we'll assume the user entered a name or path that becomes the tab name/id
-        openTab('dataset', datasetPath);
+    const handleTakeABite = async () => {
+    if (!datasetPath.trim()) {
+        alert("Please provide a valid URL to a Croissant file!");
+        return;
+    }
+
+    try {
+        const payload = {
+        croissant_url: datasetPath,
+        sensitivity_threshold: 70,
+        max_level: 2,
+        under_ratio: 0.5,
+        over_ratio: 2.0,
+        min_count: 30,
+        };
+
+        const { audit_id } = await createAudit(payload);
+
+        openTab("dataset", {
+        croissant_url: datasetPath,
+        audit_id,
+        });
+    } catch (e) {
+        alert("Failed to start audit: " + e.message);
+    }
     };
 
     return (
@@ -21,7 +39,7 @@ const Home = ({ openTab }) => {
                     <img src={FairBiteIcon} alt="FairBite Logo" className="home-logo-img" />
                     <h1 className="home-title">FairBite</h1>
                 </div>
-                <p className="home-subtitle">Analyze datasets for representaion bias in seconds.</p>
+                <p className="home-subtitle">Analyze datasets for representation bias with ease.</p>
 
                 <div className="search-section">
                     <div className="search-bar-container">
