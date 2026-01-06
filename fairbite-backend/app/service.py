@@ -5,18 +5,13 @@ from representation_bias_audit import run_representation_audit
 
 
 def build_summary(rep_audit: Dict[str, Any]) -> Dict[str, Any]:
-    """
-    Small UI-friendly summary: category counts by recordset and level.
-    """
     out = {"recordsets": []}
-
     for rs in rep_audit.get("recordsets", []):
         rs_name = rs.get("recordset_name")
         rep = rs.get("representation", {})
         levels = rep.get("levels", {})
 
         rs_sum = {"recordset_name": rs_name, "levels": {}}
-
         for level_str, groups in levels.items():
             counts = {
                 "not_represented": 0,
@@ -31,20 +26,20 @@ def build_summary(rep_audit: Dict[str, Any]) -> Dict[str, Any]:
             rs_sum["levels"][level_str] = counts
 
         out["recordsets"].append(rs_sum)
-
     return out
 
 
-def run_fairbite_audit(croissant_url: str, params: Dict[str, Any]) -> Dict[str, Any]:
+def process_dataset_only(croissant_url: str) -> Tuple[Dict[str, Any], Dict[str, Any]]:
     """
-    Runs your full FairBite pipeline and returns JSON-serializable output.
+    Returns:
+      - dataset_report (JSON-serializable)
+      - dfs (dict[str, pd.DataFrame]) (NOT JSON-serializable; kept in memory)
     """
     dataset_report, dfs = process_single_dataset(croissant_url)
+    return dataset_report, dfs
 
-    # If Croissant load fails, return early
-    if dataset_report.get("error"):
-        return {"dataset_report": dataset_report, "rep_audit": None, "summary": None}
 
+def run_rep_audit_only(dataset_report: Dict[str, Any], dfs: Dict[str, Any], params: Dict[str, Any]) -> Dict[str, Any]:
     rep_audit = run_representation_audit(
         dataset_report=dataset_report,
         dfs=dfs,
@@ -54,7 +49,5 @@ def run_fairbite_audit(croissant_url: str, params: Dict[str, Any]) -> Dict[str, 
         under_ratio=float(params["under_ratio"]),
         over_ratio=float(params["over_ratio"]),
     )
-
     summary = build_summary(rep_audit)
-
-    return {"dataset_report": dataset_report, "rep_audit": rep_audit, "summary": summary}
+    return {"rep_audit": rep_audit, "summary": summary}

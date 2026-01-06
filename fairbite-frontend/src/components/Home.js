@@ -1,35 +1,26 @@
 import React, { useState } from 'react';
 import FairBiteIcon from '../icons/FairBiteIcon.svg';
-import { createAudit } from "../api";
+import { createDataset } from "../api";
 
 const Home = ({ openTab }) => {
     const [datasetPath, setDatasetPath] = useState('');
 
     const handleTakeABite = async () => {
-    if (!datasetPath.trim()) {
-        alert("Please provide a valid URL to a Croissant file!");
-        return;
-    }
+        if (!datasetPath.trim()) {
+            alert("Please provide a valid URL to a Croissant file!");
+            return;
+        }
 
-    try {
-        const payload = {
-        croissant_url: datasetPath,
-        sensitivity_threshold: 70,
-        max_level: 2,
-        under_ratio: 0.5,
-        over_ratio: 2.0,
-        min_count: 30,
-        };
+        try {
+            const { dataset_id } = await createDataset(datasetPath);
 
-        const { audit_id } = await createAudit(payload);
-
-        openTab("dataset", {
-        croissant_url: datasetPath,
-        audit_id,
-        });
-    } catch (e) {
-        alert("Failed to start audit: " + e.message);
-    }
+            openTab("dataset", {
+            croissant_url: datasetPath,
+            dataset_id,
+            });
+        } catch (e) {
+            alert("Failed to process dataset: " + e.message);
+        }
     };
 
     return (

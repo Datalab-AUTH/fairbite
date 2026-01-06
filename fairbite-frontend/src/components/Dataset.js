@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ArrowUpIcon from '../icons/keyboard_arrow_up.svg';
 import TableIcon from '../icons/Table.svg';
-import { getAuditStatus, getAuditResults, createAudit } from "../api";
+import { getDatasetStatus, getDatasetReport, createRepresentationAudit, getRepresentationAuditStatus, getRepresentationAuditResults } from "../api";
 
 const RecordSetResult = ({ recordSet }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -72,7 +72,7 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
     });
 
     useEffect(() => {
-        if (!initialData?.audit_id) return;
+        if (!initialData?.dataset_id) return;
 
         setStatus("LOADING_INFO");
 
@@ -80,33 +80,30 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
 
         const poll = async () => {
             try {
-                const s = await getAuditStatus(initialData.audit_id);
+            const s = await getDatasetStatus(initialData.dataset_id);
+            if (cancelled) return;
+
+            if (s.status === "failed") {
+                setStatus("ERROR");
+                alert(s.error || "Dataset processing failed");
+                return;
+            }
+
+            if (s.status === "completed") {
+                const report = await getDatasetReport(initialData.dataset_id);
                 if (cancelled) return;
 
-                if (s.status === "failed") {
-                    setStatus("ERROR");
-                    alert(s.error || "Audit failed");
-                    return;
-                }
+                setMetadata(report);
+                setStatus("READY");
+                return;
+            }
 
-                if (s.status === "completed") {
-                    const r = await getAuditResults(initialData.audit_id);
-                    if (cancelled) return;
-
-                    setMetadata(r.dataset_report);
-                    setRepAudit(r.rep_audit);
-                    setSummary(r.summary);
-
-                    setStatus("READY");
-                    return;
-                }
-
-                setTimeout(poll, 1500);
+            setTimeout(poll, 1500);
             } catch (e) {
-                if (!cancelled) {
-                    setStatus("ERROR");
-                    alert(e.message);
-                }
+            if (!cancelled) {
+                setStatus("ERROR");
+                alert(e.message);
+            }
             }
         };
 
@@ -114,24 +111,61 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
         return () => { cancelled = true; };
     }, [initialData]);
 
+
     useEffect(() => {
         if (metadata && onUpdateName) {
             onUpdateName(metadata.dataset_name);
         }
     }, [metadata, onUpdateName]);
 
-    const handleRunAudit = () => {
+    const handleRunAudit = async () => {
         const { threshold, intersectionality, underRatio, overRatio } = auditParams;
+
         if ([threshold, intersectionality, underRatio, overRatio].some(val => !val || parseFloat(val) < 0)) {
             alert("Please provide valid input for all parameters!");
             return;
         }
 
-        setStatus('LOADING_AUDIT');
-        setTimeout(() => {
-            setStatus('RESULTS');
-        }, 3000);
+        setStatus("LOADING_AUDIT");
+
+        try {
+            const params = {
+            sensitivity_threshold: parseInt(threshold, 10),
+            max_level: parseInt(intersectionality, 10),
+            under_ratio: parseFloat(underRatio),
+            over_ratio: parseFloat(overRatio),
+            min_count: 30,
+            };
+
+            const { audit_id } = await createRepresentationAudit(initialData.dataset_id, params);
+
+            const poll = async () => {
+            const s = await getRepresentationAuditStatus(audit_id);
+
+            if (s.status === "failed") {
+                setStatus("ERROR");
+                alert(s.error || "Representation audit failed");
+                return;
+            }
+
+            if (s.status === "completed") {
+                const r = await getRepresentationAuditResults(audit_id);
+                setRepAudit(r.rep_audit);
+                setSummary(r.summary);
+                setStatus("RESULTS");
+                return;
+            }
+
+            setTimeout(poll, 1500);
+            };
+
+            poll();
+        } catch (e) {
+            setStatus("ERROR");
+            alert(e.message);
+        }
     };
+
 
     if (status === 'LOADING_INFO') {
         return (
