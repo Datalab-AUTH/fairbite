@@ -1,7 +1,179 @@
+// Dataset.js
 import React, { useState, useEffect } from 'react';
 import ArrowUpIcon from '../icons/keyboard_arrow_up.svg';
 import TableIcon from '../icons/Table.svg';
-import { getDatasetStatus, getDatasetReport, createRepresentationAudit, getRepresentationAuditStatus, getRepresentationAuditResults } from "../api";
+import {
+    getDatasetStatus,
+    getDatasetReport,
+    createRepresentationAudit,
+    getRepresentationAuditStatus,
+    getRepresentationAuditResults
+} from "../api";
+
+/* =========================
+   Sensitivity UI Helpers
+   ========================= */
+
+const sensitivityColor = (s) => {
+    const v = Number(s);
+    if (v >= 90) return "#47AD33";   // green
+    if (v >= 60) return "#ADD633";   // light green
+    if (v >= 30) return "#FFD934";   // yellow
+    if (v >= 1) return "#FFB234";   // orange
+    return "#C34E4E";                // red
+};
+
+const categoricalColor = (isCat) => (isCat ? "#47AD33" : "#C34E4E");
+
+const sortBySensitivityDesc = (arr) =>
+    [...arr].sort((a, b) => (b?.sensitivity ?? 0) - (a?.sensitivity ?? 0));
+
+const chunkIntoTwoColumns = (arr) => {
+    const mid = Math.ceil(arr.length / 2);
+    return [arr.slice(0, mid), arr.slice(mid)];
+};
+
+const SensRow = ({ col }) => {
+    const sens = Number(col?.sensitivity ?? 0);
+    const sensBg = sensitivityColor(sens);
+    const catCol = categoricalColor(!!col?.is_categorical);
+
+    return (
+        <div className="sens-row">
+            <div className="sens-colname" title={col?.reason || ""}>
+                {col?.key}
+            </div>
+
+            <div className="sens-pill" style={{ backgroundColor: sensBg }}>
+                {sens}%
+            </div>
+
+            <div
+                className="cat-pill"
+                style={{
+                    borderColor: catCol,
+                    color: catCol,
+                }}
+            >
+                {col?.is_categorical ? "yes" : "no"}
+            </div>
+        </div>
+    );
+};
+
+const RecordsetSensitivity = ({
+    recordset,
+    isExpanded,
+    onToggleExpand,
+    collapsedCount = 10,
+}) => {
+    const sorted = sortBySensitivityDesc(recordset?.results || []);
+
+    // collapsed shows top 10, expanded shows all
+    const visible = isExpanded ? sorted : sorted.slice(0, collapsedCount);
+
+    // split visible into two columns (left/right) while keeping order
+    const [left, right] = chunkIntoTwoColumns(visible);
+
+    const ColumnHeader = () => (
+        <div className="sens-col-header">
+            <span className="sens-h-col">Column</span>
+            <span className="sens-h-sens">Sensitivity</span>
+            <span className="sens-h-cat">Categorical</span>
+        </div>
+    );
+
+    return (
+        <div className="sens-recordset-card">
+            {/* recordset bar */}
+            <div className="sens-recordset-topbar">
+                <div className="recordset-title-group">
+                    <img src={TableIcon} alt="" className="recordset-icon" />
+                    <span className="recordset-name">{recordset.recordset_name}</span>
+                </div>
+            </div>
+
+            <hr className="sens-recordset-divider" />
+
+            {/* two side-by-side columns always */}
+            <div className="sens-two-col-wrap">
+                {/* LEFT column */}
+                <div className="sens-side">
+                    <ColumnHeader />
+                    <div className="sens-side-body">
+                        {left.map((c, idx) => (
+                            <SensRow
+                                key={`${recordset?.recordset_name || "rs"}-L-${c?.key || idx}-${idx}`}
+                                col={c}
+                            />
+                        ))}
+                    </div>
+                </div>
+
+                {/* RIGHT column */}
+                <div className="sens-side">
+                    <ColumnHeader />
+                    <div className="sens-side-body">
+                        {right.map((c, idx) => (
+                            <SensRow
+                                key={`${recordset?.recordset_name || "rs"}-R-${c?.key || idx}-${idx}`}
+                                col={c}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* View all / View less bottom-right */}
+            <div className="sens-actions">
+                <button className="link-btn" onClick={onToggleExpand}>
+                    {isExpanded ? "View less" : "View all"}
+                </button>
+            </div>
+        </div>
+    );
+};
+
+const AttributeSensitivityAnalysis = ({
+    recordsets,
+    expandedMap,
+    setExpandedMap,
+}) => {
+    if (!recordsets?.length) return null;
+
+    return (
+        <div className="audit-card">
+            <h3 className="section-header">Attribute Sensitivity Analysis</h3>
+            <hr className="sens-divider" />
+
+            <div style={{ marginTop: 18 }}>
+                {recordsets.map((rs) => {
+                    const key = rs?.recordset_name || "unknown_recordset";
+                    const isExpanded = !!expandedMap[key];
+
+                    return (
+                        <RecordsetSensitivity
+                            key={key}
+                            recordset={rs}
+                            isExpanded={isExpanded}
+                            onToggleExpand={() =>
+                                setExpandedMap((prev) => ({
+                                    ...prev,
+                                    [key]: !prev[key],
+                                }))
+                            }
+                            collapsedCount={10}
+                        />
+                    );
+                })}
+            </div>
+        </div>
+    );
+};
+
+/* =========================
+   Existing Audit Results UI
+   ========================= */
 
 const RecordSetResult = ({ recordSet }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -25,6 +197,7 @@ const RecordSetResult = ({ recordSet }) => {
                     }}
                 />
             </div>
+
             {isOpen && (
                 <div className="recordset-content">
                     <p className="meta-detail" style={{ marginBottom: '20px' }}>
@@ -60,8 +233,8 @@ const RecordSetResult = ({ recordSet }) => {
 const Dataset = ({ datasetId, initialData, onUpdateName }) => {
     const [status, setStatus] = useState('LOADING_INFO');
     const [metadata, setMetadata] = useState(null);
-    const [repAudit, setRepAudit] = useState(null);  
-    const [summary, setSummary] = useState(null);     
+    const [repAudit, setRepAudit] = useState(null);
+    const [summary, setSummary] = useState(null);
     const [showFullDescription, setShowFullDescription] = useState(false);
 
     const [auditParams, setAuditParams] = useState({
@@ -71,6 +244,24 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
         overRatio: '2'
     });
 
+    // Persist View all / View less per dataset tab (survives tab switches)
+    const storageKey = `fairbite:sensitivityExpanded:${datasetId || "unknown"}`;
+    const [expandedMap, setExpandedMap] = useState(() => {
+        try {
+            const raw = localStorage.getItem(storageKey);
+            return raw ? JSON.parse(raw) : {};
+        } catch {
+            return {};
+        }
+    });
+
+    useEffect(() => {
+        try {
+            localStorage.setItem(storageKey, JSON.stringify(expandedMap));
+        } catch { }
+    }, [expandedMap, storageKey]);
+
+    // Load dataset report (LLM sensitivity)
     useEffect(() => {
         if (!initialData?.dataset_id) return;
 
@@ -80,30 +271,30 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
 
         const poll = async () => {
             try {
-            const s = await getDatasetStatus(initialData.dataset_id);
-            if (cancelled) return;
-
-            if (s.status === "failed") {
-                setStatus("ERROR");
-                alert(s.error || "Dataset processing failed");
-                return;
-            }
-
-            if (s.status === "completed") {
-                const report = await getDatasetReport(initialData.dataset_id);
+                const s = await getDatasetStatus(initialData.dataset_id);
                 if (cancelled) return;
 
-                setMetadata(report);
-                setStatus("READY");
-                return;
-            }
+                if (s.status === "failed") {
+                    setStatus("ERROR");
+                    alert(s.error || "Dataset processing failed");
+                    return;
+                }
 
-            setTimeout(poll, 1500);
+                if (s.status === "completed") {
+                    const report = await getDatasetReport(initialData.dataset_id);
+                    if (cancelled) return;
+
+                    setMetadata(report);
+                    setStatus("READY");
+                    return;
+                }
+
+                setTimeout(poll, 1500);
             } catch (e) {
-            if (!cancelled) {
-                setStatus("ERROR");
-                alert(e.message);
-            }
+                if (!cancelled) {
+                    setStatus("ERROR");
+                    alert(e.message);
+                }
             }
         };
 
@@ -111,7 +302,7 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
         return () => { cancelled = true; };
     }, [initialData]);
 
-
+    // Update tab name
     useEffect(() => {
         if (metadata && onUpdateName) {
             onUpdateName(metadata.dataset_name);
@@ -130,33 +321,33 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
 
         try {
             const params = {
-            sensitivity_threshold: parseInt(threshold, 10),
-            max_level: parseInt(intersectionality, 10),
-            under_ratio: parseFloat(underRatio),
-            over_ratio: parseFloat(overRatio),
-            min_count: 30,
+                sensitivity_threshold: parseInt(threshold, 10),
+                max_level: parseInt(intersectionality, 10),
+                under_ratio: parseFloat(underRatio),
+                over_ratio: parseFloat(overRatio),
+                min_count: 30,
             };
 
             const { audit_id } = await createRepresentationAudit(initialData.dataset_id, params);
 
             const poll = async () => {
-            const s = await getRepresentationAuditStatus(audit_id);
+                const s = await getRepresentationAuditStatus(audit_id);
 
-            if (s.status === "failed") {
-                setStatus("ERROR");
-                alert(s.error || "Representation audit failed");
-                return;
-            }
+                if (s.status === "failed") {
+                    setStatus("ERROR");
+                    alert(s.error || "Representation audit failed");
+                    return;
+                }
 
-            if (s.status === "completed") {
-                const r = await getRepresentationAuditResults(audit_id);
-                setRepAudit(r.rep_audit);
-                setSummary(r.summary);
-                setStatus("RESULTS");
-                return;
-            }
+                if (s.status === "completed") {
+                    const r = await getRepresentationAuditResults(audit_id);
+                    setRepAudit(r.rep_audit);
+                    setSummary(r.summary);
+                    setStatus("RESULTS");
+                    return;
+                }
 
-            setTimeout(poll, 1500);
+                setTimeout(poll, 1500);
             };
 
             poll();
@@ -165,7 +356,6 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
             alert(e.message);
         }
     };
-
 
     if (status === 'LOADING_INFO') {
         return (
@@ -180,7 +370,10 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
 
     const description = metadata.description || "";
     const isLongDesc = description.length > 300;
-    const displayedDescription = showFullDescription ? description : description.substring(0, 300) + (isLongDesc ? "..." : "");
+    const displayedDescription =
+        showFullDescription
+            ? description
+            : description.substring(0, 300) + (isLongDesc ? "..." : "");
 
     return (
         <div className="dataset-container">
@@ -202,9 +395,16 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
                     )}
                 </div>
                 <div className="meta-detail">
-                    <strong>Record Sets:</strong> {metadata.recordsets.map(r => r.recordset_name).join(', ')}
+                    <strong>Record Sets:</strong> {metadata.recordsets?.length ?? 0}
                 </div>
             </div>
+
+            {/* Attribute Sensitivity Analysis */}
+            <AttributeSensitivityAnalysis
+                recordsets={metadata.recordsets}
+                expandedMap={expandedMap}
+                setExpandedMap={setExpandedMap}
+            />
 
             {/* Audit Section */}
             <div className="audit-card">
@@ -216,7 +416,9 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
                             type="number"
                             className="clean-input"
                             value={auditParams.threshold}
-                            onChange={(e) => setAuditParams({ ...auditParams, threshold: e.target.value })}
+                            onChange={(e) =>
+                                setAuditParams({ ...auditParams, threshold: e.target.value })
+                            }
                         />
                     </div>
                     <div className="input-group">
@@ -225,7 +427,9 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
                             type="number"
                             className="clean-input"
                             value={auditParams.intersectionality}
-                            onChange={(e) => setAuditParams({ ...auditParams, intersectionality: e.target.value })}
+                            onChange={(e) =>
+                                setAuditParams({ ...auditParams, intersectionality: e.target.value })
+                            }
                         />
                     </div>
                     <div className="input-group">
@@ -235,7 +439,9 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
                             step="0.1"
                             className="clean-input"
                             value={auditParams.underRatio}
-                            onChange={(e) => setAuditParams({ ...auditParams, underRatio: e.target.value })}
+                            onChange={(e) =>
+                                setAuditParams({ ...auditParams, underRatio: e.target.value })
+                            }
                         />
                     </div>
                     <div className="input-group">
@@ -245,7 +451,9 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
                             step="0.1"
                             className="clean-input"
                             value={auditParams.overRatio}
-                            onChange={(e) => setAuditParams({ ...auditParams, overRatio: e.target.value })}
+                            onChange={(e) =>
+                                setAuditParams({ ...auditParams, overRatio: e.target.value })
+                            }
                         />
                     </div>
                 </div>
@@ -270,6 +478,9 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
             {status === 'RESULTS' ? (
                 <div className="results-section">
                     <h3 className="section-header">Audit Results</h3>
+
+                    {/* TODO: Replace this with repAudit + summary UI in next step.
+              This still shows the old per-recordset sensitivity table. */}
                     <div>
                         {metadata.recordsets.map((rs, index) => (
                             <RecordSetResult key={index} recordSet={rs} />
@@ -277,7 +488,14 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
                     </div>
                 </div>
             ) : status !== 'LOADING_AUDIT' && (
-                <div style={{ textAlign: 'center', marginTop: '60px', color: '#999', fontStyle: 'italic' }}>
+                <div
+                    style={{
+                        textAlign: 'center',
+                        marginTop: '60px',
+                        color: '#999',
+                        fontStyle: 'italic'
+                    }}
+                >
                     <p>No results yet. Run the audit to see analysis.</p>
                 </div>
             )}
