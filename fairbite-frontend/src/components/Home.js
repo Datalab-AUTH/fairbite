@@ -30,7 +30,7 @@ const Home = ({ openTab }) => {
                     <img src={FairBiteIcon} alt="FairBite Logo" className="home-logo-img" />
                     <h1 className="home-title">FairBite</h1>
                 </div>
-                <p className="home-subtitle">Analyze datasets for representation bias with ease.</p>
+                <p className="home-subtitle">Analyze Croissant datasets for representation bias with ease.</p>
 
                 <div className="search-section">
                     <div className="search-bar-container">
@@ -43,7 +43,7 @@ const Home = ({ openTab }) => {
                         </div>
                         <input
                             type="text"
-                            placeholder="Paste Croissant file path or browse..."
+                            placeholder="Paste Croissant file path..."
                             value={datasetPath}
                             onChange={(e) => setDatasetPath(e.target.value)}
                             className="home-search-input"
@@ -52,7 +52,7 @@ const Home = ({ openTab }) => {
                             Take a Bite
                         </button>
                     </div>
-                    <p className="search-helper-text">We'll analyze it locally and generate a fairness report.</p>
+                    <p className="search-helper-text">Only two clicks away from generating a fairness report.</p>
                 </div>
 
                 <div className="info-cards-container">
