@@ -290,6 +290,9 @@ def run_representation_audit(
         if not sensitive_cols:
             continue
 
+        # Cap max_level to the number of sensitive attributes for this recordset
+        effective_max_level = min(max_level, len(sensitive_cols))
+
         # Restrict df to sensitive columns only
         df_sens = rs_df[sensitive_cols].copy()
 
@@ -299,7 +302,7 @@ def run_representation_audit(
             rs_name=rs_name,
             df=df_sens,
             sensitive_cols=sensitive_cols,
-            max_level=max_level,
+            max_level=effective_max_level,
             min_count=min_count,
             under_ratio=under_ratio,
             over_ratio=over_ratio,

@@ -1,5 +1,5 @@
 // Dataset.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ArrowUpIcon from '../icons/keyboard_arrow_up.svg';
 import TableIcon from '../icons/Table.svg';
 import {
@@ -172,21 +172,510 @@ const AttributeSensitivityAnalysis = ({
 };
 
 /* =========================
-   Existing Audit Results UI
+   Representation Audit UI Helpers
    ========================= */
 
-const RecordSetResult = ({ recordSet }) => {
-    const [isOpen, setIsOpen] = useState(false);
+// Calculate number of unique values for a sensitive attribute
+const getUniqueValueCount = (representation, attribute) => {
+    if (!representation?.levels) return 0;
+    const uniqueValues = new Set();
+    Object.values(representation.levels).forEach(levelGroups => {
+        levelGroups.forEach(group => {
+            if (group.attributes && group.attributes.includes(attribute) && group.values) {
+                const attrIndex = group.attributes.indexOf(attribute);
+                // Values array corresponds positionally to attributes array
+                if (attrIndex >= 0 && attrIndex < group.values.length) {
+                    uniqueValues.add(group.values[attrIndex]);
+                }
+            }
+        });
+    });
+    return uniqueValues.size;
+};
 
+// Count flagged groups (not well_represented)
+const countFlaggedGroups = (representation) => {
+    if (!representation?.levels) return 0;
+    let flagged = 0;
+    Object.values(representation.levels).forEach(levelGroups => {
+        levelGroups.forEach(group => {
+            if (group.category && group.category !== 'well_represented') {
+                flagged++;
+            }
+        });
+    });
+    return flagged;
+};
+
+// Calculate summary statistics for a level
+const calculateLevelSummary = (levelGroups) => {
+    if (!levelGroups || !Array.isArray(levelGroups)) {
+        return { not_represented: 0, under_represented: 0, well_represented: 0, over_represented: 0, total: 0 };
+    }
+    
+    const summary = {
+        not_represented: 0,
+        under_represented: 0,
+        well_represented: 0,
+        over_represented: 0,
+        total: levelGroups.length
+    };
+    
+    levelGroups.forEach(group => {
+        const cat = group.category;
+        if (cat === 'not_represented') summary.not_represented++;
+        else if (cat === 'under_represented') summary.under_represented++;
+        else if (cat === 'well_represented') summary.well_represented++;
+        else if (cat === 'over_represented') summary.over_represented++;
+    });
+    
+    return summary;
+};
+
+// Calculate total summary across all levels
+const calculateTotalSummary = (representation) => {
+    if (!representation?.levels) {
+        return { not_represented: 0, under_represented: 0, well_represented: 0, over_represented: 0, total: 0 };
+    }
+    
+    const total = { not_represented: 0, under_represented: 0, well_represented: 0, over_represented: 0, total: 0 };
+    
+    Object.values(representation.levels).forEach(levelGroups => {
+        const levelSummary = calculateLevelSummary(levelGroups);
+        total.not_represented += levelSummary.not_represented;
+        total.under_represented += levelSummary.under_represented;
+        total.well_represented += levelSummary.well_represented;
+        total.over_represented += levelSummary.over_represented;
+        total.total += levelSummary.total;
+    });
+    
+    return total;
+};
+
+// Count flagged groups for a specific level
+const countFlaggedGroupsForLevel = (levelGroups) => {
+    if (!levelGroups || !Array.isArray(levelGroups)) return 0;
+    return levelGroups.filter(g => g.category && g.category !== 'well_represented').length;
+};
+
+/* =========================
+   Representation Audit Results UI
+   ========================= */
+
+// Format percentage with up to 4 decimal places
+const formatPercentage = (value) => {
+    if (value === null || value === undefined) return '-';
+    const percentage = value * 100;
+    // Show up to 4 decimal places, but remove trailing zeros
+    return percentage.toFixed(4).replace(/\.?0+$/, '') + '%';
+};
+
+// Get category color and label
+const getCategoryStyle = (category) => {
+    switch (category) {
+        case 'not_represented':
+            return { bg: '#D9D9D9', label: 'Not-Represented', icon: '×' };
+        case 'under_represented':
+            return { bg: '#FDCC69', label: 'Under-Represented', icon: '↓' };
+        case 'well_represented':
+            return { bg: '#6D9235', label: 'Well-Represented', icon: '→' };
+        case 'over_represented':
+            return { bg: '#D04F50', label: 'Over-Represented', icon: '↑' };
+        default:
+            return { bg: '#E0E0E0', label: category || 'Unknown', icon: '' };
+    }
+};
+
+// Group Card Component
+const GroupCard = ({ group }) => {
+    const { attributes, values, count, proportion, equal_share, category } = group;
+    const categoryStyle = getCategoryStyle(category);
+    const isLevel1 = attributes.length === 1;
+    
+    // Format header: for level 1 just "attribute = value", for level 2+ show all pairs
+    const headerText = attributes.map((attr, idx) => 
+        `${attr} = ${values[idx] || ''}`
+    ).join(', ');
+    
     return (
-        <div className="recordset-item">
-            <div
-                className="recordset-header"
+        <div className="group-card">
+            <div className="group-card-header">
+                <strong>{headerText}</strong>
+            </div>
+            <div className="group-card-body">
+                <div className="group-card-stat">
+                    <span className="group-card-label">Observed:</span>
+                    <span className="group-card-value"><strong>{formatPercentage(proportion)}</strong></span>
+                </div>
+                <div className="group-card-stat">
+                    <span className="group-card-label">Expected:</span>
+                    <span className="group-card-value">{formatPercentage(equal_share)}</span>
+                </div>
+                <div className="group-card-category" style={{ backgroundColor: categoryStyle.bg }}>
+                    <span className="group-card-category-icon">{categoryStyle.icon}</span>
+                    <strong>{categoryStyle.label}</strong>
+                </div>
+                <div className="group-card-stat">
+                    <span className="group-card-label">Records:</span>
+                    <span className="group-card-value">{count}</span>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// Extract available attributes and their values from level groups
+const extractAvailableAttributes = (levelGroups) => {
+    const attrMap = {};
+    
+    levelGroups.forEach(group => {
+        if (group.attributes && group.values) {
+            group.attributes.forEach((attr, idx) => {
+                if (!attrMap[attr]) {
+                    attrMap[attr] = new Set();
+                }
+                if (group.values[idx]) {
+                    attrMap[attr].add(group.values[idx]);
+                }
+            });
+        }
+    });
+    
+    // Convert sets to arrays
+    const result = {};
+    Object.keys(attrMap).forEach(attr => {
+        result[attr] = Array.from(attrMap[attr]).sort();
+    });
+    
+    return result;
+};
+
+// Parse search query into attribute=value pairs
+const parseSearchQuery = (query) => {
+    const pairs = [];
+    // Updated regex to handle attribute names with dots, hyphens, and values with quotes/special chars
+    const regex = /(\w+(?:\.\w+|-)*)\s*=\s*([^,]+?)(?=\s*,\s*\w+\s*=|$)/g;
+    let match;
+    
+    while ((match = regex.exec(query)) !== null) {
+        const value = match[2].trim();
+        // Remove quotes if present
+        const cleanValue = value.replace(/^["']|["']$/g, '');
+        pairs.push({
+            attribute: match[1].trim(),
+            value: cleanValue
+        });
+    }
+    
+    return pairs;
+};
+
+// Check if a group matches search criteria
+const groupMatchesSearch = (group, searchPairs) => {
+    if (!searchPairs || searchPairs.length === 0) return true;
+    
+    return searchPairs.every(pair => {
+        const attrIndex = group.attributes?.indexOf(pair.attribute);
+        if (attrIndex === -1) return false;
+        // Compare values as strings, handling special characters
+        const groupValue = String(group.values?.[attrIndex] || '');
+        const searchValue = String(pair.value || '');
+        return groupValue === searchValue;
+    });
+};
+
+const LevelBreakdown = ({ level, levelGroups, sensitiveColumns }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [filterCategory, setFilterCategory] = useState('all');
+    const [searchQuery, setSearchQuery] = useState('');
+    const [showAutocomplete, setShowAutocomplete] = useState(false);
+    const [autocompleteOptions, setAutocompleteOptions] = useState([]);
+    const [autocompleteType, setAutocompleteType] = useState('attribute'); // 'attribute' or 'value'
+    const [selectedAttribute, setSelectedAttribute] = useState(null);
+    const searchInputRef = useRef(null);
+    const autocompleteRef = useRef(null);
+    
+    const flaggedCount = countFlaggedGroupsForLevel(levelGroups);
+    const isLevel1 = level === '1';
+    
+    // Close autocomplete when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (
+                autocompleteRef.current &&
+                !autocompleteRef.current.contains(event.target) &&
+                searchInputRef.current &&
+                !searchInputRef.current.contains(event.target)
+            ) {
+                setShowAutocomplete(false);
+            }
+        };
+        
+        if (showAutocomplete) {
+            document.addEventListener('mousedown', handleClickOutside);
+            return () => {
+                document.removeEventListener('mousedown', handleClickOutside);
+            };
+        }
+    }, [showAutocomplete]);
+    
+    // Extract available attributes and values
+    const availableAttrs = extractAvailableAttributes(levelGroups || []);
+    
+    // Filter groups based on category filter
+    const getFilteredGroups = () => {
+        if (!levelGroups || !Array.isArray(levelGroups)) return [];
+        
+        let filtered = levelGroups;
+        
+        // Apply category filter
+        if (filterCategory !== 'all') {
+            filtered = filtered.filter(g => {
+                if (filterCategory === 'not_represented') return g.category === 'not_represented';
+                if (filterCategory === 'under_represented') return g.category === 'under_represented';
+                if (filterCategory === 'well_represented') return g.category === 'well_represented';
+                if (filterCategory === 'over_represented') return g.category === 'over_represented';
+                return true;
+            });
+        }
+        
+        // Apply search filter (only for level 2+)
+        if (!isLevel1 && searchQuery.trim()) {
+            const searchPairs = parseSearchQuery(searchQuery);
+            filtered = filtered.filter(g => groupMatchesSearch(g, searchPairs));
+        }
+        
+        return filtered;
+    };
+    
+    const filteredGroups = getFilteredGroups();
+    
+    // Handle search input changes
+    const handleSearchChange = (e) => {
+        const value = e.target.value;
+        setSearchQuery(value);
+        
+        if (!value.trim()) {
+            setShowAutocomplete(false);
+            return;
+        }
+        
+        // Parse current query to see what's being typed
+        const pairs = parseSearchQuery(value);
+        const lastCommaIndex = value.lastIndexOf(',');
+        const remainingText = lastCommaIndex >= 0 
+            ? value.substring(lastCommaIndex + 1).trim()
+            : value.trim();
+        
+        // Determine if we're typing an attribute or value
+        if (!remainingText.includes('=')) {
+            // Typing an attribute
+            setAutocompleteType('attribute');
+            setSelectedAttribute(null);
+            const usedAttrs = pairs.map(p => p.attribute);
+            const available = Object.keys(availableAttrs).filter(attr => {
+                return !usedAttrs.includes(attr) && 
+                       (remainingText === '' || attr.toLowerCase().includes(remainingText.toLowerCase()));
+            });
+            setAutocompleteOptions(available);
+            setShowAutocomplete(available.length > 0);
+        } else {
+            // Typing a value
+            const attrMatch = remainingText.match(/(\w+(?:\.\w+|-)*)\s*=\s*(.*)/);
+            if (attrMatch) {
+                const attr = attrMatch[1].trim();
+                const valueText = attrMatch[2].trim();
+                
+                if (availableAttrs[attr]) {
+                    setAutocompleteType('value');
+                    setSelectedAttribute(attr);
+                    const available = availableAttrs[attr].filter(val => {
+                        const valStr = String(val).toLowerCase();
+                        return valueText === '' || valStr.includes(valueText.toLowerCase());
+                    });
+                    setAutocompleteOptions(available);
+                    setShowAutocomplete(available.length > 0);
+                } else {
+                    setShowAutocomplete(false);
+                }
+            } else {
+                setShowAutocomplete(false);
+            }
+        }
+    };
+    
+    const handleAutocompleteSelect = (option) => {
+        const pairs = parseSearchQuery(searchQuery);
+        const remainingText = searchQuery.substring(searchQuery.lastIndexOf(',') + 1).trim();
+        
+        if (autocompleteType === 'attribute') {
+            // Add attribute and = sign
+            const before = searchQuery.substring(0, searchQuery.lastIndexOf(remainingText));
+            const newQuery = before + option + ' = ';
+            setSearchQuery(newQuery);
+            setSelectedAttribute(option);
+            setAutocompleteType('value');
+            // Show values for this attribute
+            setAutocompleteOptions(availableAttrs[option] || []);
+            setShowAutocomplete(true);
+        } else if (autocompleteType === 'value' && selectedAttribute) {
+            // Add value and comma for next pair
+            const before = searchQuery.substring(0, searchQuery.lastIndexOf(remainingText));
+            const newQuery = before + option + ', ';
+            setSearchQuery(newQuery);
+            setSelectedAttribute(null);
+            setAutocompleteType('attribute');
+            setShowAutocomplete(false);
+        }
+    };
+    
+    const clearSearch = () => {
+        setSearchQuery('');
+        setShowAutocomplete(false);
+        setSelectedAttribute(null);
+    };
+    
+    return (
+        <div className="level-breakdown-item">
+            <div 
+                className="level-breakdown-header"
+                onClick={() => setIsOpen(!isOpen)}
+            >
+                <span className="level-breakdown-title">
+                    Level {level} ({level === '1' ? 'single attributes' : 'attribute intersection'}): {flaggedCount} flagged groups
+                </span>
+                <img
+                    src={ArrowUpIcon}
+                    alt="Toggle"
+                    className="toggle-icon"
+                    style={{
+                        transform: isOpen ? 'rotate(0deg)' : 'rotate(180deg)'
+                    }}
+                />
+            </div>
+            {isOpen && (
+                <div className="level-breakdown-content">
+                    {/* Filter Dropdown */}
+                    <div className="level-breakdown-controls">
+                        <div className="level-filter-group">
+                            <label className="level-filter-label">Show:</label>
+                            <select 
+                                className="level-filter-select"
+                                value={filterCategory}
+                                onChange={(e) => setFilterCategory(e.target.value)}
+                            >
+                                <option value="all">All</option>
+                                {!isLevel1 && <option value="not_represented">Not-Represented</option>}
+                                <option value="under_represented">Under-Represented</option>
+                                <option value="well_represented">Well-Represented</option>
+                                <option value="over_represented">Over-Represented</option>
+                            </select>
+                        </div>
+                        
+                        {/* Search Bar for Level 2+ */}
+                        {!isLevel1 && (
+                            <div className="level-search-group" ref={autocompleteRef}>
+                                <input
+                                    ref={searchInputRef}
+                                    type="text"
+                                    className="level-search-input"
+                                    placeholder="Search groups (e.g. 'race = Black, gender = Female')"
+                                    value={searchQuery}
+                                    onChange={handleSearchChange}
+                                    onFocus={() => {
+                                        if (!searchQuery) {
+                                            setAutocompleteType('attribute');
+                                            setAutocompleteOptions(Object.keys(availableAttrs));
+                                            setShowAutocomplete(true);
+                                        } else {
+                                            handleSearchChange({ target: { value: searchQuery } });
+                                        }
+                                    }}
+                                />
+                                {searchQuery && (
+                                    <button className="level-search-clear" onClick={clearSearch}>
+                                        × Clear All
+                                    </button>
+                                )}
+                                {showAutocomplete && autocompleteOptions.length > 0 && (
+                                    <div className="autocomplete-dropdown">
+                                        {autocompleteOptions.map((option, idx) => (
+                                            <div
+                                                key={idx}
+                                                className="autocomplete-option"
+                                                onClick={() => handleAutocompleteSelect(option)}
+                                            >
+                                                {option}
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                    
+                    {/* Groups Grid */}
+                    <div className="groups-grid-container">
+                        {filteredGroups.length > 0 ? (
+                            <div className="groups-grid">
+                                {filteredGroups.map((group, idx) => (
+                                    <GroupCard key={idx} group={group} />
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="no-groups-message">
+                                No available results
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
+
+const RecordsetAuditResult = ({ recordsetData }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const representation = recordsetData?.representation;
+    
+    if (!representation) {
+        return (
+            <div className="rep-audit-recordset-item">
+                <div className="rep-audit-recordset-header">
+                    <div className="recordset-title-group">
+                        <img src={TableIcon} alt="" className="recordset-icon" />
+                        <span className="recordset-name">{recordsetData?.recordset_name || 'Unknown'}</span>
+                    </div>
+                    <span className="rep-audit-error">Could not parse recordset data</span>
+                </div>
+            </div>
+        );
+    }
+    
+    const sensitiveColumns = representation.sensitive_columns || [];
+    const numSensitiveAttrs = sensitiveColumns.length;
+    const flaggedGroups = countFlaggedGroups(representation);
+    const maxLevel = representation.parameters?.max_level || Object.keys(representation.levels || {}).length;
+    const totalSummary = calculateTotalSummary(representation);
+    
+    // Get unique value counts for each sensitive attribute
+    const sensitiveAttrsWithCounts = sensitiveColumns.map(attr => ({
+        name: attr,
+        uniqueValues: getUniqueValueCount(representation, attr)
+    }));
+    
+    return (
+        <div className="rep-audit-recordset-item">
+            <div 
+                className="rep-audit-recordset-header"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <div className="recordset-title-group">
                     <img src={TableIcon} alt="" className="recordset-icon" />
-                    <span className="recordset-name">{recordSet.recordset_name}</span>
+                    <span className="recordset-name">{recordsetData.recordset_name}</span>
+                </div>
+                <div className="rep-audit-summary-badge">
+                    {numSensitiveAttrs} sensitive attributes / {flaggedGroups} flagged groups / {maxLevel} levels analyzed
                 </div>
                 <img
                     src={ArrowUpIcon}
@@ -197,35 +686,106 @@ const RecordSetResult = ({ recordSet }) => {
                     }}
                 />
             </div>
-
+            
             {isOpen && (
-                <div className="recordset-content">
-                    <p className="meta-detail" style={{ marginBottom: '20px' }}>
-                        <strong>Description:</strong> {recordSet.recordset_description}
-                    </p>
-                    <p className="meta-detail">
-                        <strong>Sensitive Attributes Found:</strong> {recordSet.results.length}
-                    </p>
-                    <table className="clean-table">
-                        <thead>
-                            <tr>
-                                <th className="table-th">Key</th>
-                                <th className="table-th">Sensitivity</th>
-                                <th className="table-th">Reason</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {recordSet.results.map((res, idx) => (
-                                <tr key={idx}>
-                                    <td className="table-td">{res.key}</td>
-                                    <td className="table-td">{res.sensitivity}%</td>
-                                    <td className="table-td">{res.reason}</td>
-                                </tr>
+                <div className="rep-audit-recordset-content">
+                    {/* Sensitive Attributes */}
+                    <div className="rep-audit-section">
+                        <h4 className="rep-audit-section-title">Categorical Sensitive Attributes used in Audit:</h4>
+                        <div className="sensitive-attributes-tags">
+                            {sensitiveAttrsWithCounts.map((attr, idx) => (
+                                <span key={idx} className="sensitive-attr-tag">
+                                    {attr.name} ({attr.uniqueValues})
+                                </span>
                             ))}
-                        </tbody>
-                    </table>
+                        </div>
+                    </div>
+                    
+                    {/* Summary Table */}
+                    <div className="rep-audit-section">
+                        <h4 className="rep-audit-section-title">
+                            Summary: {totalSummary.total} derived possible groups across {maxLevel} levels of intersectionality, from which:
+                        </h4>
+                        <div className="rep-audit-table-wrapper">
+                            <table className="rep-audit-summary-table">
+                                <thead>
+                                    <tr>
+                                        <th className="rep-audit-th"></th>
+                                        <th className="rep-audit-th rep-audit-th-not-rep"><strong>Not Represented</strong></th>
+                                        <th className="rep-audit-th rep-audit-th-under-rep"><strong>Under-Represented</strong></th>
+                                        <th className="rep-audit-th rep-audit-th-well-rep"><strong>Well-Represented</strong></th>
+                                        <th className="rep-audit-th rep-audit-th-over-rep"><strong>Over-Represented</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {Object.keys(representation.levels || {}).sort().map(level => {
+                                        const levelGroups = representation.levels[level];
+                                        const levelSummary = calculateLevelSummary(levelGroups);
+                                        const levelTotal = levelSummary.total;
+                                        return (
+                                            <tr key={level}>
+                                                <td className="rep-audit-td rep-audit-td-label"><strong>Level {level}</strong></td>
+                                                <td className="rep-audit-td rep-audit-td-data-not-rep">{levelSummary.not_represented}</td>
+                                                <td className="rep-audit-td rep-audit-td-data-under-rep">{levelSummary.under_represented}</td>
+                                                <td className="rep-audit-td rep-audit-td-data-well-rep">{levelSummary.well_represented}</td>
+                                                <td className="rep-audit-td rep-audit-td-data-over-rep">{levelSummary.over_represented}</td>
+                                            </tr>
+                                        );
+                                    })}
+                                    <tr className="rep-audit-total-row">
+                                        <td className="rep-audit-td rep-audit-td-label"><strong>Total</strong></td>
+                                        <td className="rep-audit-td rep-audit-td-not-rep">
+                                            <strong>{totalSummary.not_represented} ({totalSummary.total > 0 ? Math.round((totalSummary.not_represented / totalSummary.total) * 100) : 0}%)</strong>
+                                        </td>
+                                        <td className="rep-audit-td rep-audit-td-under-rep">
+                                            <strong>{totalSummary.under_represented} ({totalSummary.total > 0 ? Math.round((totalSummary.under_represented / totalSummary.total) * 100) : 0}%)</strong>
+                                        </td>
+                                        <td className="rep-audit-td rep-audit-td-well-rep">
+                                            <strong>{totalSummary.well_represented} ({totalSummary.total > 0 ? Math.round((totalSummary.well_represented / totalSummary.total) * 100) : 0}%)</strong>
+                                        </td>
+                                        <td className="rep-audit-td rep-audit-td-over-rep">
+                                            <strong>{totalSummary.over_represented} ({totalSummary.total > 0 ? Math.round((totalSummary.over_represented / totalSummary.total) * 100) : 0}%)</strong>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    {/* Per-Level Breakdown */}
+                    <div className="rep-audit-section">
+                        <h4 className="rep-audit-section-title">Per-Level Breakdown:</h4>
+                        <div className="level-breakdown-list">
+                            {Object.keys(representation.levels || {}).sort().map(level => (
+                                <LevelBreakdown 
+                                    key={level} 
+                                    level={level} 
+                                    levelGroups={representation.levels[level]}
+                                    sensitiveColumns={sensitiveColumns}
+                                />
+                            ))}
+                        </div>
+                    </div>
                 </div>
             )}
+        </div>
+    );
+};
+
+const RepresentationAuditResults = ({ repAudit }) => {
+    if (!repAudit || !repAudit.recordsets || repAudit.recordsets.length === 0) {
+        return (
+            <div className="rep-audit-results">
+                <p className="rep-audit-no-results">No audit results available.</p>
+            </div>
+        );
+    }
+    
+    return (
+        <div className="rep-audit-results">
+            {repAudit.recordsets.map((recordset, idx) => (
+                <RecordsetAuditResult key={idx} recordsetData={recordset} />
+            ))}
         </div>
     );
 };
@@ -408,7 +968,7 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
 
             {/* Audit Section */}
             <div className="audit-card">
-                <h3 className="section-header">Representation Bias Audit Parameters</h3>
+                <h3 className="section-header">Representation Bias Audit</h3>
                 <div className="controls-grid">
                     <div className="input-group">
                         <label className="input-label">Sensitivity Threshold (0 - 100):</label>
@@ -466,39 +1026,20 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
                         Download Augmented Metadata
                     </button>
                 </div>
-            </div>
-
-            {/* Audit Status/Results */}
-            {status === 'LOADING_AUDIT' && (
-                <div style={{ textAlign: 'center', padding: '40px', color: '#666' }}>
-                    <p>Running Audit...</p>
-                </div>
-            )}
-
-            {status === 'RESULTS' ? (
-                <div className="results-section">
-                    <h3 className="section-header">Audit Results</h3>
-
-                    {/* TODO: Replace this with repAudit + summary UI in next step.
-              This still shows the old per-recordset sensitivity table. */}
-                    <div>
-                        {metadata.recordsets.map((rs, index) => (
-                            <RecordSetResult key={index} recordSet={rs} />
-                        ))}
+                
+                {/* Show results or no results message */}
+                {status === 'LOADING_AUDIT' ? (
+                    <div style={{ textAlign: 'center', padding: '40px', color: '#666' }}>
+                        <p>Running Audit...</p>
                     </div>
-                </div>
-            ) : status !== 'LOADING_AUDIT' && (
-                <div
-                    style={{
-                        textAlign: 'center',
-                        marginTop: '60px',
-                        color: '#999',
-                        fontStyle: 'italic'
-                    }}
-                >
-                    <p>No results yet. Run the audit to see analysis.</p>
-                </div>
-            )}
+                ) : status === 'RESULTS' && repAudit ? (
+                    <RepresentationAuditResults repAudit={repAudit} />
+                ) : (
+                    <div style={{ textAlign: 'center', padding: '40px', color: '#999', fontStyle: 'italic' }}>
+                        <p>No Audit results</p>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
