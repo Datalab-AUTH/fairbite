@@ -359,9 +359,9 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
 
     if (status === 'LOADING_INFO') {
         return (
-            <div className="dataset-loading" style={{ padding: '50px', textAlign: 'center' }}>
+            <div className="dataset-loading">
                 <div className="spinner"></div>
-                <p>Loading Dataset Information...</p>
+                <p>Loading Dataset...</p>
             </div>
         );
     }
