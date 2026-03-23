@@ -45,7 +45,6 @@ def run_rep_audit_only(dataset_report: Dict[str, Any], dfs: Dict[str, Any], para
         dfs=dfs,
         sensitivity_threshold=int(params["sensitivity_threshold"]),
         max_level=int(params["max_level"]),
-        min_count=int(params.get("min_count", 30)),
         under_ratio=float(params["under_ratio"]),
         over_ratio=float(params["over_ratio"]),
     )

@@ -49,7 +49,6 @@ class RepAuditRequest(BaseModel):
     max_level: int = Field(2, ge=1, le=6)
     under_ratio: float = Field(0.5, gt=0)
     over_ratio: float = Field(2.0, gt=0)
-    min_count: int = Field(30, ge=0)
 
 
 @app.get("/health")

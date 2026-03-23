@@ -29,7 +29,6 @@ def _categorize_group(
     count: int,
     total: int,
     num_possible_groups: int,
-    min_count: int = 30,
     under_ratio: float = 0.5,
     over_ratio: float = 2.0,
 ) -> str:
@@ -50,11 +49,11 @@ def _categorize_group(
     equal_share = 1.0 / num_possible_groups if num_possible_groups > 0 else 0.0
 
     # Under-represented: very small in absolute or relative terms
-    if count < min_count or (equal_share > 0 and actual_share < under_ratio * equal_share):
+    if (equal_share > 0 and actual_share < under_ratio * equal_share):
         return "under_represented"
 
     # Over-represented: much bigger than equal share and has enough samples
-    if equal_share > 0 and actual_share > over_ratio * equal_share and count >= min_count:
+    if equal_share > 0 and actual_share > over_ratio * equal_share:
         return "over_represented"
 
     return "well_represented"
@@ -65,7 +64,6 @@ def _analyze_combinations_for_recordset(
     df: pd.DataFrame,
     sensitive_cols: List[str],
     max_level: int = 2,
-    min_count: int = 30,
     under_ratio: float = 0.5,
     over_ratio: float = 2.0,
 ) -> Dict[str, Any]:
@@ -102,7 +100,6 @@ def _analyze_combinations_for_recordset(
         "sensitive_columns": sensitive_cols,
         "parameters": {
             "max_level": max_level,
-            "min_count": min_count,
             "under_ratio": under_ratio,
             "over_ratio": over_ratio,
         },
@@ -145,7 +142,6 @@ def _analyze_combinations_for_recordset(
                     count=count,
                     total=N,
                     num_possible_groups=k_obs,
-                    min_count=min_count,
                     under_ratio=under_ratio,
                     over_ratio=over_ratio,
                 )
@@ -228,7 +224,6 @@ def run_representation_audit(
     dfs: Dict[str, pd.DataFrame],
     sensitivity_threshold: int = 60,
     max_level: int = 2,
-    min_count: int = 30,
     under_ratio: float = 0.5,
     over_ratio: float = 2.0,
     plots_output_dir: str = "representation_plots",
@@ -241,7 +236,6 @@ def run_representation_audit(
       - dfs: dict[str, pd.DataFrame], output of process_single_dataset (second element).
       - sensitivity_threshold: minimum sensitivity percentage to consider a column.
       - max_level: maximum combination size.
-      - min_count: absolute minimum count for "adequate" coverage (15 - 30 based on bibliography).
       - under_ratio, over_ratio: relative thresholds vs equal-share.
       - plots_output_dir: directory where plots will be saved.
 
@@ -270,7 +264,6 @@ def run_representation_audit(
         "parameters": {
             "sensitivity_threshold": sensitivity_threshold,
             "max_level": max_level,
-            "min_count": min_count,
             "under_ratio": under_ratio,
             "over_ratio": over_ratio,
         },
@@ -303,7 +296,6 @@ def run_representation_audit(
             df=df_sens,
             sensitive_cols=sensitive_cols,
             max_level=effective_max_level,
-            min_count=min_count,
             under_ratio=under_ratio,
             over_ratio=over_ratio,
         )

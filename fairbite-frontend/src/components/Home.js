@@ -52,7 +52,7 @@ const Home = ({ openTab }) => {
                             Take a Bite
                         </button>
                     </div>
-                    <p className="search-helper-text">Only two clicks away from generating a fairness report.</p>
+                    <p className="search-helper-text">Only two clicks away from generating a bias summary.</p>
                 </div>
 
                 <div className="info-cards-container">

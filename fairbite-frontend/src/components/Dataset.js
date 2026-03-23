@@ -1,5 +1,5 @@
 // Dataset.js
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import ArrowUpIcon from '../icons/keyboard_arrow_up.svg';
 import TableIcon from '../icons/Table.svg';
 import {
@@ -16,11 +16,11 @@ import {
 
 const sensitivityColor = (s) => {
     const v = Number(s);
-    if (v >= 90) return "#47AD33";   // green
-    if (v >= 60) return "#ADD633";   // light green
-    if (v >= 30) return "#FFD934";   // yellow
-    if (v >= 1) return "#FFB234";   // orange
-    return "#C34E4E";                // red
+    if (v >= 90) return "#47AD33";
+    if (v >= 60) return "#ADD633";
+    if (v >= 30) return "#FFD934";
+    if (v >= 1) return "#FFB234";
+    return "#C34E4E";
 };
 
 const categoricalColor = (isCat) => (isCat ? "#47AD33" : "#C34E4E");
@@ -68,11 +68,7 @@ const RecordsetSensitivity = ({
     collapsedCount = 10,
 }) => {
     const sorted = sortBySensitivityDesc(recordset?.results || []);
-
-    // collapsed shows top 10, expanded shows all
     const visible = isExpanded ? sorted : sorted.slice(0, collapsedCount);
-
-    // split visible into two columns (left/right) while keeping order
     const [left, right] = chunkIntoTwoColumns(visible);
 
     const ColumnHeader = () => (
@@ -85,7 +81,6 @@ const RecordsetSensitivity = ({
 
     return (
         <div className="sens-recordset-card">
-            {/* recordset bar */}
             <div className="sens-recordset-topbar">
                 <div className="recordset-title-group">
                     <img src={TableIcon} alt="" className="recordset-icon" />
@@ -95,9 +90,7 @@ const RecordsetSensitivity = ({
 
             <hr className="sens-recordset-divider" />
 
-            {/* two side-by-side columns always */}
             <div className="sens-two-col-wrap">
-                {/* LEFT column */}
                 <div className="sens-side">
                     <ColumnHeader />
                     <div className="sens-side-body">
@@ -110,7 +103,6 @@ const RecordsetSensitivity = ({
                     </div>
                 </div>
 
-                {/* RIGHT column */}
                 <div className="sens-side">
                     <ColumnHeader />
                     <div className="sens-side-body">
@@ -124,7 +116,6 @@ const RecordsetSensitivity = ({
                 </div>
             </div>
 
-            {/* View all / View less bottom-right */}
             <div className="sens-actions">
                 <button className="link-btn" onClick={onToggleExpand}>
                     {isExpanded ? "View less" : "View all"}
@@ -172,31 +163,69 @@ const AttributeSensitivityAnalysis = ({
 };
 
 /* =========================
+   Tooltip UI
+   ========================= */
+
+const InfoTooltip = ({ text }) => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    return (
+        <span
+            className="param-tooltip-wrap"
+            onMouseEnter={() => setIsVisible(true)}
+            onMouseLeave={() => setIsVisible(false)}
+            onFocus={() => setIsVisible(true)}
+            onBlur={() => setIsVisible(false)}
+            tabIndex={0}
+        >
+            <span className="param-tooltip-icon" aria-label="More information">
+                i
+            </span>
+
+            {isVisible && (
+                <span className="param-tooltip-bubble" role="tooltip">
+                    {text}
+                </span>
+            )}
+        </span>
+    );
+};
+
+const AuditParamLabel = ({ label, tooltip }) => {
+    return (
+        <label className="input-label audit-param-label">
+            <span>{label}</span>
+            <InfoTooltip text={tooltip} />
+        </label>
+    );
+};
+
+/* =========================
    Representation Audit UI Helpers
    ========================= */
 
-// Calculate number of unique values for a sensitive attribute
 const getUniqueValueCount = (representation, attribute) => {
     if (!representation?.levels) return 0;
     const uniqueValues = new Set();
+
     Object.values(representation.levels).forEach(levelGroups => {
         levelGroups.forEach(group => {
             if (group.attributes && group.attributes.includes(attribute) && group.values) {
                 const attrIndex = group.attributes.indexOf(attribute);
-                // Values array corresponds positionally to attributes array
                 if (attrIndex >= 0 && attrIndex < group.values.length) {
                     uniqueValues.add(group.values[attrIndex]);
                 }
             }
         });
     });
+
     return uniqueValues.size;
 };
 
-// Count flagged groups (not well_represented)
 const countFlaggedGroups = (representation) => {
     if (!representation?.levels) return 0;
     let flagged = 0;
+
     Object.values(representation.levels).forEach(levelGroups => {
         levelGroups.forEach(group => {
             if (group.category && group.category !== 'well_represented') {
@@ -204,15 +233,15 @@ const countFlaggedGroups = (representation) => {
             }
         });
     });
+
     return flagged;
 };
 
-// Calculate summary statistics for a level
 const calculateLevelSummary = (levelGroups) => {
     if (!levelGroups || !Array.isArray(levelGroups)) {
         return { not_represented: 0, under_represented: 0, well_represented: 0, over_represented: 0, total: 0 };
     }
-    
+
     const summary = {
         not_represented: 0,
         under_represented: 0,
@@ -220,7 +249,7 @@ const calculateLevelSummary = (levelGroups) => {
         over_represented: 0,
         total: levelGroups.length
     };
-    
+
     levelGroups.forEach(group => {
         const cat = group.category;
         if (cat === 'not_represented') summary.not_represented++;
@@ -228,18 +257,17 @@ const calculateLevelSummary = (levelGroups) => {
         else if (cat === 'well_represented') summary.well_represented++;
         else if (cat === 'over_represented') summary.over_represented++;
     });
-    
+
     return summary;
 };
 
-// Calculate total summary across all levels
 const calculateTotalSummary = (representation) => {
     if (!representation?.levels) {
         return { not_represented: 0, under_represented: 0, well_represented: 0, over_represented: 0, total: 0 };
     }
-    
+
     const total = { not_represented: 0, under_represented: 0, well_represented: 0, over_represented: 0, total: 0 };
-    
+
     Object.values(representation.levels).forEach(levelGroups => {
         const levelSummary = calculateLevelSummary(levelGroups);
         total.not_represented += levelSummary.not_represented;
@@ -248,11 +276,10 @@ const calculateTotalSummary = (representation) => {
         total.over_represented += levelSummary.over_represented;
         total.total += levelSummary.total;
     });
-    
+
     return total;
 };
 
-// Count flagged groups for a specific level
 const countFlaggedGroupsForLevel = (levelGroups) => {
     if (!levelGroups || !Array.isArray(levelGroups)) return 0;
     return levelGroups.filter(g => g.category && g.category !== 'well_represented').length;
@@ -262,15 +289,12 @@ const countFlaggedGroupsForLevel = (levelGroups) => {
    Representation Audit Results UI
    ========================= */
 
-// Format percentage with up to 4 decimal places
 const formatPercentage = (value) => {
     if (value === null || value === undefined) return '-';
     const percentage = value * 100;
-    // Show up to 4 decimal places, but remove trailing zeros
     return percentage.toFixed(4).replace(/\.?0+$/, '') + '%';
 };
 
-// Get category color and label
 const getCategoryStyle = (category) => {
     switch (category) {
         case 'not_represented':
@@ -286,17 +310,14 @@ const getCategoryStyle = (category) => {
     }
 };
 
-// Group Card Component
 const GroupCard = ({ group }) => {
     const { attributes, values, count, proportion, equal_share, category } = group;
     const categoryStyle = getCategoryStyle(category);
-    const isLevel1 = attributes.length === 1;
-    
-    // Format header: for level 1 just "attribute = value", for level 2+ show all pairs
-    const headerText = attributes.map((attr, idx) => 
+
+    const headerText = attributes.map((attr, idx) =>
         `${attr} = ${values[idx] || ''}`
     ).join(', ');
-    
+
     return (
         <div className="group-card">
             <div className="group-card-header">
@@ -324,81 +345,79 @@ const GroupCard = ({ group }) => {
     );
 };
 
-// Extract available attributes and their values from level groups
 const extractAvailableAttributes = (levelGroups) => {
     const attrMap = {};
-    
+
     levelGroups.forEach(group => {
         if (group.attributes && group.values) {
             group.attributes.forEach((attr, idx) => {
                 if (!attrMap[attr]) {
                     attrMap[attr] = new Set();
                 }
-                if (group.values[idx]) {
-                    attrMap[attr].add(group.values[idx]);
+                if (group.values[idx] !== undefined && group.values[idx] !== null && group.values[idx] !== '') {
+                    attrMap[attr].add(String(group.values[idx]));
                 }
             });
         }
     });
-    
-    // Convert sets to arrays
+
     const result = {};
     Object.keys(attrMap).forEach(attr => {
-        result[attr] = Array.from(attrMap[attr]).sort();
+        result[attr] = Array.from(attrMap[attr]).sort((a, b) => a.localeCompare(b));
     });
-    
+
     return result;
 };
 
-// Parse search query into attribute=value pairs
-const parseSearchQuery = (query) => {
-    const pairs = [];
-    // Updated regex to handle attribute names with dots, hyphens, and values with quotes/special chars
-    const regex = /(\w+(?:\.\w+|-)*)\s*=\s*([^,]+?)(?=\s*,\s*\w+\s*=|$)/g;
-    let match;
-    
-    while ((match = regex.exec(query)) !== null) {
-        const value = match[2].trim();
-        // Remove quotes if present
-        const cleanValue = value.replace(/^["']|["']$/g, '');
-        pairs.push({
-            attribute: match[1].trim(),
-            value: cleanValue
-        });
-    }
-    
-    return pairs;
-};
+/* =========================
+   Search Helpers
+   ========================= */
 
-// Check if a group matches search criteria
+const normalizeSearchToken = (value) =>
+    String(value ?? '')
+        .trim()
+        .replace(/^["']|["']$/g, '')
+        .toLowerCase();
+
 const groupMatchesSearch = (group, searchPairs) => {
     if (!searchPairs || searchPairs.length === 0) return true;
-    
-    return searchPairs.every(pair => {
-        const attrIndex = group.attributes?.indexOf(pair.attribute);
-        if (attrIndex === -1) return false;
-        // Compare values as strings, handling special characters
-        const groupValue = String(group.values?.[attrIndex] || '');
-        const searchValue = String(pair.value || '');
-        return groupValue === searchValue;
+
+    const attributes = Array.isArray(group?.attributes) ? group.attributes : [];
+    const values = Array.isArray(group?.values) ? group.values : [];
+
+    const groupMap = new Map();
+    attributes.forEach((attr, idx) => {
+        groupMap.set(
+            normalizeSearchToken(attr),
+            normalizeSearchToken(values[idx])
+        );
+    });
+
+    return searchPairs.every(({ attribute, value }) => {
+        return groupMap.has(attribute) && groupMap.get(attribute) === value;
     });
 };
 
-const LevelBreakdown = ({ level, levelGroups, sensitiveColumns }) => {
+const buildSearchDisplay = (pairs) =>
+    pairs.map(pair => `${pair.attribute} = ${pair.value}`).join(', ');
+
+const LevelBreakdown = ({ level, levelGroups }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [filterCategory, setFilterCategory] = useState('all');
-    const [searchQuery, setSearchQuery] = useState('');
+
+    const [searchDraft, setSearchDraft] = useState([]);
+    const [appliedSearch, setAppliedSearch] = useState([]);
+
     const [showAutocomplete, setShowAutocomplete] = useState(false);
     const [autocompleteOptions, setAutocompleteOptions] = useState([]);
-    const [autocompleteType, setAutocompleteType] = useState('attribute'); // 'attribute' or 'value'
+    const [autocompleteType, setAutocompleteType] = useState('attribute');
     const [selectedAttribute, setSelectedAttribute] = useState(null);
+
     const searchInputRef = useRef(null);
     const autocompleteRef = useRef(null);
-    
+
     const flaggedCount = countFlaggedGroupsForLevel(levelGroups);
-    const isLevel1 = level === '1';
-    
-    // Close autocomplete when clicking outside
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (
@@ -410,7 +429,7 @@ const LevelBreakdown = ({ level, levelGroups, sensitiveColumns }) => {
                 setShowAutocomplete(false);
             }
         };
-        
+
         if (showAutocomplete) {
             document.addEventListener('mousedown', handleClickOutside);
             return () => {
@@ -418,17 +437,17 @@ const LevelBreakdown = ({ level, levelGroups, sensitiveColumns }) => {
             };
         }
     }, [showAutocomplete]);
-    
-    // Extract available attributes and values
-    const availableAttrs = extractAvailableAttributes(levelGroups || []);
-    
-    // Filter groups based on category filter
-    const getFilteredGroups = () => {
+
+    const availableAttrs = useMemo(
+        () => extractAvailableAttributes(levelGroups || []),
+        [levelGroups]
+    );
+
+    const filteredGroups = useMemo(() => {
         if (!levelGroups || !Array.isArray(levelGroups)) return [];
-        
+
         let filtered = levelGroups;
-        
-        // Apply category filter
+
         if (filterCategory !== 'all') {
             filtered = filtered.filter(g => {
                 if (filterCategory === 'not_represented') return g.category === 'not_represented';
@@ -438,106 +457,104 @@ const LevelBreakdown = ({ level, levelGroups, sensitiveColumns }) => {
                 return true;
             });
         }
-        
-        // Apply search filter (only for level 2+)
-        if (!isLevel1 && searchQuery.trim()) {
-            const searchPairs = parseSearchQuery(searchQuery);
-            filtered = filtered.filter(g => groupMatchesSearch(g, searchPairs));
+
+        if (appliedSearch.length > 0) {
+            filtered = filtered.filter(g => groupMatchesSearch(g, appliedSearch));
         }
-        
+
         return filtered;
+    }, [levelGroups, filterCategory, appliedSearch]);
+
+    const openAttributeAutocomplete = (draft = searchDraft) => {
+        const usedAttrs = draft.map(p => p.attribute);
+
+        const available = Object.keys(availableAttrs).filter(attr => {
+            const normalizedAttr = normalizeSearchToken(attr);
+            return !usedAttrs.includes(normalizedAttr);
+        });
+
+        setAutocompleteType('attribute');
+        setSelectedAttribute(null);
+        setAutocompleteOptions(available);
+        setShowAutocomplete(available.length > 0);
     };
-    
-    const filteredGroups = getFilteredGroups();
-    
-    // Handle search input changes
-    const handleSearchChange = (e) => {
-        const value = e.target.value;
-        setSearchQuery(value);
-        
-        if (!value.trim()) {
-            setShowAutocomplete(false);
+
+    const openValueAutocomplete = (attribute) => {
+        const values = availableAttrs[attribute] || [];
+        setAutocompleteType('value');
+        setSelectedAttribute(attribute);
+        setAutocompleteOptions(values);
+        setShowAutocomplete(values.length > 0);
+    };
+
+    const handleSearchFocus = () => {
+        if (autocompleteType === 'value' && selectedAttribute) {
+            openValueAutocomplete(selectedAttribute);
             return;
         }
-        
-        // Parse current query to see what's being typed
-        const pairs = parseSearchQuery(value);
-        const lastCommaIndex = value.lastIndexOf(',');
-        const remainingText = lastCommaIndex >= 0 
-            ? value.substring(lastCommaIndex + 1).trim()
-            : value.trim();
-        
-        // Determine if we're typing an attribute or value
-        if (!remainingText.includes('=')) {
-            // Typing an attribute
-            setAutocompleteType('attribute');
-            setSelectedAttribute(null);
-            const usedAttrs = pairs.map(p => p.attribute);
-            const available = Object.keys(availableAttrs).filter(attr => {
-                return !usedAttrs.includes(attr) && 
-                       (remainingText === '' || attr.toLowerCase().includes(remainingText.toLowerCase()));
-            });
-            setAutocompleteOptions(available);
-            setShowAutocomplete(available.length > 0);
-        } else {
-            // Typing a value
-            const attrMatch = remainingText.match(/(\w+(?:\.\w+|-)*)\s*=\s*(.*)/);
-            if (attrMatch) {
-                const attr = attrMatch[1].trim();
-                const valueText = attrMatch[2].trim();
-                
-                if (availableAttrs[attr]) {
-                    setAutocompleteType('value');
-                    setSelectedAttribute(attr);
-                    const available = availableAttrs[attr].filter(val => {
-                        const valStr = String(val).toLowerCase();
-                        return valueText === '' || valStr.includes(valueText.toLowerCase());
-                    });
-                    setAutocompleteOptions(available);
-                    setShowAutocomplete(available.length > 0);
-                } else {
-                    setShowAutocomplete(false);
-                }
-            } else {
-                setShowAutocomplete(false);
-            }
-        }
+
+        openAttributeAutocomplete();
     };
-    
+
     const handleAutocompleteSelect = (option) => {
-        const pairs = parseSearchQuery(searchQuery);
-        const remainingText = searchQuery.substring(searchQuery.lastIndexOf(',') + 1).trim();
-        
         if (autocompleteType === 'attribute') {
-            // Add attribute and = sign
-            const before = searchQuery.substring(0, searchQuery.lastIndexOf(remainingText));
-            const newQuery = before + option + ' = ';
-            setSearchQuery(newQuery);
-            setSelectedAttribute(option);
-            setAutocompleteType('value');
-            // Show values for this attribute
-            setAutocompleteOptions(availableAttrs[option] || []);
-            setShowAutocomplete(true);
-        } else if (autocompleteType === 'value' && selectedAttribute) {
-            // Add value and comma for next pair
-            const before = searchQuery.substring(0, searchQuery.lastIndexOf(remainingText));
-            const newQuery = before + option + ', ';
-            setSearchQuery(newQuery);
+            openValueAutocomplete(option);
+            return;
+        }
+
+        if (autocompleteType === 'value' && selectedAttribute) {
+            const nextDraft = [
+                ...searchDraft,
+                {
+                    attribute: normalizeSearchToken(selectedAttribute),
+                    value: normalizeSearchToken(option),
+                }
+            ];
+
+            setSearchDraft(nextDraft);
             setSelectedAttribute(null);
             setAutocompleteType('attribute');
-            setShowAutocomplete(false);
+
+            const usedAttrs = nextDraft.map(p => p.attribute);
+            const remainingAttrs = Object.keys(availableAttrs).filter(attr => {
+                const normalizedAttr = normalizeSearchToken(attr);
+                return !usedAttrs.includes(normalizedAttr);
+            });
+
+            setAutocompleteOptions(remainingAttrs);
+            setShowAutocomplete(remainingAttrs.length > 0);
         }
     };
-    
+
+    const handleApplySearch = () => {
+        setAppliedSearch([...searchDraft]);
+        setShowAutocomplete(false);
+    };
+
     const clearSearch = () => {
-        setSearchQuery('');
+        setSearchDraft([]);
+        setAppliedSearch([]);
         setShowAutocomplete(false);
         setSelectedAttribute(null);
+        setAutocompleteType('attribute');
     };
-    
+
+    const removeLastPair = () => {
+        const nextDraft = searchDraft.slice(0, -1);
+        setSearchDraft(nextDraft);
+        setAppliedSearch(nextDraft);
+        setSelectedAttribute(null);
+        setAutocompleteType('attribute');
+        openAttributeAutocomplete(nextDraft);
+    };
+
+    const draftDisplay = useMemo(() => buildSearchDisplay(searchDraft), [searchDraft]);
+    const hasPendingChanges =
+        JSON.stringify(searchDraft) !== JSON.stringify(appliedSearch);
+
     return (
         <div className="level-breakdown-item">
-            <div 
+            <div
                 className="level-breakdown-header"
                 onClick={() => setIsOpen(!isOpen)}
             >
@@ -553,68 +570,84 @@ const LevelBreakdown = ({ level, levelGroups, sensitiveColumns }) => {
                     }}
                 />
             </div>
+
             {isOpen && (
                 <div className="level-breakdown-content">
-                    {/* Filter Dropdown */}
                     <div className="level-breakdown-controls">
                         <div className="level-filter-group">
                             <label className="level-filter-label">Show:</label>
-                            <select 
+                            <select
                                 className="level-filter-select"
                                 value={filterCategory}
                                 onChange={(e) => setFilterCategory(e.target.value)}
                             >
                                 <option value="all">All</option>
-                                {!isLevel1 && <option value="not_represented">Not-Represented</option>}
+                                {level !== '1' && <option value="not_represented">Not-Represented</option>}
                                 <option value="under_represented">Under-Represented</option>
                                 <option value="well_represented">Well-Represented</option>
                                 <option value="over_represented">Over-Represented</option>
                             </select>
                         </div>
-                        
-                        {/* Search Bar for Level 2+ */}
-                        {!isLevel1 && (
-                            <div className="level-search-group" ref={autocompleteRef}>
-                                <input
-                                    ref={searchInputRef}
-                                    type="text"
-                                    className="level-search-input"
-                                    placeholder="Search groups (e.g. 'race = Black, gender = Female')"
-                                    value={searchQuery}
-                                    onChange={handleSearchChange}
-                                    onFocus={() => {
-                                        if (!searchQuery) {
-                                            setAutocompleteType('attribute');
-                                            setAutocompleteOptions(Object.keys(availableAttrs));
-                                            setShowAutocomplete(true);
-                                        } else {
-                                            handleSearchChange({ target: { value: searchQuery } });
-                                        }
-                                    }}
-                                />
-                                {searchQuery && (
-                                    <button className="level-search-clear" onClick={clearSearch}>
-                                        × Clear All
+
+                        <div className="level-search-group" ref={autocompleteRef}>
+                            <input
+                                ref={searchInputRef}
+                                type="text"
+                                className="level-search-input"
+                                placeholder="Build search using autocomplete"
+                                value={draftDisplay}
+                                readOnly
+                                onClick={handleSearchFocus}
+                                onFocus={handleSearchFocus}
+                            />
+
+                            {searchDraft.length > 0 && (
+                                <>
+                                    <button
+                                        type="button"
+                                        className="level-search-clear"
+                                        onClick={removeLastPair}
+                                    >
+                                        Remove Last
                                     </button>
-                                )}
-                                {showAutocomplete && autocompleteOptions.length > 0 && (
-                                    <div className="autocomplete-dropdown">
-                                        {autocompleteOptions.map((option, idx) => (
-                                            <div
-                                                key={idx}
-                                                className="autocomplete-option"
-                                                onClick={() => handleAutocompleteSelect(option)}
-                                            >
-                                                {option}
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-                        )}
+
+                                    <button
+                                        type="button"
+                                        className="level-search-clear"
+                                        onClick={clearSearch}
+                                    >
+                                        Clear All
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        className="level-search-clear"
+                                        onClick={handleApplySearch}
+                                        disabled={!hasPendingChanges}
+                                    >
+                                        Search
+                                    </button>
+                                </>
+                            )}
+
+                            {showAutocomplete && autocompleteOptions.length > 0 && (
+                                <div className="autocomplete-dropdown">
+                                    {autocompleteOptions.map((option, idx) => (
+                                        <div
+                                            key={idx}
+                                            className="autocomplete-option"
+                                            onClick={() => handleAutocompleteSelect(option)}
+                                        >
+                                            {autocompleteType === 'attribute'
+                                                ? option
+                                                : `${selectedAttribute} = ${option}`}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     </div>
-                    
-                    {/* Groups Grid */}
+
                     <div className="groups-grid-container">
                         {filteredGroups.length > 0 ? (
                             <div className="groups-grid">
@@ -637,7 +670,7 @@ const LevelBreakdown = ({ level, levelGroups, sensitiveColumns }) => {
 const RecordsetAuditResult = ({ recordsetData }) => {
     const [isOpen, setIsOpen] = useState(false);
     const representation = recordsetData?.representation;
-    
+
     if (!representation) {
         return (
             <div className="rep-audit-recordset-item">
@@ -651,22 +684,21 @@ const RecordsetAuditResult = ({ recordsetData }) => {
             </div>
         );
     }
-    
+
     const sensitiveColumns = representation.sensitive_columns || [];
     const numSensitiveAttrs = sensitiveColumns.length;
     const flaggedGroups = countFlaggedGroups(representation);
     const maxLevel = representation.parameters?.max_level || Object.keys(representation.levels || {}).length;
     const totalSummary = calculateTotalSummary(representation);
-    
-    // Get unique value counts for each sensitive attribute
+
     const sensitiveAttrsWithCounts = sensitiveColumns.map(attr => ({
         name: attr,
         uniqueValues: getUniqueValueCount(representation, attr)
     }));
-    
+
     return (
         <div className="rep-audit-recordset-item">
-            <div 
+            <div
                 className="rep-audit-recordset-header"
                 onClick={() => setIsOpen(!isOpen)}
             >
@@ -686,10 +718,9 @@ const RecordsetAuditResult = ({ recordsetData }) => {
                     }}
                 />
             </div>
-            
+
             {isOpen && (
                 <div className="rep-audit-recordset-content">
-                    {/* Sensitive Attributes */}
                     <div className="rep-audit-section">
                         <h4 className="rep-audit-section-title">Categorical Sensitive Attributes used in Audit:</h4>
                         <div className="sensitive-attributes-tags">
@@ -700,8 +731,7 @@ const RecordsetAuditResult = ({ recordsetData }) => {
                             ))}
                         </div>
                     </div>
-                    
-                    {/* Summary Table */}
+
                     <div className="rep-audit-section">
                         <h4 className="rep-audit-section-title">
                             Summary: {totalSummary.total} derived possible groups across {maxLevel} levels of intersectionality, from which:
@@ -721,7 +751,7 @@ const RecordsetAuditResult = ({ recordsetData }) => {
                                     {Object.keys(representation.levels || {}).sort().map(level => {
                                         const levelGroups = representation.levels[level];
                                         const levelSummary = calculateLevelSummary(levelGroups);
-                                        const levelTotal = levelSummary.total;
+
                                         return (
                                             <tr key={level}>
                                                 <td className="rep-audit-td rep-audit-td-label"><strong>Level {level}</strong></td>
@@ -751,17 +781,15 @@ const RecordsetAuditResult = ({ recordsetData }) => {
                             </table>
                         </div>
                     </div>
-                    
-                    {/* Per-Level Breakdown */}
+
                     <div className="rep-audit-section">
                         <h4 className="rep-audit-section-title">Per-Level Breakdown:</h4>
                         <div className="level-breakdown-list">
                             {Object.keys(representation.levels || {}).sort().map(level => (
-                                <LevelBreakdown 
-                                    key={level} 
-                                    level={level} 
+                                <LevelBreakdown
+                                    key={level}
+                                    level={level}
                                     levelGroups={representation.levels[level]}
-                                    sensitiveColumns={sensitiveColumns}
                                 />
                             ))}
                         </div>
@@ -780,7 +808,7 @@ const RepresentationAuditResults = ({ repAudit }) => {
             </div>
         );
     }
-    
+
     return (
         <div className="rep-audit-results">
             {repAudit.recordsets.map((recordset, idx) => (
@@ -804,7 +832,6 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
         overRatio: '2'
     });
 
-    // Persist View all / View less per dataset tab (survives tab switches)
     const storageKey = `fairbite:sensitivityExpanded:${datasetId || "unknown"}`;
     const [expandedMap, setExpandedMap] = useState(() => {
         try {
@@ -821,7 +848,6 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
         } catch { }
     }, [expandedMap, storageKey]);
 
-    // Load dataset report (LLM sensitivity)
     useEffect(() => {
         if (!initialData?.dataset_id) return;
 
@@ -862,7 +888,6 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
         return () => { cancelled = true; };
     }, [initialData]);
 
-    // Update tab name
     useEffect(() => {
         if (metadata && onUpdateName) {
             onUpdateName(metadata.dataset_name);
@@ -937,7 +962,69 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
 
     return (
         <div className="dataset-container">
-            {/* Overview Section */}
+            <style>{`
+                .audit-param-label {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+
+                .param-tooltip-wrap {
+                    position: relative;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    outline: none;
+                }
+
+                .param-tooltip-icon {
+                    width: 18px;
+                    height: 18px;
+                    min-width: 18px;
+                    border-radius: 999px;
+                    background: #E9EEF8;
+                    color: #2F5AA8;
+                    font-size: 12px;
+                    font-weight: 700;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: default;
+                    border: 1px solid #C9D6F0;
+                    line-height: 1;
+                }
+
+                .param-tooltip-bubble {
+                    position: absolute;
+                    left: 50%;
+                    bottom: calc(100% + 10px);
+                    transform: translateX(-50%);
+                    width: 260px;
+                    background: #1F2937;
+                    color: white;
+                    padding: 10px 12px;
+                    border-radius: 10px;
+                    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 1.45;
+                    z-index: 1000;
+                    white-space: normal;
+                    text-align: left;
+                }
+
+                .param-tooltip-bubble::after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    border-width: 7px;
+                    border-style: solid;
+                    border-color: #1F2937 transparent transparent transparent;
+                }
+            `}</style>
+
             <div className="dataset-overview">
                 <h2 className="dataset-title">{metadata.dataset_name} Overview</h2>
                 <div className="meta-detail">
@@ -959,19 +1046,20 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
                 </div>
             </div>
 
-            {/* Attribute Sensitivity Analysis */}
             <AttributeSensitivityAnalysis
                 recordsets={metadata.recordsets}
                 expandedMap={expandedMap}
                 setExpandedMap={setExpandedMap}
             />
 
-            {/* Audit Section */}
             <div className="audit-card">
                 <h3 className="section-header">Representation Bias Audit</h3>
                 <div className="controls-grid">
                     <div className="input-group">
-                        <label className="input-label">Sensitivity Threshold (0 - 100):</label>
+                        <AuditParamLabel
+                            label="Sensitivity Threshold (0 - 100):"
+                            tooltip="Only attributes with sensitivity at or above this value are included in the representation audit. Higher values make the audit stricter by focusing on attributes that are more likely to be sensitive."
+                        />
                         <input
                             type="number"
                             className="clean-input"
@@ -981,8 +1069,12 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
                             }
                         />
                     </div>
+
                     <div className="input-group">
-                        <label className="input-label">Level of intersectionality:</label>
+                        <AuditParamLabel
+                            label="Level of intersectionality:"
+                            tooltip="This controls how many sensitive attributes can be combined when checking representation. For example, level 1 checks one attribute at a time, while level 2 checks pairwise intersections such as race + sex."
+                        />
                         <input
                             type="number"
                             className="clean-input"
@@ -992,8 +1084,12 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
                             }
                         />
                     </div>
+
                     <div className="input-group">
-                        <label className="input-label">Under-representation ratio:</label>
+                        <AuditParamLabel
+                            label="Under-representation ratio:"
+                            tooltip="Groups with observed share below this ratio relative to their expected equal-share baseline are marked as under-represented. Lower values make the rule more lenient; higher values make it stricter."
+                        />
                         <input
                             type="number"
                             step="0.1"
@@ -1004,8 +1100,12 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
                             }
                         />
                     </div>
+
                     <div className="input-group">
-                        <label className="input-label">Over-representation ratio:</label>
+                        <AuditParamLabel
+                            label="Over-representation ratio:"
+                            tooltip="Groups with observed share above this ratio relative to their expected equal-share baseline are marked as over-represented. Lower values flag more groups; higher values flag fewer."
+                        />
                         <input
                             type="number"
                             step="0.1"
@@ -1026,8 +1126,7 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
                         Download Augmented Metadata
                     </button>
                 </div>
-                
-                {/* Show results or no results message */}
+
                 {status === 'LOADING_AUDIT' ? (
                     <div style={{ textAlign: 'center', padding: '40px', color: '#666' }}>
                         <p>Running Audit...</p>

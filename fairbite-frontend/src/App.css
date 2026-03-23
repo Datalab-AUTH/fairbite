@@ -31,20 +31,19 @@ body {
 
 /* Title Bar */
 .title-bar {
-  background-color: var(--header-bg);
-  color: var(--text-black);
+  background: linear-gradient(90deg, #F4B074 0%, #E8904A 100%);
+  color: black; /* looks better on orange */
   padding: 10px 20px;
   display: flex;
   align-items: center;
   font-weight: bold;
   font-size: 1.2rem;
   height: 40px;
-  /* Fixed height header */
 }
 
 .app-logo {
-  height: 24px;
-  margin-right: 10px;
+  height: 35px;
+  margin-right: 5px;
 }
 
 /* Tabs Header */
