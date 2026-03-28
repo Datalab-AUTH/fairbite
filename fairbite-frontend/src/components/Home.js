@@ -43,7 +43,7 @@ const Home = ({ openTab }) => {
                         </div>
                         <input
                             type="text"
-                            placeholder="Paste Croissant file path..."
+                            placeholder="Paste Croissant file URL.."
                             value={datasetPath}
                             onChange={(e) => setDatasetPath(e.target.value)}
                             className="home-search-input"
