@@ -11,6 +11,15 @@ import {
 } from "../api";
 
 /* =========================
+   Performance Tuning
+   ========================= */
+
+const FILTER_CHUNK_SIZE = 500;
+const FILTER_PROGRESS_COMMIT_EVERY = 1500;
+const INITIAL_VISIBLE_CARDS = 24;
+const LOAD_MORE_CARDS = 24;
+
+/* =========================
    Sensitivity UI Helpers
    ========================= */
 
@@ -310,7 +319,7 @@ const getCategoryStyle = (category) => {
     }
 };
 
-const GroupCard = ({ group }) => {
+const GroupCard = React.memo(({ group }) => {
     const { attributes, values, count, proportion, equal_share, category } = group;
     const categoryStyle = getCategoryStyle(category);
 
@@ -343,7 +352,7 @@ const GroupCard = ({ group }) => {
             </div>
         </div>
     );
-};
+});
 
 const extractAvailableAttributes = (levelGroups) => {
     const attrMap = {};
@@ -401,6 +410,104 @@ const groupMatchesSearch = (group, searchPairs) => {
 const buildSearchDisplay = (pairs) =>
     pairs.map(pair => `${pair.attribute} = ${pair.value}`).join(', ');
 
+/* =========================
+   Progressive Grid
+   ========================= */
+
+const ProgressiveGroupsGrid = ({
+    groups,
+    isFiltering,
+    processedCount,
+    totalSourceCount,
+}) => {
+    const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_CARDS);
+    const sentinelRef = useRef(null);
+
+    useEffect(() => {
+        setVisibleCount(INITIAL_VISIBLE_CARDS);
+    }, [groups]);
+
+    useEffect(() => {
+        const node = sentinelRef.current;
+        if (!node) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const entry = entries[0];
+                if (!entry?.isIntersecting) return;
+
+                setVisibleCount((prev) =>
+                    Math.min(prev + LOAD_MORE_CARDS, groups.length)
+                );
+            },
+            {
+                root: null,
+                rootMargin: '300px',
+                threshold: 0,
+            }
+        );
+
+        observer.observe(node);
+
+        return () => observer.disconnect();
+    }, [groups.length]);
+
+    const visibleGroups = groups.slice(0, visibleCount);
+    const hasMore = visibleCount < groups.length;
+
+    return (
+        <div className="groups-grid-container">
+            {visibleGroups.length > 0 ? (
+                <>
+                    <div className="groups-grid">
+                        {visibleGroups.map((group, idx) => (
+                            <GroupCard
+                                key={`${group?.attributes?.join('|') || 'g'}-${group?.values?.join('|') || idx}-${idx}`}
+                                group={group}
+                            />
+                        ))}
+                    </div>
+
+                    <div
+                        ref={sentinelRef}
+                        style={{ height: 1, width: '100%' }}
+                    />
+
+                    {(hasMore || isFiltering) && (
+                        <div
+                            style={{
+                                textAlign: 'center',
+                                padding: '18px 8px',
+                                color: '#6B7280',
+                                fontSize: 13
+                            }}
+                        >
+                            {hasMore
+                                ? `Showing ${visibleGroups.length} of ${groups.length} loaded matching groups`
+                                : `Loaded ${groups.length} matching groups`}
+                            {isFiltering && totalSourceCount > 0
+                                ? ` • filtering ${Math.min(processedCount, totalSourceCount)} / ${totalSourceCount} source groups...`
+                                : ''}
+                        </div>
+                    )}
+                </>
+            ) : isFiltering ? (
+                <div style={{ textAlign: 'center', padding: '28px', color: '#666' }}>
+                    <div className="spinner" style={{ margin: '0 auto 12px auto' }}></div>
+                    <p>Loading matching groups...</p>
+                    <p style={{ fontSize: 13, color: '#888' }}>
+                        Processed {Math.min(processedCount, totalSourceCount)} / {totalSourceCount}
+                    </p>
+                </div>
+            ) : (
+                <div className="no-groups-message">
+                    No available results
+                </div>
+            )}
+        </div>
+    );
+};
+
 const LevelBreakdown = ({ level, levelGroups }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [filterCategory, setFilterCategory] = useState('all');
@@ -413,10 +520,15 @@ const LevelBreakdown = ({ level, levelGroups }) => {
     const [autocompleteType, setAutocompleteType] = useState('attribute');
     const [selectedAttribute, setSelectedAttribute] = useState(null);
 
+    const [filteredGroups, setFilteredGroups] = useState([]);
+    const [isFiltering, setIsFiltering] = useState(false);
+    const [processedCount, setProcessedCount] = useState(0);
+
     const searchInputRef = useRef(null);
     const autocompleteRef = useRef(null);
 
     const flaggedCount = countFlaggedGroupsForLevel(levelGroups);
+    const totalSourceCount = Array.isArray(levelGroups) ? levelGroups.length : 0;
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -443,27 +555,76 @@ const LevelBreakdown = ({ level, levelGroups }) => {
         [levelGroups]
     );
 
-    const filteredGroups = useMemo(() => {
-        if (!levelGroups || !Array.isArray(levelGroups)) return [];
-
-        let filtered = levelGroups;
-
-        if (filterCategory !== 'all') {
-            filtered = filtered.filter(g => {
-                if (filterCategory === 'not_represented') return g.category === 'not_represented';
-                if (filterCategory === 'under_represented') return g.category === 'under_represented';
-                if (filterCategory === 'well_represented') return g.category === 'well_represented';
-                if (filterCategory === 'over_represented') return g.category === 'over_represented';
-                return true;
-            });
+    useEffect(() => {
+        if (!isOpen) {
+            setFilteredGroups([]);
+            setIsFiltering(false);
+            setProcessedCount(0);
+            return;
         }
 
-        if (appliedSearch.length > 0) {
-            filtered = filtered.filter(g => groupMatchesSearch(g, appliedSearch));
+        if (!levelGroups || !Array.isArray(levelGroups)) {
+            setFilteredGroups([]);
+            setIsFiltering(false);
+            setProcessedCount(0);
+            return;
         }
 
-        return filtered;
-    }, [levelGroups, filterCategory, appliedSearch]);
+        let cancelled = false;
+        let index = 0;
+        let lastCommittedAt = 0;
+        const nextResults = [];
+
+        const matchesCategory = (group) => {
+            if (filterCategory === 'all') return true;
+            if (filterCategory === 'not_represented') return group.category === 'not_represented';
+            if (filterCategory === 'under_represented') return group.category === 'under_represented';
+            if (filterCategory === 'well_represented') return group.category === 'well_represented';
+            if (filterCategory === 'over_represented') return group.category === 'over_represented';
+            return true;
+        };
+
+        const processChunk = () => {
+            if (cancelled) return;
+
+            const upper = Math.min(index + FILTER_CHUNK_SIZE, levelGroups.length);
+
+            for (; index < upper; index++) {
+                const group = levelGroups[index];
+                if (!matchesCategory(group)) continue;
+                if (appliedSearch.length > 0 && !groupMatchesSearch(group, appliedSearch)) continue;
+                nextResults.push(group);
+            }
+
+            const processed = upper;
+            setProcessedCount(processed);
+
+            if (
+                nextResults.length - lastCommittedAt >= FILTER_PROGRESS_COMMIT_EVERY ||
+                processed >= levelGroups.length
+            ) {
+                lastCommittedAt = nextResults.length;
+                setFilteredGroups([...nextResults]);
+            }
+
+            if (processed < levelGroups.length) {
+                requestAnimationFrame(processChunk);
+            } else {
+                setFilteredGroups([...nextResults]);
+                setIsFiltering(false);
+            }
+        };
+
+        setFilteredGroups([]);
+        setProcessedCount(0);
+        setIsFiltering(true);
+
+        requestAnimationFrame(processChunk);
+
+        return () => {
+            cancelled = true;
+        };
+    }, [isOpen, levelGroups, filterCategory, appliedSearch]);
 
     const openAttributeAutocomplete = (draft = searchDraft) => {
         const usedAttrs = draft.map(p => p.attribute);
@@ -605,6 +766,15 @@ const LevelBreakdown = ({ level, levelGroups }) => {
                                 <>
                                     <button
                                         type="button"
+                                        className="level-search-apply"
+                                        onClick={handleApplySearch}
+                                        disabled={!hasPendingChanges}
+                                    >
+                                        Apply
+                                    </button>
+
+                                    <button
+                                        type="button"
                                         className="level-search-clear"
                                         onClick={removeLastPair}
                                     >
@@ -617,15 +787,6 @@ const LevelBreakdown = ({ level, levelGroups }) => {
                                         onClick={clearSearch}
                                     >
                                         Clear All
-                                    </button>
-
-                                    <button
-                                        type="button"
-                                        className="level-search-clear"
-                                        onClick={handleApplySearch}
-                                        disabled={!hasPendingChanges}
-                                    >
-                                        Search
                                     </button>
                                 </>
                             )}
@@ -648,19 +809,12 @@ const LevelBreakdown = ({ level, levelGroups }) => {
                         </div>
                     </div>
 
-                    <div className="groups-grid-container">
-                        {filteredGroups.length > 0 ? (
-                            <div className="groups-grid">
-                                {filteredGroups.map((group, idx) => (
-                                    <GroupCard key={idx} group={group} />
-                                ))}
-                            </div>
-                        ) : (
-                            <div className="no-groups-message">
-                                No available results
-                            </div>
-                        )}
-                    </div>
+                    <ProgressiveGroupsGrid
+                        groups={filteredGroups}
+                        isFiltering={isFiltering}
+                        processedCount={processedCount}
+                        totalSourceCount={totalSourceCount}
+                    />
                 </div>
             )}
         </div>
@@ -734,8 +888,9 @@ const RecordsetAuditResult = ({ recordsetData }) => {
 
                     <div className="rep-audit-section">
                         <h4 className="rep-audit-section-title">
-                            Summary: {totalSummary.total} derived possible groups across {maxLevel} levels of intersectionality, from which:
+                            Summary:
                         </h4>
+                        <h2 className="rep-audit-section-subtitle">{totalSummary.total} derived possible groups across {maxLevel} levels of intersectionality, from which:</h2>
                         <div className="rep-audit-table-wrapper">
                             <table className="rep-audit-summary-table">
                                 <thead>
@@ -749,8 +904,7 @@ const RecordsetAuditResult = ({ recordsetData }) => {
                                 </thead>
                                 <tbody>
                                     {Object.keys(representation.levels || {}).sort().map(level => {
-                                        const levelGroups = representation.levels[level];
-                                        const levelSummary = calculateLevelSummary(levelGroups);
+                                        const levelSummary = calculateLevelSummary(representation.levels[level]);
 
                                         return (
                                             <tr key={level}>
@@ -1121,9 +1275,6 @@ const Dataset = ({ datasetId, initialData, onUpdateName }) => {
                 <div className="audit-actions">
                     <button className="btn-primary" onClick={handleRunAudit}>
                         Run Audit
-                    </button>
-                    <button className="btn-secondary" disabled>
-                        Download Augmented Metadata
                     </button>
                 </div>
 
