@@ -1,0 +1,71 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/prince7489/employee-salary-dataset/croissant/download",
+  "dataset_name": "Employee Salary Dataset",
+  "description": "This dataset provides structured information on employees across various departments, including their experience, education level, age, city, and monthly salary. It is designed to help data analysts and machine learning practitioners explore salary prediction, HR analytics, compensation patterns, workforce demographics, and EDA-based insights.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "employee_salary_dataset.csv",
+      "recordset_description": "This dataset provides structured information on employees across various departments, including their experience, education level, age, city, and monthly salary.",
+      "results": [
+        {
+          "key": "EmployeeID",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Name",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Department",
+          "sensitivity": 10,
+          "reason": "might be connected with Socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Experience_Years",
+          "sensitivity": 50,
+          "reason": "weak/indirect proxy of Socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "Education_Level",
+          "sensitivity": 70,
+          "reason": "strong proxy of Socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "direct in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "direct in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "City",
+          "sensitivity": 80,
+          "reason": "strong proxy/encoding of Racial & ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "Monthly_Salary",
+          "sensitivity": 90,
+          "reason": "strong proxy/encoding of Socioeconomic status",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 407.42916459999833
+    }
+  ]
+}

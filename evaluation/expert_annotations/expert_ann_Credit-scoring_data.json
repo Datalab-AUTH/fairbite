@@ -1,0 +1,241 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/islombekdavronov/creditscoring-data/croissant/download",
+  "dataset_name": "Credit-scoring data",
+  "description": "The data is collected from the real source and converted to numeric values for better training and classifying the people who are able or not able to pay their credits. ",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "data_test.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "label",
+          "sensitivity": 0,
+          "reason": "Target label indicating credit repayment outcome; does not encode any in-scope sensitive characteristic by itself.",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly encodes age, which is an explicit in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Language",
+          "sensitivity": 90,
+          "reason": "Language is directly linked to ethnic or national origin, which is an explicit in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Sex",
+          "sensitivity": 100,
+          "reason": "Directly encodes sex/gender, which is an explicit in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Marital",
+          "sensitivity": 100,
+          "reason": "Directly encodes marital status, which is an explicit in-scope sensitive characteristic under family and civil status.",
+          "is_categorical": true
+        },
+        {
+          "key": "Has_Credit",
+          "sensitivity": 40,
+          "reason": "Indicates credit ownership, which may act as a weak proxy for socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "Field",
+          "sensitivity": 30,
+          "reason": "Field of work or study may weakly reflect socioeconomic status but does not directly encode it.",
+          "is_categorical": true
+        },
+        {
+          "key": "Month_of_birth",
+          "sensitivity": 30,
+          "reason": "Birth-related temporal information may weakly relate to age but does not directly encode it.",
+          "is_categorical": true
+        },
+        {
+          "key": "Day_of_birth",
+          "sensitivity": 30,
+          "reason": "Birth-related temporal information may weakly relate to age but does not directly encode it.",
+          "is_categorical": true
+        },
+        {
+          "key": "Region",
+          "sensitivity": 80,
+          "reason": "Geographic region can strongly proxy ethnic origin or socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "Number_of_credits",
+          "sensitivity": 40,
+          "reason": "Number of credits held may act as a weak proxy for socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "Linked_cards",
+          "sensitivity": 40,
+          "reason": "Linked financial instruments may weakly reflect socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "INPS_mln_sum",
+          "sensitivity": 80,
+          "reason": "Represents income or benefits amount, directly reflecting socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "INPS_yes_no",
+          "sensitivity": 80,
+          "reason": "Indicates receipt of public assistance or benefits, which is an explicit in-scope socioeconomic characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Score_level",
+          "sensitivity": 40,
+          "reason": "Credit score level may weakly proxy socioeconomic status but does not directly encode it.",
+          "is_categorical": true
+        },
+        {
+          "key": "Score_class",
+          "sensitivity": 40,
+          "reason": "Categorized credit score may weakly proxy socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "Score_point",
+          "sensitivity": 40,
+          "reason": "Numeric credit score may weakly reflect socioeconomic status but is indirect.",
+          "is_categorical": false
+        },
+        {
+          "key": "Changed_phone_number",
+          "sensitivity": 0,
+          "reason": "Contact-related behavioral indicator; does not encode any in-scope sensitive characteristic.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 272.2415510999999
+    },
+    {
+      "recordset_name": "data_train.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "label",
+          "sensitivity": 0,
+          "reason": "Target label indicating credit repayment outcome; does not encode any in-scope sensitive characteristic by itself.",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly encodes age, which is an explicit in-scope sensitive characteristic",
+          "is_categorical": false
+        },
+        {
+          "key": "Language",
+          "sensitivity": 100,
+          "reason": "Language is directly associated with ethnic or national origin, an explicit in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Sex",
+          "sensitivity": 100,
+          "reason": "Directly encodes sex/gender, which is an explicit in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Marital",
+          "sensitivity": 100,
+          "reason": "Directly represents marital status, an explicit in-scope sensitive characteristic under family and civil status.",
+          "is_categorical": true
+        },
+        {
+          "key": "Has_Credit",
+          "sensitivity": 40,
+          "reason": "Indicates access to credit, which may weakly proxy socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "Field",
+          "sensitivity": 30,
+          "reason": "Field of work or study may weakly correlate with socioeconomic status but does not directly encode it.",
+          "is_categorical": true
+        },
+        {
+          "key": "Month_of_birth",
+          "sensitivity": 30,
+          "reason": "Birth timing information may weakly relate to age but does not directly encode it.",
+          "is_categorical": true
+        },
+        {
+          "key": "Day_of_birth",
+          "sensitivity": 30,
+          "reason": "Birth timing information may weakly relate to age but does not directly encode it.",
+          "is_categorical": true
+        },
+        {
+          "key": "Region",
+          "sensitivity": 80,
+          "reason": "Geographic region can act as a strong proxy for ethnic origin or socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "Number_of_credits",
+          "sensitivity": 40,
+          "reason": "Number of credits held may weakly reflect socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "Linked_cards",
+          "sensitivity": 40,
+          "reason": "Number of linked financial cards may weakly proxy socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "INPS_mln_sum",
+          "sensitivity": 80,
+          "reason": "Represents income or benefits amount, directly reflecting socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "INPS_yes_no",
+          "sensitivity": 80,
+          "reason": "Indicates receipt of public assistance or benefits, an explicit in-scope socioeconomic characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Score_level",
+          "sensitivity": 40,
+          "reason": "Credit score level may weakly proxy socioeconomic status but is indirect.",
+          "is_categorical": true
+        },
+        {
+          "key": "Score_class",
+          "sensitivity": 40,
+          "reason": "Categorized credit score may weakly reflect socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "Score_point",
+          "sensitivity": 40,
+          "reason": "Numeric credit score may weakly proxy socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "Changed_phone_number",
+          "sensitivity": 0,
+          "reason": "Contact-related behavioral indicator; does not encode any in-scope sensitive characteristic.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 284.5923799000011
+    }
+  ]
+}

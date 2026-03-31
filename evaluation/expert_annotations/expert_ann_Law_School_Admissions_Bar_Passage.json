@@ -1,0 +1,251 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/danofer/law-school-admissions-bar-passage/croissant/download",
+  "dataset_name": "Law School Admissions Bar Passage",
+  "description": "# The Law School Admissions Council's (LSAC) National Bar Passage Study:\nA Law School Admissions dataset from the Law School Admissions Council (LSAC). From 1991 through 1997, LSAC tracked some twenty-seven thousand law students through law school, graduation, and sittings for bar exams. The result was the most comprehensive database that exists on the demography, experiences, and outcomes of a large cohort of aspiring lawyers. While the data has important limitations, it is a unique and very valuable source for studying a range of issues related to legal education.\nThe dataset was originally collected for a study called '[LSAC National Longitudinal Bar Passage Study](http://www.seaphe.org/databases.php)' by Linda Wightman in 1998. \n\n## Ideas:\n- Predict whether or not a student will pass the bar, based on their Law School Admission Test (LSAT) score and undergraduate GPA.\nExample analysis (copied here): [Tensorflow Fairness Indicators example](https://www.tensorflow.org/responsible_ai/fairness_indicators/tutorials/Fairness_Indicators_Pandas_Case_Study)\n- Check the above for bias - by race, gender, background\n\n### Some important variables:\n- dnn\\_bar\\_pass\\_prediction: The LSAT prediction from the DNN model.\n- gender: Gender of the student.\n- lsat: LSAT score received by the student.\n- race: Race of the student.\n- ugpa: A student's undergraduate GPA.\n- pass\\_bar: - Ground truth label indicating whether or not the student eventually passed a bar.\n\n- bar\\_passed - I added a boolean target column for convenience, of whether someone passed the bar at any point\n\n\nCover image: by <a href=\"https://unsplash.com/es/@tingeyinjurylawfirm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Tingey Injury Law Firm</a> on <a href=\"https://unsplash.com/s/photos/law-school?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>\n  ",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "bar_pass_prediction.csv",
+      "recordset_description": "The dataset was originally collected for a study called 'LSAC National Longitudinal Bar Passage Study'. It includes background information and if (and how) candidates passed the bar exam to become lawyers/legal practicioners in the USA\n\ngender: Gender of the student.\nlsat: LSAT score received by the student.\npass_bar: Ground truth label indicating whether or not the student eventually passed the bar.\nrace: Race of the student.\nugpa: A student's undergraduate GPA.",
+      "results": [
+        {
+          "key": "decile1b",
+          "sensitivity": 0,
+          "reason": "Derived performance metric (decile); does not encode an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "decile3",
+          "sensitivity": 0,
+          "reason": "Derived academic ranking measure with no direct sensitive attribute meaning.",
+          "is_categorical": true
+        },
+        {
+          "key": "ID",
+          "sensitivity": 0,
+          "reason": "Unique identifier; identifiers are out of scope and not sensitive by themselves.",
+          "is_categorical": true
+        },
+        {
+          "key": "decile1",
+          "sensitivity": 0,
+          "reason": "Academic decile score; does not encode sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "sex",
+          "sensitivity": 100,
+          "reason": "Explicitly encodes gender, which is an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "race",
+          "sensitivity": 100,
+          "reason": "Explicitly encodes racial or ethnic origin, an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "cluster",
+          "sensitivity": 0,
+          "reason": "Analytical grouping variable with no inherent sensitive meaning.",
+          "is_categorical": true
+        },
+        {
+          "key": "lsat",
+          "sensitivity": 0,
+          "reason": "Standardized test score; academic performance measure without sensitive attribute meaning.",
+          "is_categorical": false
+        },
+        {
+          "key": "ugpa",
+          "sensitivity": 0,
+          "reason": "Undergraduate GPA is an academic performance metric, not a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "zfygpa",
+          "sensitivity": 0,
+          "reason": "Normalized GPA measure; academic metric with no sensitive attribute meaning.",
+          "is_categorical": false
+        },
+        {
+          "key": "DOB_yr",
+          "sensitivity": 90,
+          "reason": "Year of birth directly encodes age, an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "grad",
+          "sensitivity": 0,
+          "reason": "Graduation indicator reflects academic outcome, not a sensitive attribute.",
+          "is_categorical": true
+        },
+        {
+          "key": "zgpa",
+          "sensitivity": 0,
+          "reason": "Standardized GPA value; academic metric without sensitive meaning.",
+          "is_categorical": false
+        },
+        {
+          "key": "bar1",
+          "sensitivity": 0,
+          "reason": "Bar exam outcome indicator; exam result itself is not a sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "bar1_yr",
+          "sensitivity": 0,
+          "reason": "Year of bar exam attempt; temporal information not encoding sensitive traits.",
+          "is_categorical": false
+        },
+        {
+          "key": "bar2",
+          "sensitivity": 0,
+          "reason": "Second bar exam outcome indicator; not a sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "bar2_yr",
+          "sensitivity": 0,
+          "reason": "Year of second bar exam attempt; does not encode sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "fulltime",
+          "sensitivity": 0,
+          "reason": "Enrollment status (full-time) is an academic status, not a sensitive attribute.",
+          "is_categorical": true
+        },
+        {
+          "key": "fam_inc",
+          "sensitivity": 80,
+          "reason": "Family income directly reflects socioeconomic status, an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "Explicit age variable, which is an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "Explicit gender attribute, which is an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "parttime",
+          "sensitivity": 0,
+          "reason": "Enrollment intensity indicator; does not encode sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "male",
+          "sensitivity": 100,
+          "reason": "Binary encoding of gender, an explicit in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "race1",
+          "sensitivity": 100,
+          "reason": "Race indicator variable; directly encodes racial or ethnic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "race2",
+          "sensitivity": 100,
+          "reason": "Race indicator variable; directly encodes racial or ethnic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "Dropout",
+          "sensitivity": 0,
+          "reason": "Educational outcome status; not a sensitive characteristic by definition.",
+          "is_categorical": true
+        },
+        {
+          "key": "other",
+          "sensitivity": 0,
+          "reason": "Residual category indicator without explicit sensitive meaning.",
+          "is_categorical": true
+        },
+        {
+          "key": "asian",
+          "sensitivity": 100,
+          "reason": "Explicit racial category (Asian), an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "black",
+          "sensitivity": 100,
+          "reason": "Explicit racial category (Black), an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "hisp",
+          "sensitivity": 100,
+          "reason": "Explicit ethnic category (Hispanic), an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "pass_bar",
+          "sensitivity": 0,
+          "reason": "Exam outcome label; outcome itself is not a sensitive attribute.",
+          "is_categorical": true
+        },
+        {
+          "key": "bar",
+          "sensitivity": 0,
+          "reason": "Composite bar passage information; exam outcome timing is not sensitive.",
+          "is_categorical": true
+        },
+        {
+          "key": "bar_passed",
+          "sensitivity": 0,
+          "reason": "Binary indicator of bar passage; not a sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "tier",
+          "sensitivity": 30,
+          "reason": "Law school tier may weakly correlate with socioeconomic status but is not a direct encoding.",
+          "is_categorical": true
+        },
+        {
+          "key": "index6040",
+          "sensitivity": 0,
+          "reason": "Composite academic index without direct sensitive meaning.",
+          "is_categorical": false
+        },
+        {
+          "key": "indxgrp",
+          "sensitivity": 0,
+          "reason": "Grouped index variable for analysis; no inherent sensitive attribute meaning.",
+          "is_categorical": true
+        },
+        {
+          "key": "indxgrp2",
+          "sensitivity": 0,
+          "reason": "Alternative grouped index variable; does not encode sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "dnn_bar_pass_prediction",
+          "sensitivity": 0,
+          "reason": "Model prediction output; prediction value itself is not a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "gpa",
+          "sensitivity": 0,
+          "reason": "Grade point average is an academic performance measure, not a sensitive attribute.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 780.4246553999983
+    }
+  ]
+}

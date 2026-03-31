@@ -1,0 +1,809 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/danofer/compass/croissant/download",
+  "dataset_name": "COMPAS Recidivism Racial Bias",
+  "description": "### Context\nCOMPAS (Correctional Offender Management Profiling for Alternative Sanctions) is a popular commercial algorithm used by judges and parole officers for scoring criminal defendant’s likelihood of reoffending (recidivism). It has been shown that the algorithm is biased in favor of white defendants, and against black inmates, based on a 2 year follow up study (i.e who actually committed  crimes or violent crimes after 2 years). The pattern of mistakes, as measured by precision/sensitivity is notable. \n\nQuoting from ProPublica:\n\"\n> Black defendants were often predicted to be at a higher risk of recidivism than they actually were. Our analysis found that black defendants who did not recidivate over a two-year period were nearly twice as likely to be misclassified as higher risk compared to their white counterparts (45 percent vs. 23 percent).\nWhite defendants were often predicted to be less risky than they were. Our analysis found that white defendants who re-offended within the next two years were mistakenly labeled low risk almost twice as often as black re-offenders (48 percent vs. 28 percent).\nThe analysis also showed that even when controlling for prior crimes, future recidivism, age, and gender, black defendants were 45 percent more likely to be assigned higher risk scores than white defendants.\n\n - Black defendants were also twice as likely as white defendants to be misclassified as being a higher risk of violent recidivism. And white violent recidivists were 63 percent more likely to have been misclassified as a low risk of violent recidivism, compared with black violent recidivists.\n - The violent recidivism analysis also showed that even when controlling for prior crimes, future recidivism, age, and gender, black defendants were 77 percent more likely to be assigned higher risk scores than white defendants.\n\"\n\n### Content\nData contains  variables used by the COMPAS algorithm in scoring defendants, along with their outcomes within 2 years of the decision, for over 10,000 criminal defendants in Broward County, Florida. \n3 subsets of the data are provided, including a subset of only violent recividism (as opposed to, e.g. being reincarcerated for non violent offenses such as vagrancy or Marijuana).\n\nIndepth analysis by ProPublica can be found in their [data methodology article][1].\n\n### Acknowledgements\n\nData & original analysis gathered by ProPublica. \nOriginal Data methodology article:\nhttps://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm\n\nOriginal Article:\nhttps://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing\n\nOriginal data from ProPublica:\nhttps://github.com/propublica/compas-analysis\n\nAdditional \"simple\" subset provided by FairML, based on the proPublica data:\n\nhttp://blog.fastforwardlabs.com/2017/03/09/fairml-auditing-black-box-predictive-models.html\n\n### Inspiration\n\nIdeas:\n\n - Feature importance when predicting the COMPASS score itself, or recividism/crime risks.\n - Reweighting data to compensate for bias, e.g. subsetting for the violent offenders, or adjusting better for base risk. \n - Feature selection based on \"legal usage\"/fairness (E.g. exclude race and see how well your model works. It worked for me).\n\n\n  [1]: https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "compas-scores-raw.csv",
+      "recordset_description": "Raw Compass Score",
+      "results": [
+        {
+          "key": "Person_ID",
+          "sensitivity": 0,
+          "reason": "Unique person identifier; IDs are out of scope and not sensitive by themselves.",
+          "is_categorical": true
+        },
+        {
+          "key": "AssessmentID",
+          "sensitivity": 0,
+          "reason": "Assessment identifier; does not encode any in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Case_ID",
+          "sensitivity": 0,
+          "reason": "Case identifier; IDs are out of scope and not sensitive by themselves.",
+          "is_categorical": true
+        },
+        {
+          "key": "Agency_Text",
+          "sensitivity": 0,
+          "reason": "Agency label is organizational metadata, not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "LastName",
+          "sensitivity": 0,
+          "reason": "Name is a personal identifier (PII) and explicitly out of scope unless encoding an in-scope class.",
+          "is_categorical": true
+        },
+        {
+          "key": "FirstName",
+          "sensitivity": 0,
+          "reason": "Name is a personal identifier (PII) and explicitly out of scope unless encoding an in-scope class.",
+          "is_categorical": true
+        },
+        {
+          "key": "MiddleName",
+          "sensitivity": 0,
+          "reason": "Name is a personal identifier (PII) and explicitly out of scope unless encoding an in-scope class.",
+          "is_categorical": true
+        },
+        {
+          "key": "Sex_Code_Text",
+          "sensitivity": 100,
+          "reason": "Explicitly encodes sex/gender, which is an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Ethnic_Code_Text",
+          "sensitivity": 100,
+          "reason": "Explicitly encodes racial/ethnic origin, an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "DateOfBirth",
+          "sensitivity": 100,
+          "reason": "Date of birth directly encodes age, an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "ScaleSet_ID",
+          "sensitivity": 0,
+          "reason": "Scale set identifier; does not encode sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "ScaleSet",
+          "sensitivity": 0,
+          "reason": "Scale set label is instrument metadata, not an in-scope sensitive attribute.",
+          "is_categorical": true
+        },
+        {
+          "key": "AssessmentReason",
+          "sensitivity": 0,
+          "reason": "Reason for assessment is administrative/contextual, not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Language",
+          "sensitivity": 70,
+          "reason": "Language can be a strong proxy for racial/ethnic origin or national origin (in-scope).",
+          "is_categorical": true
+        },
+        {
+          "key": "LegalStatus",
+          "sensitivity": 0,
+          "reason": "Legal status is a justice-system attribute and not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "CustodyStatus",
+          "sensitivity": 0,
+          "reason": "Custody status is a justice-system status and not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "MaritalStatus",
+          "sensitivity": 100,
+          "reason": "Marital status is an in-scope sensitive characteristic (family & civil status).",
+          "is_categorical": true
+        },
+        {
+          "key": "Screening_Date",
+          "sensitivity": 0,
+          "reason": "Date of screening is temporal metadata and does not encode sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "RecSupervisionLevel",
+          "sensitivity": 0,
+          "reason": "Supervision level is a justice-system categorization, not an in-scope sensitive attribute.",
+          "is_categorical": true
+        },
+        {
+          "key": "RecSupervisionLevelText",
+          "sensitivity": 0,
+          "reason": "Text label for supervision level; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Scale_ID",
+          "sensitivity": 0,
+          "reason": "Scale identifier for the instrument; not sensitive.",
+          "is_categorical": true
+        },
+        {
+          "key": "DisplayText",
+          "sensitivity": 0,
+          "reason": "Score display label (e.g., risk band text) is an output label, not an in-scope sensitive attribute.",
+          "is_categorical": true
+        },
+        {
+          "key": "RawScore",
+          "sensitivity": 0,
+          "reason": "Raw risk score is a model/instrument output and not a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "DecileScore",
+          "sensitivity": 0,
+          "reason": "Normalized score decile is an output measure, not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "ScoreText",
+          "sensitivity": 0,
+          "reason": "Risk score category text is an output label, not a sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "AssessmentType",
+          "sensitivity": 0,
+          "reason": "Assessment type is instrument metadata, not an in-scope sensitive attribute.",
+          "is_categorical": true
+        },
+        {
+          "key": "IsCompleted",
+          "sensitivity": 0,
+          "reason": "Completion flag is operational metadata and does not encode sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "IsDeleted",
+          "sensitivity": 0,
+          "reason": "Deletion flag is operational metadata and does not encode sensitive characteristics.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 1666.6042847999997
+    },
+    {
+      "recordset_name": "cox-violent-parsed.csv",
+      "recordset_description": "Compass Score after some parsing + cleaning",
+      "results": [
+        {
+          "key": "id",
+          "sensitivity": 0,
+          "reason": "Unique identifier; IDs are out of scope and not sensitive by themselves.",
+          "is_categorical": true
+        },
+        {
+          "key": "name",
+          "sensitivity": 0,
+          "reason": "Name is personal identifier (PII) and out of scope unless explicitly encoding an in-scope class.",
+          "is_categorical": true
+        },
+        {
+          "key": "first",
+          "sensitivity": 0,
+          "reason": "First name is PII and out of scope unless explicitly encoding an in-scope sensitive class.",
+          "is_categorical": true
+        },
+        {
+          "key": "last",
+          "sensitivity": 0,
+          "reason": "Last name is PII and out of scope unless explicitly encoding an in-scope sensitive class.",
+          "is_categorical": true
+        },
+        {
+          "key": "compas_screening_date",
+          "sensitivity": 0,
+          "reason": "Screening date is temporal metadata and not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "sex",
+          "sensitivity": 100,
+          "reason": "Explicit sex/gender attribute (in-scope: gender & sexual identity).",
+          "is_categorical": true
+        },
+        {
+          "key": "dob",
+          "sensitivity": 100,
+          "reason": "Date of birth directly encodes age (in-scope: age).",
+          "is_categorical": false
+        },
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "Age is explicitly an in-scope sensitive characteristic (age).",
+          "is_categorical": false
+        },
+        {
+          "key": "age_cat",
+          "sensitivity": 100,
+          "reason": "Age category discretizes age (in-scope: age).",
+          "is_categorical": true
+        },
+        {
+          "key": "race",
+          "sensitivity": 100,
+          "reason": "Explicit racial/ethnic origin attribute (in-scope: racial & ethnic origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "juv_fel_count",
+          "sensitivity": 0,
+          "reason": "Juvenile felony count is criminal history; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "decile_score",
+          "sensitivity": 0,
+          "reason": "Risk score output; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "juv_misd_count",
+          "sensitivity": 0,
+          "reason": "Juvenile misdemeanor count is criminal history; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "juv_other_count",
+          "sensitivity": 0,
+          "reason": "Other juvenile count is criminal history; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "priors_count",
+          "sensitivity": 0,
+          "reason": "Prior offenses count is criminal history; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "days_b_screening_arrest",
+          "sensitivity": 0,
+          "reason": "Time delta between events; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "c_jail_in",
+          "sensitivity": 0,
+          "reason": "Jail in-date is temporal justice-system metadata, not in-scope sensitive.",
+          "is_categorical": false
+        },
+        {
+          "key": "c_jail_out",
+          "sensitivity": 0,
+          "reason": "Jail out-date is temporal justice-system metadata, not in-scope sensitive.",
+          "is_categorical": false
+        },
+        {
+          "key": "c_case_number",
+          "sensitivity": 0,
+          "reason": "Case number is an identifier; out of scope and not sensitive by itself.",
+          "is_categorical": true
+        },
+        {
+          "key": "c_offense_date",
+          "sensitivity": 0,
+          "reason": "Offense date is event timing metadata; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "c_arrest_date",
+          "sensitivity": 0,
+          "reason": "Arrest date is event timing metadata; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "c_days_from_compas",
+          "sensitivity": 0,
+          "reason": "Time delta from COMPAS; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "c_charge_degree",
+          "sensitivity": 0,
+          "reason": "Charge degree is a legal classification; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "c_charge_desc",
+          "sensitivity": 0,
+          "reason": "Charge description is a legal category/label; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "is_recid",
+          "sensitivity": 0,
+          "reason": "Recidivism indicator is an outcome label; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "r_case_number",
+          "sensitivity": 0,
+          "reason": "Recidivism case number is an identifier; out of scope and not sensitive by itself.",
+          "is_categorical": true
+        },
+        {
+          "key": "r_charge_degree",
+          "sensitivity": 0,
+          "reason": "Recidivism charge degree is a legal classification; not in-scope sensitive.",
+          "is_categorical": true
+        },
+        {
+          "key": "r_days_from_arrest",
+          "sensitivity": 0,
+          "reason": "Time delta from arrest; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "r_offense_date",
+          "sensitivity": 0,
+          "reason": "Recidivism offense date is event timing metadata; not in-scope sensitive.",
+          "is_categorical": true
+        },
+        {
+          "key": "r_charge_desc",
+          "sensitivity": 0,
+          "reason": "Recidivism charge description is a legal label; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "r_jail_in",
+          "sensitivity": 0,
+          "reason": "Recidivism jail in-date is temporal metadata; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "r_jail_out",
+          "sensitivity": 0,
+          "reason": "Recidivism jail out-date is temporal metadata; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "violent_recid",
+          "sensitivity": 0,
+          "reason": "Violent recidivism indicator is an outcome label; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "is_violent_recid",
+          "sensitivity": 0,
+          "reason": "Violent recidivism target label; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "vr_case_number",
+          "sensitivity": 0,
+          "reason": "Violent recidivism case number is an identifier; out of scope and not sensitive by itself.",
+          "is_categorical": true
+        },
+        {
+          "key": "vr_charge_degree",
+          "sensitivity": 0,
+          "reason": "Violent recidivism charge degree is a legal classification; not in-scope sensitive.",
+          "is_categorical": true
+        },
+        {
+          "key": "vr_offense_date",
+          "sensitivity": 0,
+          "reason": "Violent recidivism offense date is event timing metadata; not in-scope sensitive.",
+          "is_categorical": false
+        },
+        {
+          "key": "vr_charge_desc",
+          "sensitivity": 0,
+          "reason": "Violent recidivism charge description is a legal label; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "type_of_assessment",
+          "sensitivity": 0,
+          "reason": "Assessment type is instrument metadata; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "score_text",
+          "sensitivity": 0,
+          "reason": "Score category text is an output label; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "screening_date",
+          "sensitivity": 0,
+          "reason": "Screening date is temporal metadata and not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "v_type_of_assessment",
+          "sensitivity": 0,
+          "reason": "Violence assessment type is instrument metadata; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "v_decile_score",
+          "sensitivity": 0,
+          "reason": "Violence decile score is an output measure; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "v_score_text",
+          "sensitivity": 0,
+          "reason": "Violence score category text is an output label; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "v_screening_date",
+          "sensitivity": 0,
+          "reason": "Violence screening date is temporal metadata; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "in_custody",
+          "sensitivity": 0,
+          "reason": "Custody timestamp is justice-system timing metadata; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "out_custody",
+          "sensitivity": 0,
+          "reason": "Custody timestamp is justice-system timing metadata; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "start",
+          "sensitivity": 0,
+          "reason": "Start time for analysis window is temporal metadata; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "end",
+          "sensitivity": 0,
+          "reason": "End time for analysis window is temporal metadata; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "event",
+          "sensitivity": 0,
+          "reason": "Event indicator for survival-style outcome; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 707.4884413999971
+    },
+    {
+      "recordset_name": "cox-violent-parsed_filt.csv",
+      "recordset_description": "Raw Compass Score",
+      "results": [
+        {
+          "key": "id",
+          "sensitivity": 0,
+          "reason": "Unique identifier; IDs are out of scope and not sensitive by themselves",
+          "is_categorical": true
+        },
+        {
+          "key": "name",
+          "sensitivity": 0,
+          "reason": "Name is personal identifier (PII) and out of scope unless explicitly encoding an in-scope class.",
+          "is_categorical": true
+        },
+        {
+          "key": "first",
+          "sensitivity": 0,
+          "reason": "First name is PII and out of scope unless explicitly encoding an in-scope sensitive class.",
+          "is_categorical": true
+        },
+        {
+          "key": "last",
+          "sensitivity": 0,
+          "reason": "Last name is PII and out of scope unless explicitly encoding an in-scope sensitive class.",
+          "is_categorical": true
+        },
+        {
+          "key": "sex",
+          "sensitivity": 100,
+          "reason": "Explicit sex/gender attribute (in-scope: gender & sexual identity).",
+          "is_categorical": true
+        },
+        {
+          "key": "dob",
+          "sensitivity": 100,
+          "reason": "Date of birth directly encodes age (in-scope: age).",
+          "is_categorical": false
+        },
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "Age is explicitly an in-scope sensitive characteristic (age).",
+          "is_categorical": false
+        },
+        {
+          "key": "age_cat",
+          "sensitivity": 100,
+          "reason": "Age category discretizes age (in-scope: age).",
+          "is_categorical": true
+        },
+        {
+          "key": "race",
+          "sensitivity": 100,
+          "reason": "Explicit racial/ethnic origin attribute (in-scope: racial & ethnic origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "juv_fel_count",
+          "sensitivity": 0,
+          "reason": "Juvenile felony count is criminal history; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "decile_score",
+          "sensitivity": 0,
+          "reason": "Risk score output; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "juv_misd_count",
+          "sensitivity": 0,
+          "reason": "Juvenile misdemeanor count is criminal history; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "juv_other_count",
+          "sensitivity": 0,
+          "reason": "Other juvenile count is criminal history; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "priors_count",
+          "sensitivity": 0,
+          "reason": "Prior offenses count is criminal history; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "days_b_screening_arrest",
+          "sensitivity": 0,
+          "reason": "Time delta between events; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "c_jail_in",
+          "sensitivity": 0,
+          "reason": "Jail in-date is temporal justice-system metadata, not in-scope sensitive.",
+          "is_categorical": false
+        },
+        {
+          "key": "c_jail_out",
+          "sensitivity": 0,
+          "reason": "Jail out-date is temporal justice-system metadata, not in-scope sensitive.",
+          "is_categorical": false
+        },
+        {
+          "key": "c_days_from_compas",
+          "sensitivity": 0,
+          "reason": "Time delta from COMPAS; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "c_charge_degree",
+          "sensitivity": 0,
+          "reason": "Charge degree is a legal classification; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "c_charge_desc",
+          "sensitivity": 0,
+          "reason": "Charge description is a legal category/label; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "is_recid",
+          "sensitivity": 0,
+          "reason": "Recidivism indicator is an outcome label; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "r_charge_degree",
+          "sensitivity": 0,
+          "reason": "Recidivism charge degree is a legal classification; not in-scope sensitive.",
+          "is_categorical": true
+        },
+        {
+          "key": "r_days_from_arrest",
+          "sensitivity": 0,
+          "reason": "Time delta from arrest; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "r_offense_date",
+          "sensitivity": 0,
+          "reason": "Recidivism offense date is event timing metadata; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "r_charge_desc",
+          "sensitivity": 0,
+          "reason": "Recidivism charge description is a legal label; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "r_jail_in",
+          "sensitivity": 0,
+          "reason": "Recidivism jail in-date is temporal metadata; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "violent_recid",
+          "sensitivity": 0,
+          "reason": "Violent recidivism indicator is an outcome label; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "is_violent_recid",
+          "sensitivity": 0,
+          "reason": "Violent recidivism target label; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "vr_charge_degree",
+          "sensitivity": 0,
+          "reason": "Violent recidivism charge degree is a legal classification; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "vr_offense_date",
+          "sensitivity": 0,
+          "reason": "Violent recidivism offense date is event timing metadata; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "vr_charge_desc",
+          "sensitivity": 0,
+          "reason": "Violent recidivism charge description is a legal label; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "type_of_assessment",
+          "sensitivity": 0,
+          "reason": "Assessment type is instrument metadata; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "score_text",
+          "sensitivity": 0,
+          "reason": "Score category text is an output label; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "screening_date",
+          "sensitivity": 0,
+          "reason": "Screening date is temporal metadata and not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "v_type_of_assessment",
+          "sensitivity": 0,
+          "reason": "Violence assessment type is instrument metadata; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "v_decile_score",
+          "sensitivity": 0,
+          "reason": "Violence decile score is an output measure; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "v_score_text",
+          "sensitivity": 0,
+          "reason": "Violence score category text is an output label; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "event",
+          "sensitivity": 0,
+          "reason": "Event indicator for survival-style outcome; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 439.1849843000018
+    },
+    {
+      "recordset_name": "propublica_data_for_fairml.csv",
+      "recordset_description": "FairML \"simple\" subset, easy to model on (all numeric variables in columns)",
+      "results": [
+        {
+          "key": "Two_yr_Recidivism",
+          "sensitivity": 0,
+          "reason": "Recidivism outcome label; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Number_of_Priors",
+          "sensitivity": 0,
+          "reason": "Criminal history count; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "score_factor",
+          "sensitivity": 0,
+          "reason": "Risk score factor/output; not an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Age_Above_FourtyFive",
+          "sensitivity": 100,
+          "reason": "Binary indicator derived from age (in-scope: age).",
+          "is_categorical": true
+        },
+        {
+          "key": "Age_Below_TwentyFive",
+          "sensitivity": 100,
+          "reason": "Binary indicator derived from age (in-scope: age).",
+          "is_categorical": true
+        },
+        {
+          "key": "African_American",
+          "sensitivity": 100,
+          "reason": "Explicit racial/ethnic origin indicator (in-scope: racial & ethnic origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "Asian",
+          "sensitivity": 100,
+          "reason": "Explicit racial/ethnic origin indicator (in-scope: racial & ethnic origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "Hispanic",
+          "sensitivity": 100,
+          "reason": "Explicit racial/ethnic origin indicator (in-scope: racial & ethnic origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "Native_American",
+          "sensitivity": 100,
+          "reason": "Explicit racial/ethnic origin indicator (in-scope: racial & ethnic origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "Other",
+          "sensitivity": 70,
+          "reason": "Likely 'other race/ethnicity' indicator in this encoded set (in-scope: racial & ethnic origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "Female",
+          "sensitivity": 100,
+          "reason": "Binary sex/gender indicator (in-scope: gender & sexual identity).",
+          "is_categorical": true
+        },
+        {
+          "key": "Misdemeanor",
+          "sensitivity": 0,
+          "reason": "Charge type/legal classification; not an in-scope sensitive characteristic.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 161.09542660000443
+    }
+  ]
+}

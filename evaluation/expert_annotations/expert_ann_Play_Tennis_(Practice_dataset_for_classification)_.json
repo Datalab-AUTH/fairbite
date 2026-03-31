@@ -1,0 +1,47 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/sarveshchhetri/play-tennis-practice-dataset-for-classification/croissant/download",
+  "dataset_name": "Play Tennis (Practice dataset for classification)",
+  "description": "The Play Tennis Dataset is a synthetic, expanded classification dataset inspired by the classic “Play Tennis” example widely used in machine learning and data mining education.\n\nThis dataset models the relationship between weather conditions and the decision to play tennis, making it ideal for practicing supervised learning algorithms. It includes multiple categorical features such as weather outlook, temperature, humidity, and wind strength, with a binary target variable indicating whether tennis is played.\n\nThe dataset has been expanded to include a larger number of records while preserving realistic feature combinations and class balance. It is well-suited for beginners and intermediate learners to explore data preprocessing, categorical encoding, probabilistic models, and decision-based algorithms.\n\n**Use Cases**\n\n- Naive Bayes classification\n- Decision Tree (ID3 / C4.5)\n- Entropy & Information Gain calculation\n- Feature encoding practice\n- ML coursework, labs, and demonstrations",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "playtennis.csv",
+      "recordset_description": "**Column Descriptor**\n| Column Name     | Description                                                                                                     |\n| --------------- | --------------------------------------------------------------------------------------------------------------- |\n| **Outlook**     | Describes the general weather condition for the day. Possible values are **Sunny**, **Overcast**, and **Rain**. |\n| **Temperature** | Indicates the temperature level of the day. Possible values are **Hot**, **Mild**, and **Cool**.                |\n| **Humidity**    | Represents the humidity level in the atmosphere. Possible values are **High** or **Normal**.                    |\n| **Wind**        | Describes the wind strength on the day. Possible values are **Weak** or **Strong**.                             |\n| **PlayTennis**  | Target variable indicating whether tennis was played on that day. Possible values are **Yes** or **No**.        |\n",
+      "results": [
+        {
+          "key": "Outlook",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Temperature",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Humidity",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Wind",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "PlayTennis",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 39.87102920003235
+    }
+  ]
+}

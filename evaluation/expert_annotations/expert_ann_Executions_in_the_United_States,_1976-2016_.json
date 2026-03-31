@@ -1,0 +1,119 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/usdpic/execution-database/croissant/download",
+  "dataset_name": "Executions in the United States, 1976-2016",
+  "description": "# Content\n\nThe execution database includes records of every execution performed in the United States since the Supreme Court reinstated the death penalty in 1976. Federal executions are indicated by FE in the state field and included in the region in which the crime occurred. The information in this database was obtained from news reports, the Department of Corrections in each state, and the NAACP Legal Defense Fund.\n\n\n# Acknowledgements\n\nThe execution database was compiled and published by the Death Penalty Information Center. Victim details, including quantity, sex, and race, were acquired from the Criminal Justice Project's Death Row USA report.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "database.csv",
+      "recordset_description": "Executions in United States since 1976",
+      "results": [
+        {
+          "key": "Date",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Name",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Sex",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Race",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Crime",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Victim Count",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Victim Sex",
+          "sensitivity": 90,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Victim Race",
+          "sensitivity": 90,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "County",
+          "sensitivity": 90,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "State",
+          "sensitivity": 90,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Region",
+          "sensitivity": 90,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Method",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Juvenile",
+          "sensitivity": 80,
+          "reason": "strong proxy for age",
+          "is_categorical": true
+        },
+        {
+          "key": "Volunteer",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Federal",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Foreign National",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 334.7713281000033
+    }
+  ]
+}

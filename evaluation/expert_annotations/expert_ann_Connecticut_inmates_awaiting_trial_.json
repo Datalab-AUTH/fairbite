@@ -1,0 +1,77 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/Connecticut-open-data/connecticut-inmates-awaiting-trial/croissant/download",
+  "dataset_name": "Connecticut inmates awaiting trial",
+  "description": "### Context\n\nSince July 1, 2016, Connecticut has updated this nightly dataset of every inmate held in jail while awaiting trial.  At the time of download, this dataset contains just over one year of data with 1132352 rows of data, where one row is one inmate.\n\n### Content\n\nField Descriptions:\n* DOWNLOAD DATE: Date in which the data were extracted and reflecting the population for that day.\n\n* IDENITIFIER: Individual Inmate Identifier\n\n* LATEST ADMISSION DATE: Most recent date in which the inmate has been admitted. In some instances, this may reflect an original date of admission to a correctional facility. Generally, if a date is more than one year old, an inmate should not be considered to have been held for the entire duration of that time.\n\n* RACE: Race of inmate\n\n* AGE: Age of inmate\n\n* BOND AMOUNT: Amount of bond for which the inmate is being held. In some instances, for particularly low (less than $100), this bond amount may be considered a place holder value\n\n* OFFENSE: Controlling offense for which the bond amount has been set.\n\n* FACILITY: Department of Correction facility where the inmate is currently held.\n\n* DETAINER: Denotes whether inmate is being held at the request of another criminal justice agency, or if another agency is to be notified upon release.\n\n### Acknowledgements\n\nThanks to [http://dataispluralc.om] for the tip on this dataset! \nThis dataset was downloaded on July 26, 2017 - Chekc the original source for more up-to-date data (updated nightly)\n[https://data.ct.gov/Public-Safety/Accused-Pre-Trial-Inmates-in-Correctional-Faciliti/b674-jy6w]\n\n### Inspiration\n\nThis dataset contains information about inmate's race and the nature of the crimes. The Minority Report is a sci-fi story pretty well known for predicting crimes and arresting people before they happen. Can you do the same? Would you *dare* do the same?",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Accused_Pre-Trial_Inmates_in_Correctional_Facilities.csv",
+      "recordset_description": "Field Descriptions:\n\n* DOWNLOAD DATE: Date in which the data were extracted and reflecting the population for that day.\n\n* IDENITIFIER: Individual Inmate Identifier\n\n* LATEST ADMISSION DATE: Most recent date in which the inmate has been admitted. In some instances, this may reflect an original date of admission to a correctional facility. Generally, if a date is more than one year old, an inmate should not be considered to have been held for the entire duration of that time.\n\n* RACE: Race of inmate\n\n* AGE: Age of inmate\n\n* BOND AMOUNT: Amount of bond for which the inmate is being held. In some instances, for particularly low (less than $100), this bond amount may be considered a place holder value\n\n* OFFENSE: Controlling offense for which the bond amount has been set.\n\n* FACILITY: Department of Correction facility where the inmate is currently held.\n\n* DETAINER: Denotes whether inmate is being held at the request of another criminal justice agency, or if another agency is to be notified upon release.",
+      "results": [
+        {
+          "key": "DOWNLOAD DATE",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "IDENTIFIER",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "LATEST ADMISSION DATE",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "RACE",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "GENDER",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "AGE",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "BOND AMOUNT",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "OFFENSE",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "FACILITY",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "DETAINER",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 101.2598113999702
+    }
+  ]
+}

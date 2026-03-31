@@ -1,0 +1,109 @@
+{
+  "croissant_url": "https://huggingface.co/api/datasets/hugginglearners/data-science-job-salaries/croissant",
+  "dataset_name": "data-science-job-salaries",
+  "description": "\n\t\n\t\t\n\t\tDataset Card for Data Science Job Salaries\n\t\n\n\n\t\n\t\t\n\t\tDataset Summary\n\t\n\n\n\t\n\t\t\n\t\tContent\n\t\n\n\n\t\n\t\t\nColumn\nDescription\n\n\n\t\t\nwork_year\nThe year the salary was paid.\n\n\nexperience_level\nThe experience level in the job during the year with the following possible values: EN Entry-level / Junior MI Mid-level / Intermediate SE Senior-level / Expert EX Executive-level / Director\n\n\nemployment_type\nThe type of employement for the role: PT Part-time FT Full-time CT Contract FL Freelance\n\n\njob_title… See the full description on the dataset page: https://huggingface.co/datasets/hugginglearners/data-science-job-salaries.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "default_splits",
+      "recordset_description": "Splits for the default config.",
+      "results": [
+        {
+          "key": "split_name",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 13.140694700006861
+    },
+    {
+      "recordset_name": "default",
+      "recordset_description": "hugginglearners/data-science-job-salaries - 'default' subset",
+      "results": [
+        {
+          "key": "default/split",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "default/Unnamed__0",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "default/work_year",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "default/experience_level",
+          "sensitivity": 40,
+          "reason": "weak proxy of socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "default/employment_type",
+          "sensitivity": 10,
+          "reason": "could relate to socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "default/job_title",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "default/salary",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "default/salary_currency",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "default/salary_in_usd",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "default/employee_residence",
+          "sensitivity": 70,
+          "reason": "strong proxy of ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "default/remote_ratio",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "default/company_location",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "default/company_size",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 354.2479437000002
+    }
+  ]
+}

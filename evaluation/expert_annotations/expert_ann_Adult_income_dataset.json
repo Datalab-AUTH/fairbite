@@ -1,0 +1,107 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/wenruliu/adult-income-dataset/croissant/download",
+  "dataset_name": "Adult income dataset",
+  "description": "An individual’s annual income results from various factors. Intuitively, it is influenced by the individual’s education level, age, gender, occupation, and etc. \n\nThis is a widely cited KNN dataset. I encountered it during my course, and I wish to share it here because it is a good starter example for data pre-processing and machine learning practices. \n\n**Fields**\nThe dataset contains 16 columns\nTarget filed: Income\n-- The income is divide into two classes: <=50K and >50K  \nNumber of attributes: 14\n-- These are the demographics and other features to describe a person\n\nWe can explore the possibility in predicting income level based on the individual’s personal information.\n\n**Acknowledgements**\nThis dataset named “adult” is found in the UCI machine learning repository\n[http://www.cs.toronto.edu/~delve/data/adult/desc.html][1]\n\nThe detailed description on the dataset can be found in the original UCI documentation\n[http://www.cs.toronto.edu/~delve/data/adult/adultDetail.html][2]\n\n  [1]: http://www.cs.toronto.edu/~delve/data/adult/desc.html\n  [2]: http://www.cs.toronto.edu/~delve/data/adult/adultDetail.html",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "adult.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "Directly encodes age, which is an explicit in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "workclass",
+          "sensitivity": 30,
+          "reason": "Employment class can weakly reflect socioeconomic status but does not directly encode it.",
+          "is_categorical": true
+        },
+        {
+          "key": "fnlwgt",
+          "sensitivity": 0,
+          "reason": "Sampling weight used for statistical purposes; does not represent any individual characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "education",
+          "sensitivity": 40,
+          "reason": "Education level can act as a weak proxy for socioeconomic status but does not directly encode it.",
+          "is_categorical": true
+        },
+        {
+          "key": "educational-num",
+          "sensitivity": 40,
+          "reason": "Numeric encoding of education level, which may weakly proxy socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "marital-status",
+          "sensitivity": 100,
+          "reason": "Directly encodes marital status, which is an explicit in-scope sensitive characteristic under family and civil status.",
+          "is_categorical": true
+        },
+        {
+          "key": "occupation",
+          "sensitivity": 40,
+          "reason": "Occupation can weakly reflect socioeconomic status but does not directly encode a protected characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "relationship",
+          "sensitivity": 100,
+          "reason": "Encodes familial relationship roles, which fall under family and civil status.",
+          "is_categorical": true
+        },
+        {
+          "key": "race",
+          "sensitivity": 100,
+          "reason": "Directly encodes racial origin, which is an explicit in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "Directly encodes gender, which is an explicit in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "capital-gain",
+          "sensitivity": 30,
+          "reason": "Financial gain may weakly proxy socioeconomic status but does not directly encode it.",
+          "is_categorical": false
+        },
+        {
+          "key": "capital-loss",
+          "sensitivity": 30,
+          "reason": "Financial loss may weakly proxy socioeconomic status but does not directly encode it.",
+          "is_categorical": false
+        },
+        {
+          "key": "hours-per-week",
+          "sensitivity": 20,
+          "reason": "Work hours reflect labor patterns but do not encode an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "native-country",
+          "sensitivity": 100,
+          "reason": "Encodes national origin, which is an explicit in-scope sensitive characteristic under racial and ethnic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "income",
+          "sensitivity": 90,
+          "reason": "Directly represents economic status, which is an explicit in-scope sensitive characteristic under socioeconomic status.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 401.92663500000344
+    }
+  ]
+}

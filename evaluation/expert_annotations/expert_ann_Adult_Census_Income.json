@@ -1,0 +1,107 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/uciml/adult-census-income/croissant/download",
+  "dataset_name": "Adult Census Income",
+  "description": "This data was extracted from the [1994 Census bureau database][1] by Ronny Kohavi and Barry Becker (Data Mining and Visualization, Silicon Graphics). A set of reasonably clean records was extracted using the following conditions: ((AAGE>16) && (AGI>100) && (AFNLWGT>1) && (HRSWK>0)). *The prediction task is to determine whether a person makes over $50K a year*.\n\n## Description of fnlwgt (final weight)\n\nThe weights on the Current Population Survey (CPS) files are controlled to independent estimates of the civilian noninstitutional population of the US.  These are prepared monthly for us by Population Division here at the Census Bureau. We use 3 sets of controls. These are: \n\n 1.  A single cell estimate of the population 16+ for each state.\n     \n 2.  Controls for Hispanic Origin by age and sex.\n\n 3.  Controls by Race, age and sex.\n\nWe use all three sets of controls in our weighting program and \"rake\" through them 6 times so that by the end we come back to all the controls we used. The term estimate refers to population totals derived from CPS by creating \"weighted tallies\" of any specified socio-economic characteristics of the population. People with similar demographic characteristics should have similar weights. There is one important caveat to remember about this statement. That is that since the CPS sample is actually a collection of 51 state samples, each with its own probability of selection, the statement only applies within state.\n\n##Relevant papers\n\nRon Kohavi, [\"Scaling Up the Accuracy of Naive-Bayes Classifiers: a Decision-Tree Hybrid\"][2], *Proceedings of the Second International Conference on Knowledge Discovery and Data Mining*, 1996. (PDF)\n\n  [1]: http://www.census.gov/en.html\n  [2]: http://robotics.stanford.edu/~ronnyk/nbtree.pdf",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "adult.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "Directly encodes age, which is an explicit in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "workclass",
+          "sensitivity": 30,
+          "reason": "Employment class can weakly reflect socioeconomic status but does not directly encode it.",
+          "is_categorical": true
+        },
+        {
+          "key": "fnlwgt",
+          "sensitivity": 0,
+          "reason": "Sampling weight used for statistical purposes; does not represent any individual characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "education",
+          "sensitivity": 40,
+          "reason": "Education level can act as a weak proxy for socioeconomic status but does not directly encode it.",
+          "is_categorical": true
+        },
+        {
+          "key": "education.num",
+          "sensitivity": 40,
+          "reason": "Numeric encoding of education level, which may weakly proxy socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "marital.status",
+          "sensitivity": 100,
+          "reason": "Directly encodes marital status, which is an explicit in-scope sensitive characteristic under family and civil status.",
+          "is_categorical": true
+        },
+        {
+          "key": "occupation",
+          "sensitivity": 40,
+          "reason": "Occupation can weakly reflect socioeconomic status but does not directly encode a protected characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "relationship",
+          "sensitivity": 100,
+          "reason": "Encodes familial relationship roles, which fall under family and civil status.",
+          "is_categorical": true
+        },
+        {
+          "key": "race",
+          "sensitivity": 100,
+          "reason": "Directly encodes racial origin, which is an explicit in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "sex",
+          "sensitivity": 100,
+          "reason": "Directly encodes sex/gender, which is an explicit in-scope sensitive characteristic under gender and sexual identity.",
+          "is_categorical": true
+        },
+        {
+          "key": "capital.gain",
+          "sensitivity": 30,
+          "reason": "Financial gain may weakly proxy socioeconomic status but does not directly encode it.",
+          "is_categorical": false
+        },
+        {
+          "key": "capital.loss",
+          "sensitivity": 30,
+          "reason": "Financial loss may weakly proxy socioeconomic status but does not directly encode it.",
+          "is_categorical": false
+        },
+        {
+          "key": "hours.per.week",
+          "sensitivity": 20,
+          "reason": "Work hours reflect labor patterns but do not encode an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "native.country",
+          "sensitivity": 100,
+          "reason": "Encodes national origin, which is an explicit in-scope sensitive characteristic under racial and ethnic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "income",
+          "sensitivity": 90,
+          "reason": "Directly represents economic status, which is an explicit in-scope sensitive characteristic under socioeconomic status.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 273.0349645999959
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/ahmadrafiee/bank-personal-loan/croissant/download",
+  "dataset_name": "Bank personal loan",
+  "description": "This dataset is about a bank (Thera Bank) whose management wants to explore ways of converting its liability customers to personal loan customers (while retaining them as depositors). A campaign that the bank ran last year for liability customers showed a healthy conversion rate of over 9% success. This has encouraged the retail marketing department to devise campaigns with better target marketing to increase the success ratio with minimal budget.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Bank_Personal_Loan_Modelling(1).csv",
+      "recordset_description": "ID: customer Id\n\nAge:customer's age in completed years\n    \nExperience:years of professional experience\n\nIncome<:Annual income of the customer\n\nZIP Code:Address Zip code  \n\nFamily:family size of customer \n\nCCAvg:Avg. spending on credit card per month<br>due to all other parameter is annually so i converted it for per year\n\nEducation :Educational level ( undergraduate= 1 , graduate=2 , advance=3)\n   \nEducation :Educational level ( undergraduate= 1 , graduate=2 , advance=3)\n\nPersonal Loan: Did this customer accept the personal loan offered in the last campaign?\n\nSecurities Account:Does the customer have a securities account with the bank?\n   \nCD Account:Does the customer have a certificate of deposit(CD) account with the bank? \n    \nOnline:Does the customer use internet banking facilities\n    \nCreditCard: Does the customer use a credit card issued by universalBank?",
+      "results": [
+        {
+          "key": "ID",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Experience",
+          "sensitivity": 30,
+          "reason": "could relate with age or socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "Income",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "ZIP Code",
+          "sensitivity": 80,
+          "reason": "strong proxy for nationality",
+          "is_categorical": true
+        },
+        {
+          "key": "Family",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "CCAvg",
+          "sensitivity": 50,
+          "reason": "weak proxy for socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "Education",
+          "sensitivity": 80,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Mortgage",
+          "sensitivity": 50,
+          "reason": "weak proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Personal Loan",
+          "sensitivity": 10,
+          "reason": "could relate to socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Securities Account",
+          "sensitivity": 10,
+          "reason": "could relate to socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "CD Account",
+          "sensitivity": 10,
+          "reason": "could relate to socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Online",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "CreditCard",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 556.8714789000223
+    }
+  ]
+}

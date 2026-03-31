@@ -1,0 +1,97 @@
+{
+  "croissant_url": "https://huggingface.co/api/datasets/AiresPucrs/german-credit-data/croissant",
+  "dataset_name": "german-credit-data",
+  "description": "\n\t\n\t\t\n\t\tGerman Credit Data (Teeny-Tiny Castle)\n\t\n\nThis dataset is part of a tutorial tied to the Teeny-Tiny Castle, an open-source repository containing educational tools for AI Ethics and Safety research. \n\n\t\n\t\t\n\t\tHow to Use\n\t\n\nfrom datasets import load_dataset\n\ndataset = load_dataset(\"AiresPucrs/german-credit-data\", split = 'train')\n\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "default_splits",
+      "recordset_description": "Splits for the default config.",
+      "results": [
+        {
+          "key": "split_name",
+          "sensitivity": 0,
+          "reason": "not inscope",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 8.071557600051165
+    },
+    {
+      "recordset_name": "default",
+      "recordset_description": "AiresPucrs/german-credit-data - 'default' subset",
+      "results": [
+        {
+          "key": "default/split",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "default/Age",
+          "sensitivity": 100,
+          "reason": "ins cope",
+          "is_categorical": false
+        },
+        {
+          "key": "default/Sex",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Job",
+          "sensitivity": 80,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Housing",
+          "sensitivity": 60,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Saving_accounts",
+          "sensitivity": 60,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Checking_account",
+          "sensitivity": 60,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Credit_amount",
+          "sensitivity": 60,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "default/Duration",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "default/Purpose",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Risk",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 312.76263709994964
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/smayanj/employee-records-dataset/croissant/download",
+  "dataset_name": "Employee Records Dataset",
+  "description": "Overview\nThis dataset contains 30,000 synthetic employee records, including key details like names, ages, departments, positions, salaries, and joining dates. It is designed for HR analytics, salary trend analysis, and machine learning applications.\n\nColumns\nEmployee_ID – Unique identifier for each employee\nEmployee_Name – Randomly generated full name\nAge – Employee's age (22 to 60 years)\nCountry – Country of employment (chosen from 10 countries)\nDepartment – Assigned department (HR, Finance, Engineering, etc.)\nPosition – Employee's job role (Manager, Developer, Analyst, etc.)\nSalary – Annual salary (randomly generated between $30,000 and $150,000)\nJoining_Date – Employee's start date (randomly selected from the past 10 years)\n\nUse Cases\nHR analytics – Analyze workforce demographics and department distributions\nSalary trend analysis – Study compensation patterns across roles and regions\nEmployee attrition prediction – Build machine learning models for retention insights\nWorkforce planning – Simulate hiring and salary forecasting scenarios\n\nThis dataset is entirely synthetic and is meant for educational, research, and analytical purposes.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "employee_records.csv",
+      "recordset_description": "main csv",
+      "results": [
+        {
+          "key": "Employee_ID",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Employee_Name",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Country",
+          "sensitivity": 90,
+          "reason": "directly shows national origin",
+          "is_categorical": true
+        },
+        {
+          "key": "Department",
+          "sensitivity": 10,
+          "reason": "could show socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Position",
+          "sensitivity": 10,
+          "reason": "could show socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Salary",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Joining_Date",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 151.22306609991938
+    }
+  ]
+}

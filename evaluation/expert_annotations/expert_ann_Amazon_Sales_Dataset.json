@@ -1,0 +1,137 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/rohiteng/amazon-sales-dataset/croissant/download",
+  "dataset_name": "Amazon Sales Dataset",
+  "description": "This dataset contains 100,000 synthetic Amazon-style e-commerce sales transactions, designed to closely resemble real-world online retail behavior. With 20 clean and well-structured columns, it captures detailed information about customers, products, pricing, payments, logistics, and order outcomes.\n\nAlthough the data is artificially generated, it reflects realistic patterns such as:\n\nDynamic product pricing\n\nVarying discounts and taxes\n\nMultiple product categories & brands\n\nSeasonal order trends\n\nPayment method diversity\n\nRealistic customer names & locations\n\nOrder statuses like Delivered, Cancelled, Shipped, Returned\n\nThis makes the dataset highly suitable for analytics, machine learning, data visualization, dashboards, and business case studies.\n\n📊 Column Overview\n\nThe dataset includes:\n\n🧾 Order Details\n\nOrderID\n\nOrderDate\n\nOrderStatus\n\nSellerID\n\n👤 Customer Information\n\nCustomerID\n\nCustomerName\n\nCity, State, Country\n\n📦 Product Information\n\nProductID\n\nProductName\n\nCategory\n\nBrand\n\nQuantity\n\n💰 Pricing & Revenue Metrics\n\nUnitPrice\n\nDiscount\n\nTax\n\nShippingCost\n\nTotalAmount\n\n💳 Payment Details\n\nPaymentMethod",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Amazon.csv",
+      "recordset_description": "This file contains 100,000 synthetic Amazon sales records generated for data analysis, sales forecasting, and machine learning practice.\nIt includes 20 well-structured columns capturing order details, customer information, product attributes, pricing, fulfillment, and delivery status.",
+      "results": [
+        {
+          "key": "OrderID",
+          "sensitivity": 0,
+          "reason": "Unique order identifier; an ID does not encode any in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "OrderDate",
+          "sensitivity": 0,
+          "reason": "Transaction date does not encode any in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "CustomerID",
+          "sensitivity": 0,
+          "reason": "Unique customer identifier; identifiers are out of scope and not sensitive by themselves.",
+          "is_categorical": true
+        },
+        {
+          "key": "CustomerName",
+          "sensitivity": 0,
+          "reason": "Customer name is a contact-only personal identifier and is explicitly out of scope.",
+          "is_categorical": true
+        },
+        {
+          "key": "ProductID",
+          "sensitivity": 0,
+          "reason": "Product identifier does not encode any sensitive personal characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "ProductName",
+          "sensitivity": 0,
+          "reason": "Product name refers to an item sold and does not encode any in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Category",
+          "sensitivity": 0,
+          "reason": "Product category describes goods sold and has no relation to sensitive personal attributes.",
+          "is_categorical": true
+        },
+        {
+          "key": "Brand",
+          "sensitivity": 0,
+          "reason": "Brand information relates to products, not individuals, and is not sensitive.",
+          "is_categorical": true
+        },
+        {
+          "key": "Quantity",
+          "sensitivity": 0,
+          "reason": "Number of units ordered is a transactional measure with no encoding of sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "UnitPrice",
+          "sensitivity": 0,
+          "reason": "Product price is a commercial attribute and does not encode sensitive personal characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Discount",
+          "sensitivity": 0,
+          "reason": "Discount amount is a pricing attribute with no relation to sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Tax",
+          "sensitivity": 0,
+          "reason": "Tax amount is a transactional value and does not encode sensitive personal attributes.",
+          "is_categorical": false
+        },
+        {
+          "key": "ShippingCost",
+          "sensitivity": 0,
+          "reason": "Shipping cost is a logistical expense and does not encode sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "TotalAmount",
+          "sensitivity": 0,
+          "reason": "Total transaction amount is a financial metric at order level and not an in-scope sensitive attribute",
+          "is_categorical": false
+        },
+        {
+          "key": "PaymentMethod",
+          "sensitivity": 10,
+          "reason": "Payment method may weakly correlate with socioeconomic status but does not directly encode it.",
+          "is_categorical": true
+        },
+        {
+          "key": "OrderStatus",
+          "sensitivity": 0,
+          "reason": "Order fulfillment status is a transaction outcome with no sensitive personal meaning.",
+          "is_categorical": true
+        },
+        {
+          "key": "City",
+          "sensitivity": 60,
+          "reason": "City-level location can act as a moderate proxy for socioeconomic status or social origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "State",
+          "sensitivity": 70,
+          "reason": "State-level location can be a strong proxy for socioeconomic or social origin differences.",
+          "is_categorical": true
+        },
+        {
+          "key": "Country",
+          "sensitivity": 100,
+          "reason": "Country directly encodes national origin, which is an explicit in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "SellerID",
+          "sensitivity": 0,
+          "reason": "Seller identifier refers to a business entity and does not encode personal sensitive characteristics.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 361.83535040000424
+    }
+  ]
+}
