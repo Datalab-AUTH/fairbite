@@ -1,0 +1,227 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/thedevastator/higher-education-predictors-of-student-retention/croissant/download",
+  "dataset_name": "Predict students' dropout and academic success",
+  "description": "_____\n# Predict students' dropout and academic success\n### Investigating the Impact of Social and Economic Factors\nBy  [[source]](https://zenodo.org/record/5777340#.Y7FJotJBwUE)\n_____\n\n### About this dataset\n&gt; This dataset provides a comprehensive view of students enrolled in various undergraduate degrees offered at a higher education institution. It includes demographic data, social-economic factors and academic performance information that can be used to analyze the possible predictors of student dropout and academic success. This dataset contains multiple disjoint databases consisting of relevant information available at the time of enrollment, such as application mode, marital status, course chosen and more. Additionally, this data can be used to estimate overall student performance at the end of each semester by assessing curricular units credited/enrolled/evaluated/approved as well as their respective grades. Finally, we have unemployment rate, inflation rate and GDP from the region which can help us further understand how economic factors play into student dropout rates or academic success outcomes. This powerful analysis tool will provide valuable insight into what motivates students to stay in school or abandon their studies for a wide range of disciplines such as agronomy, design, education nursing journalism management social service or technologies\n\n### More Datasets\n&gt; For more datasets, click [here](https://www.kaggle.com/thedevastator/datasets).\n\n### Featured Notebooks\n&gt; - 🚨 **Your notebook can be here!** 🚨! \n\n### How to use the dataset\n&gt; This dataset can be used to understand and predict student dropouts and academic outcomes. The data includes a variety of demographic, social-economic and academic performance factors related to the students enrolled in higher education institutions. The dataset provides valuable insights into the factors that affect student success and could be used to guide interventions and policies related to student retention.\n&gt; \n&gt; Using this dataset, researchers can investigate two key questions: \n&gt; - which specific predictive factors are linked with student dropout or completion? \n&gt; - how do different features interact with each other? \n&gt; For example, researchers could explore if there any demographic characteristics (e.g., gender, age at enrollment etc.) or immersion conditions (e.g., unemployment rate in region) are associated with higher student success rates, as well as understand what implications poverty has for educational outcomes.  By answering these questions, research insight is generated which can provide critical information for administrators on formulating strategies that promote successful degree completion among students from diverse backgrounds in their institutions.             \n&gt;                     \n&gt; In order to use this dataset effectively it is important that scientists familiarize themselves with all variables provided in the dataset including categorical (qualitative) variables such as gender or application mode; numerical variables such as number of curricular units at the beginning of semesters or age at enrollment; ordinal data measurement type variables such as marital status; studied trends over time such as inflation rate or GDP; frequency measurements variables like percentage of scholarship holders; etc.. Additionally scientists should make sure they aware off all potential bias included in the data prior running analysis–for example understanding if one population is underrepresented compared another -as this phenomenon could lead unexpected results if not taken into consideration while conducting research undertaken using this data set.. Finally it would be important for practitioners realize that this current Kaggle Dataset contains only one semester-worth information on each admission intake whereas additional studies conducted for a longer time period might be able provide more accurate results related selected topic area due further deterioration retention achievement coefficients obtained from those gradually accurate experiments unfolding different year-long admissions seasons\n\n### Research Ideas\n&gt; - Prediction of Student Retention: This dataset can be used to develop predictive models that can identify student risk factors for dropout and take early interventions to improve student retention rate. \n&gt; - Improved Academic Performance: By using this data, higher education institutions could better understand their students' academic progress and identify areas of improvement from both an individual and institutional perspective. This will enable them to develop targeted courses, activities, or initiatives that enhance academic performance more effectively and efficiently. \n&gt; - Accessibility Assistance: Using the demographic information included in the dataset, institutions could develop specific initiatives designed to help certain groups more easily access higher education services or resources that may not typically be available in their area or for their social-economic class, helping close existing gaps in accessibility across different student populations\n\n### Acknowledgements\n&gt; If you use this dataset in your research, please credit the original authors.\n&gt; [Data Source](https://zenodo.org/record/5777340#.Y7FJotJBwUE)\n&gt; \n&gt;\n\n\n### License\n&gt; \n&gt; \n&gt; **License: [CC0 1.0 Universal (CC0 1.0) - Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/)**\n&gt; No Copyright - You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission. [See Other Information](https://creativecommons.org/publicdomain/zero/1.0/).\n\n### Columns\n\n**File: dataset.csv**\n| Column name                                | Description                                                                                   |\n|:-------------------------------------------|:----------------------------------------------------------------------------------------------|\n| **Marital status**                         | The marital status of the student. (Categorical)                                              |\n| **Application mode**                       | The method of application used by the student. (Categorical)                                  |\n| **Application order**                      | The order in which the student applied. (Numerical)                                           |\n| **Course**                                 | The course taken by the student. (Categorical)                                                |\n| **Daytime/evening attendance**             | Whether the student attends classes during the day or in the evening. (Categorical)           |\n| **Previous qualification**                 | The qualification obtained by the student before enrolling in higher education. (Categorical) |\n| **Nacionality**                            | The nationality of the student. (Categorical)                                                 |\n| **Mother's qualification**                 | The qualification of the student's mother. (Categorical)                                      |\n| **Father's qualification**                 | The qualification of the student's father. (Categorical)                                      |\n| **Mother's occupation**                    | The occupation of the student's mother. (Categorical)                                         |\n| **Father's occupation**                    | The occupation of the student's father. (Categorical)                                         |\n| **Displaced**                              | Whether the student is a displaced person. (Categorical)                                      |\n| **Educational special needs**              | Whether the student has any special educational needs. (Categorical)                          |\n| **Debtor**                                 | Whether the student is a debtor. (Categorical)                                                |\n| **Tuition fees up to date**                | Whether the student's tuition fees are up to date. (Categorical)                              |\n| **Gender**                                 | The gender of the student. (Categorical)                                                      |\n| **Scholarship holder**                     | Whether the student is a scholarship holder. (Categorical)                                    |\n| **Age at enrollment**                      | The age of the student at the time of enrollment. (Numerical)                                 |\n| **International**                          | Whether the student is an international student. (Categorical)                                |\n| **Curricular units 1st sem (credited)**    | The number of curricular units credited by the student in the first semester. (Numerical)     |\n| **Curricular units 1st sem (enrolled)**    | The number of curricular units enrolled by the student in the first semester. (Numerical)     |\n| **Curricular units 1st sem (evaluations)** | The number of curricular units evaluated by the student in the first semester. (Numerical)    |\n| **Curricular units 1st sem (approved)**    | The number of curricular units approved by the student in the first semester. (Numerical)     |\n\n### Acknowledgements\n&gt; If you use this dataset in your research, please credit the original authors.\n&gt; If you use this dataset in your research, please credit [](https://zenodo.org/record/5777340#.Y7FJotJBwUE).\n\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "dataset.csv",
+      "recordset_description": "This dataset contains data from a higher education institution on various variables related to undergraduate students, including demographics, social-economic factors, and academic performance, to investigate the impact of these factors on student dropout and academic success\n- Marital status: The marital status of the student. (Categorical)\n- Application mode: The method of application used by the student. (Categorical)\n- Application order: The order in which the student applied. (Numerical)\n- Course: The course taken by the student. (Categorical)\n- Daytime/evening attendance: Whether the student attends classes during the day or in the evening. (Categorical)\n- Previous qualification: The qualification obtained by the student before enrolling in higher education. (Categorical)\n- Nacionality: The nationality of the student. (Categorical)\n- Mother's qualification: The qualification of the student's mother. (Categorical)\n- Father's qualification: The qualification of the student's father. (Categorical)\n- Mother's occupation: The occupation of the student's mother. (Categorical)\n- Father's occupation: The occupation of the student's father. (Categorical)\n- Displaced: Whether the student is a displaced person. (Categorical)\n- Educational special needs: Whether the student has any special educational needs. (Categorical)\n- Debtor: Whether the student is a debtor. (Categorical)\n- Tuition fees up to date: Whether the student's tuition fees are up to date. (Categorical)\n- Gender: The gender of the student. (Categorical)\n- Scholarship holder: Whether the student is a scholarship holder. (Categorical)\n- Age at enrollment: The age of the student at the time of enrollment. (Numerical)\n- International: Whether the student is an international student. (Categorical)\n- Curricular units 1st sem (credited): The number of curricular units credited by the student in the first semester. (Numerical)\n- Curricular units 1st sem (enrolled): The number of curricular units enrolled by the student in the first semester. (Numerical)\n- Curricular units 1st sem (evaluations): The number of curricular units evaluated by the student in the first semester. (Numerical)\n- Curricular units 1st sem (approved): The number of curricular units approved by the student in the first semester. (Numerical)",
+      "results": [
+        {
+          "key": "Marital status",
+          "sensitivity": 95,
+          "reason": "Directly represents 'Family & civil status'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Application mode",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Application order",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Course",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Daytime/evening attendance",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Previous qualification",
+          "sensitivity": 40,
+          "reason": "Can be a weak proxy for 'Socioeconomic status' (social origin/class).",
+          "is_categorical": true
+        },
+        {
+          "key": "Nacionality",
+          "sensitivity": 95,
+          "reason": "Directly represents 'Racial & ethnic origin' (nationality, national origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "Mother's qualification",
+          "sensitivity": 75,
+          "reason": "Strong proxy for 'Socioeconomic status' (social origin/class).",
+          "is_categorical": true
+        },
+        {
+          "key": "Father's qualification",
+          "sensitivity": 75,
+          "reason": "Strong proxy for 'Socioeconomic status' (social origin/class).",
+          "is_categorical": true
+        },
+        {
+          "key": "Mother's occupation",
+          "sensitivity": 75,
+          "reason": "Strong proxy for 'Socioeconomic status' (social origin/class).",
+          "is_categorical": true
+        },
+        {
+          "key": "Father's occupation",
+          "sensitivity": 75,
+          "reason": "Strong proxy for 'Socioeconomic status' (social origin/class).",
+          "is_categorical": true
+        },
+        {
+          "key": "Displaced",
+          "sensitivity": 95,
+          "reason": "Strongly implies a vulnerable status often linked to 'Racial & ethnic origin' or 'Socioeconomic status'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Educational special needs",
+          "sensitivity": 95,
+          "reason": "Directly represents 'Disability & health conditions'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Debtor",
+          "sensitivity": 70,
+          "reason": "Strong proxy for 'Socioeconomic status' (property/ownership type, social origin/class).",
+          "is_categorical": true
+        },
+        {
+          "key": "Tuition fees up to date",
+          "sensitivity": 70,
+          "reason": "Strong proxy for 'Socioeconomic status' (property/ownership type, social origin/class).",
+          "is_categorical": true
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 95,
+          "reason": "Directly represents 'Gender & sexual identity'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Scholarship holder",
+          "sensitivity": 95,
+          "reason": "Directly represents 'Socioeconomic status' (receipt of public assistance/benefits/welfare).",
+          "is_categorical": true
+        },
+        {
+          "key": "Age at enrollment",
+          "sensitivity": 95,
+          "reason": "Directly represents 'Age'.",
+          "is_categorical": false
+        },
+        {
+          "key": "International",
+          "sensitivity": 90,
+          "reason": "Strong proxy for 'Racial & ethnic origin' (national origin, nationality).",
+          "is_categorical": true
+        },
+        {
+          "key": "Curricular units 1st sem (credited)",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Curricular units 1st sem (enrolled)",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Curricular units 1st sem (evaluations)",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Curricular units 1st sem (approved)",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Curricular units 1st sem (grade)",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Curricular units 1st sem (without evaluations)",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Curricular units 2nd sem (credited)",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Curricular units 2nd sem (enrolled)",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Curricular units 2nd sem (evaluations)",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Curricular units 2nd sem (approved)",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Curricular units 2nd sem (grade)",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Curricular units 2nd sem (without evaluations)",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Unemployment rate",
+          "sensitivity": 20,
+          "reason": "Regional economic factor, a very weak and indirect proxy for individual 'Socioeconomic status'.",
+          "is_categorical": false
+        },
+        {
+          "key": "Inflation rate",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "GDP",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Target",
+          "sensitivity": 0,
+          "reason": "Represents an outcome (e.g., dropout/success), not an inherent sensitive characteristic of the student.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 20.99546490004286
+    }
+  ]
+}

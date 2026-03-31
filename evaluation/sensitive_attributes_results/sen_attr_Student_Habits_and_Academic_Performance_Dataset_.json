@@ -1,0 +1,203 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/aryan208/student-habits-and-academic-performance-dataset/croissant/download",
+  "dataset_name": "Student Habits and Academic Performance Dataset",
+  "description": "## 📘 Dataset Overview\n\nThis synthetic dataset simulates the academic and lifestyle behaviors of 80,000 students, including diverse features like study habits, mental health, family background, motivation, and environmental factors. The goal is to explore how different variables affect student performance in terms of GPA and exam scores.\n\n---\n\n## 🧠 Features Included\n\n- `student_id`: Unique student identifier.\n- `age`: Age of the student (16–28).\n- `gender`: Male, Female, or Other.\n- `major`: Field of study (e.g., Computer Science, Engineering, Arts).\n- `study_hours_per_day`: Average hours studied daily.\n- `social_media_hours`, `netflix_hours`, `screen_time`: Time spent on various screens.\n- `part_time_job`: Whether the student has a job (Yes/No).\n- `attendance_percentage`: Academic attendance in percentage.\n- `sleep_hours`, `exercise_frequency`, `diet_quality`: Lifestyle factors.\n- `mental_health_rating`, `stress_level`, `exam_anxiety_score`: Psychological indicators (1–10).\n- `extracurricular_participation`, `access_to_tutoring`: Support and engagement.\n- `family_income_range`, `parental_support_level`, `parental_education_level`: Background and support.\n- `motivation_level`, `time_management_score`: Self-management skills (1–10).\n- `learning_style`: Preferred method of learning.\n- `study_environment`: Common location for studying.\n- `dropout_risk`: Yes/No — derived from stress and motivation levels.\n- `previous_gpa`, `exam_score`: Target performance indicators.\n\n---\n\n## 📊 Collection Methodology\n\nThe dataset was synthetically generated using Python with realistic statistical modeling, Gaussian distributions, conditional logic, and heuristics to simulate actual student behavior and academic outcomes.\n\nKey points:\n- Realistic distributions for study hours, stress, and motivation.\n- Exam score derived from GPA + noise.\n- GPA computed based on study hours, sleep, stress, motivation, support, and tutoring.\n- Diversity in majors, income, and support levels.\n\nFor full generation logic, see the associated code [below or in GitHub].\n\n---\n\n## 📌 Usage Ideas\n\n- Regression & classification ML models\n- Exploratory data analysis\n- Education research\n- Student success prediction\n- Academic risk detection\n\n---\n\n## ⚠️ Disclaimer\n\nThis is a **synthetic dataset** intended for research and educational purposes only. It does not contain any real student data.\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "enhanced_student_habits_performance_dataset.csv",
+      "recordset_description": "This dataset contains 80,000 synthetic student records generated to simulate real-world academic performance and lifestyle behaviors of college students. It is designed to explore correlations between factors like mental health, motivation, study habits, and exam scores. The data can be used for training machine learning models for student performance prediction, dropout risk classification, and educational data mining.\n\nEach row represents a unique student with demographic, lifestyle, academic, and psychological attributes.",
+      "results": [
+        {
+          "key": "student_id",
+          "sensitivity": 0,
+          "reason": "Unique identifier, out of scope for sensitivity as per PII guidelines.",
+          "is_categorical": false
+        },
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Age' from the IN-SCOPE list.",
+          "is_categorical": false
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Gender & sexual identity' from the IN-SCOPE list.",
+          "is_categorical": true
+        },
+        {
+          "key": "major",
+          "sensitivity": 10,
+          "reason": "Not directly sensitive, but certain fields of study might weakly correlate with socioeconomic status or ethnic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "study_hours_per_day",
+          "sensitivity": 0,
+          "reason": "A behavioral metric, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "social_media_hours",
+          "sensitivity": 0,
+          "reason": "A behavioral metric, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "netflix_hours",
+          "sensitivity": 0,
+          "reason": "A behavioral metric, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "part_time_job",
+          "sensitivity": 30,
+          "reason": "Could be a weak proxy for 'Socioeconomic status', as financial need might influence the necessity of a part-time job.",
+          "is_categorical": true
+        },
+        {
+          "key": "attendance_percentage",
+          "sensitivity": 0,
+          "reason": "An academic performance metric, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "sleep_hours",
+          "sensitivity": 0,
+          "reason": "A lifestyle factor, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "diet_quality",
+          "sensitivity": 15,
+          "reason": "Could be a very weak proxy for 'Socioeconomic status', as diet quality can sometimes correlate with financial resources.",
+          "is_categorical": true
+        },
+        {
+          "key": "exercise_frequency",
+          "sensitivity": 0,
+          "reason": "A lifestyle factor, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "parental_education_level",
+          "sensitivity": 80,
+          "reason": "Strong proxy for 'Socioeconomic status' (social origin/class).",
+          "is_categorical": true
+        },
+        {
+          "key": "internet_quality",
+          "sensitivity": 40,
+          "reason": "Could be an indirect proxy for 'Socioeconomic status', as access to quality internet can be influenced by financial resources.",
+          "is_categorical": true
+        },
+        {
+          "key": "mental_health_rating",
+          "sensitivity": 90,
+          "reason": "Directly relates to 'Disability & health conditions' (mental health is a health condition).",
+          "is_categorical": false
+        },
+        {
+          "key": "extracurricular_participation",
+          "sensitivity": 0,
+          "reason": "A behavioral/engagement metric, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "previous_gpa",
+          "sensitivity": 0,
+          "reason": "An academic performance metric, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "semester",
+          "sensitivity": 10,
+          "reason": "Very weak proxy for 'Age', as higher semesters generally correlate with older age, but primarily an academic progression indicator.",
+          "is_categorical": false
+        },
+        {
+          "key": "stress_level",
+          "sensitivity": 50,
+          "reason": "Can be an indicator or precursor to 'Disability & health conditions'.",
+          "is_categorical": false
+        },
+        {
+          "key": "dropout_risk",
+          "sensitivity": 0,
+          "reason": "An academic outcome/prediction, not an IN-SCOPE sensitive characteristic itself.",
+          "is_categorical": true
+        },
+        {
+          "key": "social_activity",
+          "sensitivity": 0,
+          "reason": "A behavioral metric, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "screen_time",
+          "sensitivity": 0,
+          "reason": "A lifestyle factor, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "study_environment",
+          "sensitivity": 10,
+          "reason": "Could be a very weak, indirect proxy for 'Socioeconomic status' if certain environments are more accessible based on financial background.",
+          "is_categorical": true
+        },
+        {
+          "key": "access_to_tutoring",
+          "sensitivity": 30,
+          "reason": "Could be a weak proxy for 'Socioeconomic status', as access to additional educational support might depend on financial resources.",
+          "is_categorical": true
+        },
+        {
+          "key": "family_income_range",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Socioeconomic status'.",
+          "is_categorical": true
+        },
+        {
+          "key": "parental_support_level",
+          "sensitivity": 30,
+          "reason": "Could be a weak proxy for 'Socioeconomic status' or aspects of 'Familial status' (e.g., family structure/resources influencing support availability).",
+          "is_categorical": false
+        },
+        {
+          "key": "motivation_level",
+          "sensitivity": 0,
+          "reason": "A psychological trait/behavioral indicator, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "exam_anxiety_score",
+          "sensitivity": 90,
+          "reason": "Directly relates to 'Disability & health conditions' (anxiety is a health condition).",
+          "is_categorical": false
+        },
+        {
+          "key": "learning_style",
+          "sensitivity": 0,
+          "reason": "A cognitive preference, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "time_management_score",
+          "sensitivity": 0,
+          "reason": "A skill/behavioral indicator, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "exam_score",
+          "sensitivity": 0,
+          "reason": "An academic performance metric, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 24.497630800004117
+    }
+  ]
+}

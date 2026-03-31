@@ -1,0 +1,163 @@
+{
+  "croissant_url": "https://huggingface.co/api/datasets/ErrorER123/student-performance/croissant",
+  "dataset_name": "student-performance",
+  "description": "\n\t\n\t\t\n\t\tStudent Performance Dataset\n\t\n\n\n\t\n\t\t\n\t\tDataset Description\n\t\n\nThis dataset contains ten million synthetically generated student performance records, designed to mimic real-world educational data at the high-school level. It includes detailed demographic, socioeconomic, academic, behavioral, and school-context features for each student, suitable for benchmarking, machine learning, educational research, and exploratory data analysis.\n\n\t\n\t\t\n\t\tFile Information\n\t\n\n\n\t\n\t\t\nSplit\nFile Name… See the full description on the dataset page: https://huggingface.co/datasets/ErrorER123/student-performance.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "default_splits",
+      "recordset_description": "Splits for the default config.",
+      "results": [
+        {
+          "key": "default_splits/split_name",
+          "sensitivity": 0,
+          "reason": "This column indicates the name of a data split (e.g., train, test) and does not encode any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 3.012371600023471
+    },
+    {
+      "recordset_name": "default",
+      "recordset_description": "ErrorER123/student-performance - 'default' subset\n\nAdditional information:\n- 3 splits: train, validation, test",
+      "results": [
+        {
+          "key": "default/split",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Age",
+          "sensitivity": 100,
+          "reason": "Directly represents an IN-SCOPE characteristic: Age.",
+          "is_categorical": false
+        },
+        {
+          "key": "default/Grade",
+          "sensitivity": 30,
+          "reason": "Weakly correlates with IN-SCOPE characteristic Age/life stage, but is primarily an academic classification.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents an IN-SCOPE characteristic: Gender & sexual identity.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Race",
+          "sensitivity": 100,
+          "reason": "Directly represents an IN-SCOPE characteristic: Racial & ethnic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/SES_Quartile",
+          "sensitivity": 100,
+          "reason": "Directly represents an IN-SCOPE characteristic: Socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/ParentalEducation",
+          "sensitivity": 80,
+          "reason": "Strong proxy for IN-SCOPE characteristic Socioeconomic status (social origin/class).",
+          "is_categorical": true
+        },
+        {
+          "key": "default/SchoolType",
+          "sensitivity": 40,
+          "reason": "Weak proxy for IN-SCOPE characteristic Socioeconomic status, as private vs. public schools can correlate with income.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Locale",
+          "sensitivity": 60,
+          "reason": "Strong proxy for IN-SCOPE characteristics Racial & ethnic origin and Socioeconomic status due to potential segregation and economic disparities.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/TestScore_Math",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "default/TestScore_Reading",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "default/TestScore_Science",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "default/GPA",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "default/AttendanceRate",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "default/StudyHours",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "default/InternetAccess",
+          "sensitivity": 50,
+          "reason": "Moderate proxy for IN-SCOPE characteristic Socioeconomic status, as access can be tied to income.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Extracurricular",
+          "sensitivity": 10,
+          "reason": "Minor, context-dependent concern as participation might weakly correlate with Socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/PartTimeJob",
+          "sensitivity": 50,
+          "reason": "Moderate proxy for IN-SCOPE characteristic Socioeconomic status, as working students may come from lower-income backgrounds.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/ParentSupport",
+          "sensitivity": 30,
+          "reason": "Weak proxy for IN-SCOPE characteristics Family & civil status or Socioeconomic status, reflecting family structure or resources.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Romantic",
+          "sensitivity": 60,
+          "reason": "Strong proxy for IN-SCOPE characteristic Family & civil status, as it describes a relationship status.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/FreeTime",
+          "sensitivity": 10,
+          "reason": "Minor, context-dependent concern as free time might weakly correlate with Socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "default/GoOut",
+          "sensitivity": 10,
+          "reason": "Minor, context-dependent concern as social activities might weakly correlate with Socioeconomic status.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 16.287134600046556
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/ictinstitute/utrecht-fairness-recruitment-dataset/croissant/download",
+  "dataset_name": "Utrecht Fairness Recruitment dataset",
+  "description": "This dataset is a purely synthetic dataset created to help educators and researchers understand fairness definitions. It is a convenient way to illustrate differences between different definitions, such as fairness through unawareness, group fairness, statistical parity, predictive parity equalised odds or treatment equality. \nThe dataset contains multiple sensitive features: age, gender and lives-near-by. These can be combined to define many different sensitive groups. \nThe dataset contains the decisions of five example decisions methods that can be evaluated. When using this dataset, you do not need to train your own methods. Instead you can focus on evaluation the existing models. \n\nThis dataset is described and analysed in the following paper. Please cite this paper when using this dataset:\n\n*Burda, P and Van Otterloo, S. 2024. *\n**Fairness definitions explained and illustrated with examples.** \nComputers and Society Research Journal, 2025 (2). [https://doi.org/10.54822/PASR6281 ]\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "2025-fairness-recruitment-dataset.csv",
+      "recordset_description": "This is the main file of this dataset, containing all data.",
+      "results": [
+        {
+          "key": "mainid(hidden)",
+          "sensitivity": 0,
+          "reason": "An identifier, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "mod15(hidden)",
+          "sensitivity": 0,
+          "reason": "A derived identifier, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "div15(hidden)",
+          "sensitivity": 0,
+          "reason": "A derived identifier, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Age(feature, sensitive))",
+          "sensitivity": 100,
+          "reason": "Directly represents an IN-SCOPE sensitive characteristic: Age.",
+          "is_categorical": false
+        },
+        {
+          "key": "Speed(hidden)",
+          "sensitivity": 0,
+          "reason": "Represents a performance metric, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender(feature,sensitive)",
+          "sensitivity": 100,
+          "reason": "Directly represents an IN-SCOPE sensitive characteristic: Gender & sexual identity.",
+          "is_categorical": true
+        },
+        {
+          "key": "Strength(hidden)",
+          "sensitivity": 0,
+          "reason": "Represents a physical attribute, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Speedtest(hidden)",
+          "sensitivity": 0,
+          "reason": "Implied to be a performance test result, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Lifttest(hidden)",
+          "sensitivity": 0,
+          "reason": "Implied to be a performance test result, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "testresult(feature)",
+          "sensitivity": 0,
+          "reason": "Represents a generic test result, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "livesnear(feature)",
+          "sensitivity": 70,
+          "reason": "Explicitly mentioned as a sensitive feature in the dataset description; can be a strong proxy for Socioeconomic status or Racial & ethnic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "Suitability(target)",
+          "sensitivity": 0,
+          "reason": "Represents a job suitability assessment, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Value-when-hired(hidden)",
+          "sensitivity": 0,
+          "reason": "Represents a financial metric for the company, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Candidate-loss-when-nothired(hidden)",
+          "sensitivity": 0,
+          "reason": "Represents a candidate's appreciation metric, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Should-hire(target)",
+          "sensitivity": 0,
+          "reason": "Represents a binary hiring decision outcome, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Shouldnothire",
+          "sensitivity": 0,
+          "reason": "Represents a binary hiring decision outcome, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "hired-by-expert",
+          "sensitivity": 0,
+          "reason": "Represents a hiring decision outcome, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "A1(testresult)",
+          "sensitivity": 0,
+          "reason": "Represents an algorithmic hiring decision, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "A2(testresult,30under)",
+          "sensitivity": 0,
+          "reason": "Represents an algorithmic hiring decision, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "A3(Age,Gender, test)",
+          "sensitivity": 0,
+          "reason": "Represents an algorithmic hiring decision, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "A4(postive-dicr)",
+          "sensitivity": 0,
+          "reason": "Represents an algorithmic hiring decision, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 18.708326499909163
+    },
+    {
+      "recordset_name": "recruitmentdataset-2022-1.3.csv",
+      "recordset_description": "This is the main file, containing 4000 data points (1000 per company)",
+      "results": [
+        {
+          "key": "Id",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "Directly represents Gender & sexual identity.",
+          "is_categorical": true
+        },
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "Directly represents Age.",
+          "is_categorical": false
+        },
+        {
+          "key": "nationality",
+          "sensitivity": 100,
+          "reason": "Directly represents Racial & ethnic origin (nationality).",
+          "is_categorical": true
+        },
+        {
+          "key": "sport",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "ind-university_grade",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "ind-debateclub",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "ind-programming_exp",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "ind-international_exp",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "ind-entrepeneur_exp",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "ind-languages",
+          "sensitivity": 60,
+          "reason": "Strong proxy for Racial & ethnic origin (language/national origin).",
+          "is_categorical": false
+        },
+        {
+          "key": "ind-exact_study",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "ind-degree",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "company",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "decision",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 12.089537400053814
+    }
+  ]
+}

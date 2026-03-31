@@ -1,0 +1,65 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/sadiajavedd/students-academic-performance-dataset/croissant/download",
+  "dataset_name": "Students_Academic_Performance_Dataset",
+  "description": "### Dataset Description\n\nThe **Students Performance** dataset contains detailed information on 1,000 students. It focuses on their demographic background, parental education level, and performance in three standardized test subjects: math, reading, and writing. This dataset is widely used for exploring the relationships between socioeconomic factors and academic achievement, as well as for building prediction models to understand what influences student performance.\n\nThere are 8 columns in total, covering both categorical and numerical variables. The categorical features include gender, race/ethnicity, parental level of education, lunch type, and whether the student completed a test preparation course. The numerical features include scores in math, reading, and writing — each ranging from 0 to 100.\n\nThe dataset has no missing values, making it clean and ready for analysis. It consists of 1,000 rows and 8 columns in total.\n\nThe average math score is about 66, the average reading score is around 69, and the average writing score is approximately 68. Overall, students tend to perform slightly better in reading and writing than in math. Scores vary widely across the population, with some students achieving perfect scores and others scoring very low.\n\nAmong the categorical variables, the gender distribution is almost balanced, with 518 females and 482 males. The largest racial or ethnic group represented is Group C, followed by Groups B and D. Most students’ parents have completed “some college” as their highest level of education. The majority of students receive a standard lunch, and most did not complete a test preparation course.\n\nBecause of its rich mix of demographic and performance data, this dataset is excellent for data visualization, statistical analysis, and predictive modeling projects. It is often used to analyze how factors such as gender, parental education, or lunch type may correlate with academic outcomes.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "StudentsPerformance.csv",
+      "recordset_description": "The file records students’ gender, ethnicity, parental education, lunch type, test preparation status, and exam scores across three subjects. It provides a rich basis for educational data analysis and predictive modeling.",
+      "results": [
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "Directly represents gender, an IN-SCOPE sensitive characteristic under 'Gender & sexual identity'.",
+          "is_categorical": true
+        },
+        {
+          "key": "race/ethnicity",
+          "sensitivity": 100,
+          "reason": "Directly represents race/ethnicity, an IN-SCOPE sensitive characteristic under 'Racial & ethnic origin'.",
+          "is_categorical": true
+        },
+        {
+          "key": "parental level of education",
+          "sensitivity": 80,
+          "reason": "Strong proxy for socioeconomic status or social origin/class, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "lunch",
+          "sensitivity": 80,
+          "reason": "Strong proxy for socioeconomic status, often indicating receipt of public assistance/benefits, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "test preparation course",
+          "sensitivity": 20,
+          "reason": "Weak, indirect proxy for socioeconomic status (access to resources), but not a direct sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "math score",
+          "sensitivity": 0,
+          "reason": "Represents academic performance, which is not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "reading score",
+          "sensitivity": 0,
+          "reason": "Represents academic performance, which is not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "writing score",
+          "sensitivity": 0,
+          "reason": "Represents academic performance, which is not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 9.7687547999667
+    }
+  ]
+}

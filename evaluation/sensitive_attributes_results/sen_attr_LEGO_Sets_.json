@@ -1,0 +1,121 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/akoirala111/lego-sets/croissant/download",
+  "dataset_name": "LEGO Sets",
+  "description": "No dataset description found.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "lego_sets.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "set_id",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic. It is an identifier, which is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "name",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic. It is a product name.",
+          "is_categorical": true
+        },
+        {
+          "key": "year",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic. It is a product release year, not personal age.",
+          "is_categorical": false
+        },
+        {
+          "key": "theme",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic. It describes a product attribute.",
+          "is_categorical": true
+        },
+        {
+          "key": "subtheme",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic. It describes a product attribute.",
+          "is_categorical": true
+        },
+        {
+          "key": "themeGroup",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic. It describes a product attribute.",
+          "is_categorical": true
+        },
+        {
+          "key": "category",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic. It describes a product attribute.",
+          "is_categorical": true
+        },
+        {
+          "key": "pieces",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic. It is a quantitative product attribute.",
+          "is_categorical": false
+        },
+        {
+          "key": "minifigs",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic. It is a quantitative product attribute.",
+          "is_categorical": false
+        },
+        {
+          "key": "agerange_min",
+          "sensitivity": 95,
+          "reason": "Directly encodes 'Age' from the IN-SCOPE list, as it specifies a minimum recommended age for the product.",
+          "is_categorical": true
+        },
+        {
+          "key": "US_retailPrice",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic. It is a monetary product attribute.",
+          "is_categorical": false
+        },
+        {
+          "key": "bricksetURL",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic. It is a URL, which is OUT OF SCOPE.",
+          "is_categorical": true
+        },
+        {
+          "key": "thumbnailURL",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic. It is a URL, which is OUT OF SCOPE.",
+          "is_categorical": true
+        },
+        {
+          "key": "imageURL",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic. It is a URL, which is OUT OF SCOPE.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 10.666521100094542
+    },
+    {
+      "recordset_name": "lego_sets_data_dictionary.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Field",
+          "sensitivity": 0,
+          "reason": "Represents a technical field name, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Description",
+          "sensitivity": 0,
+          "reason": "Provides explanatory text for a field, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 3.330974700045772
+    }
+  ]
+}

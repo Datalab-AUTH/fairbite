@@ -1,0 +1,89 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/nadeemajeedch/employee-performance-and-salary-dataset/croissant/download",
+  "dataset_name": "Employee Performance and Salary Dataset",
+  "description": "Employee Performance and Salary Dataset has following columns.\n\n**ID:** Unique identifier (e.g., 1, 2, 3).\n**Name:** Textual data (e.g., names of individuals or products).\n**Age:** Numerical data (e.g., 18–65).\n**Gender:** Categorical data (e.g., Male, Female, Other).\n**Department:** Categorical data (e.g., Sales, HR, IT).\n**Salary:**Numerical data (e.g., 2000–10000).\n**Joining Date:** Date (e.g., 2020-01-15).\n**Performance Score:** Numerical data with missing values (e.g., 1–5 with some NaN).\n**Experience:** Numerical data with some repeated values (e.g., 2, 3, 5).\n**Status:** Text data (e.g., Active, Inactive).\n**Location:** Categorical (e.g., New York, Los Angeles, Chicago).\n**Session:** Categorical with repeating values (e.g., Morning, Evening, Night).\n\n***A file containing 50 tasks to practice on this dataset is already added in pdf format.***",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Employe_Performance_dataset.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "ID",
+          "sensitivity": 0,
+          "reason": "Unique identifier, explicitly out of scope for sensitivity.",
+          "is_categorical": false
+        },
+        {
+          "key": "Name",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information (PII), but explicitly out of scope for sensitivity.",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents an IN-SCOPE sensitive characteristic: Age.",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents an IN-SCOPE sensitive characteristic: Gender & sexual identity.",
+          "is_categorical": true
+        },
+        {
+          "key": "Department",
+          "sensitivity": 0,
+          "reason": "Represents an organizational unit, not an IN-SCOPE sensitive characteristic or a strong proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Salary",
+          "sensitivity": 90,
+          "reason": "Strong indicator of IN-SCOPE sensitive characteristic: Socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "Joining Date",
+          "sensitivity": 30,
+          "reason": "Could indirectly correlate with IN-SCOPE sensitive characteristic: Age/life stage, but not a direct representation.",
+          "is_categorical": false
+        },
+        {
+          "key": "Performance Score",
+          "sensitivity": 0,
+          "reason": "Represents job performance, not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Experience",
+          "sensitivity": 60,
+          "reason": "Strong proxy for IN-SCOPE sensitive characteristic: Age/life stage.",
+          "is_categorical": false
+        },
+        {
+          "key": "Status",
+          "sensitivity": 10,
+          "reason": "Could weakly correlate with IN-SCOPE sensitive characteristics like Disability & health conditions or Socioeconomic status, but not a strong proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Location",
+          "sensitivity": 70,
+          "reason": "Strong proxy for IN-SCOPE sensitive characteristics: Racial & ethnic origin and Socioeconomic status, as specific locations can correlate with these.",
+          "is_categorical": true
+        },
+        {
+          "key": "Session",
+          "sensitivity": 20,
+          "reason": "Weakly and indirectly correlates with IN-SCOPE sensitive characteristics like Family & civil status or Disability & health conditions, but not a direct or strong proxy.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 13.27834840000287
+    }
+  ]
+}

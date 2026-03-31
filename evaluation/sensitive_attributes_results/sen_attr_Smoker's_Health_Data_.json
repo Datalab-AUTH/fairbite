@@ -1,0 +1,59 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/jaceprater/smokers-health-data/croissant/download",
+  "dataset_name": "Smoker's Health Data",
+  "description": "Data filtered from a Hypertension Risk Dataset by Md Raihan Kahn. I was more interested in looking for health effects of smokers versus non-smokers here, but in the end I was the most surprised by the age groups of the heaviest smokers that were polled.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "smoking_health_data_final.csv",
+      "recordset_description": "Table of a few metrics of smokers cleaned and transformed in Excel and SQL from an existing hypertension risk dataset.",
+      "results": [
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Age' from the IN-SCOPE list.",
+          "is_categorical": false
+        },
+        {
+          "key": "sex",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Sex' from the IN-SCOPE list (Gender & sexual identity).",
+          "is_categorical": true
+        },
+        {
+          "key": "current_smoker",
+          "sensitivity": 0,
+          "reason": "Not explicitly listed in the IN-SCOPE categories (e.g., not a disability, impairment, or genetic feature).",
+          "is_categorical": true
+        },
+        {
+          "key": "heart_rate",
+          "sensitivity": 0,
+          "reason": "Not explicitly listed in the IN-SCOPE categories (e.g., not a disability, impairment, or genetic feature).",
+          "is_categorical": false
+        },
+        {
+          "key": "blood_pressure",
+          "sensitivity": 0,
+          "reason": "Not explicitly listed in the IN-SCOPE categories (e.g., not a disability, impairment, or genetic feature).",
+          "is_categorical": false
+        },
+        {
+          "key": "cigs_per_day",
+          "sensitivity": 0,
+          "reason": "Not explicitly listed in the IN-SCOPE categories (e.g., not a disability, impairment, or genetic feature).",
+          "is_categorical": false
+        },
+        {
+          "key": "chol",
+          "sensitivity": 0,
+          "reason": "Not explicitly listed in the IN-SCOPE categories (e.g., not a disability, impairment, or genetic feature).",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 12.716385799925774
+    }
+  ]
+}

@@ -1,0 +1,672 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/jockeroika/life-style-data/croissant/download",
+  "dataset_name": "Life Style Data",
+  "description": "| **Column Name**                 | **Description**                                                        |\n| ------------------------------- | ---------------------------------------------------------------------- |\n| `Age`                           | Age of the participant (in years).                                     |\n| `Gender`                        | Biological gender (Male/Female).                                       |\n| `Weight (kg)`                   | Weight of the individual in kilograms.                                 |\n| `Height (m)`                    | Height of the individual in meters.                                    |\n| `Max_BPM`                       | Maximum heart rate recorded during a workout session.                  |\n| `Avg_BPM`                       | Average heart rate maintained during the session.                      |\n| `Resting_BPM`                   | Resting heart rate before starting the workout.                        |\n| `Session_Duration (hours)`      | Duration of the workout session in hours.                              |\n| `Calories_Burned`               | Total calories burned during the session.                              |\n| `Workout_Type`                  | Type of workout performed (e.g., Strength, HIIT, Cardio).              |\n| `Fat_Percentage`                | Body fat percentage of the individual.                                 |\n| `Water_Intake (liters)`         | Average daily water consumption in liters.                             |\n| `Workout_Frequency (days/week)` | Number of workout days per week.                                       |\n| `Experience_Level`              | Fitness experience level (1=Beginner, 2=Intermediate, 3=Advanced).     |\n| `BMI`                           | Body Mass Index, a measure of body fat based on height and weight.     |\n| `Daily meals frequency`         | Number of meals consumed daily.                                        |\n| `Physical exercise`             | Indicates the type or frequency of physical activity.                  |\n| `Carbs`                         | Daily carbohydrate intake (grams).                                     |\n| `Proteins`                      | Daily protein intake (grams).                                          |\n| `Fats`                          | Daily fat intake (grams).                                              |\n| `Calories`                      | Total daily calorie intake from food.                                  |\n| `meal_name`                     | Name of the meal (e.g., Breakfast, Lunch, Dinner).                     |\n| `meal_type`                     | Type of meal (e.g., Snack, Main, Beverage).                            |\n| `diet_type`                     | Type of diet followed (e.g., Keto, Vegan, Balanced).                   |\n| `sugar_g`                       | Sugar content in grams per meal.                                       |\n| `sodium_mg`                     | Sodium content in milligrams per meal.                                 |\n| `cholesterol_mg`                | Cholesterol content in milligrams per meal.                            |\n| `serving_size_g`                | Portion size of the meal in grams.                                     |\n| `cooking_method`                | Cooking method used (e.g., Boiled, Fried, Grilled).                    |\n| `prep_time_min`                 | Preparation time in minutes.                                           |\n| `cook_time_min`                 | Cooking time in minutes.                                               |\n| `rating`                        | Meal or workout rating (typically 1–5 scale).                          |\n| `is_healthy`                    | Boolean indicator (True/False) of whether the meal/workout is healthy. |\n| `Name of Exercise`              | Name of the exercise performed.                                        |\n| `Sets`                          | Number of sets completed in the exercise.                              |\n| `Reps`                          | Number of repetitions per set.                                         |\n| `Benefit`                       | Description of the exercise’s physical benefit.                        |\n| `Burns Calories (per 30 min)`   | Estimated calories burned in 30 minutes of that exercise.              |\n| `Target Muscle Group`           | Main muscle group targeted by the exercise.                            |\n| `Equipment Needed`              | Equipment required to perform the exercise.                            |\n| `Difficulty Level`              | Exercise difficulty level (Beginner, Intermediate, Advanced).          |\n| `Body Part`                     | Primary body part involved (e.g., Arms, Legs, Chest).                  |\n| `Type of Muscle`                | Type of muscle engaged (e.g., Upper, Core, Grip Strength).             |\n| `Workout`                       | Specific workout or exercise name.                                     |\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Final_data.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Age",
+          "sensitivity": 90,
+          "reason": "Directly represents age, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 90,
+          "reason": "Directly represents gender, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Weight (kg)",
+          "sensitivity": 20,
+          "reason": "Can be a weak proxy for health conditions, which are IN-SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "Height (m)",
+          "sensitivity": 10,
+          "reason": "Generally not sensitive, but can be a very weak proxy for genetic features or health conditions.",
+          "is_categorical": false
+        },
+        {
+          "key": "Max_BPM",
+          "sensitivity": 70,
+          "reason": "Strong proxy for health conditions (cardiovascular health), which are IN-SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "Avg_BPM",
+          "sensitivity": 70,
+          "reason": "Strong proxy for health conditions (cardiovascular health), which are IN-SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "Resting_BPM",
+          "sensitivity": 70,
+          "reason": "Strong proxy for health conditions (cardiovascular health), which are IN-SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "Session_Duration (hours)",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Calories_Burned",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Workout_Type",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "Fat_Percentage",
+          "sensitivity": 70,
+          "reason": "Strong proxy for health conditions (e.g., obesity, metabolic disorders), which are IN-SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "Water_Intake (liters)",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Workout_Frequency (days/week)",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Experience_Level",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "BMI",
+          "sensitivity": 70,
+          "reason": "Strong proxy for health conditions (e.g., underweight, overweight, obesity), which are IN-SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "Daily meals frequency",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Physical exercise",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "Carbs",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Proteins",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Fats",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Calories",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "meal_name",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "meal_type",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "diet_type",
+          "sensitivity": 70,
+          "reason": "Can be a strong proxy for religious beliefs or broader ideological/worldview (e.g., Veganism), which are IN-SCOPE.",
+          "is_categorical": true
+        },
+        {
+          "key": "sugar_g",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "sodium_mg",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "cholesterol_mg",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "serving_size_g",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "cooking_method",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "prep_time_min",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "cook_time_min",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "rating",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "Name of Exercise",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "Sets",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Reps",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Benefit",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "Burns Calories (per 30 min)",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Target Muscle Group",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "Equipment Needed",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "Difficulty Level",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "Body Part",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "Type of Muscle",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "Workout",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "BMI_calc",
+          "sensitivity": 70,
+          "reason": "Strong proxy for health conditions (e.g., underweight, overweight, obesity), which are IN-SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "cal_from_macros",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "pct_carbs",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "protein_per_kg",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "pct_HRR",
+          "sensitivity": 70,
+          "reason": "Strong proxy for health conditions (cardiovascular health), which are IN-SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "pct_maxHR",
+          "sensitivity": 70,
+          "reason": "Strong proxy for health conditions (cardiovascular health), which are IN-SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "cal_balance",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "lean_mass_kg",
+          "sensitivity": 70,
+          "reason": "Strong proxy for health conditions (body composition), which are IN-SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "expected_burn",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Burns Calories (per 30 min)_bc",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Burns_Calories_Bin",
+          "sensitivity": 0,
+          "reason": "Model did not provide a score for this column."
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 67.9220059000072
+    },
+    {
+      "recordset_name": "meal_metadata.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents age, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents gender, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Weight (kg)",
+          "sensitivity": 30,
+          "reason": "Can be a weak proxy for health conditions, which are IN-SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "Height (m)",
+          "sensitivity": 30,
+          "reason": "Can be a weak proxy for health conditions, which are IN-SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "Max_BPM",
+          "sensitivity": 10,
+          "reason": "Minor, context-dependent concern as it can be weakly indicative of health conditions.",
+          "is_categorical": false
+        },
+        {
+          "key": "Avg_BPM",
+          "sensitivity": 10,
+          "reason": "Minor, context-dependent concern as it can be weakly indicative of health conditions.",
+          "is_categorical": false
+        },
+        {
+          "key": "Resting_BPM",
+          "sensitivity": 10,
+          "reason": "Minor, context-dependent concern as it can be weakly indicative of health conditions.",
+          "is_categorical": false
+        },
+        {
+          "key": "Session_Duration (hours)",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Calories_Burned",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Workout_Type",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Fat_Percentage",
+          "sensitivity": 30,
+          "reason": "Can be a weak proxy for health conditions, which are IN-SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "Water_Intake (liters)",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Workout_Frequency (days/week)",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Experience_Level",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "BMI",
+          "sensitivity": 30,
+          "reason": "Can be a weak proxy for health conditions, which are IN-SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "Daily meals frequency",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Physical exercise",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Carbs",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Proteins",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Fats",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Calories",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "meal_name",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "meal_type",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "diet_type",
+          "sensitivity": 60,
+          "reason": "Strong proxy for broader ideological/worldview or health conditions, both IN-SCOPE.",
+          "is_categorical": true
+        },
+        {
+          "key": "sugar_g",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "sodium_mg",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "cholesterol_mg",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "serving_size_g",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "cooking_method",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "prep_time_min",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "cook_time_min",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "rating",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Name of Exercise",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Sets",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Reps",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Benefit",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Burns Calories (per 30 min)",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Target Muscle Group",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Equipment Needed",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Difficulty Level",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Body Part",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Type of Muscle",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Workout",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "BMI_calc",
+          "sensitivity": 30,
+          "reason": "Can be a weak proxy for health conditions, which are IN-SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "cal_from_macros",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "pct_carbs",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "protein_per_kg",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "pct_HRR",
+          "sensitivity": 10,
+          "reason": "Minor, context-dependent concern as it can be weakly indicative of health conditions.",
+          "is_categorical": false
+        },
+        {
+          "key": "pct_maxHR",
+          "sensitivity": 10,
+          "reason": "Minor, context-dependent concern as it can be weakly indicative of health conditions.",
+          "is_categorical": false
+        },
+        {
+          "key": "cal_balance",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "lean_mass_kg",
+          "sensitivity": 30,
+          "reason": "Can be a weak proxy for health conditions, which are IN-SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "expected_burn",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Burns Calories (per 30 min)_bc",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Burns_Calories_Bin",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 49.76264559995616
+    }
+  ]
+}

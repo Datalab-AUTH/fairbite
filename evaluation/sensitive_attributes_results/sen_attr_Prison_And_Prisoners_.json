@@ -1,0 +1,95 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/kindasomethin/prison-and-prisoners/croissant/download",
+  "dataset_name": "Prison And Prisoners",
+  "description": "**Global Prison Trends: Rehabilitation & Demographics**\n**About this Dataset:**  This dataset tracks global prison populations from 2000 to 2023, sourced from the **UNODC**. It focuses on the intake (\"flow\") and current population (\"stock\") of prisoners to help analyze penal systems and rehabilitation needs.\n\n**Key Indicators**\nCapacity: Overcrowding metrics and counts of unsentenced prisoners (a key indicator for judicial backlogs).\nDemographics: Detailed breakdowns by Age (Juvenile vs. Adult) and Sex.\nCrime Categories: Intake data categorized by crime type (e.g., Homicide, Drug offenses, Bribery).\n\n**Potential Use Cases**\nAnalyzing overcrowding trends vs. rehabilitation capacity.\nComparing juvenile justice statistics across regions.\nStudying gender disparities in incarceration rates.\n\n**Source** :United Nations Office on Drugs and Crime (UNODC).",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "data_cts_prisons_and_prisoners.csv",
+      "recordset_description": "Cleaned country-level data (2000-2023) covering prison population \"stock\" and \"flow\", broken down by age, sex, and crime category.",
+      "results": [
+        {
+          "key": "Iso3_code",
+          "sensitivity": 90,
+          "reason": "Strong proxy for 'national origin' and 'nationality' from the Racial & ethnic origin category.",
+          "is_categorical": true
+        },
+        {
+          "key": "Country",
+          "sensitivity": 90,
+          "reason": "Directly represents 'national origin' and 'nationality' from the Racial & ethnic origin category.",
+          "is_categorical": true
+        },
+        {
+          "key": "Region",
+          "sensitivity": 70,
+          "reason": "Strong proxy for 'national origin' and 'ethnic origin' from the Racial & ethnic origin category.",
+          "is_categorical": true
+        },
+        {
+          "key": "Subregion",
+          "sensitivity": 80,
+          "reason": "Strong proxy for 'national origin' and 'ethnic origin' from the Racial & ethnic origin category.",
+          "is_categorical": true
+        },
+        {
+          "key": "Indicator",
+          "sensitivity": 0,
+          "reason": "Describes the type of metric, not a sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Dimension",
+          "sensitivity": 10,
+          "reason": "Metadata describing how data is broken down; indirectly points to sensitive categories like 'age' and 'sex' but is not a characteristic itself.",
+          "is_categorical": true
+        },
+        {
+          "key": "Category",
+          "sensitivity": 90,
+          "reason": "Contains 'Juveniles', which directly encodes 'Age' from the Age category.",
+          "is_categorical": true
+        },
+        {
+          "key": "Sex",
+          "sensitivity": 100,
+          "reason": "Directly represents 'sex' from the Gender & sexual identity category.",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents 'age' from the Age category.",
+          "is_categorical": true
+        },
+        {
+          "key": "Year",
+          "sensitivity": 0,
+          "reason": "A temporal attribute, not a sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Unit of measurement",
+          "sensitivity": 0,
+          "reason": "Describes the unit of the value, not a sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "VALUE",
+          "sensitivity": 0,
+          "reason": "The numerical value itself is not a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Source",
+          "sensitivity": 0,
+          "reason": "Describes the data source, not a sensitive characteristic.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 11.290012100012973
+    }
+  ]
+}

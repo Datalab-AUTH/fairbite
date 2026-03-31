@@ -1,0 +1,137 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/rohiteng/amazon-sales-dataset/croissant/download",
+  "dataset_name": "Amazon Sales Dataset",
+  "description": "This dataset contains 100,000 synthetic Amazon-style e-commerce sales transactions, designed to closely resemble real-world online retail behavior. With 20 clean and well-structured columns, it captures detailed information about customers, products, pricing, payments, logistics, and order outcomes.\n\nAlthough the data is artificially generated, it reflects realistic patterns such as:\n\nDynamic product pricing\n\nVarying discounts and taxes\n\nMultiple product categories & brands\n\nSeasonal order trends\n\nPayment method diversity\n\nRealistic customer names & locations\n\nOrder statuses like Delivered, Cancelled, Shipped, Returned\n\nThis makes the dataset highly suitable for analytics, machine learning, data visualization, dashboards, and business case studies.\n\n📊 Column Overview\n\nThe dataset includes:\n\n🧾 Order Details\n\nOrderID\n\nOrderDate\n\nOrderStatus\n\nSellerID\n\n👤 Customer Information\n\nCustomerID\n\nCustomerName\n\nCity, State, Country\n\n📦 Product Information\n\nProductID\n\nProductName\n\nCategory\n\nBrand\n\nQuantity\n\n💰 Pricing & Revenue Metrics\n\nUnitPrice\n\nDiscount\n\nTax\n\nShippingCost\n\nTotalAmount\n\n💳 Payment Details\n\nPaymentMethod",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Amazon.csv",
+      "recordset_description": "This file contains 100,000 synthetic Amazon sales records generated for data analysis, sales forecasting, and machine learning practice.\nIt includes 20 well-structured columns capturing order details, customer information, product attributes, pricing, fulfillment, and delivery status.",
+      "results": [
+        {
+          "key": "OrderID",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; it is an identifier.",
+          "is_categorical": true
+        },
+        {
+          "key": "OrderDate",
+          "sensitivity": 30,
+          "reason": "Can be a weak proxy for 'Age' (life stage/generation) if analyzed over long periods, but not directly sensitive.",
+          "is_categorical": false
+        },
+        {
+          "key": "CustomerID",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; it is an identifier.",
+          "is_categorical": true
+        },
+        {
+          "key": "CustomerName",
+          "sensitivity": 1,
+          "reason": "Primarily PII (out of scope), but names can very weakly imply 'Racial & ethnic origin' or 'Gender'.",
+          "is_categorical": true
+        },
+        {
+          "key": "ProductID",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "ProductName",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Category",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Brand",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Quantity",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "UnitPrice",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Discount",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Tax",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "ShippingCost",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "TotalAmount",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "PaymentMethod",
+          "sensitivity": 10,
+          "reason": "Can be a weak, indirect proxy for 'Socioeconomic status' (e.g., access to credit, financial inclusion).",
+          "is_categorical": true
+        },
+        {
+          "key": "OrderStatus",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "City",
+          "sensitivity": 60,
+          "reason": "Strong proxy for 'Racial & ethnic origin' or 'Socioeconomic status' due to demographic patterns and residential segregation.",
+          "is_categorical": true
+        },
+        {
+          "key": "State",
+          "sensitivity": 60,
+          "reason": "Strong proxy for 'Racial & ethnic origin' or 'Socioeconomic status' due to demographic patterns and residential segregation.",
+          "is_categorical": true
+        },
+        {
+          "key": "Country",
+          "sensitivity": 90,
+          "reason": "Directly relates to 'Racial & ethnic origin' (national origin, nationality).",
+          "is_categorical": true
+        },
+        {
+          "key": "SellerID",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; it is an identifier.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 10.821716600010404
+    }
+  ]
+}

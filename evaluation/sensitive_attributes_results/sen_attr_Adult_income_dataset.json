@@ -1,0 +1,107 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/wenruliu/adult-income-dataset/croissant/download",
+  "dataset_name": "Adult income dataset",
+  "description": "An individual’s annual income results from various factors. Intuitively, it is influenced by the individual’s education level, age, gender, occupation, and etc. \n\nThis is a widely cited KNN dataset. I encountered it during my course, and I wish to share it here because it is a good starter example for data pre-processing and machine learning practices. \n\n**Fields**\nThe dataset contains 16 columns\nTarget filed: Income\n-- The income is divide into two classes: <=50K and >50K  \nNumber of attributes: 14\n-- These are the demographics and other features to describe a person\n\nWe can explore the possibility in predicting income level based on the individual’s personal information.\n\n**Acknowledgements**\nThis dataset named “adult” is found in the UCI machine learning repository\n[http://www.cs.toronto.edu/~delve/data/adult/desc.html][1]\n\nThe detailed description on the dataset can be found in the original UCI documentation\n[http://www.cs.toronto.edu/~delve/data/adult/adultDetail.html][2]\n\n  [1]: http://www.cs.toronto.edu/~delve/data/adult/desc.html\n  [2]: http://www.cs.toronto.edu/~delve/data/adult/adultDetail.html",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "adult.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "age",
+          "sensitivity": 95,
+          "reason": "Directly represents 'Age' from the IN-SCOPE list.",
+          "is_categorical": false
+        },
+        {
+          "key": "workclass",
+          "sensitivity": 40,
+          "reason": "Indirect proxy for socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "fnlwgt",
+          "sensitivity": 0,
+          "reason": "Statistical weight, not a personal characteristic or sensitive attribute.",
+          "is_categorical": false
+        },
+        {
+          "key": "education",
+          "sensitivity": 75,
+          "reason": "Strong proxy for socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "educational-num",
+          "sensitivity": 75,
+          "reason": "Numerical encoding of education level, a strong proxy for socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "marital-status",
+          "sensitivity": 95,
+          "reason": "Directly represents 'Marital status' from the IN-SCOPE list (Family & civil status).",
+          "is_categorical": true
+        },
+        {
+          "key": "occupation",
+          "sensitivity": 75,
+          "reason": "Strong proxy for socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "relationship",
+          "sensitivity": 95,
+          "reason": "Directly represents 'Familial status' from the IN-SCOPE list (Family & civil status).",
+          "is_categorical": true
+        },
+        {
+          "key": "race",
+          "sensitivity": 95,
+          "reason": "Directly represents 'Race' from the IN-SCOPE list (Racial & ethnic origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "gender",
+          "sensitivity": 95,
+          "reason": "Directly represents 'Gender' from the IN-SCOPE list (Gender & sexual identity).",
+          "is_categorical": true
+        },
+        {
+          "key": "capital-gain",
+          "sensitivity": 70,
+          "reason": "Strong proxy for socioeconomic status, related to property/ownership type.",
+          "is_categorical": false
+        },
+        {
+          "key": "capital-loss",
+          "sensitivity": 70,
+          "reason": "Strong proxy for socioeconomic status, related to property/ownership type.",
+          "is_categorical": false
+        },
+        {
+          "key": "hours-per-week",
+          "sensitivity": 40,
+          "reason": "Weak/indirect proxy for socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "native-country",
+          "sensitivity": 95,
+          "reason": "Directly represents 'National origin'/'Nationality' from the IN-SCOPE list (Racial & ethnic origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "income",
+          "sensitivity": 95,
+          "reason": "Directly represents 'Socioeconomic status' (economic class).",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 15.904576600063592
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/nextmillionaire/programming-languages-trend-over-time/croissant/download",
+  "dataset_name": "Programming Languages Trend Over Time",
+  "description": "This dataset titled \"Programming Languages Search over Time\" provides weekly search interest scores for three prominent programming languages - Python, Java, and C++ - over a period spanning from April 21, 2019, to April 23, 2024. The search interest scores represent the relative popularity of each programming language as determined by search engine queries.\n\nThis dataset can be used to analyze and visualize trends and patterns in the popularity of these programming languages over time, providing valuable insights into their usage and adoption in the software development community.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "programming language trend over time.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Week",
+          "sensitivity": 0,
+          "reason": "A general time unit for data points, not encoding an individual's age or date of birth.",
+          "is_categorical": false
+        },
+        {
+          "key": "Python",
+          "sensitivity": 0,
+          "reason": "Represents search interest for a programming language, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Java",
+          "sensitivity": 0,
+          "reason": "Represents search interest for a programming language, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "C++",
+          "sensitivity": 0,
+          "reason": "Represents search interest for a programming language, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 5.193980799987912
+    }
+  ]
+}

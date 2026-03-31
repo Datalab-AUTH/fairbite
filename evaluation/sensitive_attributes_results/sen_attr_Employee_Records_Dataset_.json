@@ -1,0 +1,65 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/smayanj/employee-records-dataset/croissant/download",
+  "dataset_name": "Employee Records Dataset",
+  "description": "Overview\nThis dataset contains 30,000 synthetic employee records, including key details like names, ages, departments, positions, salaries, and joining dates. It is designed for HR analytics, salary trend analysis, and machine learning applications.\n\nColumns\nEmployee_ID – Unique identifier for each employee\nEmployee_Name – Randomly generated full name\nAge – Employee's age (22 to 60 years)\nCountry – Country of employment (chosen from 10 countries)\nDepartment – Assigned department (HR, Finance, Engineering, etc.)\nPosition – Employee's job role (Manager, Developer, Analyst, etc.)\nSalary – Annual salary (randomly generated between $30,000 and $150,000)\nJoining_Date – Employee's start date (randomly selected from the past 10 years)\n\nUse Cases\nHR analytics – Analyze workforce demographics and department distributions\nSalary trend analysis – Study compensation patterns across roles and regions\nEmployee attrition prediction – Build machine learning models for retention insights\nWorkforce planning – Simulate hiring and salary forecasting scenarios\n\nThis dataset is entirely synthetic and is meant for educational, research, and analytical purposes.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "employee_records.csv",
+      "recordset_description": "main csv",
+      "results": [
+        {
+          "key": "Employee_ID",
+          "sensitivity": 0,
+          "reason": "Unique identifier, out of scope for sensitivity.",
+          "is_categorical": false
+        },
+        {
+          "key": "Employee_Name",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information, out of scope for sensitivity.",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Age', which is an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Country",
+          "sensitivity": 95,
+          "reason": "Strong proxy for 'National origin' and 'Nationality', which are IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "Department",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Position",
+          "sensitivity": 10,
+          "reason": "Not a direct IN-SCOPE characteristic; very weak, indirect correlation with socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "Salary",
+          "sensitivity": 70,
+          "reason": "Strong proxy for 'Socioeconomic status' (current economic standing), which is an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Joining_Date",
+          "sensitivity": 10,
+          "reason": "Not an IN-SCOPE sensitive characteristic; very weak, indirect correlation with age if used to infer tenure.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 9.67519620002713
+    }
+  ]
+}

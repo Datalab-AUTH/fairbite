@@ -1,0 +1,53 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/kundanbedmutha/healthcare-symptomsdisease-classification-dataset/croissant/download",
+  "dataset_name": "Healthcare Symptoms–Disease Classification Dataset",
+  "description": "This dataset contains 25,000 synthetic healthcare records designed for machine learning models that classify diseases based on patient symptoms. It includes demographic attributes, symptom lists, and confirmed diagnoses across 30 common acute, chronic, infectious, and neurological diseases.\n\nThe dataset is well-suited for:\n\nMulti-class disease classification\nSymptom pattern analysis\nMedical decision support modeling\nNLP feature extraction on symptom text\nData mining and biomedical research\n\nEach record corresponds to a unique patient with a generated combination of symptoms and diagnosis created from realistic patterns while maintaining anonymity.\n\nThis dataset is purely synthetic, meaning no real patient data is used.\n\n📌 Column Descriptions\n\nPatient_ID — A randomized unique identifier assigned to each synthetic patient.\nAge — Age of the patient (ranging from 1 to 90 years).\nGender — Gender of the patient (Male, Female, or Other).\nSymptoms — A comma-separated list containing 3 to 7 symptoms.\nSymptom_Count — Total number of symptoms listed for the patient.\nDisease — The diagnosed condition; one of the 30 diseases included in the dataset.\n\n🦠 List of Diseases Included\n\nCommon Cold, Influenza, COVID-19, Pneumonia, Tuberculosis, Diabetes, Hypertension, Asthma, Heart Disease, Chronic Kidney Disease, Gastritis, Food Poisoning, Irritable Bowel Syndrome (IBS), Liver Disease, Ulcer, Migraine, Epilepsy, Stroke, Dementia, Parkinson’s Disease, Allergy, Arthritis, Anemia, Thyroid Disorder, Obesity, Depression, Anxiety, Dermatitis, Sinusitis, Bronchitis.\n\n🎯 Possible Use Cases\n\nMulti-class disease prediction\nSymptom pattern analysis\nClinical decision support prototypes\nNLP-based text classification\nEducational and academic projects\n\n🔐 License\n\nThis dataset is released under CC0 Public Domain, meaning it is free to use, modify, and share without restrictions.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Healthcare.csv",
+      "recordset_description": "File Name:\nHealthcare.csv\n\nFile Format:\nComma-Separated Values (CSV)\n\nFile Size:\nVaries depending on Kaggle processing (approx. a few MB)\n\nNumber of Rows:\n25,000 records\n\nNumber of Columns:\n6 columns\n\nColumn Details:\n\nPatient_ID – Unique randomized identifier assigned to each synthetic patient.\nAge – Patient’s age ranging from 1 to 90 years.\nGender – Gender of the patient (Male, Female, or Other).\nSymptoms – A comma-separated list of 3 to 7 symptoms describing the patient’s condition.\nSymptom_Count – Number of symptoms listed for the patient.\nDisease – The diagnosed medical condition, selected from 30 possible diseases.\n\nFile Overview:\n\nThis file contains synthetic healthcare data designed for multi-class disease prediction tasks. Each row represents a patient with a set of symptoms and a confirmed diagnosis. No real patient information is used in this dataset. All values are artificially generated to resemble realistic medical patterns.",
+      "results": [
+        {
+          "key": "Patient_ID",
+          "sensitivity": 0,
+          "reason": "Not sensitive; it's a unique identifier and explicitly out of scope.",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Age', which is an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Gender', which is an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Symptoms",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes medical conditions, not a protected attribute like disability or genetic features.",
+          "is_categorical": false
+        },
+        {
+          "key": "Symptom_Count",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; it's a numerical count related to health, not a protected attribute.",
+          "is_categorical": false
+        },
+        {
+          "key": "Disease",
+          "sensitivity": 90,
+          "reason": "Represents diagnosed medical conditions, many of which are significant health conditions or impairments, aligning with 'Disability & health conditions'.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 14.710436699911952
+    }
+  ]
+}

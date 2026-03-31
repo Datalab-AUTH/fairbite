@@ -1,0 +1,107 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/saarib2405/human-resource-dataset/croissant/download",
+  "dataset_name": "Human Resource Dataset",
+  "description": "This is a synthetic Human Resources (HR) dataset designed for analytics, reporting, and machine learning projects. It contains detailed information on employees, making it ideal for tasks such as:\n\n• Exploratory Data Analysis (EDA): Analyze demographics, salary distributions, and performance across different departments and locations.\n\n• HR Analytics: Calculate turnover rates, employee tenure, and identify potential areas for improvement.\n\n• Predictive Modeling: Build models to predict employee turnover (termdate column) or analyze the factors influencing high salaries and performance ratings.\n\n**Key Data Details**\n\n• Size: 8,950 records and 15 columns.\n\n### Column Dictionary\n\n| Column Name | Description | Data Type Notes |\n| :--- | :--- | :--- |\n| `employee_id` | Unique identifier for each employee. | |\n| `first_name` | Employee's first name. | |\n| `last_name` | Employee's last name. | |\n| `gender` | Employee's gender. | |\n| `state` | The state where the employee is located. | |\n| `city` | The city where the employee is located. | |\n| `hiredate` | The date the employee was hired. | Dates are currently stored as strings. |\n| `department` | The department the employee belongs to. | |\n| `job_title` | The specific job title of the employee. | |\n| `education_level` | The highest level of education attained. | |\n| `salary` | The employee's annual salary. | Integer values. |\n| `performance_rating` | Categorical rating of the employee's performance (e.g., 'Excellent', 'Good'). | |\n| `overtime` | Binary indicator for whether the employee is on an overtime schedule. | |\n| `birthdate` | The employee's date of birth. | Dates are currently stored as strings. |\n| `termdate` | The date the employee was terminated. **Note:** Null values in this column indicate that the employee is currently active. | Dates are currently stored as strings. |\n\n• Scope: The data covers employee demographics, geographical location, job details, compensation, and performance metrics.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "HumanResources-Dataset.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "employee_id",
+          "sensitivity": 0,
+          "reason": "Unique identifier, not an IN-SCOPE sensitive characteristic; falls under OUT OF SCOPE (PII).",
+          "is_categorical": false
+        },
+        {
+          "key": "first_name",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information (PII), not an IN-SCOPE sensitive characteristic; falls under OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "last_name",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information (PII), not an IN-SCOPE sensitive characteristic; falls under OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Gender & sexual identity'.",
+          "is_categorical": true
+        },
+        {
+          "key": "state",
+          "sensitivity": 60,
+          "reason": "Strong proxy for 'Racial & ethnic origin' and 'Socioeconomic status' due to demographic concentrations.",
+          "is_categorical": true
+        },
+        {
+          "key": "city",
+          "sensitivity": 60,
+          "reason": "Strong proxy for 'Racial & ethnic origin' and 'Socioeconomic status' due to demographic concentrations.",
+          "is_categorical": true
+        },
+        {
+          "key": "hiredate",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a meaningful proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "department",
+          "sensitivity": 1,
+          "reason": "Very weak, indirect proxy; certain departments might correlate with sensitive groups but it's not an IN-SCOPE characteristic itself.",
+          "is_categorical": true
+        },
+        {
+          "key": "job_title",
+          "sensitivity": 1,
+          "reason": "Very weak, indirect proxy; certain job titles might correlate with sensitive groups but it's not an IN-SCOPE characteristic itself.",
+          "is_categorical": true
+        },
+        {
+          "key": "education_level",
+          "sensitivity": 50,
+          "reason": "Indirect proxy for 'Socioeconomic status' (social origin/class).",
+          "is_categorical": true
+        },
+        {
+          "key": "salary",
+          "sensitivity": 50,
+          "reason": "Direct indicator of 'Socioeconomic status'.",
+          "is_categorical": false
+        },
+        {
+          "key": "performance_rating",
+          "sensitivity": 1,
+          "reason": "Not an IN-SCOPE sensitive characteristic; the rating itself is not sensitive, though bias in ratings can exist.",
+          "is_categorical": true
+        },
+        {
+          "key": "overtime",
+          "sensitivity": 1,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a meaningful proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "birthdate",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Age' (date of birth).",
+          "is_categorical": false
+        },
+        {
+          "key": "termdate",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a meaningful proxy.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 11.438193099980708
+    }
+  ]
+}

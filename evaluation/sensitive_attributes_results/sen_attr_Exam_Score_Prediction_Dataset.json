@@ -1,0 +1,95 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/kundanbedmutha/exam-score-prediction-dataset/croissant/download",
+  "dataset_name": "Exam Score Prediction Dataset",
+  "description": "This dataset provides an extensive and realistic representation of various factors that contribute to student exam performance. It contains 20,000 records, each describing a student’s academic behavior, study habits, lifestyle routines, and exam conditions. These variables collectively help understand how different aspects of a student’s daily life and learning environment influence their exam outcomes.\n\nThe dataset includes details such as daily study hours, class attendance percentage, sleep duration and quality, internet availability, study method, institutional facility rating, and exam difficulty level. These factors reflect a broad spectrum of influences commonly observed in educational settings. The exam score (0–100) is derived using a weighted formula that mimics real-life academic performance patterns.\n\nFor example:\n\nHigher study hours and consistent attendance often correlate with stronger performance.\nBetter sleep quality and balanced rest contribute positively.\nCoaching and mixed study methods typically help students achieve higher marks.\nLimited internet access or poor institutional facilities may create a disadvantage.\nHarder exam papers reduce achievable scores, while easier ones increase performance.\n\nThe dataset is fully synthetic yet designed to mirror logical and realistic student behavior. It contains no personally identifiable information and is suitable for educational research, statistical exploration, behavior analysis, institution-level studies, and general data-driven insights.\n\nWhether used for visualizing score distributions, comparing study habits, evaluating lifestyle effects, or simply exploring student performance patterns, this dataset provides a well-structured and diverse foundation for understanding exam outcomes.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Exam_Score_Prediction.csv",
+      "recordset_description": "This file contains 20,000 student records, each representing a combination of academic behavior, lifestyle factors, learning resources, and exam conditions that influence a student's final exam score. The dataset is structured to be easy to read and understand, without requiring any technical background.\n\nEach row includes:\n\nA unique student ID\n\nBasic demographic information such as age, gender, and course of study\n\nDetails about the student’s study habits, including daily study hours and class attendance\n\nLifestyle-related information such as sleep duration and sleep quality\n\nAccess to resources like internet availability\n\nAcademic environment indicators such as facility rating\n\nThe difficulty level of the exam attempted\n\nThe final exam score, ranging from 0 to 100\n\nThe dataset is clean, consistent, and contains no missing values. All values fall within realistic ranges, and the dataset is ready to be explored, analyzed, or visualized. It is designed for general educational research, academic insights, comparison of study habits, or performance-related analysis.",
+      "results": [
+        {
+          "key": "student_id",
+          "sensitivity": 0,
+          "reason": "Unique identifier, explicitly out of scope as PII.",
+          "is_categorical": false
+        },
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Age', which is an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Gender identity', which is an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "course",
+          "sensitivity": 0,
+          "reason": "Represents an academic program, not an IN-SCOPE sensitive characteristic or a strong proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "study_hours",
+          "sensitivity": 0,
+          "reason": "Represents a behavioral metric (study duration), not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "class_attendance",
+          "sensitivity": 0,
+          "reason": "Represents a behavioral metric (attendance percentage), not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "internet_access",
+          "sensitivity": 40,
+          "reason": "Can be a weak proxy for 'Socioeconomic status' due to potential correlation with access to resources.",
+          "is_categorical": true
+        },
+        {
+          "key": "sleep_hours",
+          "sensitivity": 0,
+          "reason": "Represents a lifestyle metric (sleep duration), not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "sleep_quality",
+          "sensitivity": 0,
+          "reason": "Represents a general lifestyle quality metric, not an IN-SCOPE sensitive characteristic or a strong proxy for 'Disability & health conditions'.",
+          "is_categorical": true
+        },
+        {
+          "key": "study_method",
+          "sensitivity": 0,
+          "reason": "Represents a behavioral preference (study technique), not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "facility_rating",
+          "sensitivity": 40,
+          "reason": "Can be a weak proxy for 'Socioeconomic status' as it may reflect the resources available to students based on their institution.",
+          "is_categorical": true
+        },
+        {
+          "key": "exam_difficulty",
+          "sensitivity": 0,
+          "reason": "Represents a characteristic of the exam, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "exam_score",
+          "sensitivity": 0,
+          "reason": "Represents an academic performance outcome, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 16.16141850000713
+    }
+  ]
+}

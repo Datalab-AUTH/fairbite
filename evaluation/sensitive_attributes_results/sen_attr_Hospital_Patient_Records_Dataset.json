@@ -1,0 +1,77 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/blueblushed/hospital-dataset-for-practice/croissant/download",
+  "dataset_name": "Hospital Patient Records Dataset",
+  "description": "This dataset contains records of 1000 patients treated at a hospital, including demographic information, medical conditions, treatments administered, medical expenses incurred, and current health status. Explore various patterns, trends, and insights in patient care, recovery rates, and treatment efficacy using this rich dataset.\nIdeal for exploratory data analysis, predictive modeling, and healthcare research.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "hospital data analysis.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Patient_ID",
+          "sensitivity": 0,
+          "reason": "Unique identifier, explicitly out of scope for sensitivity.",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents age, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents gender, an IN-SCOPE sensitive characteristic under 'Gender & sexual identity'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Condition",
+          "sensitivity": 100,
+          "reason": "Directly represents health conditions, an IN-SCOPE sensitive characteristic under 'Disability & health conditions'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Procedure",
+          "sensitivity": 80,
+          "reason": "Strongly indicates a patient's health status and medical needs, a strong proxy for 'health conditions'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Cost",
+          "sensitivity": 40,
+          "reason": "Can indirectly correlate with 'health conditions' and 'socioeconomic status', which are IN-SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "Length_of_Stay",
+          "sensitivity": 70,
+          "reason": "Strongly indicates the severity of a patient's 'health condition' or treatment complexity, a strong proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Readmission",
+          "sensitivity": 90,
+          "reason": "Directly indicates ongoing or recurring 'health issues', a strong proxy for 'health conditions'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Outcome",
+          "sensitivity": 100,
+          "reason": "Directly reflects the patient's 'health status' and 'condition', an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Satisfaction",
+          "sensitivity": 10,
+          "reason": "Primarily reflects perception of service quality, not a direct sensitive characteristic or strong proxy for IN-SCOPE categories.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 11.455459400021937
+    }
+  ]
+}
