@@ -1,11 +1,8 @@
 # FairBite
 
-<div style="display:flex;align-items:center;gap:24px;">
-<blockquote style="flex:1;margin:0;">
+![FairBite Logo](fairbite-frontend/src/icons/FairBiteIcon-circle.svg)
+
 > FairBite is a dataset-level representation bias auditing tool for dataset owners, data scientists, and ML teams. It identifies sensitive attributes, evaluates subgroup coverage, and helps find representation gaps before model training.
-</blockquote>
-<img src="fairbite-frontend/src/icons/FairBiteIcon-circle.svg" alt="FairBite Logo" style="width:120px;height:auto;border-radius:50%;background:#ffffff;padding:8px;" />
-</div>
 
 ## Overview
 
