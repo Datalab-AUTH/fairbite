@@ -3,6 +3,7 @@ fairbite-backend/.venv/
 fairbite-backend/__pycache__/
 **/__pycache__/
 *.pyc
+.env
 
 # Frontend (React)
 fairbite-frontend/node_modules/

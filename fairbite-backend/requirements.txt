@@ -6,3 +6,4 @@ matplotlib
 mlcroissant
 google-genai
 python-multipart
+python-dotenv

@@ -5,6 +5,10 @@ from typing import Dict, Any, Optional
 from uuid import uuid4
 import threading
 import time
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from app.service import process_dataset_only, run_rep_audit_only
 
