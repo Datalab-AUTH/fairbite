@@ -1,5 +1,7 @@
 # FairBite
 
+[![Build Status](https://img.shields.io/travis/your-org/fairbite.svg?style=flat-square)](https://travis-ci.org/your-org/fairbite) [![npm](https://img.shields.io/npm/v/fairbite.svg?style=flat-square)](https://www.npmjs.com/package/fairbite) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
+
 ![FairBite Logo](fairbite-frontend/src/icons/FairBiteIcon.svg)
 
 > FairBite is a dataset-level representation bias auditing tool for dataset owners, data scientists, and ML teams. It identifies sensitive attributes, evaluates subgroup coverage, and helps find representation gaps before model training.
