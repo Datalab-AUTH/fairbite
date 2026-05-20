@@ -10,7 +10,7 @@ This repository is a monorepo containing:
 
 - `fairbite-frontend/` — React web application for dataset review and audit workflows.
 - `fairbite-backend/` — FastAPI backend for dataset ingestion, sensitive characteristic analysis, and representation audit orchestration.
-- `evaluation/` — dataset metadata, expert annotations, and sensitive attribute evaluation artifacts.
+- `evaluation/` — expert annotations, sensitive attribute evaluation artifacts, and evaluation results.
 
 FairBite uses Google Geminis's model `gemini-2.5-flash` to identify and score sensitive dataset columns during the backend data-processing pipeline.
 
