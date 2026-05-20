@@ -1,6 +1,6 @@
 ,pred_cat1,pred_cat2,pred_cat3,pred_cat4,pred_cat5
-true_cat1,524,56,23,11,3
-true_cat2,44,18,14,3,1
-true_cat3,20,10,33,21,1
-true_cat4,18,2,20,66,27
-true_cat5,5,0,2,14,225
+true_cat1,924,102,38,20,8
+true_cat2,49,40,28,10,6
+true_cat3,21,13,48,36,1
+true_cat4,18,2,26,115,37
+true_cat5,6,0,2,18,364
