@@ -1,0 +1,53 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/rkiattisak/salaly-prediction-for-beginer/croissant/download",
+  "dataset_name": "Salary Prediction dataset",
+  "description": "This dataset contains information about the salaries of employees at a company. Each row represents a different employee, and the columns include information such as age, gender, education level, job title, years of experience, and salary.\n\nColumns:\n\n**Age:**  This column represents the age of each employee in years. The values in this column are numeric.\n\n**Gender:** This column contains the gender of each employee, which can be either male or female. The values in this column are categorical.\n\n**Education Level:** This column contains the educational level of each employee, which can be high school, bachelor's degree, master's degree, or PhD. The values in this column are categorical.\n\n**Job Title:** This column contains the job title of each employee. The job titles can vary depending on the company and may include positions such as manager, analyst, engineer, or administrator. The values in this column are categorical.\n\n**Years of Experience:** This column represents the number of years of work experience of each employee. The values in this column are numeric.\n\n**Salary:** This column represents the annual salary of each employee in US dollars. The values in this column are numeric and can vary depending on factors such as job title, years of experience, and education level.\n\n** The purpose of creating this dataset is solely for educational use, and any commercial use is strictly prohibited\nand this dataset was large language models generated and not collected from actual data sources.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Salary Data.csv",
+      "recordset_description": "This dataset contains information about the salaries of employees at a company",
+      "results": [
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Education Level",
+          "sensitivity": 50,
+          "reason": "proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Job Title",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Years of Experience",
+          "sensitivity": 60,
+          "reason": "strong proxy for socioeconomic status and age",
+          "is_categorical": false
+        },
+        {
+          "key": "Salary",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 132.45810850011185
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/burakksz/credit-score/croissant/download",
+  "dataset_name": "Credit Score",
+  "description": "Credit scoring aims to determine the creditworthiness of individuals based on their credit profiles. By analyzing factors such as payment history, credit utilization ratio, and number of credit accounts, we can assign a credit score to each individual, providing a quantitative measure of their creditworthiness.\n\nThe given dataset includes features such as age, gender, marital status, education level, employment status, credit utilization ratio, payment history, number of credit accounts, loan amount, interest rate, loan term, type of loan, and income level.\n\nYour task is to calculate credit scores and segment customers based on their credit scores to gain insights into different customer groups.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "credit_scoring.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Marital Status",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Education Level",
+          "sensitivity": 80,
+          "reason": "strong proxy for Socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Employment Status",
+          "sensitivity": 60,
+          "reason": "strong proxy for Socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Credit Utilization Ratio",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Payment History",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Number of Credit Accounts",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Loan Amount",
+          "sensitivity": 10,
+          "reason": "could correlate to Socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "Interest Rate",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Loan Term",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Type of Loan",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 162.12727100006305
+    }
+  ]
+}

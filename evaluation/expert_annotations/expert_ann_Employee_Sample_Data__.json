@@ -1,0 +1,101 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/leenhussein/employee-sample-data/croissant/download",
+  "dataset_name": "Employee Sample Data",
+  "description": "# **Overview:** 📃\nThis dataset provides anonymized sample employee records commonly found in HR information systems. It includes details such as employee ID, name, job title, department, business unit, gender, ethnicity, age, hire date, and annual salary. It is ideal for educational projects, algorithm demonstrations (such as B-tree implementation), HR analytics exploration, salary-related analysis examples, and more.\n\n# **Columns:**\n\n- EEID: Unique Employee Identifier\n- Full Name: Sample employee names\n- Job Title: Employee's role (e.g., Director, Sr. Manager)\n- Department: Department affiliation (e.g., IT, Engineering)\n- Business Unit: Business subdivision (e.g., Manufacturing, Specialty Products)\n- Gender: Employee gender (Female or Male)\n- Ethnicity: Employee ethnicity (Asian, Caucasian, Other)\n- Age: Age of the employee\n- Hire Date: Date the employee was hired\n- Annual Salary: Annual salary in numeric format",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Employee Sample Data.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "EEID",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Full Name",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Job Title",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Department",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Business Unit",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Ethnicity",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Hire Date",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Annual Salary",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Bonus %",
+          "sensitivity": 90,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Country",
+          "sensitivity": 100,
+          "reason": "ins scope",
+          "is_categorical": true
+        },
+        {
+          "key": "City",
+          "sensitivity": 60,
+          "reason": "strong proxy for ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "Exit Date",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 229.2369373999536
+    }
+  ]
+}

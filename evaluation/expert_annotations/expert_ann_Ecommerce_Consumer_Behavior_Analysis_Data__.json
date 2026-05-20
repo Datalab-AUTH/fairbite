@@ -1,0 +1,185 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/salahuddinahmedshuvo/ecommerce-consumer-behavior-analysis-data/croissant/download",
+  "dataset_name": "Ecommerce Consumer Behavior Analysis Data",
+  "description": "This dataset provides a comprehensive collection of consumer behavior data that can be used for various market research and statistical analyses. It includes information on purchasing patterns, demographics, product preferences, customer satisfaction, and more, making it ideal for market segmentation, predictive modeling, and understanding customer decision-making processes.\n\nThe dataset is designed to help researchers, data scientists, and marketers gain insights into consumer purchasing behavior across a wide range of categories. By analyzing this dataset, users can identify key trends, segment customers, and make data-driven decisions to improve product offerings, marketing strategies, and customer engagement.\n\nKey Features:\nCustomer Demographics: Understand age, income, gender, and education level for better segmentation and targeted marketing.\nPurchase Behavior: Includes purchase amount, frequency, category, and channel preferences to assess spending patterns.\nCustomer Loyalty: Features like brand loyalty, engagement with ads, and loyalty program membership provide insights into long-term customer retention.\nProduct Feedback: Customer ratings and satisfaction levels allow for analysis of product quality and customer sentiment.\nDecision-Making: Time spent on product research, time to decision, and purchase intent reflect how customers make purchasing decisions.\nInfluences on Purchase: Factors such as social media influence, discount sensitivity, and return rates are included to analyze how external factors affect purchasing behavior.\n\nColumns Overview:\nCustomer_ID: Unique identifier for each customer.\nAge: Customer's age (integer).\nGender: Customer's gender (categorical: Male, Female, Non-binary, Other).\nIncome_Level: Customer's income level (categorical: Low, Middle, High).\nMarital_Status: Customer's marital status (categorical: Single, Married, Divorced, Widowed).\nEducation_Level: Highest level of education completed (categorical: High School, Bachelor's, Master's, Doctorate).\nOccupation: Customer's occupation (categorical: Various job titles).\nLocation: Customer's location (city, region, or country).\nPurchase_Category: Category of purchased products (e.g., Electronics, Clothing, Groceries).\nPurchase_Amount: Amount spent during the purchase (decimal).\nFrequency_of_Purchase: Number of purchases made per month (integer).\nPurchase_Channel: The purchase method (categorical: Online, In-Store, Mixed).\nBrand_Loyalty: Loyalty to brands (1-5 scale).\nProduct_Rating: Rating given by the customer to a purchased product (1-5 scale).\nTime_Spent_on_Product_Research: Time spent researching a product (integer, hours or minutes).\nSocial_Media_Influence: Influence of social media on purchasing decision (categorical: High, Medium, Low, None).\nDiscount_Sensitivity: Sensitivity to discounts (categorical: Very Sensitive, Somewhat Sensitive, Not Sensitive).\nReturn_Rate: Percentage of products returned (decimal).\nCustomer_Satisfaction: Overall satisfaction with the purchase (1-10 scale).\nEngagement_with_Ads: Engagement level with advertisements (categorical: High, Medium, Low, None).\nDevice_Used_for_Shopping: Device used for shopping (categorical: Smartphone, Desktop, Tablet).\nPayment_Method: Method of payment used for the purchase (categorical: Credit Card, Debit Card, PayPal, Cash, Other).\nTime_of_Purchase: Timestamp of when the purchase was made (date/time).\nDiscount_Used: Whether the customer used a discount (Boolean: True/False).\nCustomer_Loyalty_Program_Member: Whether the customer is part of a loyalty program (Boolean: True/False).\nPurchase_Intent: The intent behind the purchase (categorical: Impulsive, Planned, Need-based, Wants-based).\nShipping_Preference: Shipping preference (categorical: Standard, Express, No Preference).\nPayment_Frequency: Frequency of payment (categorical: One-time, Subscription, Installments).\nTime_to_Decision: Time taken from consideration to actual purchase (in days).\n\nUse Cases:\nMarket Segmentation: Segment customers based on demographics, preferences, and behavior.\nPredictive Analytics: Use data to predict customer spending habits, loyalty, and product preferences.\nCustomer Profiling: Build detailed profiles of different consumer segments based on purchase behavior, social media influence, and decision-making patterns.\nRetail and E-commerce Insights: Analyze purchase channels, payment methods, and shipping preferences to optimize marketing and sales strategies.\n\nTarget Audience:\nData scientists and analysts looking for consumer behavior data.\nMarketers interested in improving customer segmentation and targeting.\nResearchers are exploring factors influencing consumer decisions and preferences.\nCompanies aiming to improve customer experience and increase sales through data-driven decisions.\n\nThis dataset is available in CSV format for easy integration into data analysis tools and platforms such as Python, R, and Excel.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Ecommerce_Consumer_Behavior_Analysis_Data.csv",
+      "recordset_description": "This dataset provides a comprehensive collection of consumer behavior data that can be used for various market research and statistical analyses. It includes information on purchasing patterns, demographics, product preferences, customer satisfaction, and more, making it ideal for market segmentation, predictive modeling, and understanding customer decision-making processes.\n\nThe dataset is designed to help researchers, data scientists, and marketers gain insights into consumer purchasing behavior across a wide range of categories. By analyzing this dataset, users can identify key trends, segment customers, and make data-driven decisions to improve product offerings, marketing strategies, and customer engagement.\n\nColumns Overview:\nCustomer_ID: Unique identifier for each customer.\nAge: Customer's age (integer).\nGender: Customer's gender (categorical: Male, Female, Non-binary, Other).\nIncome_Level: Customer's income level (categorical: Low, Middle, High).\nMarital_Status: Customer's marital status (categorical: Single, Married, Divorced, Widowed).\nEducation_Level: Highest level of education completed (categorical: High School, Bachelor's, Master's, Doctorate).\nOccupation: Customer's occupation (categorical: Various job titles).\nLocation: Customer's location (city, region, or country).\nPurchase_Category: Category of purchased products (e.g., Electronics, Clothing, Groceries).\nPurchase_Amount: Amount spent during the purchase (decimal).\nFrequency_of_Purchase: Number of purchases made per month (integer).\nPurchase_Channel: The purchase method (categorical: Online, In-Store, Mixed).\nBrand_Loyalty: Loyalty to brands (1-5 scale).\nProduct_Rating: Rating given by the customer to a purchased product (1-5 scale).\nTime_Spent_on_Product_Research: Time spent researching a product (integer, hours or minutes).\nSocial_Media_Influence: Influence of social media on purchasing decision (categorical: High, Medium, Low, None).\nDiscount_Sensitivity: Sensitivity to discounts (categorical: Very Sensitive, Somewhat Sensitive, Not Sensitive).\nReturn_Rate: Percentage of products returned (decimal).\nCustomer_Satisfaction: Overall satisfaction with the purchase (1-10 scale).\nEngagement_with_Ads: Engagement level with advertisements (categorical: High, Medium, Low, None).\nDevice_Used_for_Shopping: Device used for shopping (categorical: Smartphone, Desktop, Tablet).\nPayment_Method: Method of payment used for the purchase (categorical: Credit Card, Debit Card, PayPal, Cash, Other).\nTime_of_Purchase: Timestamp of when the purchase was made (date/time).\nDiscount_Used: Whether the customer used a discount (Boolean: True/False).\nCustomer_Loyalty_Program_Member: Whether the customer is part of a loyalty program (Boolean: True/False).\nPurchase_Intent: The intent behind the purchase (categorical: Impulsive, Planned, Need-based, Wants-based).\nShipping_Preference: Shipping preference (categorical: Standard, Express, No Preference).\nPayment_Frequency: Frequency of payment (categorical: One-time, Subscription, Installments).\nTime_to_Decision: Time taken from consideration to actual purchase (in days).\n",
+      "results": [
+        {
+          "key": "Customer_ID",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Income_Level",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Marital_Status",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Education_Level",
+          "sensitivity": 60,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Occupation",
+          "sensitivity": 60,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Location",
+          "sensitivity": 50,
+          "reason": "weak proxy for ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "Purchase_Category",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Purchase_Amount",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Frequency_of_Purchase",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Purchase_Channel",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Brand_Loyalty",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Product_Rating",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Time_Spent_on_Product_Research(hours)",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Social_Media_Influence",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Discount_Sensitivity",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Return_Rate",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Customer_Satisfaction",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Engagement_with_Ads",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Device_Used_for_Shopping",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Payment_Method",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Time_of_Purchase",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Discount_Used",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Customer_Loyalty_Program_Member",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Purchase_Intent",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Shipping_Preference",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Time_to_Decision",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 393.6024055997841
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/s3programmer/disease-diagnosis-dataset/croissant/download",
+  "dataset_name": "Disease Diagnosis Dataset",
+  "description": "Description:\nThis dataset contains simulated medical records for 2000 patients, each described by demographic information, symptoms, sensor readings, diagnosis, severity, and a suggested treatment plan. It can be used for developing machine learning models or rule-based systems for disease prediction and healthcare analytics.\n\nKey Features:\nPatient Information: Age and gender of the patient.\nSymptoms: Three common symptoms per patient, randomly selected from a predefined list.\nSensor Data:\nHeart Rate (bpm): Heart rate values in beats per minute.\nBody Temperature (Celsius): Body temperature readings.\nBlood Pressure (mmHg): Systolic and diastolic blood pressure values.\nOxygen Saturation (%): Oxygen saturation levels in the blood.\nDiagnosis: A rule-based diagnosis generated from symptoms and sensor data, including conditions like Pneumonia, Flu, Bronchitis, Cold, and Healthy.\nSeverity: Classification of the condition's severity into Mild, Moderate, and Severe.\nTreatment Plan: Suggested treatment based on the severity of the diagnosis (e.g., rest, medication, or hospitalization).",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "disease_diagnosis.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Patient_ID",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Symptom_1",
+          "sensitivity": 60,
+          "reason": "strong proxy for health condition",
+          "is_categorical": true
+        },
+        {
+          "key": "Symptom_2",
+          "sensitivity": 60,
+          "reason": "strong proxy for health condition",
+          "is_categorical": true
+        },
+        {
+          "key": "Symptom_3",
+          "sensitivity": 60,
+          "reason": "strong proxy for health condition",
+          "is_categorical": true
+        },
+        {
+          "key": "Heart_Rate_bpm",
+          "sensitivity": 10,
+          "reason": "could correlate with health condition",
+          "is_categorical": false
+        },
+        {
+          "key": "Body_Temperature_C",
+          "sensitivity": 60,
+          "reason": "strong proxy for health condition",
+          "is_categorical": false
+        },
+        {
+          "key": "Blood_Pressure_mmHg",
+          "sensitivity": 60,
+          "reason": "strong proxy for health condition",
+          "is_categorical": false
+        },
+        {
+          "key": "Oxygen_Saturation_%",
+          "sensitivity": 60,
+          "reason": "strong proxy for health condition",
+          "is_categorical": false
+        },
+        {
+          "key": "Diagnosis",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Severity",
+          "sensitivity": 90,
+          "reason": "directly shows the existance of health condition",
+          "is_categorical": true
+        },
+        {
+          "key": "Treatment_Plan",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 462.41776770000024
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/ziad12/original-dataset-for-loan-approval-prediction/croissant/download",
+  "dataset_name": "Original Dataset for Loan Approval Prediction",
+  "description": "No dataset description found.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "credit_risk_dataset.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "person_age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "person_income",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "person_home_ownership",
+          "sensitivity": 90,
+          "reason": "strong proxy for socioeconomic status and income",
+          "is_categorical": true
+        },
+        {
+          "key": "person_emp_length",
+          "sensitivity": 10,
+          "reason": "could correlatate to socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "loan_intent",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "loan_grade",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "loan_amnt",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "loan_int_rate",
+          "sensitivity": 60,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "loan_status",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "loan_percent_income",
+          "sensitivity": 80,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "cb_person_default_on_file",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "cb_person_cred_hist_length",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 309.25366619999113
+    }
+  ]
+}
