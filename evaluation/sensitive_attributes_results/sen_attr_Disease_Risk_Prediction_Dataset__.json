@@ -1,0 +1,107 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/sahilislam007/disease-risk-prediction-dataset/croissant/download",
+  "dataset_name": "Disease Risk Prediction Dataset",
+  "description": "Description:\nThis dataset simulates health profiles of 4,000 patients with a variety of lifestyle and genetic risk factors. It is intended for use in predictive modeling and classification tasks in machine learning, particularly for predicting the likelihood of developing a chronic disease. The Disease_Risk column serves as the binary target variable.\n\n| Column Name                | Description                                                                |\n| -------------------------- | -------------------------------------------------------------------------- |\n| `Patient_ID`               | Unique identifier for each patient.                                        |\n| `Age`                      | Age of the patient in years.                                               |\n| `Gender`                   | Gender of the patient (`Male`, `Female`, `Other`).                         |\n| `BMI`                      | Body Mass Index (kg/m²), a measure of body fat based on height and weight. |\n| `Smoking_Status`           | Smoking history: `Never`, `Former`, or `Current`.                          |\n| `Alcohol_Consumption`      | Alcohol usage level: `None`, `Moderate`, or `High`.                        |\n| `Physical_Activity_Level`  | Activity level: `Low`, `Moderate`, or `High`.                              |\n| `Blood_Pressure_Systolic`  | Systolic blood pressure (mmHg).                                            |\n| `Blood_Pressure_Diastolic` | Diastolic blood pressure (mmHg).                                           |\n| `Cholesterol_Level`        | Blood cholesterol level (mg/dL).                                           |\n| `Glucose_Level`            | Fasting glucose level (mg/dL).                                             |\n| `Family_History`           | Whether the patient has a family history of the disease (`Yes` or `No`).   |\n| `Genetic_Risk_Score`       | Simulated genetic risk score (0–1 scale).                                  |\n| `Previous_Diagnosis`       | Past diagnostic status: `None`, `Pre-disease`, or `Diagnosed`.             |\n| `Disease_Risk`             | Target variable indicating disease risk (`Yes` or `No`).                   |\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "synthetic_disease_risk_dataset.csv",
+      "recordset_description": "This dataset simulates health profiles of 4,000 patients with a variety of lifestyle and genetic risk factors. It is intended for use in predictive modeling and classification tasks in machine learning, particularly for predicting the likelihood of developing a chronic disease. The Disease_Risk column serves as the binary target variable.",
+      "results": [
+        {
+          "key": "Patient_ID",
+          "sensitivity": 0,
+          "reason": "Unique identifier, explicitly out of scope for sensitivity.",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Age' from the IN-SCOPE list (Age).",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Gender' from the IN-SCOPE list (Gender & sexual identity).",
+          "is_categorical": true
+        },
+        {
+          "key": "BMI",
+          "sensitivity": 20,
+          "reason": "A health metric that can be a weak proxy for 'health conditions' (Disability & health conditions).",
+          "is_categorical": false
+        },
+        {
+          "key": "Smoking_Status",
+          "sensitivity": 20,
+          "reason": "A health-related behavior that can be a weak proxy for 'health conditions' (Disability & health conditions).",
+          "is_categorical": true
+        },
+        {
+          "key": "Alcohol_Consumption",
+          "sensitivity": 20,
+          "reason": "A health-related behavior that can be a weak proxy for 'health conditions' (Disability & health conditions).",
+          "is_categorical": true
+        },
+        {
+          "key": "Physical_Activity_Level",
+          "sensitivity": 20,
+          "reason": "A health-related behavior that can be a weak proxy for 'health conditions' (Disability & health conditions).",
+          "is_categorical": true
+        },
+        {
+          "key": "Blood_Pressure_Systolic",
+          "sensitivity": 75,
+          "reason": "A direct physiological measurement that is a strong proxy for 'health conditions' (Disability & health conditions).",
+          "is_categorical": false
+        },
+        {
+          "key": "Blood_Pressure_Diastolic",
+          "sensitivity": 75,
+          "reason": "A direct physiological measurement that is a strong proxy for 'health conditions' (Disability & health conditions).",
+          "is_categorical": false
+        },
+        {
+          "key": "Cholesterol_Level",
+          "sensitivity": 75,
+          "reason": "A direct physiological measurement that is a strong proxy for 'health conditions' (Disability & health conditions).",
+          "is_categorical": false
+        },
+        {
+          "key": "Glucose_Level",
+          "sensitivity": 75,
+          "reason": "A direct physiological measurement that is a strong proxy for 'health conditions' (Disability & health conditions).",
+          "is_categorical": false
+        },
+        {
+          "key": "Family_History",
+          "sensitivity": 100,
+          "reason": "Directly relates to 'familial status' (Family & civil status) and implies 'genetic features' (Disability & health conditions).",
+          "is_categorical": true
+        },
+        {
+          "key": "Genetic_Risk_Score",
+          "sensitivity": 100,
+          "reason": "Directly encodes 'genetic features' from the IN-SCOPE list (Disability & health conditions).",
+          "is_categorical": false
+        },
+        {
+          "key": "Previous_Diagnosis",
+          "sensitivity": 100,
+          "reason": "Directly indicates 'health conditions' from the IN-SCOPE list (Disability & health conditions).",
+          "is_categorical": true
+        },
+        {
+          "key": "Disease_Risk",
+          "sensitivity": 100,
+          "reason": "Directly indicates a potential 'health condition' from the IN-SCOPE list (Disability & health conditions).",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 16.322400700000003
+    }
+  ]
+}

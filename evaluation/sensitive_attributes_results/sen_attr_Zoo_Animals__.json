@@ -1,0 +1,125 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/ulrikthygepedersen/zoo-animals/croissant/download",
+  "dataset_name": "Zoo Animals",
+  "description": "A simple database containing 17 Boolean-valued attributes describing animals. The \"type\" attribute appears to be the class attribute.\n\nNotes:\n\nI find it unusual that there are 2 instances of \"frog\" and one of \"girl\"!\nfeature 'animal' is an identifier (though not unique) and should be ignored when modeling",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "zoo.csv",
+      "recordset_description": "A simple database containing 17 Boolean-valued attributes describing animals. The \"type\" attribute appears to be the class attribute.",
+      "results": [
+        {
+          "key": "animal",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; it's an identifier for an animal.",
+          "is_categorical": true
+        },
+        {
+          "key": "hair",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes an animal's physical trait.",
+          "is_categorical": true
+        },
+        {
+          "key": "feathers",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes an animal's physical trait.",
+          "is_categorical": true
+        },
+        {
+          "key": "eggs",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes an animal's biological trait.",
+          "is_categorical": true
+        },
+        {
+          "key": "milk",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes an animal's biological trait, not human sex characteristics or pregnancy.",
+          "is_categorical": true
+        },
+        {
+          "key": "airborne",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes an animal's ability.",
+          "is_categorical": true
+        },
+        {
+          "key": "aquatic",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes an animal's ability.",
+          "is_categorical": true
+        },
+        {
+          "key": "predator",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes an animal's behavior.",
+          "is_categorical": true
+        },
+        {
+          "key": "toothed",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes an animal's physical trait.",
+          "is_categorical": true
+        },
+        {
+          "key": "backbone",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes an animal's physical trait.",
+          "is_categorical": true
+        },
+        {
+          "key": "breathes",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes an animal's biological trait.",
+          "is_categorical": true
+        },
+        {
+          "key": "venomous",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes an animal's physical trait.",
+          "is_categorical": true
+        },
+        {
+          "key": "fins",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes an animal's physical trait.",
+          "is_categorical": true
+        },
+        {
+          "key": "legs",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes an animal's physical trait.",
+          "is_categorical": true
+        },
+        {
+          "key": "tail",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes an animal's physical trait.",
+          "is_categorical": true
+        },
+        {
+          "key": "domestic",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes an animal's classification, not human socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "catsize",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes an animal's physical trait.",
+          "is_categorical": true
+        },
+        {
+          "key": "type",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes an animal's classification.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 14.380720900007873
+    }
+  ]
+}

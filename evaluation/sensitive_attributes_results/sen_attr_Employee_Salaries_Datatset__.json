@@ -1,0 +1,41 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/yasserh/employee-salaries-datatset/croissant/download",
+  "dataset_name": "Employee Salaries Datatset",
+  "description": "### Description:\n\nThe data consists of Salaries of Employees, including their gender, age & phD degree. The dataset is downloaded from UCI Machine Learning Repository.\n\n**Properties of the Dataset:** \\\nNumber of Instances: 100\\\nNumber of Attributes: 4 including the class attribute\n\nThe project is simple yet challenging as it has very limited features & samples. Can you build a regression model to capture all the patterns in the dataset, also maintaining the generalisability of the model?\n\n### Acknowledgements\n\nThe dataset is referred from Kaggle.\n\n\n### Objective:\n- Understand the Dataset & cleanup (if required).\n- Build Regression models to predict the employee salaries w.r.t multiple feature.\n- Also evaluate the models & compare their respective scores like R2, RMSE, etc.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Salary.csv",
+      "recordset_description": "The data consists of Salaries of Employees, including their gender, age & phD degree. The dataset is downloaded from UCI Machine Learning Repository.\n\n**Properties of the Dataset:** \\\nNumber of Instances: 100\\\nNumber of Attributes: 4 including the class attribute\n\n\n",
+      "results": [
+        {
+          "key": "Salary",
+          "sensitivity": 90,
+          "reason": "Directly represents economic standing, a core component of socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents gender, an IN-SCOPE sensitive characteristic under Gender & sexual identity.",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents age, an IN-SCOPE sensitive characteristic under Age.",
+          "is_categorical": false
+        },
+        {
+          "key": "PhD",
+          "sensitivity": 10,
+          "reason": "Educational attainment is not an IN-SCOPE characteristic; it has a very indirect and weak correlation with socioeconomic status.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 8.90825720014982
+    }
+  ]
+}

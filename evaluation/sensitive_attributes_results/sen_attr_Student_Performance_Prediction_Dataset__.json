@@ -1,0 +1,107 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/prajwalkanade/student-performance-prediction-dataset/croissant/download",
+  "dataset_name": "Student Performance Prediction Dataset",
+  "description": "**Introduction:**\nThe \"Student Performance Prediction Dataset\" is a valuable resource for anyone interested in understanding and improving student academic performance. Its rich collection of features enables the development of predictive models and the exploration of factors that contribute to student success. By harnessing the insights from this dataset, educators and policymakers can work towards enhancing the educational experience and outcomes of students.\n\n It is a comprehensive collection of data designed to facilitate predictive analysis related to student academic performance. This dataset is invaluable for educators, researchers, and data scientists seeking to gain insights into factors that influence student success. It can be used to build predictive models and identify key indicators that affect student performance, ultimately helping institutions and individuals make informed decisions to improve educational outcomes.\n\n**Description of Attributes in the \"Student Performance Prediction Dataset\":**\n\n**1. STUDENT ID:** A unique identifier assigned to each student in the dataset, enabling individual tracking and analysis.\n\n**2. Student_Age:** The age of the student at the time of data collection, providing insight into the age distribution of the student population.\n\n**3. Sex:** The gender of the student, typically categorized as male or female, which can be used for gender-based analysis of academic performance.\n\n**4. Graduated High-School Type:** Describes the type of high school from which the student graduated, such as public, private, or specialized institutions. This attribute can help assess the influence of high-school background on student performance.\n\n**5. Scholarship Type:** Indicates whether the student received any scholarships or financial aid for their education, which can be relevant for assessing the impact of financial support on academic outcomes.\n\n**6. Additional Work:** Represents whether the student is involved in any additional work or part-time employment alongside their studies, which may impact study hours and overall performance.\n\n**7. Sports Activity:** Indicates whether the student participates in sports activities, which can provide insights into the relationship between physical activities and academic performance.\n\n**8. Transportation:** Describes the mode of transportation used by the student to commute to school, which may have implications for punctuality and attendance.\n\n**9. Weekly Study Hours:** The number of hours per week that the student dedicates to studying, reflecting their study habits and potential commitment to academics.\n\n**10. Attendance:** Reflects the student's attendance record, which can be an essential factor in determining their engagement and participation in classes.\n\n**11. Reading:** Represents the student's performance or scores in reading-related subjects or assessments.\n\n**12. Notes:** Reflects the student's performance or scores in note-taking-related subjects or assessments.\n\n**13. Listening in Class:** Represents the student's performance or scores in class listening-related subjects or assessments.\n\n**14. Project Work:** Indicates whether the student is involved in project work or assignments, which can be a significant component of their overall grade.\n\n**16. Grade:** The final grade or academic performance measure for each student, which serves as the predictive target for analysis. This is often the attribute of interest for building predictive models.\n\nThese attributes collectively provide a holistic view of each student's academic and personal profile, making the dataset suitable for various analyses, including predictive modeling, identifying influential factors, and assessing the impact of different variables on student performance. Researchers and educators can leverage this dataset to gain insights into the complex interplay of factors that contribute to students' academic success or challenges.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Students Performance .csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Student_ID",
+          "sensitivity": 0,
+          "reason": "A unique identifier, not sensitive by the IN-SCOPE definition.",
+          "is_categorical": false
+        },
+        {
+          "key": "Student_Age",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Age' from the IN-SCOPE taxonomy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Sex",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Gender & sexual identity: sex, gender' from the IN-SCOPE taxonomy.",
+          "is_categorical": true
+        },
+        {
+          "key": "High_School_Type",
+          "sensitivity": 60,
+          "reason": "Can be a strong proxy for 'Socioeconomic status: social origin/class' (e.g., public vs. private schools).",
+          "is_categorical": true
+        },
+        {
+          "key": "Scholarship",
+          "sensitivity": 90,
+          "reason": "Strongly indicates 'Socioeconomic status: receipt of public assistance/benefits/welfare' or financial need.",
+          "is_categorical": true
+        },
+        {
+          "key": "Additional_Work",
+          "sensitivity": 50,
+          "reason": "Can be an indirect proxy for 'Socioeconomic status' if students need to work to support themselves or their families.",
+          "is_categorical": true
+        },
+        {
+          "key": "Sports_activity",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Transportation",
+          "sensitivity": 30,
+          "reason": "Can be a weak proxy for 'Socioeconomic status' or geographic location, which may correlate with other sensitive traits.",
+          "is_categorical": true
+        },
+        {
+          "key": "Weekly_Study_Hours",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Attendance",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Reading",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Notes",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Listening_in_Class",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Project_work",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Grade",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 14.774593600071967
+    }
+  ]
+}

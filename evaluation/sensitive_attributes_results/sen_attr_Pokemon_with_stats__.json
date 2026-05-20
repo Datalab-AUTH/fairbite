@@ -1,0 +1,71 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/abcsds/pokemon/croissant/download",
+  "dataset_name": "Pokemon with stats",
+  "description": "This data set includes 721 Pokemon, including their number, name, first and second type, and basic stats: HP, Attack, Defense, Special Attack, Special Defense, and Speed. It has been of great use when teaching statistics to kids. With certain types you can also give a geeky introduction to machine learning.\n\nThis are the raw attributes that are used for calculating how much damage an attack will do in the games. This dataset is about the pokemon games (*NOT* pokemon cards or Pokemon Go).\n\nThe data as described by [Myles O'Neill](https://www.kaggle.com/mylesoneill) is:\n\n- **#**: ID for each pokemon\n- **Name**: Name of each pokemon\n- **Type 1**: Each pokemon has a type, this determines weakness/resistance to attacks\n- **Type 2**: Some pokemon are dual type and have 2\n- **Total**: sum of all stats that come after this, a general guide to how strong a pokemon is\n- **HP**: hit points, or health, defines how much damage a pokemon can withstand before fainting\n- **Attack**: the base modifier for normal attacks (eg. Scratch, Punch)\n- **Defense**: the base damage resistance against normal attacks\n- **SP Atk**: special attack, the base modifier for special attacks (e.g. fire blast, bubble beam)\n- **SP Def**: the base damage resistance against special attacks\n- **Speed**: determines which pokemon attacks first each round\n\nThe data for this table has been acquired from several different sites, including: \n\n - [pokemon.com](http://www.pokemon.com/us/pokedex/)\n - [pokemondb](http://pokemondb.net/pokedex)\n - [bulbapedia](http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number)\n\nOne question has been answered with this database: The type of a pokemon cannot be inferred only by it's Attack and Deffence. It would be worthy to find which two variables can define the type of a pokemon, if any. Two variables can be plotted in a 2D space, and used as an example for machine learning. This could mean the creation of a visual example any geeky Machine Learning class would love.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Pokemon.csv",
+      "recordset_description": "Main Database With Generation and Legendary flag.",
+      "results": [
+        {
+          "key": "1",
+          "sensitivity": 95,
+          "reason": "Represents a 'life stage/generation' of Pokemon, which is an IN-SCOPE sensitive characteristic (Age).",
+          "is_categorical": true
+        },
+        {
+          "key": "Bulbasaur",
+          "sensitivity": 0,
+          "reason": "The 'Name' of a Pokemon is explicitly listed as OUT-OF-SCOPE for sensitivity.",
+          "is_categorical": true
+        },
+        {
+          "key": "Grass",
+          "sensitivity": 0,
+          "reason": "Pokemon types are fictional attributes and do not correspond to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "Poison",
+          "sensitivity": 0,
+          "reason": "Pokemon types are fictional attributes and do not correspond to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "318",
+          "sensitivity": 0,
+          "reason": "A combat statistic for a fictional creature, not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "45",
+          "sensitivity": 0,
+          "reason": "A combat statistic for a fictional creature, not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "49",
+          "sensitivity": 0,
+          "reason": "A combat statistic for a fictional creature, not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "65",
+          "sensitivity": 0,
+          "reason": "A combat statistic for a fictional creature, not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "False",
+          "sensitivity": 0,
+          "reason": "A classification for a fictional creature, not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 10.284786899996107
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/sauravmishraa/waterneeded/croissant/download",
+  "dataset_name": "Plants ",
+  "description": "## It is a dataset regarding different conditions affecting the plants growth. The following features/columns are:\n\n\n**Soil Moisture**: It is having details regarding different soil moisture.\n\n**Temperature**: Temperature of the soil.\n\n**Soil Humidity**: It is having  the details of soil humidity.\n\n**Air Temperature**: It is having the details of the air temp.\n\n**Wind Speed**: It is having the details of speed of wind.\n\n**Air Humidity**: It is having the details of air humidity.\n\n**Wind Gust**: It is having the details of wind gust.\n\n**Pressure**: It is having the details of air pressure (in KPa).\n\n**ph**: It is having details of the ph of soil.\n\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "TARP.csv",
+      "recordset_description": "All the columns/features are given below:",
+      "results": [
+        {
+          "key": "Soil Moisture",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Temperature",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Soil Humidity",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Time",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Air temperature (C)",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Wind speed (Km/h)",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Air humidity (%)",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Wind gust (Km/h)",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Pressure (KPa)",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "ph",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "rainfall",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "N",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "P",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "K",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Status",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic; likely refers to plant status, not human status.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 10.671242800002801
+    }
+  ]
+}

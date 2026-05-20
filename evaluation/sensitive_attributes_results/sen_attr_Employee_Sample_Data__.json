@@ -1,0 +1,101 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/leenhussein/employee-sample-data/croissant/download",
+  "dataset_name": "Employee Sample Data",
+  "description": "# **Overview:** 📃\nThis dataset provides anonymized sample employee records commonly found in HR information systems. It includes details such as employee ID, name, job title, department, business unit, gender, ethnicity, age, hire date, and annual salary. It is ideal for educational projects, algorithm demonstrations (such as B-tree implementation), HR analytics exploration, salary-related analysis examples, and more.\n\n# **Columns:**\n\n- EEID: Unique Employee Identifier\n- Full Name: Sample employee names\n- Job Title: Employee's role (e.g., Director, Sr. Manager)\n- Department: Department affiliation (e.g., IT, Engineering)\n- Business Unit: Business subdivision (e.g., Manufacturing, Specialty Products)\n- Gender: Employee gender (Female or Male)\n- Ethnicity: Employee ethnicity (Asian, Caucasian, Other)\n- Age: Age of the employee\n- Hire Date: Date the employee was hired\n- Annual Salary: Annual salary in numeric format",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Employee Sample Data.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "EEID",
+          "sensitivity": 0,
+          "reason": "This is a unique identifier, which is out of scope for sensitivity.",
+          "is_categorical": true
+        },
+        {
+          "key": "Full Name",
+          "sensitivity": 0,
+          "reason": "This is Personally Identifiable Information (PII), which is out of scope for sensitivity.",
+          "is_categorical": true
+        },
+        {
+          "key": "Job Title",
+          "sensitivity": 0,
+          "reason": "Not directly related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Department",
+          "sensitivity": 0,
+          "reason": "Not directly related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Business Unit",
+          "sensitivity": 0,
+          "reason": "Not directly related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Gender & sexual identity'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Ethnicity",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Racial & ethnic origin'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Age'.",
+          "is_categorical": false
+        },
+        {
+          "key": "Hire Date",
+          "sensitivity": 30,
+          "reason": "Can be used as a weak proxy for 'Age' or 'life stage/generation' through tenure, but not a direct sensitive attribute.",
+          "is_categorical": false
+        },
+        {
+          "key": "Annual Salary",
+          "sensitivity": 90,
+          "reason": "Strongly represents 'Socioeconomic status'.",
+          "is_categorical": false
+        },
+        {
+          "key": "Bonus %",
+          "sensitivity": 90,
+          "reason": "Strongly represents 'Socioeconomic status' as a component of compensation.",
+          "is_categorical": false
+        },
+        {
+          "key": "Country",
+          "sensitivity": 90,
+          "reason": "Strongly represents 'Racial & ethnic origin' (national origin, nationality).",
+          "is_categorical": true
+        },
+        {
+          "key": "City",
+          "sensitivity": 60,
+          "reason": "Can be a strong proxy for 'Racial & ethnic origin' or 'Socioeconomic status' due to geographic concentrations.",
+          "is_categorical": true
+        },
+        {
+          "key": "Exit Date",
+          "sensitivity": 1,
+          "reason": "Very weakly and indirectly correlates with 'Age' (e.g., retirement), but primarily an operational date.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 8.942913699895144
+    }
+  ]
+}

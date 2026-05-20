@@ -1,0 +1,179 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/utkarshx27/marijuana-arrests-in-columbia/croissant/download",
+  "dataset_name": "Marijuana Arrests in Columbia",
+  "description": "| Column              | Description                                             | Format  |\n|---------------------|---------------------------------------------------------|---------|\n| TYPE                | Indicates the type of arrest | Text    |\n| ADULT_JUVENILE      | Specifies whether the arrestee is an adult or a juvenile| Text    |\n| YEAR                | The year in which the arrest occurred                   | Numeric |\n| DATETIME            | The date and time of the arrest                         | Text    |\n| CCN                 | Hash number that allows individuals to determine whether there are multiple arrests associated with one event | Text |\n| AGE                 | The age of the arrestee at the time of the arrest       | Numeric |\n| OFFENSE_DISTRICT    | The district where the offense took place               | Text    |\n| OFFENSE_PSA         | The Police Service Area (PSA) associated with the offense | Text |\n| OFFENSE_BLOCKX      | X-coordinate of the approximate block location of the offense | Numeric |\n| OFFENSE_BLOCKY      | Y-coordinate of the approximate block location of the offense | Numeric |\n| DEFENDANT_PSA       | The PSA associated with the defendant                   | Text    |\n| DEFENDANT_DISTRICT  | The district associated with the defendant              | Text    |\n| RACE                | The race of the defendant, based on officer observation | Text    |\n| ETHNICITY           | The ethnicity of the defendant, based on officer observation | Text |\n| SEX                 | The gender of the defendant                             | Text    |\n| CATEGORY            | The category of the offense (e.g., possession, distribution, public consumption) | Text |\n| DESCRIPTION         | A description of the offense                            | Text    |\n| ADDRESS             | The address of the offense location                     | Text    |\n| ARREST_BLOCKX       | X-coordinate of the approximate block location of the arrest | Numeric |\n| ARREST_BLOCKY       | Y-coordinate of the approximate block location of the arrest | Numeric |\n| GIS_ID              | Geographic Information System (GIS) ID associated with the record | Text |\n| CREATOR             | The creator of the record                               | Text    |\n| CREATED             | The date and time when the record was created           | Text    |\n| EDITOR              | The editor of the record                                | Text    |\n| EDITED              | The date and time when the record was last edited       | Text    |\n| OBJECTID            | Unique identifier for each record                       | Numeric |\n| GLOBALID            | Global unique identifier for each record                | Text    |\n\n\n\n\n# Description\nIn the District of Columbia, the laws related to the recreational use and possession of marijuana have changed at two milestones: the effective dates of the Marijuana Possession Decriminalization Amendment Act of 2014 on July 17, 2014, and of Initiative 71 on February 26, 2015 (https://mpdc.dc.gov/marijuana). Due to privacy considerations, exact CCNs and arrest numbers for these arrest datasets are not provided. In lieu, hash numbers are provided for CNN which allows individuals to determine whether there are multiple arrests associated with one event. Additionally, arrest numbers can be linked directly to an individual and therefore DC government does not provide this more generally, but again as hash numbers.\n\nThis data includes arrests made by the Metropolitan Police Department (MPD). The data represents individuals arrested with a marijuana charge, regardless of whether there was a more serious secondary charge. If an arrestee was charged with multiple marijuana charges, the arrest is only counted once under the more serious charge type (Distribution &gt; Possession with Intent to Distribute &gt; Possession &gt; Public Consumption).\n\nMPD collects race and ethnicity data according to the United States Census Bureau standards (https://www.census.gov/topics/population/race/about.html). Hispanic, which was previously categorized under the Race field prior to August 2015, is now captured under Ethnicity. All records prior to August 2015 have been updated to “Unknown (Race), Hispanic (Ethnicity)”. Race and ethnicity data are based on officer observation, which may or may not be accurate.\n\nMPD cannot release exact addresses to the general public unless proof of ownership or subpoena is submitted. The GeoX and GeoY values represent the block location (approximately 232 ft. radius) as of the date of the arrest. Due to the Department’s redistricting efforts in 2012 and 2017, data may not be comparable in some years.\n\nArrestee age is calculated based on the number of days between the self-reported or verified date of birth (DOB) of the arrestee and the date of the arrest; DOB data may not be accurate if selfreported or if the arrestee refused to provide it.\n\nDue to the sensitive nature of juvenile data and to protect the arrestee’s confidentiality, any arrest records for defendants under the age of 18 have been coded as “Juvenile” for the following fields:\n\n• Arrest Time\n\n• CCN\n\n• Age\n\n• Offense Location Block GeoX/Y\n\n• Defendant Race\n\n• Defendant Ethnicity\n\n• Defendant Sex\n\n• Arrest Location Block Address\n\n• Arrest Location Block GeoX/Y\n\nThis data may not match other marijuana data requests that may have included all law enforcement agencies in the District, or only the most serious charge. Figures are subject to change due to record sealing, expungements, and data quality audits.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Marijuana_Arrests.csv",
+      "recordset_description": "csv file with 27 columns",
+      "results": [
+        {
+          "key": "TYPE",
+          "sensitivity": 0,
+          "reason": "Describes the type of arrest, not related to any IN-SCOPE sensitive characteristic of an individual.",
+          "is_categorical": true
+        },
+        {
+          "key": "ADULT_JUVENILE",
+          "sensitivity": 95,
+          "reason": "Directly encodes 'Age' or 'life stage' (adult/juvenile), which is an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "YEAR",
+          "sensitivity": 0,
+          "reason": "Represents the year of the event, not a characteristic of the individual.",
+          "is_categorical": true
+        },
+        {
+          "key": "DATETIME",
+          "sensitivity": 0,
+          "reason": "Represents the date and time of the event, not a characteristic of the individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "CCN",
+          "sensitivity": 0,
+          "reason": "An event identifier (hash number), not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "AGE",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Age', which is an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "OFFENSE_DISTRICT",
+          "sensitivity": 40,
+          "reason": "A geographical location that can be a weak proxy for socioeconomic status or racial/ethnic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "OFFENSE_PSA",
+          "sensitivity": 70,
+          "reason": "A more specific geographical location (Police Service Area) that serves as a strong proxy for socioeconomic status or racial/ethnic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "OFFENSE_BLOCKX",
+          "sensitivity": 70,
+          "reason": "Geographic coordinates representing an approximate block location, serving as a strong proxy for socioeconomic status or racial/ethnic origin.",
+          "is_categorical": false
+        },
+        {
+          "key": "OFFENSE_BLOCKY",
+          "sensitivity": 70,
+          "reason": "Geographic coordinates representing an approximate block location, serving as a strong proxy for socioeconomic status or racial/ethnic origin.",
+          "is_categorical": false
+        },
+        {
+          "key": "DEFENDANT_PSA",
+          "sensitivity": 80,
+          "reason": "A specific geographical location associated with the defendant, serving as a strong proxy for socioeconomic status or racial/ethnic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "DEFENDANT_DISTRICT",
+          "sensitivity": 50,
+          "reason": "A geographical location associated with the defendant, serving as a weak proxy for socioeconomic status or racial/ethnic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "RACE",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Racial & ethnic origin', which is an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "ETHNICITY",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Racial & ethnic origin', which is an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "SEX",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Gender & sexual identity', which is an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "CATEGORY",
+          "sensitivity": 0,
+          "reason": "Describes the category of the offense, not related to any IN-SCOPE sensitive characteristic of an individual.",
+          "is_categorical": true
+        },
+        {
+          "key": "DESCRIPTION",
+          "sensitivity": 0,
+          "reason": "Describes the offense, not related to any IN-SCOPE sensitive characteristic of an individual.",
+          "is_categorical": true
+        },
+        {
+          "key": "ADDRESS",
+          "sensitivity": 80,
+          "reason": "A specific geographical location that serves as a strong proxy for socioeconomic status or racial/ethnic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "ARREST_BLOCKX",
+          "sensitivity": 70,
+          "reason": "Geographic coordinates representing an approximate block location, serving as a strong proxy for socioeconomic status or racial/ethnic origin.",
+          "is_categorical": false
+        },
+        {
+          "key": "ARREST_BLOCKY",
+          "sensitivity": 70,
+          "reason": "Geographic coordinates representing an approximate block location, serving as a strong proxy for socioeconomic status or racial/ethnic origin.",
+          "is_categorical": false
+        },
+        {
+          "key": "GIS_ID",
+          "sensitivity": 10,
+          "reason": "A geographic identifier that could be a weak proxy for location, which in turn may correlate with socioeconomic status or racial/ethnic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "CREATOR",
+          "sensitivity": 0,
+          "reason": "Refers to the creator of the record, not the arrestee, and is not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "CREATED",
+          "sensitivity": 0,
+          "reason": "Represents the date and time the record was created, not a characteristic of the arrestee.",
+          "is_categorical": false
+        },
+        {
+          "key": "EDITOR",
+          "sensitivity": 0,
+          "reason": "Refers to the editor of the record, not the arrestee, and is not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "EDITED",
+          "sensitivity": 0,
+          "reason": "Represents the date and time the record was last edited, not a characteristic of the arrestee.",
+          "is_categorical": false
+        },
+        {
+          "key": "OBJECTID",
+          "sensitivity": 0,
+          "reason": "A unique identifier for the record, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "GLOBALID",
+          "sensitivity": 0,
+          "reason": "A global unique identifier for the record, not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 26.76025400000003
+    }
+  ]
+}

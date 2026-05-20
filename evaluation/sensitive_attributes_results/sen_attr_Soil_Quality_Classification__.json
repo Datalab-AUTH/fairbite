@@ -1,0 +1,77 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/miadul/soil-quality-classification/croissant/download",
+  "dataset_name": "Soil Quality Classification",
+  "description": "No dataset description found.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "soil_quality_dataset.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Soil_Type",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "pH",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "EC",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Organic_Carbon",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Nitrogen",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Phosphorus",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Potassium",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Moisture",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Temperature",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Soil_Quality",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 6.90598239999963
+    }
+  ]
+}

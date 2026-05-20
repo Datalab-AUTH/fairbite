@@ -1,0 +1,89 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/ziad12/original-dataset-for-loan-approval-prediction/croissant/download",
+  "dataset_name": "Original Dataset for Loan Approval Prediction",
+  "description": "No dataset description found.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "credit_risk_dataset.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "person_age",
+          "sensitivity": 100,
+          "reason": "Directly represents age, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "person_income",
+          "sensitivity": 80,
+          "reason": "Strong proxy for socioeconomic status, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "person_home_ownership",
+          "sensitivity": 95,
+          "reason": "Directly represents property/ownership type, an IN-SCOPE sensitive characteristic (socioeconomic status).",
+          "is_categorical": true
+        },
+        {
+          "key": "person_emp_length",
+          "sensitivity": 20,
+          "reason": "Weakly correlates with age and socioeconomic status, but not a direct or strong proxy for any IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "loan_intent",
+          "sensitivity": 40,
+          "reason": "Can indirectly relate to socioeconomic status or health conditions, but not a direct or strong proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "loan_grade",
+          "sensitivity": 75,
+          "reason": "Strong proxy for socioeconomic status, as it reflects financial standing and access to credit.",
+          "is_categorical": true
+        },
+        {
+          "key": "loan_amnt",
+          "sensitivity": 35,
+          "reason": "Weakly correlates with socioeconomic status, but not a direct or strong proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "loan_int_rate",
+          "sensitivity": 70,
+          "reason": "Strong proxy for socioeconomic status, as it reflects financial risk and access to credit.",
+          "is_categorical": false
+        },
+        {
+          "key": "loan_status",
+          "sensitivity": 0,
+          "reason": "Represents an outcome of a process, not an IN-SCOPE sensitive characteristic of an individual.",
+          "is_categorical": true
+        },
+        {
+          "key": "loan_percent_income",
+          "sensitivity": 75,
+          "reason": "Strong proxy for socioeconomic status, as it combines income (sensitive) with loan amount to indicate financial burden.",
+          "is_categorical": false
+        },
+        {
+          "key": "cb_person_default_on_file",
+          "sensitivity": 80,
+          "reason": "Strong proxy for socioeconomic status, as it reflects financial history and creditworthiness.",
+          "is_categorical": true
+        },
+        {
+          "key": "cb_person_cred_hist_length",
+          "sensitivity": 30,
+          "reason": "Weakly correlates with age and socioeconomic status, but not a direct or strong proxy for any IN-SCOPE characteristic.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 12.510078200008138
+    }
+  ]
+}
