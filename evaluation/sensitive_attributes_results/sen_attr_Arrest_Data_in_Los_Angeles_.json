@@ -1,0 +1,167 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/arsri1/arrest-data-in-los-angeles/croissant/download",
+  "dataset_name": "Arrest Data in Los Angeles",
+  "description": "This dataset contains arrest records from Los Angeles, covering incidents from 2020 to the present. It is sourced from the Los Angeles Open Data Portal and provides detailed information about arrests, including the date, time, location, demographic details of the arrested individuals, and the charges filed.\n\n**Context & Inspiration**\nWith growing interest in public safety, law enforcement practices, and criminal justice transparency, this dataset can help analysts, researchers, and policymakers explore:\n\n- Crime trends over time – Are certain offenses becoming more common?\n- Demographic patterns in arrests – Are there disparities based on age, gender, or race?\n- Geographic distribution of arrests – Where do most arrests occur in Los Angeles?\n- Law enforcement practices – Are there trends in how different charges are handled?\n- This dataset can serve as a valuable resource for data visualization, machine learning models, and policy analysis to gain insights into crime prevention, public safety, and law enforcement strategies.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Arrest_Data_from_2020_to_Present.csv",
+      "recordset_description": "This dataset contains arrest records from Los Angeles starting from 2020 to the present. It includes details such as the date of arrest, charges, demographics of the arrested individuals, and the location of incidents. The dataset can be used for analyzing crime trends, studying the demographics of arrests, evaluating law enforcement practices, and identifying potential disparities in policing. Researchers, policymakers, and data analysts can leverage this dataset to gain insights into public safety and the criminal justice system in Los Angeles.",
+      "results": [
+        {
+          "key": "Report ID",
+          "sensitivity": 0,
+          "reason": "This is a unique identifier and is out of scope as PII unless it encodes a sensitive class, which it does not.",
+          "is_categorical": false
+        },
+        {
+          "key": "Report Type",
+          "sensitivity": 0,
+          "reason": "No information suggests this column encodes any in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Arrest Date",
+          "sensitivity": 0,
+          "reason": "This is a date of an event, not a sensitive characteristic of an individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "Time",
+          "sensitivity": 0,
+          "reason": "This is a time of an event, not a sensitive characteristic of an individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "Area ID",
+          "sensitivity": 0,
+          "reason": "This is an identifier for a geographical area, but without further context, it does not directly encode a sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Area Name",
+          "sensitivity": 60,
+          "reason": "Area names can be strong proxies for 'Racial & ethnic origin' or 'Socioeconomic status' due to residential segregation patterns.",
+          "is_categorical": true
+        },
+        {
+          "key": "Reporting District",
+          "sensitivity": 60,
+          "reason": "Reporting districts are geographical units that can serve as strong proxies for 'Racial & ethnic origin' or 'Socioeconomic status'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Age', which is an in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Sex Code",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Gender & sexual identity: sex, gender', which is an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Descent Code",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Racial & ethnic origin', which is an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Charge Group Code",
+          "sensitivity": 0,
+          "reason": "This code relates to the nature of the charge, not a sensitive characteristic of an individual.",
+          "is_categorical": true
+        },
+        {
+          "key": "Charge Group Description",
+          "sensitivity": 0,
+          "reason": "This describes the nature of the charge, not a sensitive characteristic of an individual.",
+          "is_categorical": true
+        },
+        {
+          "key": "Arrest Type Code",
+          "sensitivity": 0,
+          "reason": "This code relates to the type of arrest, not a sensitive characteristic of an individual.",
+          "is_categorical": true
+        },
+        {
+          "key": "Charge",
+          "sensitivity": 0,
+          "reason": "This describes the specific charge, not a sensitive characteristic of an individual.",
+          "is_categorical": true
+        },
+        {
+          "key": "Charge Description",
+          "sensitivity": 0,
+          "reason": "This describes the specific charge, not a sensitive characteristic of an individual.",
+          "is_categorical": true
+        },
+        {
+          "key": "Disposition Description",
+          "sensitivity": 0,
+          "reason": "This describes the outcome of the arrest, not a sensitive characteristic of an individual.",
+          "is_categorical": true
+        },
+        {
+          "key": "Address",
+          "sensitivity": 30,
+          "reason": "While exact address is PII (out of scope), it can serve as a weak proxy for 'Socioeconomic status' or 'Racial & ethnic origin' due to neighborhood characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "Cross Street",
+          "sensitivity": 30,
+          "reason": "Similar to Address, cross street information can indirectly proxy for 'Socioeconomic status' or 'Racial & ethnic origin'.",
+          "is_categorical": true
+        },
+        {
+          "key": "LAT",
+          "sensitivity": 60,
+          "reason": "Latitude, especially when combined with Longitude, provides precise location which can be a strong proxy for 'Racial & ethnic origin' or 'Socioeconomic status'.",
+          "is_categorical": false
+        },
+        {
+          "key": "LON",
+          "sensitivity": 60,
+          "reason": "Longitude, especially when combined with Latitude, provides precise location which can be a strong proxy for 'Racial & ethnic origin' or 'Socioeconomic status'.",
+          "is_categorical": false
+        },
+        {
+          "key": "Location",
+          "sensitivity": 60,
+          "reason": "Location information can be a strong proxy for 'Racial & ethnic origin' or 'Socioeconomic status' due to neighborhood characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "Booking Date",
+          "sensitivity": 0,
+          "reason": "This is a date of an event, not a sensitive characteristic of an individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "Booking Time",
+          "sensitivity": 0,
+          "reason": "This is a time of an event, not a sensitive characteristic of an individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "Booking Location",
+          "sensitivity": 60,
+          "reason": "Booking location can be a strong proxy for 'Racial & ethnic origin' or 'Socioeconomic status' as facilities often serve specific geographic areas.",
+          "is_categorical": true
+        },
+        {
+          "key": "Booking Location Code",
+          "sensitivity": 60,
+          "reason": "A code for a booking location can be a strong proxy for 'Racial & ethnic origin' or 'Socioeconomic status' due to the areas served by specific facilities.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 18.54427900002338
+    }
+  ]
+}

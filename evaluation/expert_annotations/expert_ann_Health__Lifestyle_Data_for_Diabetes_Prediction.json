@@ -1,0 +1,203 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/alamshihab075/health-and-lifestyle-data-for-diabetes-prediction/croissant/download",
+  "dataset_name": "⚕️Health & Lifestyle Data for Diabetes Prediction",
+  "description": "📘 Overview\n\nThe Diabetes Health Indicators Dataset provides a rich and realistic representation of patient health data designed for diabetes risk prediction, healthcare analytics, and machine learning experimentation. It is fully preprocessed, consistent, and aligned with medically validated patterns, ensuring reliability for both research and applied modeling.\n\nThis dataset integrates multiple health dimensions—demographic, lifestyle, and clinical—to enable robust data-driven insights into diabetes progression and prevention.\n\n🧬 Dataset Description\n\nEach record in this dataset reflects an individual’s health profile, combining demographic attributes, lifestyle behaviors, family medical background, and physiological measurements. The variables simulate realistic medical distributions derived from public health research, maintaining privacy while preserving analytical validity.\n\nThe data is suitable for use in:\n\nPredictive modeling (classification or regression)\n\nExploratory data analysis (EDA)\n\nHypothesis testing\n\nHealth trend visualization\n\n📊 Feature Categories\n👨‍👩‍👧 Demographics\n\nIncludes age, gender, ethnicity, education level, income category, and employment type — essential for understanding population health disparities.\n\n💪 Lifestyle Indicators\n\nCaptures habits such as smoking, alcohol consumption, diet quality, sleep patterns, and physical activity — crucial for preventive health modeling.\n\n🧠 Medical History\n\nAccounts for genetic predisposition and prior conditions such as hypertension or cardiovascular disease, enhancing model interpretability.\n\n❤️ Clinical Measurements\n\nCovers vital and biochemical markers, including body mass index (BMI), blood pressure, cholesterol levels, triglycerides, fasting/post-meal glucose, insulin, and HbA1c metrics.\n\n🎯 Target Variables\n\nProvides both binary and multiclass targets for predicting diabetes diagnosis and stage, supporting diverse modeling approaches.\n\n✅ Data Quality Assurance\n\nComplete & Clean: No missing or duplicate entries.\n\nMedically Realistic: Values fall within validated clinical ranges.\n\nBalanced Distribution: Reflects realistic yet model-friendly patterns.\n\nML Ready: Ideal for direct integration into predictive workflows.\n\n💡 Potential Use Cases\n\n🩹 Binary Classification: Predict whether a patient has diabetes.\n\n⚕️ Multiclass Prediction: Determine diabetes stage (e.g., Pre-Diabetes, Type 1, Type 2).\n\n📈 Regression Modeling: Estimate glucose, HbA1c, or overall risk scores.\n\n🧩 Exploratory Analysis: Discover relationships between lifestyle and clinical indicators.\n\n🤖 Machine Learning Research: Develop, benchmark, and validate healthcare prediction models.\n\n📉 Statistical Testing: Analyze the significance of lifestyle or demographic risk factors.\n\n📂 File Information\n\nFormat: CSV (comma-separated)\n\nStructure: One record per patient\n\nContent: Demographic, lifestyle, medical, and target variables\n\n🔍 Attribution\n\nThis dataset was generated using statistically inspired methods based on clinical and public health literature. All entries are synthetic, ensuring privacy protection while maintaining realistic distributions suitable for healthcare AI applications.\n\nFor more information see [here](https://www.kaggle.com/datasets/mohankrishnathalla/diabetes-health-indicators-dataset)",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Diabetes_and_LifeStyle_Dataset .csv",
+      "recordset_description": "This file, Diabetes_and_LifeStyle_Dataset.csv, is a clean and well-structured CSV dataset containing nearly one hundred thousand patient records and thirty-one columns. Each record provides demographic, lifestyle, medical history, and clinical measurements associated with diabetes risk and progression.\n\nThe dataset is balanced, preprocessed, and free of missing values or duplicates, ensuring readiness for both exploratory data analysis and machine learning model development. It is ideal for research in predictive healthcare, public health studies, and AI-based medical analytics.",
+      "results": [
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly encodes age, which is an explicit in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "Directly encodes gender, which is an explicit in-scope sensitive characteristic under gender and sexual identity.",
+          "is_categorical": true
+        },
+        {
+          "key": "ethnicity",
+          "sensitivity": 100,
+          "reason": "Directly encodes ethnic background, which is an explicit in-scope sensitive characteristic under racial and ethnic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "education_level",
+          "sensitivity": 40,
+          "reason": "Education attainment can act as a weak proxy for socioeconomic status but does not directly encode it.",
+          "is_categorical": true
+        },
+        {
+          "key": "income_level",
+          "sensitivity": 90,
+          "reason": "Directly categorizes economic status, which is an explicit in-scope sensitive characteristic under socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "employment_status",
+          "sensitivity": 60,
+          "reason": "Employment status can strongly reflect socioeconomic position and economic security.",
+          "is_categorical": true
+        },
+        {
+          "key": "smoking_status",
+          "sensitivity": 20,
+          "reason": "Lifestyle behavior that may indirectly correlate with health outcomes but is not an in-scope sensitive attribute itself.",
+          "is_categorical": true
+        },
+        {
+          "key": "alcohol_consumption_per_week",
+          "sensitivity": 20,
+          "reason": "Behavioral health indicator with only indirect relevance to in-scope sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "physical_activity_minutes_per_week",
+          "sensitivity": 20,
+          "reason": "Lifestyle activity measure with weak, indirect relation to health conditions.",
+          "is_categorical": false
+        },
+        {
+          "key": "diet_score",
+          "sensitivity": 20,
+          "reason": "Diet quality score is a behavioral indicator with indirect relation to health outcomes.",
+          "is_categorical": false
+        },
+        {
+          "key": "sleep_hours_per_day",
+          "sensitivity": 20,
+          "reason": "Sleep duration is a lifestyle metric with weak, indirect connection to health conditions.",
+          "is_categorical": false
+        },
+        {
+          "key": "screen_time_hours_per_day",
+          "sensitivity": 10,
+          "reason": "Behavioral usage metric that does not encode any in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "family_history_diabetes",
+          "sensitivity": 80,
+          "reason": "Indicates genetic and familial predisposition to disease, which falls under disability and health conditions.",
+          "is_categorical": true
+        },
+        {
+          "key": "hypertension_history",
+          "sensitivity": 100,
+          "reason": "Directly encodes presence of a medical condition, which is an explicit in-scope health characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "cardiovascular_history",
+          "sensitivity": 100,
+          "reason": "Directly represents prior cardiovascular disease, an explicit in-scope health condition.",
+          "is_categorical": true
+        },
+        {
+          "key": "bmi",
+          "sensitivity": 60,
+          "reason": "Body mass index is a strong proxy for health conditions related to metabolic and cardiovascular risk.",
+          "is_categorical": false
+        },
+        {
+          "key": "waist_to_hip_ratio",
+          "sensitivity": 60,
+          "reason": "Anthropometric measurement strongly associated with metabolic and cardiovascular health risks.",
+          "is_categorical": false
+        },
+        {
+          "key": "systolic_bp",
+          "sensitivity": 80,
+          "reason": "Blood pressure measurement directly reflects cardiovascular health conditions.",
+          "is_categorical": false
+        },
+        {
+          "key": "diastolic_bp",
+          "sensitivity": 80,
+          "reason": "Blood pressure measurement directly reflects cardiovascular health conditions.",
+          "is_categorical": false
+        },
+        {
+          "key": "heart_rate",
+          "sensitivity": 60,
+          "reason": "Physiological measurement that strongly reflects cardiovascular and health status.",
+          "is_categorical": false
+        },
+        {
+          "key": "cholesterol_total",
+          "sensitivity": 80,
+          "reason": "Biochemical marker indicating cardiovascular health, an in-scope health condition.",
+          "is_categorical": false
+        },
+        {
+          "key": "hdl_cholesterol",
+          "sensitivity": 80,
+          "reason": "Biochemical marker indicating cardiovascular health, an in-scope health condition.",
+          "is_categorical": false
+        },
+        {
+          "key": "ldl_cholesterol",
+          "sensitivity": 80,
+          "reason": "Biochemical marker reflecting cardiovascular disease risk and health condition.\",",
+          "is_categorical": false
+        },
+        {
+          "key": "triglycerides",
+          "sensitivity": 80,
+          "reason": "Blood lipid measurement directly associated with metabolic and cardiovascular health.",
+          "is_categorical": false
+        },
+        {
+          "key": "glucose_fasting",
+          "sensitivity": 100,
+          "reason": "Direct clinical measurement of blood glucose, explicitly encoding a health condition.",
+          "is_categorical": false
+        },
+        {
+          "key": "glucose_postprandial",
+          "sensitivity": 100,
+          "reason": "Direct clinical measurement of glucose regulation, explicitly encoding health condition.\",",
+          "is_categorical": false
+        },
+        {
+          "key": "insulin_level",
+          "sensitivity": 100,
+          "reason": "Clinical biomarker directly encoding metabolic health and disease status.",
+          "is_categorical": false
+        },
+        {
+          "key": "hba1c",
+          "sensitivity": 100,
+          "reason": "Clinical indicator of long-term glucose control, explicitly encoding health condition.",
+          "is_categorical": false
+        },
+        {
+          "key": "diabetes_risk_score",
+          "sensitivity": 80,
+          "reason": "Composite score estimating likelihood of a health condition, strongly related to disability and health conditions.",
+          "is_categorical": false
+        },
+        {
+          "key": "diabetes_stage",
+          "sensitivity": 100,
+          "reason": "Explicitly encodes disease stage, which is an in-scope health condition.",
+          "is_categorical": true
+        },
+        {
+          "key": "diagnosed_diabetes",
+          "sensitivity": 100,
+          "reason": "Directly indicates presence or absence of diabetes, an explicit in-scope health condition.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 1516.2245541000011
+    }
+  ]
+}

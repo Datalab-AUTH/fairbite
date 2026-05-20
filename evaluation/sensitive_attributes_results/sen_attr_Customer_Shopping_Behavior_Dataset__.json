@@ -1,0 +1,125 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/ayeshasiddiqa123/customer-shopping-behavior-dataset/croissant/download",
+  "dataset_name": "Customer Shopping Behavior Dataset",
+  "description": "#Context:\nThis dataset, which was gathered via an online retail platform, offers comprehensive information about consumer purchasing habits. It records different facets of consumer behavior, such as transactional patterns, buying preferences, and demographic information. The dataset is intended to assist in the analysis of purchasing trends, the assessment of the impact of variables like seasons, payment methods, and discounts on decisions to buy, and the comprehension of the relationship between consumer qualities and product choices and spending patterns.\n\n#Content:\nEach customer's personal information (age, gender, location), purchase details (item purchased, category, price, color, and size), and transactional aspects (discounts, shipping type, payment method, and use of promo codes) are among the many attributes included in the dataset. Behavioral data like subscription status, past purchases, and frequency of transactions are also included, as well feedback measures like review scores. All things considered, the dataset offers a thorough understanding of consumer interactions and preferences in an online shopping setting.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "shopping_behavior_updated.csv",
+      "recordset_description": "This dataset includes comprehensive data on consumer purchasing behaviors, spending scores, frequency of buying, and demographic characteristics including age, gender, and income. It can be applied to customer segmentation, consumer trend analysis, and the development of prediction models for retail analytics or marketing. The information is perfect for activities including machine learning, visualization, and exploratory data analysis (EDA) to determine how various aspects affect consumer behavior.",
+      "results": [
+        {
+          "key": "Customer ID",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information, explicitly out of scope.",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents the IN-SCOPE characteristic 'Age'.",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents the IN-SCOPE characteristic 'Gender & sexual identity'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Item Purchased",
+          "sensitivity": 0,
+          "reason": "Describes a product, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Category",
+          "sensitivity": 0,
+          "reason": "Describes a product category, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Purchase Amount (USD)",
+          "sensitivity": 0,
+          "reason": "Represents a monetary value, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Location",
+          "sensitivity": 70,
+          "reason": "Strong proxy for 'Racial & ethnic origin' and 'Socioeconomic status' depending on granularity.",
+          "is_categorical": true
+        },
+        {
+          "key": "Size",
+          "sensitivity": 0,
+          "reason": "Describes a product attribute, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Color",
+          "sensitivity": 0,
+          "reason": "Describes a product attribute, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Season",
+          "sensitivity": 0,
+          "reason": "Describes a time period, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Review Rating",
+          "sensitivity": 0,
+          "reason": "Represents customer feedback, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Subscription Status",
+          "sensitivity": 0,
+          "reason": "Indicates a customer's relationship with the platform, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Shipping Type",
+          "sensitivity": 0,
+          "reason": "Describes a delivery method, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Discount Applied",
+          "sensitivity": 0,
+          "reason": "Indicates if a discount was used, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Promo Code Used",
+          "sensitivity": 0,
+          "reason": "Indicates if a promo code was used, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Previous Purchases",
+          "sensitivity": 0,
+          "reason": "Represents a count of past transactions, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Payment Method",
+          "sensitivity": 30,
+          "reason": "Can be a weak proxy for 'Socioeconomic status' (e.g., cash vs. credit card).",
+          "is_categorical": true
+        },
+        {
+          "key": "Frequency of Purchases",
+          "sensitivity": 0,
+          "reason": "Represents how often a customer buys, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 13.998152199999993
+    }
+  ]
+}

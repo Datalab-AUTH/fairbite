@@ -1,0 +1,83 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/anelim288/glassdoor-analyze-gender-pay-gap/croissant/download",
+  "dataset_name": "Glassdoor- Analyze Gender Pay Gap",
+  "description": "About Dataset\nContext\nWant to know the base pay for different job roles, then this data set will be useful.\n\nAbout the data set:\nThe data set has been taken from glassdoor and focuses on income for various job titles based on gender. As there have been many studies showcasing that women are paid less than men for the same job titles, this data set will be helpful in identifying the depth of the gender-based pay gap. The features of the data set are:\nJob Title\nGender\nAge\nPerfEval\nEducation\nDept\nSeniority\nBase Pay, and\nBonus\n\nAcknowledgements\nThe data set has been taken from the website of Glassdoor. The license was not mentioned on the source.\n\nInspiration\nTo find out the pay gap between the gender for the same job title.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Glassdoor-Gender-Pay-Gap1.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "JobTitle",
+          "sensitivity": 10,
+          "reason": "could correlate with socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "PerfEval",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Education",
+          "sensitivity": 50,
+          "reason": "proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Dept",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Seniority",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "BasePay",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Bonus",
+          "sensitivity": 50,
+          "reason": "weak proxy for socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "BB",
+          "sensitivity": 10,
+          "reason": "could correlate with socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "Dismissal",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 350.4739977000281
+    }
+  ]
+}

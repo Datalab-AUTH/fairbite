@@ -1,0 +1,143 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/parthmanjrekar/student-performance-data/croissant/download",
+  "dataset_name": "STUDENT PERFORMANCE DATA",
+  "description": "📝 Description:\nThis dataset consists of 100 student records generated using a custom Python script. Each entry captures various academic and demographic features such as:\n\nStudent Name\n\nGender\n\nAge\n\nStudy Hours\n\nAttendance Percentage\n\nGrades (Midterm, Final, and Average)\n\nParental Education\n\nInternet Access\n\nExtra-Curricular Participation\n\n📌 Use Cases:\n\nMachine Learning model training (e.g., grade prediction)\n\nData preprocessing and cleaning exercises\n\nExploratory data analysis and visualization\n\nEducational dashboards and Power BI demonstrations\n\n💡 Ideal for students and educators aiming to practice regression, classification, data cleaning, and insight generation using a compact, readable dataset.\n\n📂 Note: The dataset is balanced for gender and contains a variety of typical academic performance patterns.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "student_data_100 (1).csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "name",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "sex",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "address",
+          "sensitivity": 50,
+          "reason": "weak proxy of ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "famsize",
+          "sensitivity": 80,
+          "reason": "strog proxy of Family status",
+          "is_categorical": true
+        },
+        {
+          "key": "Pstatus",
+          "sensitivity": 90,
+          "reason": "directly shows parental status",
+          "is_categorical": true
+        },
+        {
+          "key": "Medu",
+          "sensitivity": 80,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Fedu",
+          "sensitivity": 80,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Mjob",
+          "sensitivity": 80,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Fjob",
+          "sensitivity": 80,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "guardian",
+          "sensitivity": 90,
+          "reason": "directly shows Family status",
+          "is_categorical": true
+        },
+        {
+          "key": "schoolsup",
+          "sensitivity": 50,
+          "reason": "weak proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "famsup",
+          "sensitivity": 80,
+          "reason": "strong proxy for socioeconomic status and family status",
+          "is_categorical": true
+        },
+        {
+          "key": "paid",
+          "sensitivity": 80,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "activities",
+          "sensitivity": 0,
+          "reason": "not in cope",
+          "is_categorical": true
+        },
+        {
+          "key": "internet",
+          "sensitivity": 60,
+          "reason": "direct proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "romantic",
+          "sensitivity": 50,
+          "reason": "weak proxy for marital status",
+          "is_categorical": true
+        },
+        {
+          "key": "absences",
+          "sensitivity": 10,
+          "reason": "could relate to health conditions",
+          "is_categorical": false
+        },
+        {
+          "key": "G1",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "G2",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "G3",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 724.2783173000207
+    }
+  ]
+}

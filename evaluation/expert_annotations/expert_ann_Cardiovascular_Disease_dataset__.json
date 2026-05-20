@@ -1,0 +1,95 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/sulianova/cardiovascular-disease-dataset/croissant/download",
+  "dataset_name": "Cardiovascular Disease dataset",
+  "description": "#### Data description\n\nThere are 3 types of input features:\n\n - *Objective*: factual information;\n - *Examination*: results of medical examination;\n - *Subjective*: information given by the patient.\n\nFeatures:\n\n1. Age | Objective Feature | age | int (days)\n2. Height | Objective Feature | height | int (cm) |\n3. Weight | Objective Feature | weight | float (kg) |\n4. Gender | Objective Feature | gender | categorical code |\n5. Systolic blood pressure | Examination Feature | ap_hi | int |\n6. Diastolic blood pressure | Examination Feature | ap_lo | int |\n7. Cholesterol | Examination Feature | cholesterol | 1: normal, 2: above normal, 3: well above normal |\n8. Glucose | Examination Feature | gluc | 1: normal, 2: above normal, 3: well above normal |\n9. Smoking | Subjective Feature | smoke | binary |\n10. Alcohol intake | Subjective Feature | alco | binary |\n11. Physical activity | Subjective Feature | active | binary |\n12. Presence or absence of cardiovascular disease | Target Variable | cardio | binary |\n\nAll of the dataset values were collected at the moment of medical examination. ",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "cardio_train.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "id",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "height",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "weight",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": false
+        },
+        {
+          "key": "ap_hi",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": false
+        },
+        {
+          "key": "ap_lo",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": false
+        },
+        {
+          "key": "cholesterol",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": true
+        },
+        {
+          "key": "gluc",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": true
+        },
+        {
+          "key": "smoke",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": true
+        },
+        {
+          "key": "alco",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": true
+        },
+        {
+          "key": "active",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": true
+        },
+        {
+          "key": "cardio",
+          "sensitivity": 100,
+          "reason": "directly show the existance of a health condition",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 217.13141460000043
+    }
+  ]
+}

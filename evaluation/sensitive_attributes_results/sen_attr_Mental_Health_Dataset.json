@@ -1,0 +1,113 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/alamshihab075/mental-health-dataset/croissant/download",
+  "dataset_name": "Mental Health Dataset",
+  "description": "This dataset compiles self-reported information from individuals to examine how professional background, work habits, stress patterns, and personal coping mechanisms influence mental health and emotional well-being. The data highlights the complex relationship between workplace engagement, lifestyle behavior, and mental resilience.\n\nEach observation includes the following categories:\n\nDemographic Attributes:\nGender, Country, and Occupation\n\nEmployment & Family Context:\nEmployment type (SelfEmployed) and FamilyHistory of mental health conditions\n\nLifestyle & Behavioral Factors:\nDaysIndoors, HabitsChange, and CopingStruggles representing lifestyle balance and adaptation to stress\n\nMental Health Indicators:\nMentalHealthHistory, IncreasingStress, MoodSwings, WorkInterest, and SocialWeakness reflecting individual emotional and psychological states\n\nAwareness & Support Dimensions:\nMentalHealthInterview and CareOptions, indicating whether participants had discussions or access to mental health support and care resources\n\nThis dataset is well-suited for data analysis, visualization, and predictive modeling, offering valuable insights into how lifestyle, work environment, and psychological factors collectively shape mental health outcomes.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Mental Health dataset1.csv",
+      "recordset_description": "This csv file content 17 columns, with various factors associated with mental health. ",
+      "results": [
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents gender, an IN-SCOPE sensitive characteristic (Gender & sexual identity).",
+          "is_categorical": true
+        },
+        {
+          "key": "Country",
+          "sensitivity": 80,
+          "reason": "Strong proxy for national origin and nationality, which are IN-SCOPE sensitive characteristics (Racial & ethnic origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "Occupation",
+          "sensitivity": 40,
+          "reason": "Can be an indirect proxy for socioeconomic status, an IN-SCOPE sensitive characteristic (Socioeconomic status).",
+          "is_categorical": true
+        },
+        {
+          "key": "SelfEmployed",
+          "sensitivity": 20,
+          "reason": "Very weak, indirect proxy for socioeconomic status, an IN-SCOPE sensitive characteristic (Socioeconomic status).",
+          "is_categorical": true
+        },
+        {
+          "key": "FamilyHistory",
+          "sensitivity": 100,
+          "reason": "Directly relates to health conditions and potentially genetic features, which are IN-SCOPE sensitive characteristics (Disability & health conditions).",
+          "is_categorical": true
+        },
+        {
+          "key": "Treatment",
+          "sensitivity": 100,
+          "reason": "Directly indicates a health condition or disability, which are IN-SCOPE sensitive characteristics (Disability & health conditions).",
+          "is_categorical": true
+        },
+        {
+          "key": "DaysIndoors",
+          "sensitivity": 10,
+          "reason": "Not directly sensitive; very weak, indirect proxy for health conditions.",
+          "is_categorical": false
+        },
+        {
+          "key": "HabitsChange",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "MentalHealthHistory",
+          "sensitivity": 100,
+          "reason": "Directly indicates a health condition/impairment, which is an IN-SCOPE sensitive characteristic (Disability & health conditions).",
+          "is_categorical": true
+        },
+        {
+          "key": "IncreasingStress",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "MoodSwings",
+          "sensitivity": 100,
+          "reason": "Indicates a potential health condition/impairment, which is an IN-SCOPE sensitive characteristic (Disability & health conditions).",
+          "is_categorical": true
+        },
+        {
+          "key": "SocialWeakness",
+          "sensitivity": 100,
+          "reason": "Indicates a potential impairment related to mental health, which is an IN-SCOPE sensitive characteristic (Disability & health conditions).",
+          "is_categorical": true
+        },
+        {
+          "key": "CopingStruggles",
+          "sensitivity": 100,
+          "reason": "Strongly implies a potential mental health challenge or impairment, which is an IN-SCOPE sensitive characteristic (Disability & health conditions).",
+          "is_categorical": true
+        },
+        {
+          "key": "WorkInterest",
+          "sensitivity": 100,
+          "reason": "Indicates a potential symptom of a mental health condition/impairment, which is an IN-SCOPE sensitive characteristic (Disability & health conditions).",
+          "is_categorical": true
+        },
+        {
+          "key": "MentalHealthInterview",
+          "sensitivity": 100,
+          "reason": "Indicates engagement with mental health support, implying a health condition/impairment, which is an IN-SCOPE sensitive characteristic (Disability & health conditions).",
+          "is_categorical": true
+        },
+        {
+          "key": "CareOptions",
+          "sensitivity": 100,
+          "reason": "Indicates access to mental health care, implying a health condition/impairment, which is an IN-SCOPE sensitive characteristic (Disability & health conditions).",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 17.2953925000038
+    }
+  ]
+}

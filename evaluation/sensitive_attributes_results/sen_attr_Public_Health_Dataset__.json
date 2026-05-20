@@ -1,0 +1,227 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/datasetengineer/public-health-dataset/croissant/download",
+  "dataset_name": "Public Health Dataset",
+  "description": "This dataset comprises public health records, surveillance systems, and environmental monitoring data collected from multiple regions over several years. It contains 43,689 entries that provide a comprehensive view of public health dynamics, essential for understanding disease dissemination and guiding effective control strategies. The data has been meticulously gathered from regional health departments, hospitals, laboratories, and public health organizations, ensuring a high level of quality, consistency, and completeness. Each record has been anonymized and aggregated to protect sensitive information.\n\nThis dataset serves as a vital resource for researchers, policymakers, and health professionals aiming to analyze and predict public health trends, assess the impact of environmental factors, and improve epidemic response strategies.\n\nFeatures\nThe dataset includes the following features:\n\nAge: Age of the individual in years.\nGender: Gender of the individual (Male, Female, Other).\nLocation: Geographic location (Urban, Rural, Suburban).\nEthnicity: Ethnicity of the individual.\nSocioeconomic Status (SES): Socioeconomic status categorized as Low, Medium, or High.\nChronic Conditions: Presence of chronic health conditions.\nVaccination Status: Whether the individual is vaccinated (Yes, No).\nMedical History: Previous medical history (None, Past Illness, Chronic).\nImmunity Level: Estimated level of immunity (Low, Medium, High).\nReported Symptoms: Type and severity of symptoms reported.\nTransmission Rate: Rate of disease transmission within the population.\nDaily New Cases: Number of new cases reported daily.\nHealthcare Personnel Availability: Availability of healthcare workers in the region.\nHospital Capacity: Number of beds and resources available in healthcare facilities.\nEnvironmental Factors: Data related to air quality, temperature, and other environmental variables influencing health outcomes.\nHospitalization Requirement: Predicted level of hospitalization needed based on reported symptoms and medical history.\nThis dataset is ideal for various analytical tasks, including predictive modeling, classification, and feature exploration, making it a valuable asset for advancing public health research.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "public_health_surveillance_dataset.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents age, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents gender, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Location",
+          "sensitivity": 60,
+          "reason": "Strong proxy for socioeconomic status and potentially ethnic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "Ethnicity",
+          "sensitivity": 100,
+          "reason": "Directly represents ethnicity, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "SES",
+          "sensitivity": 100,
+          "reason": "Directly represents socioeconomic status, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Chronic_Conditions",
+          "sensitivity": 90,
+          "reason": "Directly relates to health conditions/impairment, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Vaccination_Status",
+          "sensitivity": 30,
+          "reason": "Indirectly related to health status and can sometimes correlate with beliefs or socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "Medical_History",
+          "sensitivity": 90,
+          "reason": "Directly relates to health conditions/impairment, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Immunity_Level",
+          "sensitivity": 70,
+          "reason": "Directly relates to an individual's health status, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Reported_Symptoms",
+          "sensitivity": 80,
+          "reason": "Directly indicates current health conditions, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Diagnosis",
+          "sensitivity": 90,
+          "reason": "Directly identifies a health condition or impairment, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Testing_Results",
+          "sensitivity": 80,
+          "reason": "Directly indicates health status or potential for a health condition, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Date_of_Onset",
+          "sensitivity": 10,
+          "reason": "A temporal marker for a health event, not directly an IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Temperature",
+          "sensitivity": 50,
+          "reason": "A direct physiological health indicator, related to health conditions.",
+          "is_categorical": false
+        },
+        {
+          "key": "AQI",
+          "sensitivity": 0,
+          "reason": "An environmental factor, not an IN-SCOPE sensitive characteristic of an individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "Humidity",
+          "sensitivity": 0,
+          "reason": "An environmental factor, not an IN-SCOPE sensitive characteristic of an individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "Population_Density",
+          "sensitivity": 10,
+          "reason": "A characteristic of an area, not an IN-SCOPE sensitive characteristic of an individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "Travel_History",
+          "sensitivity": 40,
+          "reason": "Can be an indirect proxy for national origin or recent location, which might correlate with ethnic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "Social_Activity",
+          "sensitivity": 10,
+          "reason": "Not an IN-SCOPE sensitive characteristic; very weak and indirect proxy for socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "Compliance_with_Health_Guidelines",
+          "sensitivity": 30,
+          "reason": "Can be an indirect proxy for personal beliefs or opinions, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Vaccination_Hesitancy",
+          "sensitivity": 70,
+          "reason": "Directly relates to an individual's beliefs or opinions, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Transmission_Rate",
+          "sensitivity": 0,
+          "reason": "A population-level metric, not an IN-SCOPE sensitive characteristic of an individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "Mortality_Rate",
+          "sensitivity": 0,
+          "reason": "A population-level metric, not an IN-SCOPE sensitive characteristic of an individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "Case_Fatality_Ratio",
+          "sensitivity": 0,
+          "reason": "A population-level metric, not an IN-SCOPE sensitive characteristic of an individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "Hospitalization_Rate",
+          "sensitivity": 0,
+          "reason": "A population-level metric, not an IN-SCOPE sensitive characteristic of an individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "Hospital_Capacity",
+          "sensitivity": 0,
+          "reason": "A resource metric, not an IN-SCOPE sensitive characteristic of an individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "Healthcare_Personnel_Availability",
+          "sensitivity": 0,
+          "reason": "A resource metric, not an IN-SCOPE sensitive characteristic of an individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "Resource_Utilization",
+          "sensitivity": 0,
+          "reason": "A resource metric, not an IN-SCOPE sensitive characteristic of an individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "Date_of_Data_Collection",
+          "sensitivity": 0,
+          "reason": "A metadata field, not an IN-SCOPE sensitive characteristic of an individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "Daily_New_Cases",
+          "sensitivity": 0,
+          "reason": "A population-level metric, not an IN-SCOPE sensitive characteristic of an individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "Vaccination_Campaign_Dates",
+          "sensitivity": 0,
+          "reason": "Program/event metadata, not an IN-SCOPE sensitive characteristic of an individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "Outbreak_Status",
+          "sensitivity": 0,
+          "reason": "A population-level status, not a characteristic of an individual.",
+          "is_categorical": true
+        },
+        {
+          "key": "Infection_Risk_Level",
+          "sensitivity": 70,
+          "reason": "Directly relates to an individual's health status or potential for a health condition, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Disease_Severity",
+          "sensitivity": 90,
+          "reason": "Directly describes the impact of a health condition or impairment, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Hospitalization_Requirement",
+          "sensitivity": 90,
+          "reason": "Directly indicates a severe health condition or impairment requiring medical intervention, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 26.631009200000108
+    }
+  ]
+}

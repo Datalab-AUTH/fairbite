@@ -1,0 +1,187 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/mayureshkoli/police-deaths-in-usa-from-1791-to-2022/croissant/download",
+  "dataset_name": "Police deaths in USA from 1791 to 2022",
+  "description": "This dataset contains information on fatal police deaths in the United States. The data includes the \nvictim's rank, name, department, date of death, and cause of death. The data spans from 1791 to the \npresent day. This dataset will be updated on monthly basis.\nData Scrapped from this website :- https://www.odmp.org/\n\nNew Version Features -&gt; With the new web scrapper I have upgraded dataset with more information.\n1) The new dataset version is \"police_deaths_USA_v6.csv\" and \"k9_deaths_USA_v6.csv\".\n2) Splitted the dataset into 2 different datasets 1 for Human Unit and other for K9 Unit.\n3) Check out the new web scrapper code in this file \"final_scrapper_program_with_comments.ipynb\".\n4) Also added the correction file which is needed to adjust some data points from K9 dataset.\n5) Extended data of Human Unit dataset to 13 Features.\n6) Extended data of K9 Unit dataset to 14 Features.\n\nThe police_deaths dataset contains 13 variables:\n\n1) Rank -&gt; Rank assigned or achieved by the police throughout their tenure.\n\n2) Name -&gt; The name of the person.\n\n3) Age -&gt; Age of the person.\n\n4) End_Of_Watch -&gt; The death date on which the the person declared as dead.\n\n5) Day_Of_Week -&gt; The day of the week [Sunday, Monday, etc.].\n\n6) Cause -&gt; The cause of the death.\n\n7) Department -&gt; The department's name where the person works.\n\n8) State -&gt; The state where the department is situated.\n\n9) Tour -&gt; The Duration of there Tenure.\n\n10) Badge -&gt; Badge of the person.\n\n11) Weapon -&gt; The Weapon by which the officer has been killed.\n\n12) Offender -&gt; Offender / Killer this says what happened to the offender after the incident was he/she [Arrested, Killed, etc.].\n\n13) Summary -&gt; Summary of the police officer and also the summary of the incident of what happened ? How he/she died ?, etc.\n\nThe k9_deaths dataset contains 14 variables:\n\n1) Rank -&gt; Rank assigned or achieved by the K9 throughout their tenure.\n\n2) Name -&gt; The name of the K9.\n\n3) Breed -&gt; Breed of the K9.\n\n4) Gender -&gt; Gender of the K9.\n\n5) Age -&gt; Age of the K9.\n\n6) End_Of_Watch -&gt; The death date on which the the person declared as dead.\n\n7) Day_Of_Week -&gt; The day of the week [Sunday, Monday, etc.].\n\n8) Cause -&gt; The cause of the death.\n\n9) Department -&gt; The department's name where the K9 was assigned.\n\n10) State -&gt; The state where the department is situated.\n\n11) Tour -&gt; The Duration of there Tenure.\n\n12) Weapon -&gt; The Weapon by which the officer has been killed.\n\n13) Offender -&gt; Offender / Killer this says what happened to the offender after the incident was he/she [Arrested, Killed, etc.].\n\n14) Summary -&gt; Summary of the K9 dog and also the summary of the incident of what happened ? How he/she died ?, etc.\n\nAcknowledgements:\n\nThe original dataset was collected by FiveThirtyEight and it contains police death data from 1791 to 2016. \nHere is the link -&gt; https://data.world/fivethirtyeight/police-deaths.\n\nThe reason I made this dataset is because it had not been updated since 2016 and the scrapping script was outdated, so I decided to make a new scrapper and update the dataset till present.\nI got this idea from the FiveThirtyEight group and a fellow kaggler, Satoshi Datamoto, who uploaded \nthe dataset on kaggle. Thank you for inspiration.\n\nTableau Visualization link :- https://public.tableau.com/app/profile/mayuresh.koli/viz/USALawEnforcementLineofDutyDeaths/main_dashboard",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "k9_deaths_USA_v7.csv",
+      "recordset_description": "Version 7",
+      "results": [
+        {
+          "key": "Rank",
+          "sensitivity": 0,
+          "reason": "This column describes the rank of a K9 unit, which is not an IN-SCOPE human sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Name",
+          "sensitivity": 0,
+          "reason": "This column describes the name of a K9 unit, which is not an IN-SCOPE human sensitive characteristic. Personally Identifiable Information (PII) for humans is also out of scope.",
+          "is_categorical": false
+        },
+        {
+          "key": "Breed",
+          "sensitivity": 0,
+          "reason": "This column describes the breed of a K9 unit, which is not an IN-SCOPE human sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 0,
+          "reason": "This column describes the gender of a K9 unit, which is not an IN-SCOPE human sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 0,
+          "reason": "This column describes the age of a K9 unit, which is not an IN-SCOPE human sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "End_Of_Watch",
+          "sensitivity": 0,
+          "reason": "This column describes the death date of a K9 unit, which is not an IN-SCOPE human sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Day_Of_Week",
+          "sensitivity": 0,
+          "reason": "This column describes the day of the week of a K9's death, which is not an IN-SCOPE human sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Cause",
+          "sensitivity": 0,
+          "reason": "This column describes the cause of death for a K9 unit, which is not an IN-SCOPE human sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Department",
+          "sensitivity": 0,
+          "reason": "This column describes the department of a K9 unit, which is not an IN-SCOPE human sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "State",
+          "sensitivity": 0,
+          "reason": "This column describes the state where the K9's department is located, which is not an IN-SCOPE human sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Tour",
+          "sensitivity": 0,
+          "reason": "This column describes the duration of tenure for a K9 unit, which is not an IN-SCOPE human sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Weapon",
+          "sensitivity": 0,
+          "reason": "This column describes the weapon used in the incident involving a K9 unit, which is not an IN-SCOPE human sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Offender",
+          "sensitivity": 0,
+          "reason": "This column describes the outcome for the offender in an incident involving a K9 unit, not a sensitive characteristic of the offender from the IN-SCOPE list.",
+          "is_categorical": true
+        },
+        {
+          "key": "Summary",
+          "sensitivity": 0,
+          "reason": "This free-text summary primarily concerns a K9 unit and the incident, and does not explicitly encode an IN-SCOPE human sensitive characteristic.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 14.946692999918014
+    },
+    {
+      "recordset_name": "police_deaths_USA_v7.csv",
+      "recordset_description": "Version 7",
+      "results": [
+        {
+          "key": "Rank",
+          "sensitivity": 0,
+          "reason": "Not directly related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Name",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information, explicitly out of scope for sensitivity.",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents an IN-SCOPE sensitive characteristic: Age.",
+          "is_categorical": false
+        },
+        {
+          "key": "End_Of_Watch",
+          "sensitivity": 0,
+          "reason": "Not directly related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Day_Of_Week",
+          "sensitivity": 0,
+          "reason": "Not directly related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Cause",
+          "sensitivity": 0,
+          "reason": "Not directly related to IN-SCOPE health conditions; describes an event.",
+          "is_categorical": true
+        },
+        {
+          "key": "Department",
+          "sensitivity": 0,
+          "reason": "Not directly related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "State",
+          "sensitivity": 40,
+          "reason": "Can be a weak proxy for 'Racial & ethnic origin' or 'Socioeconomic status' due to demographic distributions.",
+          "is_categorical": true
+        },
+        {
+          "key": "Tour",
+          "sensitivity": 0,
+          "reason": "Not directly related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Badge",
+          "sensitivity": 0,
+          "reason": "Not directly related to any IN-SCOPE sensitive characteristic; an identifier.",
+          "is_categorical": false
+        },
+        {
+          "key": "Weapon",
+          "sensitivity": 0,
+          "reason": "Not directly related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Offender",
+          "sensitivity": 0,
+          "reason": "Not directly related to any IN-SCOPE sensitive characteristic of the police officer.",
+          "is_categorical": true
+        },
+        {
+          "key": "Summary",
+          "sensitivity": 10,
+          "reason": "Free-text field, not designed to directly encode IN-SCOPE sensitive characteristics, though it might contain incidental mentions.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 12.794717299984768
+    }
+  ]
+}

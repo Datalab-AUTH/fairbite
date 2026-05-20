@@ -1,0 +1,95 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/melissamonfared/hate-crimes/croissant/download",
+  "dataset_name": "Hate Crimes",
+  "description": "#### Overview:\n\nThis dataset contains detailed information on cases where a hate or bias crime has been reported to the Bloomington Police Department. Hate crimes are criminal offenses motivated by bias against race, religion, ethnicity, sexual orientation, gender identity, or other protected characteristics. This dataset provides insights into the nature and demographics of hate crimes in Bloomington, aiding in understanding and addressing these incidents.\n\n#### Dataset Details:\n\nThe dataset includes the following columns:\n\n| Column Name    | Description                            | API Field Name   | Data Type          |\n|----------------|----------------------------------------|------------------|--------------------|\n| **case_number** | Case Number                            | case_number      | Text               |\n| **date**        | Date                                   | date             | Floating Timestamp |\n| **weekday**     | Day of Week                            | day_of_week      | Text               |\n| **victims**     | Total Number of Victims                | victims          | Number             |\n| **victim_race** | Victim Race                            | victim_race      | Text               |\n| **victim_gender** | Victim Gender                          | victim_gender    | Text               |\n| **victim_type** | Victim Type                            | victim_type      | Text               |\n| **offenders**   | Total Number of Offenders              | offenders        | Number             |\n| **offender_race** | Offender Race                         | offender_race    | Text               |\n| **offender_gender** | Offender Gender                     | offender_gender  | Text               |\n| **offense**     | Offense / Crime                        | offense          | Text               |\n| **location_type** | Offense / Crime Location Type         | location_type    | Text               |\n| **motivation**  | Offense/Crime Bias Motivation          | motivation       | Text               |\n\n#### Key Features:\n\n- **Comprehensive Crime Data**: Provides detailed information on hate crimes, including demographics of victims and offenders, types of offenses, and bias motivations.\n- **Temporal Analysis**: Includes timestamps for each incident, allowing for analysis of trends over time.\n- **Demographic Insights**: Offers data on race and gender of both victims and offenders, helping to identify patterns and target interventions.\n- **Location Information**: Contains details about the type of location where the offense occurred, useful for spatial analysis and preventive measures.\n\n#### Usage:\n\nThis dataset can be used for:\n\n- **Crime Analysis**: Analyzing trends and patterns in hate crimes to inform law enforcement strategies and policies.\n- **Community Safety**: Identifying high-risk areas and times to improve community policing and preventive measures.\n- **Research and Advocacy**: Supporting academic research and advocacy efforts focused on combating hate crimes and promoting social justice.\n- **Policy Development**: Assisting policymakers in developing targeted initiatives to reduce hate crimes and support affected communities.\n\n#### Data Maintenance:\n\n- **Last Updated**: July 7, 2024\n- **Source**: [Bloomington Police Department Data Portal](https://data.bloomington.in.gov/Police/Hate-Crimes/vzyb-ttns/about_data)\n- **Revisions**: The dataset is annually updated to ensure the inclusion of the latest incidents and to maintain data accuracy. Historical data is preserved to support long-term analyses.\n\n#### Additional Notes\n\n- **Data Accuracy**: The Bloomington Police Department strives for accuracy in open data; however, errors may occur due to the nature of data collection from multiple sources.\n- **Data Interpretation**: Users should be aware that the dataset may change over time as new information becomes available or corrections are made.\n- **Race and District Codes**: The dataset uses specific codes for race and reading districts, which are detailed in the accompanying documentation to ensure proper interpretation.\n- **License**: Open Data Commons Public Domain Dedication and License",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Hate_Crimes_20240707.csv",
+      "recordset_description": "Source: https://data.bloomington.in.gov/Police/Hate-Crimes/vzyb-ttns/about_data\n\nBy providing detailed information on hate crimes, this dataset serves as a valuable resource for understanding and addressing bias-motivated offenses in Bloomington, supporting efforts to create a safer and more inclusive community.",
+      "results": [
+        {
+          "key": "case_number",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; it is an identifier.",
+          "is_categorical": true
+        },
+        {
+          "key": "date",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; it is a timestamp of an event, not a date of birth.",
+          "is_categorical": false
+        },
+        {
+          "key": "weekday",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "victims",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; it is a count.",
+          "is_categorical": false
+        },
+        {
+          "key": "victim_race",
+          "sensitivity": 100,
+          "reason": "Directly represents racial origin, an IN-SCOPE sensitive characteristic under 'Racial & ethnic origin'.",
+          "is_categorical": true
+        },
+        {
+          "key": "victim_gender",
+          "sensitivity": 100,
+          "reason": "Directly represents gender, an IN-SCOPE sensitive characteristic under 'Gender & sexual identity'.",
+          "is_categorical": true
+        },
+        {
+          "key": "victim_type",
+          "sensitivity": 80,
+          "reason": "May encode the type of entity targeted (e.g., religious institution, LGBTQ+ center), which can be a strong proxy for IN-SCOPE characteristics like religion or sexual identity.",
+          "is_categorical": true
+        },
+        {
+          "key": "offenders",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; it is a count.",
+          "is_categorical": false
+        },
+        {
+          "key": "offender_race",
+          "sensitivity": 100,
+          "reason": "Directly represents racial origin, an IN-SCOPE sensitive characteristic under 'Racial & ethnic origin'.",
+          "is_categorical": true
+        },
+        {
+          "key": "offender_gender",
+          "sensitivity": 100,
+          "reason": "Directly represents gender, an IN-SCOPE sensitive characteristic under 'Gender & sexual identity'.",
+          "is_categorical": true
+        },
+        {
+          "key": "offense",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; describes the nature of the crime.",
+          "is_categorical": true
+        },
+        {
+          "key": "location_type",
+          "sensitivity": 80,
+          "reason": "May encode the type of location targeted (e.g., religious institution, LGBTQ+ bar), which can be a strong proxy for IN-SCOPE characteristics like religion or sexual identity.",
+          "is_categorical": true
+        },
+        {
+          "key": "motivation",
+          "sensitivity": 100,
+          "reason": "Directly describes the bias motivation, which is explicitly based on IN-SCOPE sensitive characteristics like race, religion, ethnicity, sexual orientation, and gender identity.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 12.998103199992329
+    }
+  ]
+}

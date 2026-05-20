@@ -1,0 +1,167 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/arsri1/arrest-data-in-los-angeles/croissant/download",
+  "dataset_name": "Arrest Data in Los Angeles",
+  "description": "This dataset contains arrest records from Los Angeles, covering incidents from 2020 to the present. It is sourced from the Los Angeles Open Data Portal and provides detailed information about arrests, including the date, time, location, demographic details of the arrested individuals, and the charges filed.\n\n**Context & Inspiration**\nWith growing interest in public safety, law enforcement practices, and criminal justice transparency, this dataset can help analysts, researchers, and policymakers explore:\n\n- Crime trends over time – Are certain offenses becoming more common?\n- Demographic patterns in arrests – Are there disparities based on age, gender, or race?\n- Geographic distribution of arrests – Where do most arrests occur in Los Angeles?\n- Law enforcement practices – Are there trends in how different charges are handled?\n- This dataset can serve as a valuable resource for data visualization, machine learning models, and policy analysis to gain insights into crime prevention, public safety, and law enforcement strategies.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Arrest_Data_from_2020_to_Present.csv",
+      "recordset_description": "This dataset contains arrest records from Los Angeles starting from 2020 to the present. It includes details such as the date of arrest, charges, demographics of the arrested individuals, and the location of incidents. The dataset can be used for analyzing crime trends, studying the demographics of arrests, evaluating law enforcement practices, and identifying potential disparities in policing. Researchers, policymakers, and data analysts can leverage this dataset to gain insights into public safety and the criminal justice system in Los Angeles.",
+      "results": [
+        {
+          "key": "Report ID",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Report Type",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Arrest Date",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Time",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Area ID",
+          "sensitivity": 60,
+          "reason": "strong proxy for nationality",
+          "is_categorical": true
+        },
+        {
+          "key": "Area Name",
+          "sensitivity": 60,
+          "reason": "strong proxy for nationality",
+          "is_categorical": true
+        },
+        {
+          "key": "Reporting District",
+          "sensitivity": 60,
+          "reason": "strong proxy for nationality",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Sex Code",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Descent Code",
+          "sensitivity": 90,
+          "reason": "shows nationality",
+          "is_categorical": true
+        },
+        {
+          "key": "Charge Group Code",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Charge Group Description",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Arrest Type Code",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Charge",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Charge Description",
+          "sensitivity": 0,
+          "reason": "not in scope false",
+          "is_categorical": false
+        },
+        {
+          "key": "Disposition Description",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Address",
+          "sensitivity": 50,
+          "reason": "weak proxy for nationality",
+          "is_categorical": false
+        },
+        {
+          "key": "Cross Street",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "LAT",
+          "sensitivity": 10,
+          "reason": "might relate to nationality",
+          "is_categorical": false
+        },
+        {
+          "key": "LON",
+          "sensitivity": 10,
+          "reason": "might relate to nationality",
+          "is_categorical": false
+        },
+        {
+          "key": "Location",
+          "sensitivity": 10,
+          "reason": "might relate to nationality",
+          "is_categorical": false
+        },
+        {
+          "key": "Booking Date",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Booking Time",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Booking Location",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Booking Location Code",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 996.8410561999772
+    }
+  ]
+}

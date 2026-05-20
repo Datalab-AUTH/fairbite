@@ -1,0 +1,755 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/shivd24coder/fbis-most-wanted-criminals-dataset/croissant/download",
+  "dataset_name": "🏛️🏛️  FBI's Most Wanted Criminals Dataset 🚨🚨",
+  "description": "#Key Features\n\n| **Column Name**      | **Description**                                     |\n|------------------|--------------------------------------------|\n| uid              | Unique identifier for the wanted person.   |\n| title            | The name or title of the wanted person.     |\n| description      | A brief description of the person, their alleged crimes, or other relevant details. |\n| status           | Indicates the current status of the case or wanted person. |\n| sex              | The gender of the wanted person (e.g., Male, Female). |\n| race             | The racial background of the wanted person. |\n| nationality      | The nationality or citizenship of the wanted person. |\n| age_min          | The minimum age range of the wanted person. |\n| age_max          | The maximum age range of the wanted person. |\n| height_min       | The minimum height of the wanted person. |\n| height_max       | The maximum height of the wanted person. |\n| weight_min       | The minimum weight of the wanted person. |\n| weight_max       | The maximum weight of the wanted person. |\n\n\n\n#How to use this dataset\n\n**1. Access Case Details:** Explore the descriptions and details of the cases associated with each wanted person. This can help you understand the alleged crimes, background information, and the current status of the cases.\n\n**2. Data Analysis:** Perform data analysis to identify patterns or trends among wanted persons. You can analyze the data to gain insights into the demographics, crimes, or locations associated with these individuals.\n\n**3. Geospatial Analysis:** Utilize geographical information to map out the locations related to wanted persons. This can help in visualizing the distribution of cases across different regions.\n\n**4. Raise Awareness:** Share information about wanted persons with your community or through social media. The dataset can be used to raise awareness and assist in locating and apprehending fugitives.\n\nIf you find this dataset useful, give it an upvote – it's a small gesture that goes a long way! Thanks for your support. 😄",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "FBI_data.csv",
+      "recordset_description": "This file is essentially a converted version of **FBI_wanted_data.json** transformed into a more accessible .csv format for easier exploration and analysis.",
+      "results": [
+        {
+          "key": "occupations/0",
+          "sensitivity": 80,
+          "reason": "stong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "occupations/1",
+          "sensitivity": 80,
+          "reason": "stong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "occupations/2",
+          "sensitivity": 80,
+          "reason": "stong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "nationality",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "height_min",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "build",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "description",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "weight",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "reward_text",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "sex",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "images/0/caption",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/0/large",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/0/original",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/0/thumb",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/1/caption",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/1/large",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/1/original",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/1/thumb",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/2/caption",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/2/large",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/2/original",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/2/thumb",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/3/caption",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/3/large",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/3/original",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/3/thumb",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/4/caption",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/4/large",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/4/original",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/4/thumb",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/5/caption",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/5/large",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/5/original",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/5/thumb",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/6/caption",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/6/large",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/6/original",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/6/thumb",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/7/caption",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/7/large",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/7/original",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/7/thumb",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/8/caption",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/8/large",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/8/original",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/8/thumb",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/9/caption",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/9/large",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/9/original",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/9/thumb",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/10/caption",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/10/large",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/10/original",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "images/10/thumb",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "additional_information",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "person_classification",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "age_max",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "uid",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "age_range",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "subjects/0",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "ncic",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "weight_max",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "languages",
+          "sensitivity": 90,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "reward_max",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "dates_of_birth_used/0",
+          "sensitivity": 90,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "legat_names",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "suspects",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "place_of_birth",
+          "sensitivity": 90,
+          "reason": "strong proxy for ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "height_max",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "hair",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "aliases/0",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "status",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "reward_min",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "modified",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "eyes",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "poster_classification",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "field_offices/0",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "race",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "warning_message",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "race_raw",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "remarks",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "title",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "possible_countries",
+          "sensitivity": 60,
+          "reason": "proxy for ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "age_min",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "details",
+          "sensitivity": 0,
+          "reason": "ethnic origin",
+          "is_categorical": false
+        },
+        {
+          "key": "eyes_raw",
+          "sensitivity": 0,
+          "reason": "ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "hair_raw",
+          "sensitivity": 0,
+          "reason": "ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "weight_min",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "url",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "publication",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "locations",
+          "sensitivity": 30,
+          "reason": "weak proxy for ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "files/0/url",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "files/0/name",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "complexion",
+          "sensitivity": 60,
+          "reason": "strong proxy for ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "caution",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "path",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "possible_states",
+          "sensitivity": 60,
+          "reason": "strong proxy for ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "scars_and_marks",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "@id",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "occupations",
+          "sensitivity": 80,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "dates_of_birth_used",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "aliases",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "field_offices",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "aliases/1",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "files/1/url",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "files/1/name",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "subjects/1",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "aliases/2",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "languages/0",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "possible_countries/0",
+          "sensitivity": 60,
+          "reason": "strong proxy for ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "possible_countries/1",
+          "sensitivity": 60,
+          "reason": "strong proxy for ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "possible_countries/2",
+          "sensitivity": 60,
+          "reason": "strong proxy for ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "possible_countries/3",
+          "sensitivity": 60,
+          "reason": "strong proxy for ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "possible_countries/4",
+          "sensitivity": 60,
+          "reason": "strong proxy for ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "possible_states/0",
+          "sensitivity": 60,
+          "reason": "strong proxy for ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "possible_states/1",
+          "sensitivity": 60,
+          "reason": "strong proxy for ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "aliases/3",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "languages/1",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "aliases/4",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "aliases/5",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "aliases/6",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "aliases/7",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "aliases/8",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 1164.1327302999998
+    }
+  ]
+}

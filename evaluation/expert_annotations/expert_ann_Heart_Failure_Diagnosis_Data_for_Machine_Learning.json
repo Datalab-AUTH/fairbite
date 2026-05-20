@@ -1,0 +1,95 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/alamshihab075/heart-failure-diagnosis-data-for-machine-learning/croissant/download",
+  "dataset_name": "Heart Failure Diagnosis Data for Machine Learning",
+  "description": "This dataset contains detailed medical and lifestyle information of individuals, designed to help data scientists, researchers, and healthcare professionals explore risk factors associated with cardiovascular diseases.\n\nEach record represents one patient, including demographic data, body measurements, and health-related indicators such as blood pressure, cholesterol, glucose level, and physical activity.\n\nThe dataset is suitable for both exploratory data analysis (EDA) and machine learning tasks, such as:\n\nBinary classification (predicting presence or absence of heart disease)\n\nRisk factor correlation analysis\n\nHealth outcome visualization\n\nStatistical modeling and feature importance study\n\nPossible use cases include:\n\nEarly detection of cardiovascular disease\n\nLifestyle and health behavior impact analysis\n\nPredictive modeling using regression or deep learning models. \n\nIf you want to know more about this dataset you can check [here](https://huggingface.co/datasets/AlexCambell/HeartFailureDataset) ",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "HeartFailureDataset.csv",
+      "recordset_description": "This file contains the patient dataset in tabular format.\n\nFormat: .xlsb (Excel Binary Workbook)\n\nRows: Each record corresponds to a unique patient.\n\nColumns: 13 columns containing demographic, physiological, and behavioral health indicators.\n\nAll data values are numeric and encoded for simplicity (e.g., categorical fields such as gender, cholesterol, and glucose are represented by integers).",
+      "results": [
+        {
+          "key": "id",
+          "sensitivity": 0,
+          "reason": "Unique record identifier; an ID does not encode any in-scope sensitive characteristic and is out of scope as an identifier.",
+          "is_categorical": true
+        },
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "Directly encodes age (even though measured in days), which is an explicit in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "Directly encodes biological sex/gender, which is an explicit in-scope sensitive characteristic under gender and sexual identity.",
+          "is_categorical": true
+        },
+        {
+          "key": "height",
+          "sensitivity": 20,
+          "reason": "Physical body measurement; not itself a sensitive attribute but may weakly correlate with biological or health factors.",
+          "is_categorical": false
+        },
+        {
+          "key": "weight",
+          "sensitivity": 20,
+          "reason": "Physical body measurement; not an explicit sensitive characteristic, though it may weakly relate to health conditions.",
+          "is_categorical": false
+        },
+        {
+          "key": "ap_hi",
+          "sensitivity": 70,
+          "reason": "Systolic blood pressure directly reflects cardiovascular and health conditions, which are in-scope sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "ap_lo",
+          "sensitivity": 70,
+          "reason": "Diastolic blood pressure directly reflects cardiovascular and health conditions, which are in-scope sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "cholesterol",
+          "sensitivity": 70,
+          "reason": "Encoded cholesterol level reflects a medical condition or health risk factor, falling under disability and health conditions.",
+          "is_categorical": true
+        },
+        {
+          "key": "gluc",
+          "sensitivity": 70,
+          "reason": "Encoded glucose level reflects metabolic health conditions, which are in-scope under disability and health conditions.",
+          "is_categorical": true
+        },
+        {
+          "key": "smoke",
+          "sensitivity": 30,
+          "reason": "Smoking status is a lifestyle behavior that may indirectly correlate with health conditions but is not itself an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "alco",
+          "sensitivity": 30,
+          "reason": "Alcohol consumption behavior may weakly correlate with health conditions but does not directly encode an in-scope sensitive attribute.",
+          "is_categorical": true
+        },
+        {
+          "key": "active",
+          "sensitivity": 20,
+          "reason": "Physical activity indicator; a behavioral variable with only indirect and weak relation to health conditions.",
+          "is_categorical": true
+        },
+        {
+          "key": "cardio",
+          "sensitivity": 60,
+          "reason": "\"Encodes presence or absence of cardiovascular disease, which is an explicit in-scope health condition.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 350.3209921000016
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/iamsouravbanerjee/computer-games-dataset/croissant/download",
+  "dataset_name": "Computer Games Dataset",
+  "description": "### Context\n\nA personal computer game, also known as a PC game or computer game, is a video game played on a personal computer (PC) rather than a video game console or arcade machine. Its defining characteristics include more diverse and user-determined gaming hardware and software; and generally greater input, processing, video, and audio output capacity. The uncoordinated nature of the PC game market, and now its lack of physical media, make precisely assessing its size difficult. In 2018, the global PC games market was valued at about 27.7 billion dollars. Home computer games became popular following the video game crash of 1983, leading to the \"bedroom coder\" era. In the 1990s, PC games lost mass-market traction to console games, before enjoying a resurgence in the mid-2000s through digital distribution on services such as Steam and GOG.com.\n\n### Content\n\nWithin this dataset, we possess a compiled inventory of PC games. It comprises an organized and categorized table of video games compatible with PC platforms, though not necessarily exclusive to them. This compilation encompasses games designed for various PC operating systems, including Windows, Linux, DOS, Unix, and OS X. Notably, it excludes games solely playable on PC through emulation. Included are diverse parameters for each computer game, encompassing the game's title, developer, producer, genre, supported operating system(s), and release date.\n\n### Dataset Glossary\n\n- <b>Name</b>: Name of the Game\n- <b>Developer</b>: Developer of the Game\n- <b>Producer</b>: Producer of the Game\n- <b>Genre</b>: Genre of the Game\n- <b>Operating System</b>: Playable on which Operating System\n- <b>Date Released</b>: Date of Release of the Game\n\n### Structure of the Dataset\n\n![](https://i.imgur.com/o6hSlne.png)\n\n### Acknowledgement\n\nThis Dataset is created from https://www.wikipedia.org/. If you want to learn more, you can visit the Website.\n\nCover Photo by Microsoft https://news.xbox.com/en-us/2021/11/18/happy-anniversary-xbox-game-pass-ultimate-and-ea-play/",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "computer_games.csv",
+      "recordset_description": "***This Dataset consists of information on various Computer Games - 1094 Games***",
+      "results": [
+        {
+          "key": "Name",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a proxy for any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Developer",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a proxy for any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Producer",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a proxy for any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Genre",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a proxy for any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Operating System",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a proxy for any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Date Released",
+          "sensitivity": 0,
+          "reason": "Not sensitive; refers to a product's release date, not a person's age or date of birth.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 5.1286002999404445
+    }
+  ]
+}

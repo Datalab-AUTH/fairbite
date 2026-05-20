@@ -1,0 +1,95 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/bhavikjikadara/loan-status-prediction/croissant/download",
+  "dataset_name": "Loan Status Prediction",
+  "description": "- In this Loan Status Prediction dataset, we have the data of applicants who previously applied for the loan based on the property which is a Property Loan.\n- The bank will decide whether to give a loan to the applicant based on some factors such as Applicant Income, Loan Amount, previous Credit History, Co-applicant Income, etc... \n- Our goal is to build a Machine Learning Model to predict the loan to be approved or to be rejected for an applicant.\n\n### About the loan_data.csv file:\n- **Loan_ID**: A unique loan ID.\n- **Gender**: Either male or female.\n- **Married**: Weather Married(yes) or Not Marttied(No).\n- **Dependents**: Number of persons depending on the client.\n- **Education**: Applicant Education(Graduate or Undergraduate).\n- **Self_Employed**: Self-employed (Yes/No).\n- **ApplicantIncome**: Applicant income.\n- **CoapplicantIncome**: Co-applicant income.\n- **LoanAmount**: Loan amount in thousands.\n- **Loan_Amount_Term**: Terms of the loan in months.\n- **Credit_History**: Credit history meets guidelines.\n- **Property_Area**: Applicants are living either Urban, Semi-Urban or Rural.\n- **Loan_Status**: Loan approved (Y/N).\n\n\n### **Goal:**\n* In this project, we are going to classify an individual whether he/she can get the loan amount based on his/her Income, Education, Working Experience, Loan taken previously, and many more factors.\nLet’s get more into it by looking at the data.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "loan_data.csv",
+      "recordset_description": "The bank will decide whether to give a loan to the applicant based on some factors such as Applicant Income, Loan Amount, previous Credit History, Co-applicant Income, etc…",
+      "results": [
+        {
+          "key": "Loan_ID",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "ins cope",
+          "is_categorical": true
+        },
+        {
+          "key": "Married",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Dependents",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Education",
+          "sensitivity": 50,
+          "reason": "weak proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Self_Employed",
+          "sensitivity": 10,
+          "reason": "could correlate with socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "ApplicantIncome",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "CoapplicantIncome",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "LoanAmount",
+          "sensitivity": 20,
+          "reason": "could correlate with socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "Loan_Amount_Term",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Credit_History",
+          "sensitivity": 10,
+          "reason": "could correlate with socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Property_Area",
+          "sensitivity": 60,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Loan_Status",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 207.39241029997356
+    }
+  ]
+}

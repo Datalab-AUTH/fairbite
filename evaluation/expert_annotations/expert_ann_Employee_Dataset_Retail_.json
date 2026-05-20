@@ -1,0 +1,203 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/carebymanu/employee-dataset-retail/croissant/download",
+  "dataset_name": "Employee_Dataset_Retail",
+  "description": "📘 Dataset Overview\nThis dataset provides a comprehensive view of employee-level HR data from a retail company, including demographics, compensation, job roles, satisfaction scores, performance metrics, and attrition indicators. It is designed to help explore trends in workforce management, employee engagement, and retention strategies.\n\nThis structured data is ideal for those working in people analytics, HR tech, organizational development, and machine learning applications for attrition prediction.\n\n📊 Data Description\nEach row represents an individual employee, with attributes spanning multiple dimensions:\n\n\nColumn Name\tDescription\nEmployeeID\tUnique identifier for each employee\nAge\tAge of the employee\nGender\tGender of the employee\nDepartment\tDepartment where the employee works\nJobRole\tSpecific job title within the department\nEducation\tLevel of education (e.g., Bachelor, Master)\nMonthlyIncome\tMonthly salary in USD\nHourlyRate, DailyRate, MonthlyRate\tStandardized compensation rates\nDate_of_Joining\tDate when the employee joined the company\nOverTime\tWhether the employee works overtime\nAttrition\tIndicates if the employee has left the company\nYearsAtCompany, YearsInCurrentRole\tTenure information\nYearsSinceLastPromotion, YearsWithCurrManager\tCareer growth and stability metrics\nEnvironmentSatisfaction, JobSatisfaction, WorkLifeBalance\tEngagement indicators\nTrainingTimesLastYear\tNumber of training sessions attended\nPerformanceRating\tManager-assigned performance score\nOnboarding_Status\tIndicates if candidate was hired, rejected, or pending\n\nUsage & Potential Applications\nThis dataset can be used in multiple scenarios, including:\n\n🧠 Machine Learning Models:\n\nAttrition prediction (binary classification)\n\nCompensation forecasting\n\nEmployee segmentation (clustering)\n\n📊 Data Visualization & BI Dashboards:\n\nPower BI / Tableau dashboards with KPIs like Attrition Rate, Retention Rate, Avg. Tenure\n\nBuilding HR scorecards by department/job role\n\n📚 Educational Purposes:\n\nIdeal for teaching Power BI, DAX, Pandas, or HR analytics in courses\n\nStep-by-step project learning for Kaggle competitions\n\n🏢 Business Case Simulations:\n\nWorkforce planning\n\nOnboarding effectiveness analysis\n\nPromotion pipeline analysis\n\n🧭 Ethical Note\nThis dataset is synthetic or anonymized for public use. It is not linked to any real organization or individuals and should be used solely for educational, research, or development purposes. Users should ensure that models or insights derived from this dataset are not directly applied in real-life HR decisions without proper validation using actual company data.\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Employee_Dataset_Retail.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Employee_ID",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Employee_Name",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Date_of_Joining",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Years_at_Company",
+          "sensitivity": 10,
+          "reason": "could relate to socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "Monthly_Income",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Annual_Income",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Department",
+          "sensitivity": 10,
+          "reason": "could relate to socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Job_Role",
+          "sensitivity": 10,
+          "reason": "could relate to socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Position",
+          "sensitivity": 10,
+          "reason": "could relate to socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Employment_Type",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Work_Location",
+          "sensitivity": 40,
+          "reason": "weak proxy for nationality",
+          "is_categorical": true
+        },
+        {
+          "key": "State",
+          "sensitivity": 80,
+          "reason": "strog proxy for nationality",
+          "is_categorical": true
+        },
+        {
+          "key": "City",
+          "sensitivity": 80,
+          "reason": "strog proxy for nationality",
+          "is_categorical": true
+        },
+        {
+          "key": "Distance_from_Home",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Education_Level",
+          "sensitivity": 80,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Education_Field",
+          "sensitivity": 40,
+          "reason": "weak proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Marital_Status",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Performance_Score",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Last_3_Year_Rating",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Attrition_Status",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Attrition_Reason",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Attrition_Date",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Onboarding_Status",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "New_Hires_Joining_Month",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Environment_Satisfaction",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Employee_Cost_to_Company",
+          "sensitivity": 70,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "Hourly_Rate",
+          "sensitivity": 70,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "Annual_HR_Feedback_Satisfaction_Score",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Yearly_Total_Training_Hours",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 487.8205523999641
+    }
+  ]
+}

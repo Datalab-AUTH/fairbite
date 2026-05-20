@@ -1,0 +1,167 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/bhavya5800/hr-analytics-dashboard/croissant/download",
+  "dataset_name": "HR Employee Job Applicant Dataset",
+  "description": "A comprehensive dataset analyzing employee attrition, demographics, job roles, performance ratings, and work-life balance factors.\n\nHR Analytics, Employee Attrition, Workforce Management, Employee Performance, Business Travel, Work-Life Balance, Job Satisfaction, Employee Retention, Human Resources, Organizational Behavior",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Generalized_Job_Applicant_Dataset.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Unnamed: 0",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents age, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Accessibility",
+          "sensitivity": 90,
+          "reason": "Strongly implies disability or impairment, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "EdLevel",
+          "sensitivity": 40,
+          "reason": "Weakly correlates with socioeconomic status, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Employment",
+          "sensitivity": 30,
+          "reason": "Weakly correlates with socioeconomic status, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents gender, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "MentalHealth",
+          "sensitivity": 90,
+          "reason": "Directly relates to health conditions, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "YearsExp",
+          "sensitivity": 10,
+          "reason": "Very weakly correlates with age, but primarily a professional attribute.",
+          "is_categorical": false
+        },
+        {
+          "key": "YearsExpPro",
+          "sensitivity": 10,
+          "reason": "Very weakly correlates with age, but primarily a professional attribute.",
+          "is_categorical": false
+        },
+        {
+          "key": "Country",
+          "sensitivity": 90,
+          "reason": "Directly represents national origin/nationality, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "PreviousSalary",
+          "sensitivity": 60,
+          "reason": "Strong indicator of socioeconomic status, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Employed",
+          "sensitivity": 30,
+          "reason": "Weakly correlates with socioeconomic status, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "CommunicationSkills",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "PeopleManagementExperience",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "ProjectManagementExperience",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "AdministrativeSkills",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "CustomerServiceExperience",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "MarketingKnowledge",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "LanguagesSpoken",
+          "sensitivity": 70,
+          "reason": "Directly relates to language, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "SoftSkills",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "JobDomainInterest",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "CurrentlyUnemployed",
+          "sensitivity": 30,
+          "reason": "Weakly correlates with socioeconomic status, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "LookingForJobChange",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "PreferredJobType",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "ReasonForJobChange",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 14.435594799986575
+    }
+  ]
+}

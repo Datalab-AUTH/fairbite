@@ -1,0 +1,301 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/mahmoudelhemaly/students-grading-dataset/croissant/download",
+  "dataset_name": "Student Performance & Behavior Dataset",
+  "description": "# **Student Performance & Behavior Dataset**\n\nThis dataset is real data of 5,000 records collected from a private learning provider.\nThe dataset includes key attributes necessary for exploring patterns, correlations, and insights related to academic performance.\n\n\n**Columns**:\n01. Student_ID:\tUnique identifier for each student.\n02. First_Name: Student’s first name.\n03. Last_Name: Student’s last name.\n04. Email: Contact email (can be anonymized).\n05. Gender: Male, Female, Other.\n06. Age: The age of the student.\n07. Department: Student's department (e.g., CS, Engineering, Business).\n08. Attendance (%):\tAttendance percentage (0-100%).\n09. Midterm_Score:\tMidterm exam score (out of 100).\n10. Final_Score: Final exam score (out of 100).\n11.  Assignments_Avg: Average score of all assignments (out of 100).\n12. Quizzes_Avg: Average quiz scores (out of 100).\n13. Participation_Score: Score based on class participation (0-10).\n14. Projects_Score: Project evaluation score (out of 100).\n15. Total_Score: Weighted sum of all grades.\n16. Grade: Letter grade (A, B, C, D, F).\n17. Study_Hours_per_Week: Average study hours per week.\n18. Extracurricular_Activities: Whether the student participates in extracurriculars (Yes/No).\n19. Internet_Access_at_Home: Does the student have access to the internet at home? (Yes/No).\n20. Parent_Education_Level: Highest education level of parents (None, High School, Bachelor's, Master's, PhD).\n21. Family_Income_Level: Low, Medium, High.\n22. Stress_Level (1-10): Self-reported stress level (1: Low, 10: High).\n23. Sleep_Hours_per_Night: Average hours of sleep per night.\n\n\nThe Attendance is not part of the Total_Score or has very minimal weight.\n\nCalculating the weighted sum:\nTotal&nbsp;Score=a⋅Midterm+b⋅Final+c⋅Assignments+d⋅Quizzes+e⋅Participation+f⋅Projects\n\n\n| Component       | Weight (%) |\n| --------------- | ---------- |\n| Midterm         | 15%        |\n| Final           | 25%        |\n| Assignments Avg | 15%        |\n| Quizzes Avg     | 10%        |\n| Participation   | 5%         |\n| Projects Score  | 30%        |\n| **Total**       | **100%**   |\n\n\n\n*Dataset contains*:\n- Missing values (nulls): in some records (e.g., Attendance, Assignments, or Parent Education Level).\n- Bias in some Datae (ex: grading e.g., students with high attendance get slightly better grades).\n- Imbalanced distributions (e.g., some departments having more students).\n\n**Note:**\n- The dataset is real, but I included some bias to create a greater challenge for my students.\n- Some Columns have been masked as the Data owner requested.\n**\"Students_Grading_Dataset_Biased.csv\"** contains the biased Dataset\n**\"Students Performance Dataset\"** Contains the masked dataset",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Students Performance Dataset.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Student_ID",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information (PII), out of scope for sensitivity.",
+          "is_categorical": false
+        },
+        {
+          "key": "First_Name",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information (PII), out of scope for sensitivity.",
+          "is_categorical": false
+        },
+        {
+          "key": "Last_Name",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information (PII), out of scope for sensitivity.",
+          "is_categorical": false
+        },
+        {
+          "key": "Email",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information (PII), out of scope for sensitivity.",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Gender & sexual identity'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Age'.",
+          "is_categorical": false
+        },
+        {
+          "key": "Department",
+          "sensitivity": 1,
+          "reason": "Not directly sensitive, but could weakly correlate with national origin or socioeconomic status in some contexts.",
+          "is_categorical": true
+        },
+        {
+          "key": "Attendance (%)",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not sensitive.",
+          "is_categorical": false
+        },
+        {
+          "key": "Midterm_Score",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not sensitive.",
+          "is_categorical": false
+        },
+        {
+          "key": "Final_Score",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not sensitive.",
+          "is_categorical": false
+        },
+        {
+          "key": "Assignments_Avg",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not sensitive.",
+          "is_categorical": false
+        },
+        {
+          "key": "Quizzes_Avg",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not sensitive.",
+          "is_categorical": false
+        },
+        {
+          "key": "Participation_Score",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not sensitive.",
+          "is_categorical": false
+        },
+        {
+          "key": "Projects_Score",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not sensitive.",
+          "is_categorical": false
+        },
+        {
+          "key": "Total_Score",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not sensitive.",
+          "is_categorical": false
+        },
+        {
+          "key": "Grade",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not sensitive.",
+          "is_categorical": true
+        },
+        {
+          "key": "Study_Hours_per_Week",
+          "sensitivity": 0,
+          "reason": "Academic behavior metric, not sensitive.",
+          "is_categorical": false
+        },
+        {
+          "key": "Extracurricular_Activities",
+          "sensitivity": 0,
+          "reason": "Academic behavior metric, not sensitive.",
+          "is_categorical": true
+        },
+        {
+          "key": "Internet_Access_at_Home",
+          "sensitivity": 70,
+          "reason": "Strong proxy for 'Socioeconomic status' (social origin/class, property/ownership type).",
+          "is_categorical": true
+        },
+        {
+          "key": "Parent_Education_Level",
+          "sensitivity": 90,
+          "reason": "Strong indicator of 'Socioeconomic status' (social origin/class).",
+          "is_categorical": true
+        },
+        {
+          "key": "Family_Income_Level",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Socioeconomic status' (social origin/class).",
+          "is_categorical": true
+        },
+        {
+          "key": "Stress_Level (1-10)",
+          "sensitivity": 20,
+          "reason": "General well-being metric; not a direct health condition or disability, but could weakly correlate with mental health.",
+          "is_categorical": false
+        },
+        {
+          "key": "Sleep_Hours_per_Night",
+          "sensitivity": 0,
+          "reason": "General well-being metric, not sensitive.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 15.43734940001741
+    },
+    {
+      "recordset_name": "Students_Grading_Dataset_Biased.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Student_ID",
+          "sensitivity": 0,
+          "reason": "Unique identifier, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "First_Name",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Last_Name",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Email",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents gender, an IN-SCOPE sensitive characteristic under 'Gender & sexual identity'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents age, an IN-SCOPE sensitive characteristic under 'Age'.",
+          "is_categorical": false
+        },
+        {
+          "key": "Department",
+          "sensitivity": 10,
+          "reason": "Not directly sensitive, but could weakly correlate with certain demographic groups or socioeconomic status in specific contexts.",
+          "is_categorical": true
+        },
+        {
+          "key": "Attendance (%)",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Midterm_Score",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Final_Score",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Assignments_Avg",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Quizzes_Avg",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Participation_Score",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Projects_Score",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Total_Score",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Grade",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Study_Hours_per_Week",
+          "sensitivity": 0,
+          "reason": "Behavioral metric, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Extracurricular_Activities",
+          "sensitivity": 0,
+          "reason": "Behavioral metric, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Internet_Access_at_Home",
+          "sensitivity": 60,
+          "reason": "Strong proxy for socioeconomic status, as access can be tied to financial resources.",
+          "is_categorical": true
+        },
+        {
+          "key": "Parent_Education_Level",
+          "sensitivity": 80,
+          "reason": "Strong proxy for socioeconomic status, reflecting social origin/class.",
+          "is_categorical": true
+        },
+        {
+          "key": "Family_Income_Level",
+          "sensitivity": 100,
+          "reason": "Directly represents socioeconomic status (social origin/class), an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Stress_Level (1-10)",
+          "sensitivity": 10,
+          "reason": "Not directly an IN-SCOPE health condition, but could weakly correlate with mental health aspects.",
+          "is_categorical": false
+        },
+        {
+          "key": "Sleep_Hours_per_Night",
+          "sensitivity": 0,
+          "reason": "Behavioral/health-related metric, but not an IN-SCOPE sensitive characteristic like a disability or genetic feature.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 11.744649699889123
+    }
+  ]
+}

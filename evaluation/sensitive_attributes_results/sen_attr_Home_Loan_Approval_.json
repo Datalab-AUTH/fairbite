@@ -1,0 +1,175 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/rishikeshkonapure/home-loan-approval/croissant/download",
+  "dataset_name": "Home Loan Approval",
+  "description": "**Problem Statement**:\n\nAbout Company\nDream Housing Finance company deals in all home loans. They have a presence across all urban, semi-urban and rural areas. The customer first applies for a home loan after that company validates the customer's eligibility for a loan.\n\n**Problem**\nThe company wants to automate the loan eligibility process (real-time) based on customer detail provided while filling out the online application form. These details are Gender, Marital Status, Education, Number of Dependents, Income, Loan Amount, Credit History and others. To automate this process, they have given a problem identifying the customer segments eligible for loan amounts to target these customers specifically. Here they have provided a partial data set.\n\n**Steps to Follow**:\n\n1. Problem Statement\n2. Hypothesis Generation\n3. Getting the system ready and loading the data\n4. Understanding the data\n5. EDA\n- Perform Univariate Analysis\n- Perform Bivariate Analysis\n6. Missing value and outlier treatment\n7. Evaluation Metrics for classification problem\n8. Model building: part 1 (Apply ML classification algorithms)\n9. Feature engineering\n10. Model building: part 2 (Apply ML classification algorithms)\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "loan_sanction_test.csv",
+      "recordset_description": "Test Data File",
+      "results": [
+        {
+          "key": "Loan_ID",
+          "sensitivity": 0,
+          "reason": "Unique identifier, not an IN-SCOPE sensitive characteristic or proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents gender, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Married",
+          "sensitivity": 100,
+          "reason": "Directly represents marital status, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Dependents",
+          "sensitivity": 90,
+          "reason": "Directly relates to familial status/parental status, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Education",
+          "sensitivity": 70,
+          "reason": "Strong proxy for socioeconomic status/social class, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Self_Employed",
+          "sensitivity": 40,
+          "reason": "Weak proxy for socioeconomic status, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "ApplicantIncome",
+          "sensitivity": 100,
+          "reason": "Directly represents socioeconomic status, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "CoapplicantIncome",
+          "sensitivity": 100,
+          "reason": "Directly represents socioeconomic status, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "LoanAmount",
+          "sensitivity": 0,
+          "reason": "Financial transaction detail, not an IN-SCOPE sensitive characteristic or proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Loan_Amount_Term",
+          "sensitivity": 0,
+          "reason": "Financial transaction detail, not an IN-SCOPE sensitive characteristic or proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Credit_History",
+          "sensitivity": 0,
+          "reason": "Financial performance metric, not an IN-SCOPE sensitive characteristic or proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Property_Area",
+          "sensitivity": 80,
+          "reason": "Strong proxy for socioeconomic status and potentially racial/ethnic origin, both IN-SCOPE sensitive characteristics.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 13.711427500005811
+    },
+    {
+      "recordset_name": "loan_sanction_train.csv",
+      "recordset_description": "This is a training dataset.",
+      "results": [
+        {
+          "key": "Loan_ID",
+          "sensitivity": 0,
+          "reason": "Unique identifier, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents gender, an IN-SCOPE sensitive characteristic (Gender & sexual identity).",
+          "is_categorical": true
+        },
+        {
+          "key": "Married",
+          "sensitivity": 100,
+          "reason": "Directly represents marital status, an IN-SCOPE sensitive characteristic (Family & civil status).",
+          "is_categorical": true
+        },
+        {
+          "key": "Dependents",
+          "sensitivity": 90,
+          "reason": "Directly indicates familial status and potentially parental status, both IN-SCOPE sensitive characteristics (Family & civil status).",
+          "is_categorical": true
+        },
+        {
+          "key": "Education",
+          "sensitivity": 30,
+          "reason": "Weak indirect proxy for socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "Self_Employed",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a direct proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "ApplicantIncome",
+          "sensitivity": 80,
+          "reason": "Strong proxy for socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "CoapplicantIncome",
+          "sensitivity": 80,
+          "reason": "Strong proxy for socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "LoanAmount",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Loan_Amount_Term",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Credit_History",
+          "sensitivity": 10,
+          "reason": "Not a direct IN-SCOPE sensitive characteristic, but can be a very weak, indirect proxy for socioeconomic status in some contexts.",
+          "is_categorical": true
+        },
+        {
+          "key": "Property_Area",
+          "sensitivity": 70,
+          "reason": "Strong proxy for socioeconomic status and potentially racial/ethnic origin due to typical residential patterns.",
+          "is_categorical": true
+        },
+        {
+          "key": "Loan_Status",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 11.877221099974122
+    }
+  ]
+}

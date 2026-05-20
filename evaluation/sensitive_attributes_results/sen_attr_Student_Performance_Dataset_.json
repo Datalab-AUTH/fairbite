@@ -1,0 +1,113 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/suvidyasonawane/student-performance-dataset/croissant/download",
+  "dataset_name": "Student Performance Dataset",
+  "description": "The Student Academic Performance Dataset is a synthetic educational dataset designed to analyze and predict student outcomes based on academic, demographic, and behavioral factors. It contains records of 5,000 students with attributes such as age, gender, class level, study hours per day, attendance percentage, parental education, internet access, and participation in extracurricular activities. Academic performance is measured through subject-wise scores in Mathematics, Science, and English, along with a calculated final percentage, performance level, and pass/fail status.\n\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Student_Performance_Dataset.csv",
+      "recordset_description": "This dataset is well-suited for exploratory data analysis (EDA), machine learning classification, and regression tasks. It can be used to study the impact of study habits and attendance on academic success, predict student performance levels, and build pass/fail prediction models. The data is clean, structured, and fully anonymized, making it ideal for students, educators, and data science practitioners working on educational analytics projects.",
+      "results": [
+        {
+          "key": "Student_ID",
+          "sensitivity": 0,
+          "reason": "Unique identifier, out of scope (PII).",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents an in-scope sensitive characteristic: Age.",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents an in-scope sensitive characteristic: Gender & sexual identity.",
+          "is_categorical": true
+        },
+        {
+          "key": "Class",
+          "sensitivity": 60,
+          "reason": "Strong proxy for Age/Life stage, as academic class levels are typically age-dependent.",
+          "is_categorical": true
+        },
+        {
+          "key": "Study_Hours_Per_Day",
+          "sensitivity": 10,
+          "reason": "Behavioral factor, very weak and indirect correlation with socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "Attendance_Percentage",
+          "sensitivity": 0,
+          "reason": "Behavioral factor, not related to any in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Parental_Education",
+          "sensitivity": 90,
+          "reason": "Strong proxy for Socioeconomic status: social origin/class.",
+          "is_categorical": true
+        },
+        {
+          "key": "Internet_Access",
+          "sensitivity": 80,
+          "reason": "Strong proxy for Socioeconomic status, indicating access to resources.",
+          "is_categorical": true
+        },
+        {
+          "key": "Extracurricular_Activities",
+          "sensitivity": 0,
+          "reason": "Behavioral/interest factor, not related to any in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Math_Score",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not related to any in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Science_Score",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not related to any in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "English_Score",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not related to any in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Previous_Year_Score",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not related to any in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Final_Percentage",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not related to any in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Performance_Level",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not related to any in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Pass_Fail",
+          "sensitivity": 0,
+          "reason": "Academic performance metric, not related to any in-scope sensitive characteristic.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 11.029671699972823
+    }
+  ]
+}

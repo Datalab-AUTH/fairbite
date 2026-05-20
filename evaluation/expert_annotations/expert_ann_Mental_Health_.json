@@ -1,0 +1,101 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/mahdimashayekhi/mental-health/croissant/download",
+  "dataset_name": "Mental Health",
+  "description": "## 📘 Dataset Description\n\nThis dataset provides a **realistic, synthetic simulation** of global mental health survey responses from 10,000 individuals. It was created to reflect actual patterns seen in workplace mental health data while ensuring full anonymity and privacy. \n\n### 🧠 Context & Purpose\n\nMental health issues affect people across all ages, countries, and industries. Understanding patterns in mental health at work, access to treatment, and stigma around disclosure is essential for shaping better workplace policies and interventions.\n\nThis dataset is ideal for:\n\n- Training and evaluating machine learning models\n- Practicing classification or clustering techniques\n- Performing exploratory data analysis (EDA)\n- Studying fairness and bias in mental health predictions\n- Creating realistic dashboards for HR analytics or healthcare systems\n\n### 📊 Dataset Highlights\n\n- 10,000 rows representing anonymized individuals  \n- Diverse global coverage with country/state info  \n- Demographic attributes like age, gender, employment type  \n- Information about work environment and company support  \n- Responses about mental health history, treatment, and workplace stigma\n\n### 💡 Example Use Cases\n\n- Predicting the likelihood of an employee seeking mental health treatment  \n- Identifying factors most correlated with workplace stress  \n- Segmenting users by mental health risk using clustering  \n- Building fairness-aware models to reduce bias in mental health predictions\n\n### ⚠️ Notes\n\n- **This dataset is entirely synthetic.** No personally identifiable information (PII) or real user data is included.\n- It was generated based on patterns observed in public mental health datasets and surveys.\n\n---\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "mental_health_dataset.csv",
+      "recordset_description": "### 📄 File: `mental_health_survey.csv`\n\nThis file contains the full synthetic dataset of 10,000 simulated survey responses related to mental health in the workplace.\n\nEach row represents an individual respondent, and each column captures a specific attribute such as demographics, employment status, workplace support, or mental health history.\n\n#### Key Properties:\n- **Rows**: 10,000  \n- **Columns**: 25  \n- **Format**: CSV (UTF-8 encoded, comma-separated)\n\n#### Included Categories:\n- **Demographics**: age, gender, country, education, marital status  \n- **Employment**: industry, remote work status, company size  \n- **Mental Health**: previous diagnosis, treatment history, current symptoms  \n- **Workplace Support**: access to resources, comfort discussing with manager  \n- **Stigma & Awareness**: perception of mental health in the workplace\n\nThe data is ready for direct use in machine learning pipelines or analytical tools such as Python (Pandas), R, Excel, or BI dashboards.\n",
+      "results": [
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "employment_status",
+          "sensitivity": 60,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "work_environment",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "mental_health_history",
+          "sensitivity": 90,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "seeks_treatment",
+          "sensitivity": 90,
+          "reason": "in scope health",
+          "is_categorical": true
+        },
+        {
+          "key": "stress_level",
+          "sensitivity": 90,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "sleep_hours",
+          "sensitivity": 30,
+          "reason": "weak proxy for health condition",
+          "is_categorical": true
+        },
+        {
+          "key": "physical_activity_days",
+          "sensitivity": 30,
+          "reason": "weak proxy for health condition",
+          "is_categorical": false
+        },
+        {
+          "key": "depression_score",
+          "sensitivity": 90,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "anxiety_score",
+          "sensitivity": 90,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "social_support_score",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "productivity_score",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "mental_health_risk",
+          "sensitivity": 90,
+          "reason": "in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 413.63780889997724
+    }
+  ]
+}

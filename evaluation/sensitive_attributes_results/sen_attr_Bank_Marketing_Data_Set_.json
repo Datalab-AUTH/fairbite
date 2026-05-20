@@ -1,0 +1,137 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/ruthgn/bank-marketing-data-set/croissant/download",
+  "dataset_name": "Bank Marketing Data Set",
+  "description": "### Data Set Information\n\nThis data set contains records relevant to a direct marketing campaign of a Portuguese banking institution. The marketing campaign was executed through phone calls. Often, more than one call needs to be made to a single client before they either decline or agree to a term deposit subscription. The classification goal is to predict if the client will subscribe (yes/no) to the term deposit (variable y).\n\nThis is a *modified* version of the classic bank marketing data set originally shared in the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Bank%2BMarketing). There are four datasets available on UCI's repository:\n1) bank-additional-full.csv with all examples (41188) and 20 inputs, ordered by date (from May 2008 to November 2010), very close to the data analyzed in [Moro et al., 2014]\n2) bank-additional.csv with 10% of the examples (4119), randomly selected from 1), and 20 inputs.\n3) bank-full.csv with all examples and 17 inputs, ordered by date (older version of this data set with less inputs).\n4) bank.csv with 10% of the examples and 17 inputs, randomly selected from 3 (older version of this data set with less inputs).\n*Note*: The smallest datasets are provided to test more computationally demanding machine learning algorithms (e.g., SVM).\n\nThis data set is a copy of **data set no. 1** (*bank-additional-full.csv*) from the list above with **one input feature** (representing duration of phone call) **removed**.  The following is a note from the variable description in the original data set:\n\n&gt; duration: last contact duration, in seconds (numeric). Important note: this attribute highly affects the output target (e.g., if duration=0 then y='no'). Yet, the duration is not known before a call is performed. Also, after the end of the call y is obviously known. Thus, this input should only be included for benchmark purposes and should be discarded if the intention is to have a realistic predictive model.\n\n**The `duration` feature is excluded in this data set to prevent data leakage.** \n\n\n### Contents\n\nInput variables:\n\nbank client data:\n1 - age (numeric)\n2 - job : type of job (categorical: 'admin.','blue-collar','entrepreneur','housemaid','management','retired','self-employed','services','student','technician','unemployed','unknown')\n3 - marital : marital status (categorical: 'divorced','married','single','unknown'; note: 'divorced' means divorced or widowed)\n4 - education (categorical: 'basic.4y','basic.6y','basic.9y','high.school','illiterate','professional.course','university.degree','unknown')\n5 - default: has credit in default? (categorical: 'no','yes','unknown')\n6 - housing: has housing loan? (categorical: 'no','yes','unknown')\n7 - loan: has personal loan? (categorical: 'no','yes','unknown')\n\nrelated with the last contact of the current campaign:\n8 - contact: contact communication type (categorical: 'cellular','telephone')\n9 - month: last contact month of year (categorical: 'jan', 'feb', 'mar', ..., 'nov', 'dec')\n10 - day_of_week: last contact day of the week (categorical: 'mon','tue','wed','thu','fri')\n\nother attributes:\n11 - campaign: number of contacts performed during this campaign and for this client (numeric, includes last contact)\n12 - pdays: number of days that passed by after the client was last contacted from a previous campaign (numeric; 999 means client was not previously contacted)\n13 - previous: number of contacts performed before this campaign and for this client (numeric)\n14 - poutcome: outcome of the previous marketing campaign (categorical: 'failure','nonexistent','success')\n\nsocial and economic context attributes:\n15 - emp.var.rate: employment variation rate - quarterly indicator (numeric)\n16 - cons.price.idx: consumer price index - monthly indicator (numeric)\n17 - cons.conf.idx: consumer confidence index - monthly indicator (numeric)\n18 - euribor3m: euribor 3 month rate - daily indicator (numeric)\n19 - nr.employed: number of employees - quarterly indicator (numeric)\n\nOutput variable (desired target):\n\n20 - y - has the client subscribed a term deposit? (binary: 'yes','no')\n\n\n### Acknowledgements\n\nSource: [Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014\n\nData credit goes to UCI. Visit their website to access the original data set directly: https://archive.ics.uci.edu/ml/datasets/Bank%2BMarketing\n\n\n### Context\n\nUse this data set to test the performance of your classification models and to explore the best strategies to improve a banking institution's next direct marketing campaign. \n\nTerm deposits are cash investment held at a financial institution and are a major source of revenue for banks--making them important for financial institutions to market. Telemarketing remains to be a popular marketing technique because of the potential effectiveness of human-to-human contact provided by a telephone call, which is sometimes quite the opposite of many impersonal and robotic marketing messages relayed through social and digital media. However, executing such direct marketing effort usually requires a huge investment by the business as large call centers need to be contracted to contact clients directly.\n\nHow can the banking institution have more effective direct marketing campaigns in the future? Analyze this data set and identify the patterns that will help us develop future strategies.\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "bank-direct-marketing-campaigns.csv",
+      "recordset_description": "This data set contains records relevant to a direct marketing campaign of a Portuguese banking institution. The classification goal is to predict if a client will subscribe (yes/no) to a term deposit (variable y). This is a modified version of the classic bank marketing data set originally shared in the UCI Machine Learning Repository. Please refer to the data set description for more details.",
+      "results": [
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Age'.",
+          "is_categorical": false
+        },
+        {
+          "key": "job",
+          "sensitivity": 80,
+          "reason": "Strong proxy for 'Socioeconomic status' (social origin/class).",
+          "is_categorical": true
+        },
+        {
+          "key": "marital",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Family & civil status' (marital status).",
+          "is_categorical": true
+        },
+        {
+          "key": "education",
+          "sensitivity": 70,
+          "reason": "Strong proxy for 'Socioeconomic status' (social origin/class).",
+          "is_categorical": true
+        },
+        {
+          "key": "default",
+          "sensitivity": 70,
+          "reason": "Strong proxy for 'Socioeconomic status' (financial status/class).",
+          "is_categorical": true
+        },
+        {
+          "key": "housing",
+          "sensitivity": 70,
+          "reason": "Strong proxy for 'Socioeconomic status' (property/ownership type and financial status).",
+          "is_categorical": true
+        },
+        {
+          "key": "loan",
+          "sensitivity": 70,
+          "reason": "Strong proxy for 'Socioeconomic status' (financial status/class).",
+          "is_categorical": true
+        },
+        {
+          "key": "contact",
+          "sensitivity": 10,
+          "reason": "Very weak, indirect proxy for socioeconomic status (access to technology).",
+          "is_categorical": true
+        },
+        {
+          "key": "month",
+          "sensitivity": 0,
+          "reason": "Represents a temporal attribute, not related to any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "day_of_week",
+          "sensitivity": 0,
+          "reason": "Represents a temporal attribute, not related to any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "campaign",
+          "sensitivity": 0,
+          "reason": "Operational metric of the marketing campaign, not an IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "pdays",
+          "sensitivity": 0,
+          "reason": "Operational metric of the marketing campaign, not an IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "previous",
+          "sensitivity": 0,
+          "reason": "Operational metric of the marketing campaign, not an IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "poutcome",
+          "sensitivity": 0,
+          "reason": "Operational metric of the marketing campaign, not an IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "emp.var.rate",
+          "sensitivity": 0,
+          "reason": "Aggregate economic indicator, not an individual IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "cons.price.idx",
+          "sensitivity": 0,
+          "reason": "Aggregate economic indicator, not an individual IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "cons.conf.idx",
+          "sensitivity": 0,
+          "reason": "Aggregate economic indicator, not an individual IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "euribor3m",
+          "sensitivity": 0,
+          "reason": "Aggregate economic indicator, not an individual IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "nr.employed",
+          "sensitivity": 0,
+          "reason": "Aggregate economic indicator, not an individual IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "y",
+          "sensitivity": 0,
+          "reason": "Represents a business outcome, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 14.27922619995661
+    }
+  ]
+}

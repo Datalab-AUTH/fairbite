@@ -1,0 +1,89 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/nadeemajeedch/employee-performance-and-salary-dataset/croissant/download",
+  "dataset_name": "Employee Performance and Salary Dataset",
+  "description": "Employee Performance and Salary Dataset has following columns.\n\n**ID:** Unique identifier (e.g., 1, 2, 3).\n**Name:** Textual data (e.g., names of individuals or products).\n**Age:** Numerical data (e.g., 18–65).\n**Gender:** Categorical data (e.g., Male, Female, Other).\n**Department:** Categorical data (e.g., Sales, HR, IT).\n**Salary:**Numerical data (e.g., 2000–10000).\n**Joining Date:** Date (e.g., 2020-01-15).\n**Performance Score:** Numerical data with missing values (e.g., 1–5 with some NaN).\n**Experience:** Numerical data with some repeated values (e.g., 2, 3, 5).\n**Status:** Text data (e.g., Active, Inactive).\n**Location:** Categorical (e.g., New York, Los Angeles, Chicago).\n**Session:** Categorical with repeating values (e.g., Morning, Evening, Night).\n\n***A file containing 50 tasks to practice on this dataset is already added in pdf format.***",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Employe_Performance_dataset.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "ID",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Name",
+          "sensitivity": 0,
+          "reason": "nit in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "direct in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "direct in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Department",
+          "sensitivity": 10,
+          "reason": "might be connected with Socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Salary",
+          "sensitivity": 90,
+          "reason": "trong proxy/encoding of Socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "Joining Date",
+          "sensitivity": 10,
+          "reason": "mey connect to age",
+          "is_categorical": false
+        },
+        {
+          "key": "Performance Score",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Experience",
+          "sensitivity": 50,
+          "reason": "weak/indirect proxy of age",
+          "is_categorical": false
+        },
+        {
+          "key": "Status",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Location",
+          "sensitivity": 90,
+          "reason": "direct proxy of Racial & ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "Session",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 467.88561490000575
+    }
+  ]
+}

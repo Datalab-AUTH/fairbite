@@ -1,0 +1,95 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/alamshihab075/heart-failure-diagnosis-data-for-machine-learning/croissant/download",
+  "dataset_name": "Heart Failure Diagnosis Data for Machine Learning",
+  "description": "This dataset contains detailed medical and lifestyle information of individuals, designed to help data scientists, researchers, and healthcare professionals explore risk factors associated with cardiovascular diseases.\n\nEach record represents one patient, including demographic data, body measurements, and health-related indicators such as blood pressure, cholesterol, glucose level, and physical activity.\n\nThe dataset is suitable for both exploratory data analysis (EDA) and machine learning tasks, such as:\n\nBinary classification (predicting presence or absence of heart disease)\n\nRisk factor correlation analysis\n\nHealth outcome visualization\n\nStatistical modeling and feature importance study\n\nPossible use cases include:\n\nEarly detection of cardiovascular disease\n\nLifestyle and health behavior impact analysis\n\nPredictive modeling using regression or deep learning models. \n\nIf you want to know more about this dataset you can check [here](https://huggingface.co/datasets/AlexCambell/HeartFailureDataset) ",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "HeartFailureDataset.csv",
+      "recordset_description": "This file contains the patient dataset in tabular format.\n\nFormat: .xlsb (Excel Binary Workbook)\n\nRows: Each record corresponds to a unique patient.\n\nColumns: 13 columns containing demographic, physiological, and behavioral health indicators.\n\nAll data values are numeric and encoded for simplicity (e.g., categorical fields such as gender, cholesterol, and glucose are represented by integers).",
+      "results": [
+        {
+          "key": "id",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information/contact-only fields are explicitly OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Age' from the IN-SCOPE list.",
+          "is_categorical": false
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Gender & sexual identity: sex, gender' from the IN-SCOPE list.",
+          "is_categorical": true
+        },
+        {
+          "key": "height",
+          "sensitivity": 0,
+          "reason": "Not directly an IN-SCOPE characteristic and not a strong proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "weight",
+          "sensitivity": 0,
+          "reason": "Not directly an IN-SCOPE characteristic and not a strong proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "ap_hi",
+          "sensitivity": 0,
+          "reason": "Not directly an IN-SCOPE characteristic. Health conditions are only sensitive if they are disabilities or genetic features.",
+          "is_categorical": false
+        },
+        {
+          "key": "ap_lo",
+          "sensitivity": 0,
+          "reason": "Not directly an IN-SCOPE characteristic. Health conditions are only sensitive if they are disabilities or genetic features.",
+          "is_categorical": false
+        },
+        {
+          "key": "cholesterol",
+          "sensitivity": 0,
+          "reason": "Not directly an IN-SCOPE characteristic. Health conditions are only sensitive if they are disabilities or genetic features.",
+          "is_categorical": true
+        },
+        {
+          "key": "gluc",
+          "sensitivity": 0,
+          "reason": "Not directly an IN-SCOPE characteristic. Health conditions are only sensitive if they are disabilities or genetic features.",
+          "is_categorical": true
+        },
+        {
+          "key": "smoke",
+          "sensitivity": 0,
+          "reason": "Not directly an IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "alco",
+          "sensitivity": 0,
+          "reason": "Not directly an IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "active",
+          "sensitivity": 0,
+          "reason": "Not directly an IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "cardio",
+          "sensitivity": 0,
+          "reason": "Not directly an IN-SCOPE characteristic. Health conditions are only sensitive if they are disabilities or genetic features.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 12.698093399987556
+    }
+  ]
+}

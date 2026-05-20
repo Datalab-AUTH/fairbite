@@ -1,0 +1,121 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/akoirala111/lego-sets/croissant/download",
+  "dataset_name": "LEGO Sets",
+  "description": "No dataset description found.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "lego_sets.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "set_id",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "name",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "year",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "theme",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "subtheme",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "themeGroup",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "category",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "pieces",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "minifigs",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "agerange_min",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "US_retailPrice",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "bricksetURL",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "thumbnailURL",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "imageURL",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 65.45928050007205
+    },
+    {
+      "recordset_name": "lego_sets_data_dictionary.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Field",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Description",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 25.43393489997834
+    }
+  ]
+}

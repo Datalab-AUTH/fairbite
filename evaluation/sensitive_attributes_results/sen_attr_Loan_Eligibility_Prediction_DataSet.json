@@ -1,0 +1,95 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/avineshprabhakaran/loan-eligibility-prediction/croissant/download",
+  "dataset_name": "Loan Eligibility Prediction DataSet",
+  "description": "|  |  |\n| --- | --- |\n|  |  |\n# 🏦 Loan Eligibility Prediction Dataset\n\n### 📖 Overview\nThis dataset is designed to help predict whether a loan applicant is eligible for loan approval based on demographic, financial, and credit-related factors.  \nIt is ideal for **machine learning classification tasks**, **EDA**, and **financial data modeling** projects.\n\n---\n\n### 📁 Dataset Files\n| File Name | Description |\n|------------|--------------|\n| `Loan Eligibility Prediction.csv` | Contains applicant details, loan information, and the target column `Loan_Status` |\n\n---\n\n### 📊 Columns Description\n\n| Column | Description | Example |\n|--------|--------------|---------|\n| **Customer_ID** | Unique identifier for each loan applicant | 569 |\n| **Gender** | Gender of the applicant | Male / Female |\n| **Married** | Marital status of the applicant | Yes / No |\n| **Dependents** | Number of dependents | 0, 1, 2, 3 |\n| **Education** | Education level of the applicant | Graduate / Not Graduate |\n| **Self_Employed** | Whether the applicant is self-employed | Yes / No |\n| **Applicant_Income** | Applicant’s monthly income | 5000 |\n| **Coapplicant_Income** | Coapplicant’s monthly income | 1500 |\n| **Loan_Amount** | Loan amount requested (in thousands) | 128 |\n| **Loan_Amount_Term** | Loan repayment term (in months) | 360 |\n| **Credit_History** | Credit history meets lending criteria (1 = Yes, 0 = No) | 1 |\n| **Property_Area** | Type of property area | Urban / Semiurban / Rural |\n| **Loan_Status** | Loan approved or not (target variable) | Y / N |\n\n---\n\n### 🎯 Prediction Task\nThe objective is to predict **loan approval status** (`Loan_Status`) based on applicant details and financial data.\n\nYou can use this dataset to:\n- Build classification models for loan approval  \n- Analyze income and credit history patterns  \n- Study how education or marital status affects loan eligibility  \n\n---\n\n### 🧰 Suggested Machine Learning Techniques\n- Logistic Regression  \n- Random Forest  \n- Decision Tree Classifier  \n- Gradient Boosting (XGBoost, LightGBM)  \n- Neural Networks  \n\n---\n\n### 📈 Example ML Workflow\n\n1. **Data Cleaning & Encoding**  \n   - Handle categorical columns using Label or One-Hot Encoding  \n   - Normalize income and loan features if needed  \n\n2. **Feature Engineering**  \n   - Create `Total_Income = Applicant_Income + Coapplicant_Income`  \n   - Add derived metrics like `LoanAmount_to_Income_Ratio`  \n\n3. **Model Building**  \n   - Train and validate classification models  \n   - Evaluate performance using Accuracy, F1-Score, ROC-AUC  \n\n4. **Insights**  \n   - Determine which features most influence loan eligibility  \n\n---\n\n### 💡 Potential Use Cases\n- Bank loan approval prediction systems  \n- Credit scoring models  \n- Financial risk analytics  \n- Educational ML practice projects  \n\n---\n\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Loan Eligibility Prediction.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Customer_ID",
+          "sensitivity": 0,
+          "reason": "Unique identifier, out of scope (PII).",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Gender & sexual identity'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Married",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Family & civil status' (marital status).",
+          "is_categorical": true
+        },
+        {
+          "key": "Dependents",
+          "sensitivity": 90,
+          "reason": "Directly represents 'Family & civil status' (familial status).",
+          "is_categorical": true
+        },
+        {
+          "key": "Education",
+          "sensitivity": 50,
+          "reason": "Can be a proxy for 'Socioeconomic status' but is not explicitly listed as a sensitive characteristic itself.",
+          "is_categorical": true
+        },
+        {
+          "key": "Self_Employed",
+          "sensitivity": 30,
+          "reason": "Can weakly correlate with 'Socioeconomic status' but is not a direct encoding.",
+          "is_categorical": true
+        },
+        {
+          "key": "Applicant_Income",
+          "sensitivity": 90,
+          "reason": "Directly represents 'Socioeconomic status'.",
+          "is_categorical": false
+        },
+        {
+          "key": "Coapplicant_Income",
+          "sensitivity": 90,
+          "reason": "Directly represents 'Socioeconomic status'.",
+          "is_categorical": false
+        },
+        {
+          "key": "Loan_Amount",
+          "sensitivity": 20,
+          "reason": "Financial information, not a sensitive characteristic itself. May weakly correlate with 'Socioeconomic status'.",
+          "is_categorical": false
+        },
+        {
+          "key": "Loan_Amount_Term",
+          "sensitivity": 0,
+          "reason": "Financial information, not a sensitive characteristic or proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Credit_History",
+          "sensitivity": 0,
+          "reason": "Financial information, not a sensitive characteristic or proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Property_Area",
+          "sensitivity": 70,
+          "reason": "Strong proxy for 'Socioeconomic status' and potentially 'Racial & ethnic origin' depending on geographic segregation.",
+          "is_categorical": true
+        },
+        {
+          "key": "Loan_Status",
+          "sensitivity": 0,
+          "reason": "Outcome variable related to a financial decision, not a sensitive characteristic of the individual.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 9.784892000025138
+    }
+  ]
+}

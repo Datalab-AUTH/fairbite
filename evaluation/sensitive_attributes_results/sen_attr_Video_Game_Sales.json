@@ -1,0 +1,83 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/volodymyrpivoshenko/video-game-sales-dataset/croissant/download",
+  "dataset_name": "Video Game Sales",
+  "description": "This dataset provides an extensive record of worldwide video game sales and rankings, featuring individual entries for over 45000 titles released across multiple platforms such as PC, PlayStation, Xbox, and Nintendo consoles. Each record includes the game's name, platform, year of release, genre, publisher, and sales figures from North America, Europe, Japan, other regions, and the global total. Intended for analytics and market research, the dataset enables detailed exploration of sales trends by year, platform, region, or genre, and supports comparative studies of publishers' market impact and global video game popularity over the decades. It is ideal for machine learning, business intelligence, and historical analysis tasks related to the video game industry",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "video_games_sales.csv",
+      "recordset_description": "This file contains detailed records of video game sales, providing insights into game rankings, platform distribution, yearly trends, genres, publishers, and sales performance",
+      "results": [
+        {
+          "key": "Rank",
+          "sensitivity": 0,
+          "reason": "Not a sensitive characteristic or proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Name",
+          "sensitivity": 0,
+          "reason": "Not a sensitive characteristic or proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Platform",
+          "sensitivity": 0,
+          "reason": "Not a sensitive characteristic or proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Year",
+          "sensitivity": 0,
+          "reason": "Refers to the game's release year, not a person's age or date of birth.",
+          "is_categorical": false
+        },
+        {
+          "key": "Genre",
+          "sensitivity": 0,
+          "reason": "Not a sensitive characteristic or proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Publisher",
+          "sensitivity": 0,
+          "reason": "Not a sensitive characteristic or proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "NA_Sales",
+          "sensitivity": 0,
+          "reason": "Not a sensitive characteristic or proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "EU_Sales",
+          "sensitivity": 0,
+          "reason": "Not a sensitive characteristic or proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "JP_Sales",
+          "sensitivity": 0,
+          "reason": "Not a sensitive characteristic or proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Other_Sales",
+          "sensitivity": 0,
+          "reason": "Not a sensitive characteristic or proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Global_Sales",
+          "sensitivity": 0,
+          "reason": "Not a sensitive characteristic or proxy.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 7.820742100011557
+    }
+  ]
+}

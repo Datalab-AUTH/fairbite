@@ -1,0 +1,137 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/justinlimyin/hr-employee-dataset/croissant/download",
+  "dataset_name": "HR Employee Dataset",
+  "description": "# Introduction to the HR Dataset\nThis HR dataset contains data on 3,400 employees across various departments in a mid-sized company. The dataset provide a comprehensive view of employee demographics, job roles, compensation, and work experience. This dataset is designed to facilitate in-depth HR analytics, enabling insights into employee satisfaction, performance, retention, and overall workforce composition.\n\n## Dataset Overview\nThe dataset consists of the following 20 columns:\n\nEmployee_ID: A unique identifier assigned to each employee, ranging from 1001 to 4400.\nDepartment: The department where the employee works. \nGender: The gender identity of the employee.\nAge: The age of the employee, ranging from 18 to 59 years.\nEducation_Level: The highest level of education attained by the employee. \nJob_Role: The role of the employee within the company. \nMonthly_Income: The employee's monthly income.\nYears_At_Company: The number of years the employee has been with the company, ranging from 0 to 40 years.\nYears_In_Current_Role: The number of years the employee has held their current job role, ranging from 0 to 20 years.\nJob_Satisfaction: A self-reported measure of job satisfaction, on a scale from 1 (lowest) to 5 (highest).\nPerformance_Rating: The employee's performance rating, on a scale from 1 (lowest) to 5 (highest).\nWork_Life_Balance: A self-reported measure of work-life balance, on a scale from 1 (lowest) to 5 (highest).\nTraining_Hours_Last_Year: The number of hours of training the employee received in the last year, ranging from 0 to 100 hours.\nLast_Promotion_Years_Ago: The number of years since the employee's last promotion, ranging from 0 to 15 years.\nDistance_From_Home: The distance from the employee's home to the workplace, measured in kilometres, ranging from 1 to 50 km.\nOvertime: Indicates whether the employee regularly works overtime.\nAttrition: Indicates whether the employee has left the company.\nMarital_Status: The employee's marital status.\nNumber_Of_Companies_Worked: The total number of companies the employee has worked for, ranging from 1 to 9.\nStock_Option_Level: The level of stock options granted to the employee, ranging from 0 (no stock options) to 3 (highest level).\n\nThis dataset is a robust foundation for various HR-related analyses, such as studying the impact of job roles on satisfaction and performance, evaluating turnover rates, and exploring compensation structures. With its diverse range of variables, it allows for both descriptive and predictive analytics to support strategic decision-making in human resource management.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "HR_Dataset.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Employee_ID",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Department",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Education_Level",
+          "sensitivity": 60,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Job_Role",
+          "sensitivity": 20,
+          "reason": "could correlate with socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Monthly_Income",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Years_At_Company",
+          "sensitivity": 10,
+          "reason": "could correlate with socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "Years_In_Current_Role",
+          "sensitivity": 10,
+          "reason": "could correlate with socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "Job_Satisfaction",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Performance_Rating",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Work_Life_Balance",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Training_Hours_Last_Year",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Last_Promotion_Years_Ago",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Distance_From_Home",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Overtime",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Attrition",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Marital_Status",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Number_Of_Companies_Worked",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Stock_Option_Level",
+          "sensitivity": 10,
+          "reason": "could correlate with socioeconomic status",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 301.31498829997145
+    }
+  ]
+}

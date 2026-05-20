@@ -1,0 +1,283 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/kanakbaghel/hospital-management-dataset/croissant/download",
+  "dataset_name": "Hospital Management Dataset",
+  "description": "\nThis is a structured, multi-table dataset designed to simulate a hospital management system. It is ideal for practicing data analysis, SQL, machine learning, and healthcare analytics.\n\n**Dataset Overview**\n\nThis dataset includes five CSV files:\n\n1. patients.csv – Patient demographics, contact details, registration info, and insurance data\n\n\n2. doctors.csv – Doctor profiles with specializations, experience, and contact information\n\n\n3. appointments.csv – Appointment dates, times, visit reasons, and statuses\n\n\n4. treatments.csv – Treatment types, descriptions, dates, and associated costs\n\n\n5. billing.csv – Billing amounts, payment methods, and status linked to treatments\n\n**📁 Files & Column Descriptions**\n\n\n** patients.csv**\n\nContains patient demographic and registration details.\n\nColumn\tDescription\n\npatient_id\t-&gt;  Unique ID for each patient\nfirst_name\t-&gt;  Patient's first name\nlast_name\t-&gt;  Patient's last name\ngender\t-&gt;  Gender (M/F)\ndate_of_birth\t-&gt;  Date of birth\ncontact_number\t-&gt;  Phone number\naddress\t-&gt;  Address of the patient\nregistration_date\t-&gt;  Date of first registration at the hospital\ninsurance_provider\t-&gt;  Insurance company name\ninsurance_number\t-&gt;  Policy number\nemail\t-&gt;  Email address\n\n\n\n** doctors.csv**\n\nDetails about the doctors working in the hospital.\n\nColumn\tDescription\n\ndoctor_id\t-&gt;  Unique ID for each doctor\nfirst_name\t-&gt;  Doctor's first name\nlast_name\t-&gt;  Doctor's last name\nspecialization\t-&gt;  Medical field of expertise\nphone_number\t-&gt;  Contact number\nyears_experience\t-&gt;  Total years of experience\nhospital_branch\t-&gt;  Branch of hospital where doctor is based\nemail\t-&gt;  Official email address\n\n\n\n**appointments.csv**\n\nRecords of scheduled and completed patient appointments.\n\nColumn\tDescription\n\nappointment_id\t-&gt;  Unique appointment ID\npatient_id\t-&gt;  ID of the patient\ndoctor_id\t-&gt;  ID of the attending doctor\nappointment_date\t-&gt;  Date of the appointment\nappointment_time\t-&gt;  Time of the appointment\nreason_for_visit\t-&gt;  Purpose of visit (e.g., checkup)\nstatus\t-&gt;  Status (Scheduled, Completed, Cancelled)\n\n\n\n**treatments.csv**\n\nInformation about the treatments given during appointments.\n\nColumn\tDescription\n\ntreatment_id\t-&gt;  Unique ID for each treatment\nappointment_id\t-&gt;  Associated appointment ID\ntreatment_type\t-&gt;  Type of treatment (e.g., MRI, X-ray)\ndescription\t-&gt;  Notes or procedure details\ncost\t-&gt;  Cost of treatment\ntreatment_date\t-&gt;  Date when treatment was given\n\n\n\n** billing.csv**\n\nBilling and payment details for treatments.\n\nColumn\tDescription\n\nbill_id\t-&gt;  Unique billing ID\npatient_id\t-&gt;  ID of the billed patient\ntreatment_id\t-&gt;  ID of the related treatment\nbill_date\t-&gt;  Date of billing\namount\t-&gt;  Total amount billed\npayment_method\t-&gt;  Mode of payment (Cash, Card, Insurance)\npayment_status\t-&gt;  Status of payment (Paid, Pending, Failed)\n\n\n\n**Possible Use Cases**\n\nSQL queries and relational database design\n\nExploratory data analysis (EDA) and dashboarding\n\nMachine learning projects (e.g., cost prediction, no-show analysis)\n\nFeature engineering and data cleaning practice\n\nEnd-to-end healthcare analytics workflows\n\n**Recommended Tools & Resources**\n\nSQL (joins, filters, window functions)\n\nPandas and Matplotlib/Seaborn for EDA\n\nScikit-learn for ML models\n\nPandas Profiling for automated EDA\n\nPlotly for interactive visualizations\n\n\n**Please Note that :**\n\nAll data is synthetically generated for educational and project use. No real patient information is included.\n\nIf you find this dataset helpful, consider upvoting or sharing your insights by creating a Kaggle notebook.\n\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "appointments.csv",
+      "recordset_description": "Dataset Files (CSV)\n\nAll files are saved under /mnt/data/hospital_dataset/:\n\npatients.csv (50 rows, patient demographics & insurance)\n\ndoctors.csv (10 rows, doctor profiles & specialties)\n\nappointments.csv (200 rows, appointment details & status)\n\ntreatments.csv (200 rows, treatment types, costs & dates)\n\nbilling.csv (200 rows, billing amounts, methods & statuses)",
+      "results": [
+        {
+          "key": "appointment_id",
+          "sensitivity": 0,
+          "reason": "it is just the id, it could be considered as sensitive information",
+          "is_categorical": true
+        },
+        {
+          "key": "patient_id",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy; it is an identifier.",
+          "is_categorical": true
+        },
+        {
+          "key": "doctor_id",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy; it is an identifier.",
+          "is_categorical": true
+        },
+        {
+          "key": "appointment_date",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy; it is just a date.",
+          "is_categorical": true
+        },
+        {
+          "key": "appointment_time",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy; it is just time.",
+          "is_categorical": true
+        },
+        {
+          "key": "reason_for_visit",
+          "sensitivity": 20,
+          "reason": "Very weak bias could be indicated implicitly.",
+          "is_categorical": true
+        },
+        {
+          "key": "status",
+          "sensitivity": 10,
+          "reason": "Very weak bias could be indicated implicitly.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 614.5960252000004
+    },
+    {
+      "recordset_name": "billing.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "bill_id",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy; it is an identifier.",
+          "is_categorical": true
+        },
+        {
+          "key": "patient_id",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy; it is an identifier.",
+          "is_categorical": true
+        },
+        {
+          "key": "treatment_id",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy; it is an identifier.",
+          "is_categorical": true
+        },
+        {
+          "key": "bill_date",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy; it is just a date.",
+          "is_categorical": false
+        },
+        {
+          "key": "amount",
+          "sensitivity": 10,
+          "reason": "weak SES proxy, but indirect",
+          "is_categorical": false
+        },
+        {
+          "key": "payment_method",
+          "sensitivity": 0,
+          "reason": "Just the payment method. can become sensitive if they explicitly encode health conditions.",
+          "is_categorical": true
+        },
+        {
+          "key": "payment_status",
+          "sensitivity": 0,
+          "reason": "Just the payment status. Does not indicate bias or sensitivity.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 763.2011146000004
+    },
+    {
+      "recordset_name": "doctors.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "doctor_id",
+          "sensitivity": 0,
+          "reason": "Unique identifier for a doctor; an ID does not encode any sensitive characteristic and is out of scope as a personal identifier.",
+          "is_categorical": true
+        },
+        {
+          "key": "first_name",
+          "sensitivity": 0,
+          "reason": "Personal name used for identification/contact only; names are explicitly out of scope and do not represent an in-scope sensitive attribute.",
+          "is_categorical": true
+        },
+        {
+          "key": "last_name",
+          "sensitivity": 0,
+          "reason": "Personal name used for identification/contact only; does not encode any in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "specialization",
+          "sensitivity": 0,
+          "reason": "Professional field of expertise; does not correspond to gender, race, age, health condition, or other in-scope sensitive categories.",
+          "is_categorical": true
+        },
+        {
+          "key": "phone_number",
+          "sensitivity": 0,
+          "reason": "Contact information only; explicitly listed as out of scope and not a sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "years_experience",
+          "sensitivity": 20,
+          "reason": "Numeric measure of professional tenure; may weakly correlate with age but does not directly encode age, making it a weak, indirect proxy at most.",
+          "is_categorical": false
+        },
+        {
+          "key": "hospital_branch",
+          "sensitivity": 10,
+          "reason": "Work location within the hospital; may weakly relate to organizational or regional factors but does not meaningfully encode any in-scope sensitive attribute.",
+          "is_categorical": true
+        },
+        {
+          "key": "email",
+          "sensitivity": 0,
+          "reason": "Email address is contact-only personal information and explicitly out of scope for sensitivity.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 232.42565759999707
+    },
+    {
+      "recordset_name": "patients.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "patient_id",
+          "sensitivity": 0,
+          "reason": "Unique identifier for a patient; an ID does not encode any in-scope sensitive characteristic and is out of scope as an identifier.",
+          "is_categorical": true
+        },
+        {
+          "key": "first_name",
+          "sensitivity": 0,
+          "reason": "Personal name used for identification only; names are explicitly out of scope and do not represent an in-scope sensitive attribute.",
+          "is_categorical": true
+        },
+        {
+          "key": "last_name",
+          "sensitivity": 0,
+          "reason": "Personal name used for identification only; does not encode any in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "Directly encodes gender, which is an explicit in-scope sensitive characteristic under gender and sexual identity.",
+          "is_categorical": true
+        },
+        {
+          "key": "date_of_birth",
+          "sensitivity": 90,
+          "reason": "Directly encodes date of birth, which determines age; age is an explicit in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "contact_number",
+          "sensitivity": 0,
+          "reason": "Contact-only personal information; explicitly listed as out of scope and not a sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "address",
+          "sensitivity": 20,
+          "reason": "Location information may weakly correlate with socioeconomic status or ethnicity, but does not explicitly encode any in-scope sensitive attribute.",
+          "is_categorical": true
+        },
+        {
+          "key": "registration_date",
+          "sensitivity": 0,
+          "reason": "Administrative date related to hospital registration; does not represent or encode any in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "insurance_provider",
+          "sensitivity": 20,
+          "reason": "Type of insurance may act as a weak proxy for socioeconomic status, but does not directly encode it.",
+          "is_categorical": true
+        },
+        {
+          "key": "insurance_number",
+          "sensitivity": 0,
+          "reason": "Policy identifier used for administrative purposes; an identifier does not encode any in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "email",
+          "sensitivity": 0,
+          "reason": "Email address is contact-only personal information and explicitly out of scope for sensitivity.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 288.17410410000593
+    },
+    {
+      "recordset_name": "treatments.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "treatment_id",
+          "sensitivity": 0,
+          "reason": "Unique identifier for a treatment; an ID does not encode any in-scope sensitive characteristic and is out of scope as an identifier.",
+          "is_categorical": true
+        },
+        {
+          "key": "appointment_id",
+          "sensitivity": 0,
+          "reason": "Unique identifier linking to an appointment; identifiers do not represent or encode any in-scope sensitive attribute.",
+          "is_categorical": true
+        },
+        {
+          "key": "treatment_type",
+          "sensitivity": 50,
+          "reason": "Type of medical treatment can directly reflect health conditions or medical interventions, which relate to disability and health conditions.",
+          "is_categorical": true
+        },
+        {
+          "key": "description",
+          "sensitivity": 60,
+          "reason": "Free-text treatment descriptions may explicitly reveal diagnoses, impairments, or health conditions, which are in-scope sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "cost",
+          "sensitivity": 30,
+          "reason": "Treatment cost may act as a weak proxy for socioeconomic status, but does not directly encode it.",
+          "is_categorical": false
+        },
+        {
+          "key": "treatment_date",
+          "sensitivity": 0,
+          "reason": "Date of treatment is a temporal attribute and does not represent or encode any in-scope sensitive characteristic.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 1579.0645356999958
+    }
+  ]
+}

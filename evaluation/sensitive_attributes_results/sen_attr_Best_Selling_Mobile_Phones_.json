@@ -1,0 +1,59 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/aryan112345/best-selling-mobile-phones/croissant/download",
+  "dataset_name": "Best Selling Mobile Phones",
+  "description": "This is the raw data of the best-selling smartphones as of February 2024. Not pre-processed and scraped using beautifulSoup. Pre-processing will be required as per user requirements.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "top_selling_mobile_phones.csv",
+      "recordset_description": "All Time best selling mobile phones",
+      "results": [
+        {
+          "key": "Manufacturer",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Model",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Form factor",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Smartphone?",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Year",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one. Refers to product year, not human age.",
+          "is_categorical": true
+        },
+        {
+          "key": "Graph (million units)",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": false
+        },
+        {
+          "key": "Graph (million units).1",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 6.134659300092608
+    }
+  ]
+}

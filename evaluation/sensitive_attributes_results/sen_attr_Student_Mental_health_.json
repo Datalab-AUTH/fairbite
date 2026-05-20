@@ -1,0 +1,83 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/shariful07/student-mental-health/croissant/download",
+  "dataset_name": "Student Mental health",
+  "description": "A STATISTICAL RESEARCH ON THE EFFECTS OF MENTAL HEALTH ON STUDENTS’ CGPA dataset\nThis Data set was collected by a survey conducted by Google forms from University student in order to examine their current academic situation and mental health.\n\nAll the data was based on Malaysia and collected from Iium (International Islamic University Malaysia).",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Student Mental health.csv",
+      "recordset_description": "This Data set was collected by a survey conducted by Google forms from University student in order to examine their current academic situation and mental health.",
+      "results": [
+        {
+          "key": "Timestamp",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Choose your gender",
+          "sensitivity": 100,
+          "reason": "Directly represents gender, an IN-SCOPE sensitive characteristic (Gender & sexual identity).",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents age, an IN-SCOPE sensitive characteristic (Age).",
+          "is_categorical": false
+        },
+        {
+          "key": "What is your course?",
+          "sensitivity": 30,
+          "reason": "Weakly and indirectly correlates with socioeconomic status or national origin, but not a direct proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Your current year of Study",
+          "sensitivity": 60,
+          "reason": "Strongly correlates with age/life stage, an IN-SCOPE sensitive characteristic (Age).",
+          "is_categorical": true
+        },
+        {
+          "key": "What is your CGPA?",
+          "sensitivity": 30,
+          "reason": "Weakly and indirectly correlates with socioeconomic status, but not a direct proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Marital status",
+          "sensitivity": 100,
+          "reason": "Directly represents marital status, an IN-SCOPE sensitive characteristic (Family & civil status).",
+          "is_categorical": true
+        },
+        {
+          "key": "Do you have Depression?",
+          "sensitivity": 100,
+          "reason": "Directly represents a health condition (depression), an IN-SCOPE sensitive characteristic (Disability & health conditions).",
+          "is_categorical": true
+        },
+        {
+          "key": "Do you have Anxiety?",
+          "sensitivity": 100,
+          "reason": "Directly represents a health condition (anxiety), an IN-SCOPE sensitive characteristic (Disability & health conditions).",
+          "is_categorical": true
+        },
+        {
+          "key": "Do you have Panic attack?",
+          "sensitivity": 100,
+          "reason": "Directly represents a health condition (panic attack), an IN-SCOPE sensitive characteristic (Disability & health conditions).",
+          "is_categorical": true
+        },
+        {
+          "key": "Did you seek any specialist for a treatment?",
+          "sensitivity": 90,
+          "reason": "Strongly indicates the presence of a health condition and seeking treatment, an IN-SCOPE sensitive characteristic (Disability & health conditions).",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 9.421203800011426
+    }
+  ]
+}

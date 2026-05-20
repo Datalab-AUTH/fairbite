@@ -1,0 +1,211 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/suneelpatel/hr-attrition-management-dataset/croissant/download",
+  "dataset_name": "HR Attrition Management Dataset",
+  "description": "Data Description\nThe dataset used for this project contains information on various aspects of employee demographics, job roles, satisfaction levels, and other work-related attributes. Below is a detailed description of the columns in the dataset:\n\n- Employee No.: A unique identifier for each employee.\n- Gender: The gender of the employee (e.g., Male, Female).\n- Education: The education level of the employee (e.g., Bachelor’s, Master’s).\n- Education Field: The field of study in which the employee obtained their education (e.g., Engineering, Marketing).\n- Job Role: The job title or role of the employee (e.g., Sales Executive, Research Scientist).\n- Department: The department in which the employee works (e.g., Sales, Research & Development).\n- Age group: The age group of the employee (e.g., 20-30, 30-40).\n- Work Location: The location or branch where the employee is working.\n- Attrition: A binary variable indicating whether the employee has left the company (Yes/No).\n- Attrition Date: The date on which the employee left the company, if applicable.\n- Attrition Label: A numerical label representing attrition status (e.g., 1 for Yes, 0 for No).\n- Dynamic Date: A date that represents a dynamic point in time relevant to the employee's status (e.g., last -evaluation date).\n- Age: The age of the employee in years.\n- Avg. Satisfaction Score: The average satisfaction score of the employee over a period of time.\n- Employee Count: The count of employees in the organization at the time of data recording.\n- Environment Satisfaction: A score representing the employee’s satisfaction with the work environment.\n- Attrition Count: The number of times an employee has left or rejoined the company, if applicable.\n- Job Involvement: A score representing the level of involvement or engagement the employee has in their job.\n- Job Satisfaction: A score representing the employee’s satisfaction with their job.\n- Monthly Income: The monthly salary of the employee.\n- Percent Salary Hike: The percentage increase in the employee’s salary over the last appraisal period.\n- Performance Rating: The performance rating of the employee during the last evaluation.\n- Placeholder: A placeholder column, possibly for future data or a redundant column.\n- Relationship Satisfaction: A score representing the employee’s satisfaction with interpersonal relationships at work.\n- Work Life Balance: A score representing the employee’s satisfaction with their work-life balance.\n- last_evaluation: The score from the employee's last performance evaluation.\n- number_project: The number of projects the employee has worked on during the last period.\n- average_monthly_hours: The average number of hours the employee worked per month.\n- Work_accident: A binary variable indicating whether the employee has experienced a work-related accident (Yes/No).\n- promotion_last_5years: A binary variable indicating whether the employee has been promoted in the last 5 years (Yes/No).\n\nThis dataset provides a comprehensive view of the employees, allowing for in-depth analysis and the development of a robust predictive model for attrition.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "HR_Attrition Data.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Employee No.",
+          "sensitivity": 0,
+          "reason": "Unique identifier, out of scope for sensitivity analysis.",
+          "is_categorical": true
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents gender, an IN-SCOPE sensitive characteristic under 'Gender & sexual identity'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Education",
+          "sensitivity": 30,
+          "reason": "Can be a weak proxy for socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "Education Field",
+          "sensitivity": 10,
+          "reason": "Not directly sensitive; very weak and indirect proxy for socioeconomic or ethnic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "Job Role",
+          "sensitivity": 20,
+          "reason": "Not directly sensitive; can be a minor, indirect proxy for socioeconomic status or gender in some contexts.",
+          "is_categorical": true
+        },
+        {
+          "key": "Department",
+          "sensitivity": 10,
+          "reason": "Not directly sensitive; very weak and indirect proxy for other sensitive attributes.",
+          "is_categorical": true
+        },
+        {
+          "key": "Age group",
+          "sensitivity": 100,
+          "reason": "Directly represents age, an IN-SCOPE sensitive characteristic under 'Age'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Work Location",
+          "sensitivity": 70,
+          "reason": "Can be a strong proxy for racial/ethnic origin or socioeconomic status depending on granularity.",
+          "is_categorical": true
+        },
+        {
+          "key": "Attrition",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Attrition Date",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": false
+        },
+        {
+          "key": "Attrition Label",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Dynamic Date",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents age, an IN-SCOPE sensitive characteristic under 'Age'.",
+          "is_categorical": false
+        },
+        {
+          "key": "Avg. Satisfaction Score",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": false
+        },
+        {
+          "key": "Employee Count",
+          "sensitivity": 0,
+          "reason": "Organizational metric, not an IN-SCOPE sensitive characteristic of an individual.",
+          "is_categorical": false
+        },
+        {
+          "key": "Environment Satisfaction",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Attrition Count",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": false
+        },
+        {
+          "key": "Job Involvement",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Job Satisfaction",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Monthly Income",
+          "sensitivity": 90,
+          "reason": "Directly represents socioeconomic status, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Percent Salary Hike",
+          "sensitivity": 10,
+          "reason": "Not directly sensitive; very weak and indirect proxy for socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "Performance Rating",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Placeholder",
+          "sensitivity": 0,
+          "reason": "No discernible meaning, therefore not sensitive.",
+          "is_categorical": true
+        },
+        {
+          "key": "Relationship Satisfaction",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Work Life Balance",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 28.16039469995303
+    },
+    {
+      "recordset_name": "HR_New_data.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "emp_id",
+          "sensitivity": 0,
+          "reason": "This is a unique identifier for an employee, which is explicitly out of scope for sensitivity.",
+          "is_categorical": false
+        },
+        {
+          "key": "last_evaluation",
+          "sensitivity": 0,
+          "reason": "Represents a performance score, which is not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "number_project",
+          "sensitivity": 0,
+          "reason": "Represents a count of projects, which is not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "average_montly_hours",
+          "sensitivity": 0,
+          "reason": "Represents work hours, which is not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Work_accident",
+          "sensitivity": 70,
+          "reason": "A work accident can be a strong proxy for a health condition or impairment, falling under 'Disability & health conditions'.",
+          "is_categorical": true
+        },
+        {
+          "key": "promotion_last_5years",
+          "sensitivity": 0,
+          "reason": "Represents promotion status, which is not an IN-SCOPE sensitive characteristic or a proxy.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 6.657237800012808
+    }
+  ]
+}

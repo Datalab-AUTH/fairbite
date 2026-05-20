@@ -1,0 +1,41 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/shiivvvaam/pc-games/croissant/download",
+  "dataset_name": "PC Games",
+  "description": "Explore a diverse array of PC games with our comprehensive dataset! From release dates to developers, dive into the intricate details of titles like \"!4RC4N01D!\" and \".hack//G.U. Last Recode.\" Uncover the industry's evolution from classics like \".kkrieger\" to modern gems like \"!Dead Pixels Adventure!\" This dataset provides a valuable resource for gaming enthusiasts, researchers, and developers seeking insights into the dynamic world of PC gaming.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Games.csv",
+      "recordset_description": "ile Format: CSV (Comma-Separated Values)\nColumns:\nGame: Name of the game.\nSeries: Series to which the game belongs.\nPublisher: The company responsible for publishing the game.\nDevelopers: The developers who worked on the game.",
+      "results": [
+        {
+          "key": "Game",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Series",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Publisher",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Developers",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 33.79497329995502
+    }
+  ]
+}

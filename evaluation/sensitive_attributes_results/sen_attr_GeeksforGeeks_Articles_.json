@@ -1,0 +1,47 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/ashishjangra27/geeksforgeeks-articles/croissant/download",
+  "dataset_name": "GeeksforGeeks Articles",
+  "description": "### Context\n\nGeeksforGeeks is one of the top websites where we go to find anything about any technical topic. Every student knows the importance of GeeksforGeeks in their technical career. I've created this article by taking the inspiration so that students can explore the topics, date, author, and a lot more from the dataset.\n\n\n### Content\n\nThis dataset is having a total of 5 columns where each column define something about the article which looks something like this\n\n1 - Title of the Article\n2 - Author of the Article\n3 - Date of article's last update\n4 - Link of the Article on GeeksforGeeks\n5 - Category of the Article\n\n\n### Acknowledgements\n\nIt's really hard to imagine learning coding without wonderful websites like GeeksforGeeks, It's really great to be a part of the organization from where the data is collected (www.geeksforgeeks.org)\n\n\n### Inspiration\n\nAs TED is one of the best learning platforms for the best people in their field so I always wanted to learn from the best that's why I've created this dataset so that learners can learn both Data Analytics and also from the speakers of TED talks.\n\nThis dataset can help you to answer the following question\n\n1. Finding the most popular author (in terms of the number of articles)\n2. Day-wise Analysis of Articles Frequency\n3. Month-wise Analysis of Articles Frequency\n4. Year-wise Analysis of Articles Frequency\n5. Finding articles of your favorite Author\n6. Finding articles based on tags(like python)\n7. Category Analysis Distribution\n\nEnjoy Learning!",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "articles.csv",
+      "recordset_description": "This dataset is having 5 columns where each column is having a unique feature about the GeeksforGeeks Article",
+      "results": [
+        {
+          "key": "title",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "author_id",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information (PII) is explicitly OUT OF SCOPE unless it encodes a sensitive class, which this does not.",
+          "is_categorical": true
+        },
+        {
+          "key": "last_updated",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "link",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information (PII) is explicitly OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "category",
+          "sensitivity": 0,
+          "reason": "Not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 6.090512500028126
+    }
+  ]
+}

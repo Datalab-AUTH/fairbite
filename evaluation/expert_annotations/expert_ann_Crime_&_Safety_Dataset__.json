@@ -1,0 +1,77 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/shamimhasan8/crime-and-safety-dataset/croissant/download",
+  "dataset_name": "Crime & Safety Dataset",
+  "description": "This dataset contains 1,000 detailed crime reports collected over the past two years in an urban area. Each record includes the type of crime, precise location coordinates, date and time of occurrence, neighborhood information, and victim demographics such as age, gender, and ethnicity. Additional fields cover whether a weapon was involved and if the crime was reported to police. This data is ideal for building predictive models to identify crime hotspots, improve public safety alerts, and support community policing efforts.\n\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "crime_safety_dataset.csv",
+      "recordset_description": "\n\n**id**\nUnique identifier for each crime report.\n\n**date**\nDate when the crime occurred (YYYY-MM-DD).\n\n**time**\nTime when the crime occurred (HH\\:MM, 24-hour format).\n\n**crime\\_type**\nCategory or type of the crime (e.g., Theft, Assault, Burglary).\n\n**city**\nName of the city where the crime took place.\n\n**state**\nState or region where the city is located.\n\n**location\\_description**\nText description of the crime location (e.g., street address, park, business).\n\n**victim\\_age**\nAge of the victim at the time of the crime.\n\n**victim\\_gender**\nGender of the victim (Male, Female, Other, Unknown).\n\n**victim\\_race**\nRace or ethnicity of the victim (e.g., White, Black, Hispanic, Asian, Other, Unknown).\n\n",
+      "results": [
+        {
+          "key": "id",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "date",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "time",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "crime_type",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "city",
+          "sensitivity": 50,
+          "reason": "weak proxy for ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "state",
+          "sensitivity": 50,
+          "reason": "weak proxy for ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "location_description",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "victim_age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "victim_gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "victim_race",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 141.03445310000097
+    }
+  ]
+}

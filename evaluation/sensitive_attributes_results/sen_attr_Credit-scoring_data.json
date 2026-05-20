@@ -1,0 +1,241 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/islombekdavronov/creditscoring-data/croissant/download",
+  "dataset_name": "Credit-scoring data",
+  "description": "The data is collected from the real source and converted to numeric values for better training and classifying the people who are able or not able to pay their credits. ",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "data_test.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "label",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; it represents a prediction target.",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Age' from the 'Age' IN-SCOPE category.",
+          "is_categorical": false
+        },
+        {
+          "key": "Language",
+          "sensitivity": 90,
+          "reason": "Directly represents 'language' from the 'Racial & ethnic origin' IN-SCOPE category.",
+          "is_categorical": true
+        },
+        {
+          "key": "Sex",
+          "sensitivity": 100,
+          "reason": "Directly represents 'sex' from the 'Gender & sexual identity' IN-SCOPE category.",
+          "is_categorical": true
+        },
+        {
+          "key": "Marital",
+          "sensitivity": 100,
+          "reason": "Directly represents 'marital status' from the 'Family & civil status' IN-SCOPE category.",
+          "is_categorical": true
+        },
+        {
+          "key": "Has_Credit",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; it relates to financial history.",
+          "is_categorical": true
+        },
+        {
+          "key": "Field",
+          "sensitivity": 30,
+          "reason": "If interpreted as 'field of work/industry', it may weakly correlate with 'Socioeconomic status'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Month_of_birth",
+          "sensitivity": 60,
+          "reason": "A component of 'date of birth', which is a strong proxy for 'Age' from the 'Age' IN-SCOPE category.",
+          "is_categorical": true
+        },
+        {
+          "key": "Day_of_birth",
+          "sensitivity": 60,
+          "reason": "A component of 'date of birth', which is a strong proxy for 'Age' from the 'Age' IN-SCOPE category.",
+          "is_categorical": true
+        },
+        {
+          "key": "Region",
+          "sensitivity": 60,
+          "reason": "A strong proxy for 'national origin' or 'ethnic origin' from the 'Racial & ethnic origin' IN-SCOPE category.",
+          "is_categorical": true
+        },
+        {
+          "key": "Number_of_credits",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; it relates to financial history.",
+          "is_categorical": false
+        },
+        {
+          "key": "Linked_cards",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; it relates to financial behavior.",
+          "is_categorical": false
+        },
+        {
+          "key": "INPS_mln_sum",
+          "sensitivity": 90,
+          "reason": "Likely relates to 'receipt of public assistance/benefits/welfare' from the 'Socioeconomic status' IN-SCOPE category.",
+          "is_categorical": false
+        },
+        {
+          "key": "INPS_yes_no",
+          "sensitivity": 90,
+          "reason": "Likely relates to 'receipt of public assistance/benefits/welfare' from the 'Socioeconomic status' IN-SCOPE category.",
+          "is_categorical": true
+        },
+        {
+          "key": "Score_level",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; it is a derived credit metric.",
+          "is_categorical": true
+        },
+        {
+          "key": "Score_class",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; it is a derived credit metric.",
+          "is_categorical": true
+        },
+        {
+          "key": "Score_point",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; it is a derived credit metric.",
+          "is_categorical": false
+        },
+        {
+          "key": "Changed_phone_number",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic; it relates to contact information changes.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 16.06847839988768
+    },
+    {
+      "recordset_name": "data_train.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "label",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Age' from the IN-SCOPE list.",
+          "is_categorical": false
+        },
+        {
+          "key": "Language",
+          "sensitivity": 80,
+          "reason": "Strong proxy for 'Racial & ethnic origin' (language) from the IN-SCOPE list.",
+          "is_categorical": true
+        },
+        {
+          "key": "Sex",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Sex' from the IN-SCOPE list.",
+          "is_categorical": true
+        },
+        {
+          "key": "Marital",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Marital status' from the IN-SCOPE list.",
+          "is_categorical": true
+        },
+        {
+          "key": "Has_Credit",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Field",
+          "sensitivity": 50,
+          "reason": "Weak/indirect proxy for 'Socioeconomic status' (e.g., profession).",
+          "is_categorical": true
+        },
+        {
+          "key": "Month_of_birth",
+          "sensitivity": 70,
+          "reason": "Component of 'Date of birth', which is part of 'Age' from the IN-SCOPE list.",
+          "is_categorical": true
+        },
+        {
+          "key": "Day_of_birth",
+          "sensitivity": 70,
+          "reason": "Component of 'Date of birth', which is part of 'Age' from the IN-SCOPE list.",
+          "is_categorical": true
+        },
+        {
+          "key": "Region",
+          "sensitivity": 80,
+          "reason": "Strong proxy for 'Racial & ethnic origin' or 'Socioeconomic status'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Number_of_credits",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Linked_cards",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "INPS_mln_sum",
+          "sensitivity": 100,
+          "reason": "Directly represents 'receipt of public assistance/benefits/welfare' from the IN-SCOPE list.",
+          "is_categorical": false
+        },
+        {
+          "key": "INPS_yes_no",
+          "sensitivity": 100,
+          "reason": "Directly represents 'receipt of public assistance/benefits/welfare' from the IN-SCOPE list.",
+          "is_categorical": true
+        },
+        {
+          "key": "Score_level",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Score_class",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Score_point",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Changed_phone_number",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 18.091209599981084
+    }
+  ]
+}

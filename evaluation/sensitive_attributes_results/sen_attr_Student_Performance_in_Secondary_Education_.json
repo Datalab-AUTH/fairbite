@@ -1,0 +1,215 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/adilshamim8/personalized-learning-and-adaptive-education-dataset/croissant/download",
+  "dataset_name": "Student Performance in Secondary Education",
+  "description": "This dataset contains information on **secondary school student performance** collected from two Portuguese schools. It was originally introduced by **Cortez & Silva ** in the paper *“Using Data Mining to Predict Secondary School Student Performance.”*\n\nThe data was gathered through **school reports and student questionnaires**, covering demographic, social, and academic-related variables. Two separate datasets are provided:\n\n* **`student-mat.csv`** → Math course performance\n* **`student-por.csv`** → Portuguese language course performance\n\n**Number of instances**: 649 (Mathematics) + 649 (Portuguese)\n**Number of features**: 30 input variables + 3 grade outputs (G1, G2, G3)\n**Target variable**: `G3` (final grade, 0–20 scale)\n**Missing values**: None\n\n##  Objective\n\nThe main goal is to **predict student academic success**, especially the final grade `G3`.\n\n* Since `G1` (first period grade) and `G2` (second period grade) are highly correlated with `G3`, experiments can be designed **with or without** these features:\n\n  *  Easier task → Predicting `G3` using `G1` and `G2`\n  *  Harder task (more useful) → Predicting `G3` without `G1` and `G2`\n\nThis dataset is suitable for:\n\n* **Regression** (predicting numeric grades)\n* **Classification** (e.g., pass/fail, grade levels)\n\n##  Features\n\nThe dataset includes **30 attributes** from multiple categories:\n\n* **Demographics** → `sex`, `age`, `address`, `famsize`, `Pstatus`\n* **Parental background** → `Medu`, `Fedu`, `Mjob`, `Fjob`, `guardian`\n* **School-related** → `school`, `reason`, `traveltime`, `studytime`, `failures`\n* **Support systems** → `schoolsup`, `famsup`, `paid`, `activities`, `nursery`, `higher`, `internet`\n* **Lifestyle & social** → `romantic`, `freetime`, `goout`, `Dalc`, `Walc`, `health`, `absences`\n* **Performance indicators** → `G1`, `G2`, `G3`\n\n##  Key Insights\n\n* **Strong G1/G2 ↔ G3 correlation**: Final grade is heavily dependent on earlier grades.\n* **Student overlap**: 382 students appear in both datasets (Math & Portuguese), identifiable by matching attributes.\n* **No missing data**: Dataset is clean and ready for modeling.\n\n##  Use Cases\n\n* Predicting **final grades** for early intervention.\n* Identifying **at-risk students** who may need extra support.\n* Exploring **socio-economic and lifestyle factors** influencing education.\n* Testing **feature engineering and model comparison** strategies.\n\n## Reference\n\n* Cortez, P., & Silva, A. *Using Data Mining to Predict Secondary School Student Performance*. Proceedings of the 5th Annual Future Business Technology Conference.\n\nThis dataset is a **playground for classification & regression tasks**, ideal for experimenting with feature selection, ensemble methods, and interpretable ML approaches.\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "student.csv",
+      "recordset_description": "**school** – Student’s school (`GP` = Gabriel Pereira, `MS` = Mousinho da Silveira) <br>\n**sex** – Student’s gender (`F` = female, `M` = male) <br>\n**age** – Student’s age (15–22 years) <br>\n**address** – Home address type (`U` = urban, `R` = rural) <br>\n**famsize** – Family size (`LE3` = ≤3, `GT3` = >3 members) <br>\n**Pstatus** – Parent’s cohabitation status (`T` = together, `A` = apart) <br>\n**Medu** – Mother’s education (0 = none, 1 = primary, 2 = 5–9th grade, 3 = secondary, 4 = higher) <br>\n**Fedu** – Father’s education (0 = none, 1 = primary, 2 = 5–9th grade, 3 = secondary, 4 = higher) <br>\n**Mjob** – Mother’s job (`teacher`, `health`, `services`, `at_home`, `other`) <br>\n**Fjob** – Father’s job (`teacher`, `health`, `services`, `at_home`, `other`) <br>\n**reason** – Reason for choosing school (`home`, `reputation`, `course`, `other`) <br>\n**guardian** – Student’s guardian (`mother`, `father`, `other`) <br>\n**traveltime** – Travel time to school (1 = <15 min, 2 = 15–30 min, 3 = 30–60 min, 4 = >1 hour) <br>\n**studytime** – Weekly study time (1 = <2 hrs, 2 = 2–5 hrs, 3 = 5–10 hrs, 4 = >10 hrs) <br>\n**failures** – Number of past class failures (n if 1 ≤ n < 3, else 4) <br>\n**schoolsup** – Extra educational support (`yes` or `no`) <br>\n**famsup** – Family educational support (`yes` or `no`) <br>\n**paid** – Extra paid classes in the subject (`yes` or `no`) <br>\n**activities** – Participation in extra-curricular activities (`yes` or `no`) <br>\n**nursery** – Attended nursery school (`yes` or `no`) <br>\n**higher** – Aspires to pursue higher education (`yes` or `no`) <br>\n**internet** – Internet access at home (`yes` or `no`) <br>\n**romantic** – In a romantic relationship (`yes` or `no`) <br>\n**famrel** – Quality of family relationships (1 = very bad to 5 = excellent) <br>\n**freetime** – Free time after school (1 = very low to 5 = very high) <br>\n**goout** – Going out with friends (1 = very low to 5 = very high) <br>\n**Dalc** – Workday alcohol consumption (1 = very low to 5 = very high) <br>\n**Walc** – Weekend alcohol consumption (1 = very low to 5 = very high) <br>\n**health** – Current health status (1 = very bad to 5 = very good) <br>\n**absences** – Number of school absences (0–93) <br>\n**G1** – First period grade (0–20) <br>\n**G2** – Second period grade (0–20) <br>\n**G3** – Final grade (0–20, **target variable**) <br>\n",
+      "results": [
+        {
+          "key": "school",
+          "sensitivity": 10,
+          "reason": "Minor context-dependent concern; school choice might weakly correlate with socioeconomic factors or geographic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "sex",
+          "sensitivity": 100,
+          "reason": "Directly encodes 'Gender & sexual identity'.",
+          "is_categorical": true
+        },
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "Directly encodes 'Age'.",
+          "is_categorical": false
+        },
+        {
+          "key": "address",
+          "sensitivity": 40,
+          "reason": "Weak/indirect proxy for 'Socioeconomic status' or potentially 'Racial & ethnic origin' depending on location.",
+          "is_categorical": true
+        },
+        {
+          "key": "famsize",
+          "sensitivity": 90,
+          "reason": "Directly encodes 'familial status' under 'Family & civil status'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Pstatus",
+          "sensitivity": 90,
+          "reason": "Directly encodes 'marital status' or 'familial status' under 'Family & civil status'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Medu",
+          "sensitivity": 70,
+          "reason": "Strong proxy for 'Socioeconomic status' based on education level.",
+          "is_categorical": true
+        },
+        {
+          "key": "Fedu",
+          "sensitivity": 70,
+          "reason": "Strong proxy for 'Socioeconomic status' based on education level.",
+          "is_categorical": true
+        },
+        {
+          "key": "Mjob",
+          "sensitivity": 80,
+          "reason": "Strong proxy for 'Socioeconomic status' based on occupation.",
+          "is_categorical": true
+        },
+        {
+          "key": "Fjob",
+          "sensitivity": 80,
+          "reason": "Strong proxy for 'Socioeconomic status' based on occupation.",
+          "is_categorical": true
+        },
+        {
+          "key": "reason",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "guardian",
+          "sensitivity": 90,
+          "reason": "Directly encodes 'parental status' or 'familial status' under 'Family & civil status'.",
+          "is_categorical": true
+        },
+        {
+          "key": "traveltime",
+          "sensitivity": 10,
+          "reason": "Minor context-dependent concern; might weakly correlate with address type or socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "studytime",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "failures",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "schoolsup",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "famsup",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "paid",
+          "sensitivity": 40,
+          "reason": "Weak/indirect proxy for 'Socioeconomic status' as it implies ability to pay for extra services.",
+          "is_categorical": true
+        },
+        {
+          "key": "activities",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "nursery",
+          "sensitivity": 30,
+          "reason": "Weak/indirect proxy for 'Socioeconomic status' or 'familial status' (e.g., parents working).",
+          "is_categorical": true
+        },
+        {
+          "key": "higher",
+          "sensitivity": 40,
+          "reason": "Weak/indirect proxy for 'Socioeconomic status', as internet access can reflect economic standing.",
+          "is_categorical": true
+        },
+        {
+          "key": "internet",
+          "sensitivity": 40,
+          "reason": "Weak/indirect proxy for 'Socioeconomic status', as internet access can reflect economic standing.",
+          "is_categorical": true
+        },
+        {
+          "key": "romantic",
+          "sensitivity": 90,
+          "reason": "Directly encodes relationship status, a form of 'Family & civil status'.",
+          "is_categorical": true
+        },
+        {
+          "key": "famrel",
+          "sensitivity": 90,
+          "reason": "Directly encodes 'familial status' under 'Family & civil status'.",
+          "is_categorical": true
+        },
+        {
+          "key": "freetime",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "goout",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Dalc",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Walc",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "health",
+          "sensitivity": 100,
+          "reason": "Directly encodes 'health conditions' under 'Disability & health conditions'.",
+          "is_categorical": true
+        },
+        {
+          "key": "absences",
+          "sensitivity": 20,
+          "reason": "Minor context-dependent concern; might weakly correlate with 'health conditions' or 'Socioeconomic status'.",
+          "is_categorical": false
+        },
+        {
+          "key": "G1",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "G2",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "G3",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 23.19918830000097
+    }
+  ]
+}

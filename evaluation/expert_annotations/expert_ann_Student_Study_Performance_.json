@@ -1,0 +1,65 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/bhavikjikadara/student-study-performance/croissant/download",
+  "dataset_name": "Student Study Performance",
+  "description": "# Problem Statement:\nThis project understands how the student's performance (test scores) is affected by other variables such as Gender, Ethnicity, Parental level of education, Lunch and Test preparation course.\n\n# Content\nThis data set consists of the marks secured by the students in various subjects.\n- gender : sex of students -&gt; (Male/female)\n- race/ethnicity : ethnicity of students -&gt; (Group A, B,C, D,E)\n- parental level of education : parents' final education -&gt;(bachelor's degree,some college,master's degree,associate's degree,- high school)\n- lunch : having lunch before test (standard or free/reduced)\n- test preparation course : complete or not complete before test\n- math score\n- reading score\n- writing score\n\n# Inspiration:\nTo understand the influence of the parent's background, test preparation etc on students' performance",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "study_performance.csv",
+      "recordset_description": "In this dataset, there are 1K rows and 8 columns.",
+      "results": [
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "race_ethnicity",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "parental_level_of_education",
+          "sensitivity": 80,
+          "reason": "socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "lunch",
+          "sensitivity": 60,
+          "reason": "proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "test_preparation_course",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "math_score",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "reading_score",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "writing_score",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 132.28058960003546
+    }
+  ]
+}

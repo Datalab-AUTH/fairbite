@@ -1,0 +1,107 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/prasad22/healthcare-dataset/croissant/download",
+  "dataset_name": "Healthcare Dataset ",
+  "description": "# ```Context:```\n\nThis synthetic healthcare dataset has been created to serve as a valuable resource for data science, machine learning, and data analysis enthusiasts. It is designed to mimic real-world healthcare data, enabling users to practice, develop, and showcase their data manipulation and analysis skills in the context of the healthcare industry.\n\n# ```Inspiration:```\n\nThe inspiration behind this dataset is rooted in the need for practical and diverse healthcare data for educational and research purposes. Healthcare data is often sensitive and subject to privacy regulations, making it challenging to access for learning and experimentation. To address this gap, I have leveraged Python's Faker library to generate a dataset that mirrors the structure and attributes commonly found in healthcare records. By providing this synthetic data, I hope to foster innovation, learning, and knowledge sharing in the healthcare analytics domain.\n\n# ``` Dataset Information:```\nEach column provides specific information about the patient, their admission, and the healthcare services provided, making this dataset suitable for various data analysis and modeling tasks in the healthcare domain. Here's a brief explanation of each column in the dataset -\n- **Name:** This column represents the name of the patient associated with the healthcare record.\n- **Age:** The age of the patient at the time of admission, expressed in years.\n- **Gender:** Indicates the gender of the patient, either \"Male\" or \"Female.\"\n- **Blood Type:** The patient's blood type, which can be one of the common blood types (e.g., \"A+\", \"O-\", etc.).\n- **Medical Condition:** This column specifies the primary medical condition or diagnosis associated with the patient, such as \"Diabetes,\" \"Hypertension,\" \"Asthma,\" and more.\n- **Date of Admission:** The date on which the patient was admitted to the healthcare facility.\n- **Doctor:** The name of the doctor responsible for the patient's care during their admission.\n- **Hospital:** Identifies the healthcare facility or hospital where the patient was admitted.\n- **Insurance Provider:** This column indicates the patient's insurance provider, which can be one of several options, including \"Aetna,\" \"Blue Cross,\" \"Cigna,\" \"UnitedHealthcare,\" and \"Medicare.\"\n- **Billing Amount:** The amount of money billed for the patient's healthcare services during their admission. This is expressed as a floating-point number.\n- **Room Number:** The room number where the patient was accommodated during their admission.\n- **Admission Type:** Specifies the type of admission, which can be \"Emergency,\" \"Elective,\" or \"Urgent,\" reflecting the circumstances of the admission.\n- **Discharge Date:** The date on which the patient was discharged from the healthcare facility, based on the admission date and a random number of days within a realistic range.\n- **Medication:** Identifies a medication prescribed or administered to the patient during their admission. Examples include \"Aspirin,\" \"Ibuprofen,\" \"Penicillin,\" \"Paracetamol,\" and \"Lipitor.\"\n- **Test Results:** Describes the results of a medical test conducted during the patient's admission. Possible values include \"Normal,\" \"Abnormal,\" or \"Inconclusive,\" indicating the outcome of the test.\n\n# ``` Usage Scenarios:```\n\nThis dataset can be utilized for a wide range of purposes, including:\n- Developing and testing healthcare predictive models.\n- Practicing data cleaning, transformation, and analysis techniques.\n- Creating data visualizations to gain insights into healthcare trends.\n- Learning and teaching data science and machine learning concepts in a healthcare context.\n- You can treat it as a Multi-Class Classification Problem and solve it for  **Test Results** which contains 3 categories(Normal, Abnormal, and Inconclusive).\n\n# ``` Acknowledgments:```\n\n- I acknowledge the importance of healthcare data privacy and security and emphasize that this dataset is entirely synthetic. It does not contain any real patient information or violate any privacy regulations.\n- I hope that this dataset contributes to the advancement of data science and healthcare analytics and inspires new ideas. Feel free to explore, analyze, and share your findings with the Kaggle community.\n\n# ``` Image Credit: ```\nImage by BC Y from Pixabay\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "healthcare_dataset.csv",
+      "recordset_description": "- This dataset consists of 10,000 records, each representing a synthetic patient healthcare record.\n- It includes various attributes, such as patient demographics, medical conditions, admission details, and more.\n- The dataset is intended for educational and non-commercial use. It is entirely synthetic and does not contain real patient data.",
+      "results": [
+        {
+          "key": "Name",
+          "sensitivity": 0,
+          "reason": "Personal name used for identification only; names are contact-only information and explicitly out of scope.",
+          "is_categorical": true
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly encodes age, which is an explicit in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly encodes gender, which is an explicit in-scope sensitive characteristic under gender and sexual identity.",
+          "is_categorical": true
+        },
+        {
+          "key": "Blood Type",
+          "sensitivity": 70,
+          "reason": "Biological attribute related to health characteristics; closely linked to medical and genetic features under disability and health conditions.",
+          "is_categorical": true
+        },
+        {
+          "key": "Medical Condition",
+          "sensitivity": 90,
+          "reason": "Directly encodes diagnoses and health conditions, which are explicit in-scope sensitive characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "Date of Admission",
+          "sensitivity": 0,
+          "reason": "Administrative admission date; a temporal attribute that does not encode any in-scope sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Doctor",
+          "sensitivity": 0,
+          "reason": "Name of a healthcare professional; personal identifier only and explicitly out of scope.",
+          "is_categorical": true
+        },
+        {
+          "key": "Hospital",
+          "sensitivity": 10,
+          "reason": "Institution name may weakly relate to location or resources but does not directly encode an in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Insurance Provider",
+          "sensitivity": 20,
+          "reason": "Type of insurance may act as a weak proxy for socioeconomic status but does not directly encode it.",
+          "is_categorical": true
+        },
+        {
+          "key": "Billing Amount",
+          "sensitivity": 30,
+          "reason": "Billed cost may weakly correlate with socioeconomic status, but it is an indirect and context-dependent proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Room Number",
+          "sensitivity": 0,
+          "reason": "Administrative room identifier within a hospital; does not encode any in-scope sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Admission Type",
+          "sensitivity": 10,
+          "reason": "Categorization of admission circumstances; may reflect urgency but does not encode protected characteristics.",
+          "is_categorical": true
+        },
+        {
+          "key": "Discharge Date",
+          "sensitivity": 0,
+          "reason": "Administrative discharge date; temporal information without encoding of sensitive characteristics.",
+          "is_categorical": false
+        },
+        {
+          "key": "Medication",
+          "sensitivity": 70,
+          "reason": "Medication information can directly reveal health conditions or treatments, which fall under disability and health conditions.",
+          "is_categorical": true
+        },
+        {
+          "key": "Test Results",
+          "sensitivity": 70,
+          "reason": "Medical test outcomes can reveal health status or impairments, making them strongly related to in-scope health conditions.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 299.4222226999991
+    }
+  ]
+}

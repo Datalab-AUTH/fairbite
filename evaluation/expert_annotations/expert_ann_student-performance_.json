@@ -1,0 +1,163 @@
+{
+  "croissant_url": "https://huggingface.co/api/datasets/ErrorER123/student-performance/croissant",
+  "dataset_name": "student-performance",
+  "description": "\n\t\n\t\t\n\t\tStudent Performance Dataset\n\t\n\n\n\t\n\t\t\n\t\tDataset Description\n\t\n\nThis dataset contains ten million synthetically generated student performance records, designed to mimic real-world educational data at the high-school level. It includes detailed demographic, socioeconomic, academic, behavioral, and school-context features for each student, suitable for benchmarking, machine learning, educational research, and exploratory data analysis.\n\n\t\n\t\t\n\t\tFile Information\n\t\n\n\n\t\n\t\t\nSplit\nFile Name… See the full description on the dataset page: https://huggingface.co/datasets/ErrorER123/student-performance.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "default_splits",
+      "recordset_description": "Splits for the default config.",
+      "results": [
+        {
+          "key": "default_splits/split_name",
+          "sensitivity": 0,
+          "reason": "ot in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 80.25563160004094
+    },
+    {
+      "recordset_name": "default",
+      "recordset_description": "ErrorER123/student-performance - 'default' subset\n\nAdditional information:\n- 3 splits: train, validation, test",
+      "results": [
+        {
+          "key": "default/split",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "default/Grade",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Race",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "default/SES_Quartile",
+          "sensitivity": 90,
+          "reason": "socio economic status",
+          "is_categorical": true
+        },
+        {
+          "key": "default/ParentalEducation",
+          "sensitivity": 70,
+          "reason": "socio economic status",
+          "is_categorical": true
+        },
+        {
+          "key": "default/SchoolType",
+          "sensitivity": 30,
+          "reason": "socio economic status",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Locale",
+          "sensitivity": 90,
+          "reason": "stangly connected to ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "default/TestScore_Math",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "default/TestScore_Reading",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "default/TestScore_Science",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "default/GPA",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "default/AttendanceRate",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "default/StudyHours",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "default/InternetAccess",
+          "sensitivity": 40,
+          "reason": "socio economic status",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Extracurricular",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "default/PartTimeJob",
+          "sensitivity": 60,
+          "reason": "socio economic status",
+          "is_categorical": true
+        },
+        {
+          "key": "default/ParentSupport",
+          "sensitivity": 60,
+          "reason": "family status",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Romantic",
+          "sensitivity": 60,
+          "reason": "civil status",
+          "is_categorical": true
+        },
+        {
+          "key": "default/FreeTime",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "default/GoOut",
+          "sensitivity": 10,
+          "reason": "socio economic status",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 622.9226505000261
+    }
+  ]
+}

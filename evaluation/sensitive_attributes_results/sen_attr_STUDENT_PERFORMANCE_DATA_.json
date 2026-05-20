@@ -1,0 +1,143 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/parthmanjrekar/student-performance-data/croissant/download",
+  "dataset_name": "STUDENT PERFORMANCE DATA",
+  "description": "📝 Description:\nThis dataset consists of 100 student records generated using a custom Python script. Each entry captures various academic and demographic features such as:\n\nStudent Name\n\nGender\n\nAge\n\nStudy Hours\n\nAttendance Percentage\n\nGrades (Midterm, Final, and Average)\n\nParental Education\n\nInternet Access\n\nExtra-Curricular Participation\n\n📌 Use Cases:\n\nMachine Learning model training (e.g., grade prediction)\n\nData preprocessing and cleaning exercises\n\nExploratory data analysis and visualization\n\nEducational dashboards and Power BI demonstrations\n\n💡 Ideal for students and educators aiming to practice regression, classification, data cleaning, and insight generation using a compact, readable dataset.\n\n📂 Note: The dataset is balanced for gender and contains a variety of typical academic performance patterns.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "student_data_100 (1).csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "name",
+          "sensitivity": 0,
+          "reason": "Not sensitive; it's PII but not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "sex",
+          "sensitivity": 100,
+          "reason": "Directly represents gender, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "Directly represents age, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "address",
+          "sensitivity": 40,
+          "reason": "Can be an indirect proxy for socioeconomic status or racial/ethnic origin depending on granularity.",
+          "is_categorical": true
+        },
+        {
+          "key": "famsize",
+          "sensitivity": 90,
+          "reason": "Directly relates to familial status, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Pstatus",
+          "sensitivity": 90,
+          "reason": "Directly relates to parental/marital status, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Medu",
+          "sensitivity": 70,
+          "reason": "Strong proxy for socioeconomic status/social origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "Fedu",
+          "sensitivity": 70,
+          "reason": "Strong proxy for socioeconomic status/social origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "Mjob",
+          "sensitivity": 70,
+          "reason": "Strong proxy for socioeconomic status/social origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "Fjob",
+          "sensitivity": 70,
+          "reason": "Strong proxy for socioeconomic status/social origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "guardian",
+          "sensitivity": 90,
+          "reason": "Directly relates to familial/parental status, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "schoolsup",
+          "sensitivity": 40,
+          "reason": "Weak proxy for socioeconomic status or disability/health conditions if support is need-based.",
+          "is_categorical": true
+        },
+        {
+          "key": "famsup",
+          "sensitivity": 40,
+          "reason": "Weak proxy for socioeconomic status or disability/health conditions if support is need-based.",
+          "is_categorical": true
+        },
+        {
+          "key": "paid",
+          "sensitivity": 70,
+          "reason": "Strong proxy for socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "activities",
+          "sensitivity": 10,
+          "reason": "Minor, context-dependent concern; could weakly correlate with socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "internet",
+          "sensitivity": 70,
+          "reason": "Strong proxy for socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "romantic",
+          "sensitivity": 90,
+          "reason": "Directly relates to civil/marital status, an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "absences",
+          "sensitivity": 10,
+          "reason": "Minor, context-dependent concern; could weakly correlate with health conditions or familial status.",
+          "is_categorical": false
+        },
+        {
+          "key": "G1",
+          "sensitivity": 0,
+          "reason": "Not sensitive; academic performance is not an IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "G2",
+          "sensitivity": 0,
+          "reason": "Not sensitive; academic performance is not an IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "G3",
+          "sensitivity": 0,
+          "reason": "Not sensitive; academic performance is not an IN-SCOPE characteristic.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 15.668540799990296
+    }
+  ]
+}

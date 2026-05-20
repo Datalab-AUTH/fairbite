@@ -1,0 +1,313 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/stealthtechnologies/employee-attrition-dataset/croissant/download",
+  "dataset_name": "Employee Attrition Classification Dataset",
+  "description": "The Synthetic Employee Attrition Dataset is a simulated dataset designed for the analysis and prediction of employee attrition. It contains detailed information about various aspects of an employee's profile, including demographics, job-related features, and personal circumstances.\n\nThe dataset comprises 74,498 samples, split into training and testing sets to facilitate model development and evaluation. Each record includes a unique Employee ID and features that influence employee attrition. The goal is to understand the factors contributing to attrition and develop predictive models to identify at-risk employees.\n\nThis dataset is ideal for HR analytics, machine learning model development, and demonstrating advanced data analysis techniques. It provides a comprehensive and realistic view of the factors affecting employee retention, making it a valuable resource for researchers and practitioners in the field of human resources and organizational development.\n\n**FEATURES:**\n\n**Employee ID**:  A unique identifier assigned to each employee.\n**Age:** The age of the employee, ranging from 18 to 60 years.\n**Gender:** The gender of the employee\n**Years at Company:** The number of years the employee has been working at the company.\n**Monthly Income:** The monthly salary of the employee, in dollars.\n**Job Role:** The department or role the employee works in, encoded into categories such as Finance, Healthcare, Technology, Education, and Media.\n**Work-Life Balance:** The employee's perceived balance between work and personal life, (Poor, Below Average, Good, Excellent)\n**Job Satisfaction:** The employee's satisfaction with their job: (Very Low, Low, Medium, High)\n**Performance Rating:** The employee's performance rating: (Low, Below Average, Average, High)\n**Number of Promotions:** The total number of promotions the employee has received.\n**Distance from Home:** The distance between the employee's home and workplace, in miles.\n**Education Level:** The highest education level attained by the employee: (High School, Associate Degree, Bachelor’s Degree, Master’s Degree, PhD)\n**Marital Status:** The marital status of the employee: (Divorced, Married, Single)\n**Job Level:** The job level of the employee: (Entry, Mid, Senior)\n**Company Size:** The size of the company the employee works for: (Small,Medium,Large)\n**Company Tenure:** The total number of years the employee has been working in the industry.\n**Remote Work:** Whether the employee works remotely: (Yes or No)\n**Leadership Opportunities:** Whether the employee has leadership opportunities: (Yes or No)\n**Innovation Opportunities:** Whether the employee has opportunities for innovation:  (Yes or No)\n**Company Reputation:** The employee's perception of the company's reputation: (Very Poor, Poor,Good, Excellent)\n**Employee Recognition:** The level of recognition the employee receives:(Very Low, Low, Medium, High)\n\n**Attrition:** Whether the employee has left the company, encoded as 0 (stayed) and 1 (Left).",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "test.csv",
+      "recordset_description": "70K+ Samples",
+      "results": [
+        {
+          "key": "Employee ID",
+          "sensitivity": 0,
+          "reason": "This is a unique identifier and falls under Personally Identifiable Information, which is out of scope for sensitivity.",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly represents an 'Age' characteristic, which is explicitly in-scope.",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Gender', which is explicitly in-scope under 'Gender & sexual identity'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Years at Company",
+          "sensitivity": 10,
+          "reason": "Primarily a job-related metric. May weakly correlate with age or life stage, but not a strong proxy for any in-scope characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Job Role",
+          "sensitivity": 10,
+          "reason": "Primarily a job-related attribute. May weakly correlate with socioeconomic status, but not a strong proxy for any in-scope characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Monthly Income",
+          "sensitivity": 95,
+          "reason": "Strongly represents 'Socioeconomic status', which is explicitly in-scope.",
+          "is_categorical": false
+        },
+        {
+          "key": "Work-Life Balance",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Job Satisfaction",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Performance Rating",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Number of Promotions",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy for one.",
+          "is_categorical": false
+        },
+        {
+          "key": "Overtime",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Distance from Home",
+          "sensitivity": 5,
+          "reason": "May very weakly and indirectly correlate with socioeconomic status, but not a meaningful proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Education Level",
+          "sensitivity": 70,
+          "reason": "Strongly correlates with 'Socioeconomic status' and 'social origin/class', which are in-scope.",
+          "is_categorical": true
+        },
+        {
+          "key": "Marital Status",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Marital status', which is explicitly in-scope under 'Family & civil status'.",
+          "is_categorical": true
+        },
+        {
+          "key": "Number of Dependents",
+          "sensitivity": 95,
+          "reason": "Strongly represents 'Familial status' and 'Parental status', which are explicitly in-scope under 'Family & civil status'.",
+          "is_categorical": false
+        },
+        {
+          "key": "Job Level",
+          "sensitivity": 10,
+          "reason": "Primarily a job-related attribute. May weakly correlate with socioeconomic status, but not a strong proxy for any in-scope characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Company Size",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic of an employee or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Company Tenure",
+          "sensitivity": 10,
+          "reason": "Primarily a job-related metric. May weakly correlate with age or life stage, but not a strong proxy for any in-scope characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Remote Work",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Leadership Opportunities",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Innovation Opportunities",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Company Reputation",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Employee Recognition",
+          "sensitivity": 0,
+          "reason": "Not an in-scope sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "Attrition",
+          "sensitivity": 0,
+          "reason": "This is an outcome variable indicating whether an employee left, not a sensitive characteristic of the employee itself.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 16.735866900067776
+    },
+    {
+      "recordset_name": "train.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Employee ID",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information (PII) is explicitly out of scope unless encoding a sensitive class. This is a unique identifier.",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "Directly corresponds to the 'Age' category in the IN-SCOPE list.",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "Directly corresponds to the 'Gender & sexual identity' category in the IN-SCOPE list.",
+          "is_categorical": true
+        },
+        {
+          "key": "Years at Company",
+          "sensitivity": 0,
+          "reason": "Job-related tenure, not an IN-SCOPE sensitive characteristic or a strong proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Job Role",
+          "sensitivity": 10,
+          "reason": "Job role itself is not sensitive, but could weakly correlate with socioeconomic status or gender distribution in some contexts.",
+          "is_categorical": true
+        },
+        {
+          "key": "Monthly Income",
+          "sensitivity": 90,
+          "reason": "Directly relates to 'Socioeconomic status' (social origin/class) in the IN-SCOPE list.",
+          "is_categorical": false
+        },
+        {
+          "key": "Work-Life Balance",
+          "sensitivity": 0,
+          "reason": "Employee perception of work-life balance, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Job Satisfaction",
+          "sensitivity": 0,
+          "reason": "Employee perception of job satisfaction, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Performance Rating",
+          "sensitivity": 0,
+          "reason": "Employee job performance, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Number of Promotions",
+          "sensitivity": 0,
+          "reason": "Job-related metric, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Overtime",
+          "sensitivity": 0,
+          "reason": "Work-related characteristic (hours worked), not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Distance from Home",
+          "sensitivity": 20,
+          "reason": "Geographic proximity, which can sometimes weakly correlate with socioeconomic status or racial/ethnic origin, but is not a direct proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "Education Level",
+          "sensitivity": 60,
+          "reason": "Strong proxy for 'Socioeconomic status' (social origin/class) as educational attainment is often linked to social background.",
+          "is_categorical": true
+        },
+        {
+          "key": "Marital Status",
+          "sensitivity": 100,
+          "reason": "Directly corresponds to 'Family & civil status' in the IN-SCOPE list.",
+          "is_categorical": true
+        },
+        {
+          "key": "Number of Dependents",
+          "sensitivity": 90,
+          "reason": "Directly relates to 'Family & civil status' (familial status, parental status) in the IN-SCOPE list.",
+          "is_categorical": false
+        },
+        {
+          "key": "Job Level",
+          "sensitivity": 30,
+          "reason": "Job level can correlate with 'Socioeconomic status' (social class) and income, but it's primarily a job-related hierarchy.",
+          "is_categorical": true
+        },
+        {
+          "key": "Company Size",
+          "sensitivity": 0,
+          "reason": "Characteristic of the company, not the employee, and not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Company Tenure",
+          "sensitivity": 0,
+          "reason": "Job-related tenure in the industry, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Remote Work",
+          "sensitivity": 0,
+          "reason": "Work arrangement, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Leadership Opportunities",
+          "sensitivity": 0,
+          "reason": "Job-related opportunity, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Innovation Opportunities",
+          "sensitivity": 0,
+          "reason": "Job-related opportunity, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Company Reputation",
+          "sensitivity": 0,
+          "reason": "Employee perception of company reputation, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Employee Recognition",
+          "sensitivity": 0,
+          "reason": "Level of recognition received, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Attrition",
+          "sensitivity": 0,
+          "reason": "Outcome variable indicating whether an employee left, not an IN-SCOPE sensitive characteristic itself.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 16.85751329991035
+    }
+  ]
+}

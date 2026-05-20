@@ -1,0 +1,251 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/danofer/law-school-admissions-bar-passage/croissant/download",
+  "dataset_name": "Law School Admissions Bar Passage",
+  "description": "# The Law School Admissions Council's (LSAC) National Bar Passage Study:\nA Law School Admissions dataset from the Law School Admissions Council (LSAC). From 1991 through 1997, LSAC tracked some twenty-seven thousand law students through law school, graduation, and sittings for bar exams. The result was the most comprehensive database that exists on the demography, experiences, and outcomes of a large cohort of aspiring lawyers. While the data has important limitations, it is a unique and very valuable source for studying a range of issues related to legal education.\nThe dataset was originally collected for a study called '[LSAC National Longitudinal Bar Passage Study](http://www.seaphe.org/databases.php)' by Linda Wightman in 1998. \n\n## Ideas:\n- Predict whether or not a student will pass the bar, based on their Law School Admission Test (LSAT) score and undergraduate GPA.\nExample analysis (copied here): [Tensorflow Fairness Indicators example](https://www.tensorflow.org/responsible_ai/fairness_indicators/tutorials/Fairness_Indicators_Pandas_Case_Study)\n- Check the above for bias - by race, gender, background\n\n### Some important variables:\n- dnn\\_bar\\_pass\\_prediction: The LSAT prediction from the DNN model.\n- gender: Gender of the student.\n- lsat: LSAT score received by the student.\n- race: Race of the student.\n- ugpa: A student's undergraduate GPA.\n- pass\\_bar: - Ground truth label indicating whether or not the student eventually passed a bar.\n\n- bar\\_passed - I added a boolean target column for convenience, of whether someone passed the bar at any point\n\n\nCover image: by <a href=\"https://unsplash.com/es/@tingeyinjurylawfirm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Tingey Injury Law Firm</a> on <a href=\"https://unsplash.com/s/photos/law-school?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>\n  ",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "bar_pass_prediction.csv",
+      "recordset_description": "The dataset was originally collected for a study called 'LSAC National Longitudinal Bar Passage Study'. It includes background information and if (and how) candidates passed the bar exam to become lawyers/legal practicioners in the USA\n\ngender: Gender of the student.\nlsat: LSAT score received by the student.\npass_bar: Ground truth label indicating whether or not the student eventually passed the bar.\nrace: Race of the student.\nugpa: A student's undergraduate GPA.",
+      "results": [
+        {
+          "key": "decile1b",
+          "sensitivity": 10,
+          "reason": "Ambiguous column name, could indirectly relate to socioeconomic status or other sensitive attributes if it's a decile of a sensitive score, but too vague to score higher.",
+          "is_categorical": true
+        },
+        {
+          "key": "decile3",
+          "sensitivity": 10,
+          "reason": "Ambiguous column name, could indirectly relate to socioeconomic status or other sensitive attributes if it's a decile of a sensitive score, but too vague to score higher.",
+          "is_categorical": true
+        },
+        {
+          "key": "ID",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information (PII) is out of scope unless explicitly encoding a sensitive class.",
+          "is_categorical": true
+        },
+        {
+          "key": "decile1",
+          "sensitivity": 10,
+          "reason": "Ambiguous column name, could indirectly relate to socioeconomic status or other sensitive attributes if it's a decile of a sensitive score, but too vague to score higher.",
+          "is_categorical": true
+        },
+        {
+          "key": "sex",
+          "sensitivity": 100,
+          "reason": "Directly represents gender, an IN-SCOPE sensitive characteristic (Gender & sexual identity).",
+          "is_categorical": true
+        },
+        {
+          "key": "race",
+          "sensitivity": 100,
+          "reason": "Directly represents race, an IN-SCOPE sensitive characteristic (Racial & ethnic origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "cluster",
+          "sensitivity": 10,
+          "reason": "Ambiguous column name, could indirectly relate to sensitive attributes if it's a cluster of sensitive characteristics, but too vague to score higher.",
+          "is_categorical": true
+        },
+        {
+          "key": "lsat",
+          "sensitivity": 30,
+          "reason": "Academic test scores can sometimes correlate with socioeconomic status or racial/ethnic origin, making it a weak/indirect proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "ugpa",
+          "sensitivity": 30,
+          "reason": "Academic performance (GPA) can sometimes correlate with socioeconomic status or racial/ethnic origin, making it a weak/indirect proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "zfygpa",
+          "sensitivity": 30,
+          "reason": "Likely a form of GPA, which can sometimes correlate with socioeconomic status or racial/ethnic origin, making it a weak/indirect proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "DOB_yr",
+          "sensitivity": 90,
+          "reason": "Directly represents the year of birth, which is a direct encoding of age, an IN-SCOPE sensitive characteristic (Age).",
+          "is_categorical": true
+        },
+        {
+          "key": "grad",
+          "sensitivity": 1,
+          "reason": "Not directly an IN-SCOPE sensitive characteristic. Could weakly correlate with socioeconomic status, but too indirect.",
+          "is_categorical": true
+        },
+        {
+          "key": "zgpa",
+          "sensitivity": 30,
+          "reason": "Likely a form of GPA, which can sometimes correlate with socioeconomic status or racial/ethnic origin, making it a weak/indirect proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "bar1",
+          "sensitivity": 0,
+          "reason": "Represents an outcome (bar exam result), not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "bar1_yr",
+          "sensitivity": 0,
+          "reason": "Represents a date related to an outcome, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "bar2",
+          "sensitivity": 0,
+          "reason": "Represents an outcome (bar exam result), not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "bar2_yr",
+          "sensitivity": 0,
+          "reason": "Represents a date related to an outcome, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "fulltime",
+          "sensitivity": 1,
+          "reason": "Not directly an IN-SCOPE sensitive characteristic. Could weakly correlate with socioeconomic status, but too indirect.",
+          "is_categorical": true
+        },
+        {
+          "key": "fam_inc",
+          "sensitivity": 100,
+          "reason": "Directly represents family income, a key indicator of socioeconomic status, an IN-SCOPE sensitive characteristic (Socioeconomic status).",
+          "is_categorical": false
+        },
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "Directly represents age, an IN-SCOPE sensitive characteristic (Age).",
+          "is_categorical": false
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "Directly represents gender, an IN-SCOPE sensitive characteristic (Gender & sexual identity).",
+          "is_categorical": true
+        },
+        {
+          "key": "parttime",
+          "sensitivity": 1,
+          "reason": "Not directly an IN-SCOPE sensitive characteristic. Could weakly correlate with socioeconomic status, but too indirect.",
+          "is_categorical": true
+        },
+        {
+          "key": "male",
+          "sensitivity": 100,
+          "reason": "Directly represents gender (male), an IN-SCOPE sensitive characteristic (Gender & sexual identity).",
+          "is_categorical": true
+        },
+        {
+          "key": "race1",
+          "sensitivity": 90,
+          "reason": "Strongly implies a racial or ethnic category, an IN-SCOPE sensitive characteristic (Racial & ethnic origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "race2",
+          "sensitivity": 90,
+          "reason": "Strongly implies a racial or ethnic category, an IN-SCOPE sensitive characteristic (Racial & ethnic origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "Dropout",
+          "sensitivity": 0,
+          "reason": "Represents an outcome (dropout status), not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "other",
+          "sensitivity": 60,
+          "reason": "Given other race columns, 'other' could be a strong proxy for a racial/ethnic category, an IN-SCOPE sensitive characteristic (Racial & ethnic origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "asian",
+          "sensitivity": 100,
+          "reason": "Directly represents a racial category (Asian), an IN-SCOPE sensitive characteristic (Racial & ethnic origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "black",
+          "sensitivity": 100,
+          "reason": "Directly represents a racial category (Black), an IN-SCOPE sensitive characteristic (Racial & ethnic origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "hisp",
+          "sensitivity": 100,
+          "reason": "Directly represents an ethnic origin (Hispanic), an IN-SCOPE sensitive characteristic (Racial & ethnic origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "pass_bar",
+          "sensitivity": 0,
+          "reason": "Represents an outcome (bar passage), not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "bar",
+          "sensitivity": 0,
+          "reason": "Represents an outcome (bar passage status and timing), not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "bar_passed",
+          "sensitivity": 0,
+          "reason": "Represents an outcome (bar passage), not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "tier",
+          "sensitivity": 30,
+          "reason": "Ambiguous column name, could indirectly relate to socioeconomic status (e.g., school tier, income tier) or other sensitive attributes, making it a weak/indirect proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "index6040",
+          "sensitivity": 10,
+          "reason": "Ambiguous column name, could indirectly relate to sensitive attributes if it's an index based on sensitive characteristics, but too vague to score higher.",
+          "is_categorical": false
+        },
+        {
+          "key": "indxgrp",
+          "sensitivity": 10,
+          "reason": "Ambiguous column name, could indirectly relate to sensitive attributes if it's an index group based on sensitive characteristics, but too vague to score higher.",
+          "is_categorical": true
+        },
+        {
+          "key": "indxgrp2",
+          "sensitivity": 10,
+          "reason": "Ambiguous column name, could indirectly relate to sensitive attributes if it's an index group based on sensitive characteristics, but too vague to score higher.",
+          "is_categorical": true
+        },
+        {
+          "key": "dnn_bar_pass_prediction",
+          "sensitivity": 0,
+          "reason": "Represents a model prediction (outcome), not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "gpa",
+          "sensitivity": 30,
+          "reason": "Academic performance (GPA) can sometimes correlate with socioeconomic status or racial/ethnic origin, making it a weak/indirect proxy.",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 26.552172500174493
+    }
+  ]
+}

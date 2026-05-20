@@ -1,0 +1,101 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/adilshamim8/greenhouse-plant-growth-metrics/croissant/download",
+  "dataset_name": "Greenhouse Plant Growth ",
+  "description": "The **Advanced IoT Agriculture Dataset** captures detailed physiological and morphological measurements of plants grown under two greenhouse settings (IoT‑enabled vs. traditional) at Tikrit University’s Agriculture Lab. Compiled by Mohammed Ismail Lifta (2023–2024) under the supervision of Prof.&nbsp;Wisam Dawood Abdullah, it comprises **30,000 records** spanning **14 variables** that quantify chlorophyll levels, growth rates, biomass (wet/dry weight), root metrics, and more, alongside a final categorical **Class** label.\n\n---\n\n## Description\n\n### 1. Data Collection  \n- **Location & Period**: Agriculture Lab, College of Computer Science & Mathematics, Tikrit University, Iraq (2023–2024).  \n- **Greenhouse Types**:  \n  - **IoT Greenhouse**: Plants monitored via sensors capturing real‑time chlorophyll, moisture, and growth data.  \n  - **Traditional Greenhouse**: Manually recorded metrics following standard sampling protocols.  \n- **Sampling**: Randomized batches (Random identifiers R1–R3) to ensure representative coverage across plant stages and conditions.\n\n### 2. Dataset Structure  \n| Column | Description | Type |\n|---|---|---|\n| Random | Sample batch ID (e.g., R1, R2, R3) | String |\n| ACHP | Average chlorophyll content (photosynthetic pigment) | Float |\n| PHR | Plant height growth rate | Float |\n| AWWGV | Average wet weight of vegetative growth | Float |\n| ALAP | Average leaf area per plant | Float |\n| ANPL | Average number of leaves per plant | Float |\n| ARD | Average root diameter | Float |\n| ADWR | Average dry weight of roots | Float |\n| PDMVG | % dry matter in vegetative growth | Float |\n| ARL | Average root length | Float |\n| AWWR | Average wet weight of roots | Float |\n| ADWV | Average dry weight of vegetative parts | Float |\n| PDMRG | % dry matter in root growth | Float |\n| Class | Experimental group label (SA, SB, SC, TA, TB, TC) | Categorical |\n\n### 3. Potential Use Cases  \n- **Environmental & Agricultural Research**: Analyze how sensor‑driven IoT interventions impact plant health vs. traditional methods.  \n- **Machine Learning**: Build classification models to predict treatment class from physiological features or regression models forecasting biomass and growth rates.  \n- **Plant Physiology Studies**: Correlate chlorophyll content with leaf area, root architecture, and dry‑matter percentages.\n\n### 4. License & Citation  \n- **License**: CC&nbsp;BY‑ND. Proper attribution required for any publication or derivative.  \n- **Original Source**: Lifta, M.&nbsp;I. (2023–2024). Master’s Thesis, Department of Computer Science, Tikrit University—supervised by Prof.&nbsp;Wisam Dawood Abdullah.  \n- **OpenML Entry**: [OpenML dataset&nbsp;ID&nbsp;46871] (unavailable via direct fetch).\n\n### 5. Contact  \nFor questions or collaboration inquiries, please reach out to:  \n- **Prof.&nbsp;Wisam&nbsp;Dawood&nbsp;Abdullah**  \n- Email:&nbsp;wisamdawood@tu.edu.iq",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Greenhouse Plant Growth Metrics.csv",
+      "recordset_description": "This dataset contains physiological and morphological measurements of plants collected in an experimental study comparing IoT-based greenhouse systems with traditional greenhouses. It includes 30,000 samples with 14 columns representing growth metrics, chlorophyll levels, biomass data, and classification labels. The data was collected as part of a master’s thesis project at Tikrit University, aiming to analyze the effects of technology-driven agriculture.\n\n---\n\n### **Column Descriptions**\n\n- **Random**  \n  Identifier representing different plant sample batches (e.g., R1, R2, R3).\n\n- **ACHP**  \n  Average chlorophyll content per plant, an indicator of photosynthetic activity.\n\n- **PHR**  \n  Plant height rate – measures the vertical growth over time.\n\n- **AWWGV**  \n  Average wet weight of vegetative growth – total fresh weight of the above-ground parts.\n\n- **ALAP**  \n  Average leaf area per plant – surface area of leaves which impacts photosynthesis.\n\n- **ANPL**  \n  Average number of leaves per plant – indicates plant maturity and foliage density.\n\n- **ARD**  \n  Average root diameter – thickness of roots, relevant to nutrient uptake.\n\n- **ADWR**  \n  Average dry weight of roots – total root biomass after drying.\n\n- **PDMVG**  \n  Percentage of dry matter in vegetative growth – measures solid content in shoots.\n\n- **ARL**  \n  Average root length – indicates root development and depth.\n\n- **AWWR**  \n  Average wet weight of roots – total fresh root weight.\n\n- **ADWV**  \n  Average dry weight of vegetative parts – dried mass of above-ground plant parts.\n\n- **PDMRG**  \n  Percentage of dry matter in root growth – solid content of the root system.\n\n- **Class**  \n  Categorical label indicating the experimental group:  \n  - SA, SB, SC (Traditional Greenhouse),  \n  - TA, TB, TC (IoT-based Greenhouse).\n",
+      "results": [
+        {
+          "key": "Random",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "ACHP",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "PHR",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "AWWGV",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "ALAP",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "ANPL",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "ARD",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "ADWR",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "PDMVG",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "ARL",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "AWWR",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "ADWV",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "PDMRG",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Class",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 78.68137240000942
+    }
+  ]
+}

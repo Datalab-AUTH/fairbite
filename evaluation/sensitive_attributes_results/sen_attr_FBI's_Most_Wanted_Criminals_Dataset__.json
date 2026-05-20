@@ -1,0 +1,755 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/shivd24coder/fbis-most-wanted-criminals-dataset/croissant/download",
+  "dataset_name": "🏛️🏛️  FBI's Most Wanted Criminals Dataset 🚨🚨",
+  "description": "#Key Features\n\n| **Column Name**      | **Description**                                     |\n|------------------|--------------------------------------------|\n| uid              | Unique identifier for the wanted person.   |\n| title            | The name or title of the wanted person.     |\n| description      | A brief description of the person, their alleged crimes, or other relevant details. |\n| status           | Indicates the current status of the case or wanted person. |\n| sex              | The gender of the wanted person (e.g., Male, Female). |\n| race             | The racial background of the wanted person. |\n| nationality      | The nationality or citizenship of the wanted person. |\n| age_min          | The minimum age range of the wanted person. |\n| age_max          | The maximum age range of the wanted person. |\n| height_min       | The minimum height of the wanted person. |\n| height_max       | The maximum height of the wanted person. |\n| weight_min       | The minimum weight of the wanted person. |\n| weight_max       | The maximum weight of the wanted person. |\n\n\n\n#How to use this dataset\n\n**1. Access Case Details:** Explore the descriptions and details of the cases associated with each wanted person. This can help you understand the alleged crimes, background information, and the current status of the cases.\n\n**2. Data Analysis:** Perform data analysis to identify patterns or trends among wanted persons. You can analyze the data to gain insights into the demographics, crimes, or locations associated with these individuals.\n\n**3. Geospatial Analysis:** Utilize geographical information to map out the locations related to wanted persons. This can help in visualizing the distribution of cases across different regions.\n\n**4. Raise Awareness:** Share information about wanted persons with your community or through social media. The dataset can be used to raise awareness and assist in locating and apprehending fugitives.\n\nIf you find this dataset useful, give it an upvote – it's a small gesture that goes a long way! Thanks for your support. 😄",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "FBI_data.csv",
+      "recordset_description": "This file is essentially a converted version of **FBI_wanted_data.json** transformed into a more accessible .csv format for easier exploration and analysis.",
+      "results": [
+        {
+          "key": "occupations/0",
+          "sensitivity": 30,
+          "reason": "Weak/indirect proxy for socioeconomic status, as occupation can correlate with social class.",
+          "is_categorical": true
+        },
+        {
+          "key": "occupations/1",
+          "sensitivity": 30,
+          "reason": "Weak/indirect proxy for socioeconomic status, as occupation can correlate with social class.",
+          "is_categorical": true
+        },
+        {
+          "key": "occupations/2",
+          "sensitivity": 30,
+          "reason": "Weak/indirect proxy for socioeconomic status, as occupation can correlate with social class.",
+          "is_categorical": true
+        },
+        {
+          "key": "nationality",
+          "sensitivity": 100,
+          "reason": "Directly represents 'national origin' or 'nationality' from the Racial & ethnic origin category.",
+          "is_categorical": true
+        },
+        {
+          "key": "height_min",
+          "sensitivity": 0,
+          "reason": "Physical characteristic, not listed in IN-SCOPE categories and not a meaningful proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "build",
+          "sensitivity": 0,
+          "reason": "Physical characteristic, not listed in IN-SCOPE categories and not a meaningful proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "description",
+          "sensitivity": 10,
+          "reason": "General free text field; may contain sensitive information but does not directly encode a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "weight",
+          "sensitivity": 0,
+          "reason": "Physical characteristic, not listed in IN-SCOPE categories and not a meaningful proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "reward_text",
+          "sensitivity": 0,
+          "reason": "Monetary information, not listed in IN-SCOPE categories and not a meaningful proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "sex",
+          "sensitivity": 100,
+          "reason": "Directly represents 'sex' from the Gender & sexual identity category.",
+          "is_categorical": true
+        },
+        {
+          "key": "images/0/caption",
+          "sensitivity": 10,
+          "reason": "General free text field; may contain sensitive information but does not directly encode a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/0/large",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/0/original",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/0/thumb",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/1/caption",
+          "sensitivity": 10,
+          "reason": "General free text field; may contain sensitive information but does not directly encode a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/1/large",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/1/original",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/1/thumb",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/2/caption",
+          "sensitivity": 10,
+          "reason": "General free text field; may contain sensitive information but does not directly encode a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/2/large",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/2/original",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/2/thumb",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/3/caption",
+          "sensitivity": 10,
+          "reason": "General free text field; may contain sensitive information but does not directly encode a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/3/large",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/3/original",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/3/thumb",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/4/caption",
+          "sensitivity": 10,
+          "reason": "General free text field; may contain sensitive information but does not directly encode a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/4/large",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/4/original",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/4/thumb",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/5/caption",
+          "sensitivity": 10,
+          "reason": "General free text field; may contain sensitive information but does not directly encode a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/5/large",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/5/original",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/5/thumb",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/6/caption",
+          "sensitivity": 10,
+          "reason": "General free text field; may contain sensitive information but does not directly encode a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/6/large",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/6/original",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/6/thumb",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/7/caption",
+          "sensitivity": 10,
+          "reason": "General free text field; may contain sensitive information but does not directly encode a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/7/large",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/7/original",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/7/thumb",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/8/caption",
+          "sensitivity": 10,
+          "reason": "General free text field; may contain sensitive information but does not directly encode a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/8/large",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/8/original",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/8/thumb",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/9/caption",
+          "sensitivity": 10,
+          "reason": "General free text field; may contain sensitive information but does not directly encode a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/9/large",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/9/original",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/9/thumb",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/10/caption",
+          "sensitivity": 10,
+          "reason": "General free text field; may contain sensitive information but does not directly encode a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/10/large",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/10/original",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "images/10/thumb",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "additional_information",
+          "sensitivity": 10,
+          "reason": "General free text field; may contain sensitive information but does not directly encode a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "person_classification",
+          "sensitivity": 0,
+          "reason": "Classification of a person's role or status, not a sensitive characteristic itself.",
+          "is_categorical": true
+        },
+        {
+          "key": "age_max",
+          "sensitivity": 100,
+          "reason": "Directly represents 'age' from the Age category.",
+          "is_categorical": false
+        },
+        {
+          "key": "uid",
+          "sensitivity": 0,
+          "reason": "Unique identifier, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": true
+        },
+        {
+          "key": "age_range",
+          "sensitivity": 100,
+          "reason": "Directly represents 'age' from the Age category.",
+          "is_categorical": true
+        },
+        {
+          "key": "subjects/0",
+          "sensitivity": 0,
+          "reason": "Refers to categories or topics, not a sensitive characteristic of a person.",
+          "is_categorical": true
+        },
+        {
+          "key": "ncic",
+          "sensitivity": 0,
+          "reason": "Code related to criminal justice information, not a sensitive characteristic itself.",
+          "is_categorical": true
+        },
+        {
+          "key": "weight_max",
+          "sensitivity": 0,
+          "reason": "Physical characteristic, not listed in IN-SCOPE categories and not a meaningful proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "languages",
+          "sensitivity": 100,
+          "reason": "Directly represents 'language' from the Racial & ethnic origin category.",
+          "is_categorical": true
+        },
+        {
+          "key": "reward_max",
+          "sensitivity": 0,
+          "reason": "Monetary information, not listed in IN-SCOPE categories and not a meaningful proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "dates_of_birth_used/0",
+          "sensitivity": 100,
+          "reason": "Directly represents 'date of birth' from the Age category.",
+          "is_categorical": false
+        },
+        {
+          "key": "legat_names",
+          "sensitivity": 0,
+          "reason": "Refers to names of personnel, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": true
+        },
+        {
+          "key": "suspects",
+          "sensitivity": 0,
+          "reason": "Refers to a role, not a sensitive characteristic itself.",
+          "is_categorical": true
+        },
+        {
+          "key": "place_of_birth",
+          "sensitivity": 80,
+          "reason": "Strong proxy for 'national origin' or 'ethnic origin' from the Racial & ethnic origin category.",
+          "is_categorical": true
+        },
+        {
+          "key": "height_max",
+          "sensitivity": 0,
+          "reason": "Physical characteristic, not listed in IN-SCOPE categories and not a meaningful proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "hair",
+          "sensitivity": 0,
+          "reason": "Physical characteristic, not listed in IN-SCOPE categories and not a meaningful proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "aliases/0",
+          "sensitivity": 0,
+          "reason": "Alternative name, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": true
+        },
+        {
+          "key": "status",
+          "sensitivity": 0,
+          "reason": "Indicates the status of a case or person, not a sensitive characteristic itself.",
+          "is_categorical": true
+        },
+        {
+          "key": "reward_min",
+          "sensitivity": 0,
+          "reason": "Monetary information, not listed in IN-SCOPE categories and not a meaningful proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "modified",
+          "sensitivity": 0,
+          "reason": "Timestamp, not listed in IN-SCOPE categories and not a meaningful proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "eyes",
+          "sensitivity": 0,
+          "reason": "Physical characteristic, not listed in IN-SCOPE categories and not a meaningful proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "poster_classification",
+          "sensitivity": 0,
+          "reason": "Classification of a poster, not a sensitive characteristic of a person.",
+          "is_categorical": true
+        },
+        {
+          "key": "field_offices/0",
+          "sensitivity": 0,
+          "reason": "Refers to organizational locations, not a sensitive characteristic of a person.",
+          "is_categorical": true
+        },
+        {
+          "key": "race",
+          "sensitivity": 100,
+          "reason": "Directly represents 'race' from the Racial & ethnic origin category.",
+          "is_categorical": true
+        },
+        {
+          "key": "warning_message",
+          "sensitivity": 10,
+          "reason": "General free text field; may contain sensitive information but does not directly encode a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "race_raw",
+          "sensitivity": 100,
+          "reason": "Directly represents 'race' from the Racial & ethnic origin category.",
+          "is_categorical": true
+        },
+        {
+          "key": "remarks",
+          "sensitivity": 10,
+          "reason": "General free text field; may contain sensitive information but does not directly encode a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "title",
+          "sensitivity": 0,
+          "reason": "Refers to a name or honorific, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": true
+        },
+        {
+          "key": "possible_countries",
+          "sensitivity": 80,
+          "reason": "Strong proxy for 'national origin' or 'nationality' from the Racial & ethnic origin category.",
+          "is_categorical": true
+        },
+        {
+          "key": "age_min",
+          "sensitivity": 100,
+          "reason": "Directly represents 'age' from the Age category.",
+          "is_categorical": false
+        },
+        {
+          "key": "details",
+          "sensitivity": 10,
+          "reason": "General free text field; may contain sensitive information but does not directly encode a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "eyes_raw",
+          "sensitivity": 0,
+          "reason": "Physical characteristic, not listed in IN-SCOPE categories and not a meaningful proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "hair_raw",
+          "sensitivity": 0,
+          "reason": "Physical characteristic, not listed in IN-SCOPE categories and not a meaningful proxy.",
+          "is_categorical": true
+        },
+        {
+          "key": "weight_min",
+          "sensitivity": 0,
+          "reason": "Physical characteristic, not listed in IN-SCOPE categories and not a meaningful proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "url",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "publication",
+          "sensitivity": 0,
+          "reason": "Information about a publication, not a sensitive characteristic of a person.",
+          "is_categorical": false
+        },
+        {
+          "key": "locations",
+          "sensitivity": 40,
+          "reason": "Weak/indirect proxy for 'national origin' or 'ethnic origin' if detailed, but also has broader uses.",
+          "is_categorical": true
+        },
+        {
+          "key": "files/0/url",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "files/0/name",
+          "sensitivity": 0,
+          "reason": "File name, not a sensitive characteristic itself.",
+          "is_categorical": false
+        },
+        {
+          "key": "complexion",
+          "sensitivity": 70,
+          "reason": "Strong proxy for 'race' or 'ethnic origin' from the Racial & ethnic origin category.",
+          "is_categorical": true
+        },
+        {
+          "key": "caution",
+          "sensitivity": 10,
+          "reason": "General free text field; may contain sensitive information but does not directly encode a sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "path",
+          "sensitivity": 0,
+          "reason": "URL/path, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "possible_states",
+          "sensitivity": 60,
+          "reason": "Strong proxy for 'national origin' or 'ethnic origin' within a country.",
+          "is_categorical": true
+        },
+        {
+          "key": "scars_and_marks",
+          "sensitivity": 10,
+          "reason": "Physical characteristic; minor concern if it implies a 'disability/impairment' but generally not directly sensitive.",
+          "is_categorical": false
+        },
+        {
+          "key": "@id",
+          "sensitivity": 0,
+          "reason": "Unique identifier, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": true
+        },
+        {
+          "key": "occupations",
+          "sensitivity": 30,
+          "reason": "Weak/indirect proxy for socioeconomic status, as occupation can correlate with social class.",
+          "is_categorical": true
+        },
+        {
+          "key": "dates_of_birth_used",
+          "sensitivity": 100,
+          "reason": "Directly represents 'date of birth' from the Age category.",
+          "is_categorical": false
+        },
+        {
+          "key": "aliases",
+          "sensitivity": 0,
+          "reason": "Alternative names, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": true
+        },
+        {
+          "key": "field_offices",
+          "sensitivity": 0,
+          "reason": "Refers to organizational locations, not a sensitive characteristic of a person.",
+          "is_categorical": true
+        },
+        {
+          "key": "aliases/1",
+          "sensitivity": 0,
+          "reason": "Alternative name, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": true
+        },
+        {
+          "key": "files/1/url",
+          "sensitivity": 0,
+          "reason": "URL, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "files/1/name",
+          "sensitivity": 0,
+          "reason": "File name, not a sensitive characteristic itself.",
+          "is_categorical": false
+        },
+        {
+          "key": "subjects/1",
+          "sensitivity": 0,
+          "reason": "Refers to categories or topics, not a sensitive characteristic of a person.",
+          "is_categorical": true
+        },
+        {
+          "key": "aliases/2",
+          "sensitivity": 0,
+          "reason": "Alternative name, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": true
+        },
+        {
+          "key": "languages/0",
+          "sensitivity": 100,
+          "reason": "Directly represents 'language' from the Racial & ethnic origin category.",
+          "is_categorical": true
+        },
+        {
+          "key": "possible_countries/0",
+          "sensitivity": 80,
+          "reason": "Strong proxy for 'national origin' or 'nationality' from the Racial & ethnic origin category.",
+          "is_categorical": true
+        },
+        {
+          "key": "possible_countries/1",
+          "sensitivity": 80,
+          "reason": "Strong proxy for 'national origin' or 'nationality' from the Racial & ethnic origin category.",
+          "is_categorical": true
+        },
+        {
+          "key": "possible_countries/2",
+          "sensitivity": 80,
+          "reason": "Strong proxy for 'national origin' or 'nationality' from the Racial & ethnic origin category.",
+          "is_categorical": true
+        },
+        {
+          "key": "possible_countries/3",
+          "sensitivity": 80,
+          "reason": "Strong proxy for 'national origin' or 'nationality' from the Racial & ethnic origin category.",
+          "is_categorical": true
+        },
+        {
+          "key": "possible_countries/4",
+          "sensitivity": 80,
+          "reason": "Strong proxy for 'national origin' or 'nationality' from the Racial & ethnic origin category.",
+          "is_categorical": true
+        },
+        {
+          "key": "possible_states/0",
+          "sensitivity": 60,
+          "reason": "Strong proxy for 'national origin' or 'ethnic origin' within a country.",
+          "is_categorical": true
+        },
+        {
+          "key": "possible_states/1",
+          "sensitivity": 60,
+          "reason": "Strong proxy for 'national origin' or 'ethnic origin' within a country.",
+          "is_categorical": true
+        },
+        {
+          "key": "aliases/3",
+          "sensitivity": 0,
+          "reason": "Alternative name, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": true
+        },
+        {
+          "key": "languages/1",
+          "sensitivity": 100,
+          "reason": "Directly represents 'language' from the Racial & ethnic origin category.",
+          "is_categorical": true
+        },
+        {
+          "key": "aliases/4",
+          "sensitivity": 0,
+          "reason": "Alternative name, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": true
+        },
+        {
+          "key": "aliases/5",
+          "sensitivity": 0,
+          "reason": "Alternative name, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": true
+        },
+        {
+          "key": "aliases/6",
+          "sensitivity": 0,
+          "reason": "Alternative name, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": true
+        },
+        {
+          "key": "aliases/7",
+          "sensitivity": 0,
+          "reason": "Alternative name, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": true
+        },
+        {
+          "key": "aliases/8",
+          "sensitivity": 0,
+          "reason": "Alternative name, considered Personally Identifiable Information (PII) and is OUT OF SCOPE.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 53.151071799999954
+    }
+  ]
+}

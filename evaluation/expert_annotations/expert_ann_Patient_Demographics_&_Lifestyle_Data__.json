@@ -1,0 +1,137 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/taruneshburman/patient-demographics-and-lifestyle-data/croissant/download",
+  "dataset_name": "Patient Demographics & Lifestyle Data",
+  "description": "This dataset contains demographic and lifestyle information for 11,500 patients collected from multiple hospitals across the United States.\nThe data was aggregated from electronic health records (EHRs) to support predictive analytics, lifestyle impact analysis, and healthcare research.\n\nThis dataset focuses on personal, demographic, and lifestyle factors such as age, gender, BMI, smoking habits, and physical activity levels. It is ideal for use in:\n\nHealthcare analytics & predictive modeling\n\nLifestyle impact studies on chronic diseases\n\nMedical data visualization & dashboards\n\nMachine learning for patient risk stratification\n\nResearchers can combine this dataset with clinical or treatment datasets to build predictive models for survival, readmission, or disease progression.\n\nDataset Characteristics\nRows: 11,500\n\nColumns: 20\n\nUnique Patient ID: patient_id\n\nData Source: Aggregated EHR data from several U.S. hospitals (anonymized)\n\nData Type: Mixed (Numerical + Categorical)\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "patient_demographics_lifestyle.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "patient_id",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "country",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "city",
+          "sensitivity": 50,
+          "reason": "proxy for ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "region_type",
+          "sensitivity": 50,
+          "reason": "proxy for ethnic origin and socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "marital_status",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "education_level",
+          "sensitivity": 80,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "occupation_type",
+          "sensitivity": 80,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "income_level",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "smoking_status",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": true
+        },
+        {
+          "key": "alcohol_consumption",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": true
+        },
+        {
+          "key": "physical_activity_level",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": true
+        },
+        {
+          "key": "diet_type",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "bmi",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": false
+        },
+        {
+          "key": "blood_pressure_sys",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": false
+        },
+        {
+          "key": "blood_pressure_dia",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": false
+        },
+        {
+          "key": "cholesterol_level",
+          "sensitivity": 20,
+          "reason": "could correlate with health conditions",
+          "is_categorical": true
+        },
+        {
+          "key": "heart_rate",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": false
+        },
+        {
+          "key": "diabetes_status",
+          "sensitivity": 100,
+          "reason": "directly shows the existance of a condition",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 379.8832757
+    }
+  ]
+}

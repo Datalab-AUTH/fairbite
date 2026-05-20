@@ -1,0 +1,313 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/stealthtechnologies/employee-attrition-dataset/croissant/download",
+  "dataset_name": "Employee Attrition Classification Dataset",
+  "description": "The Synthetic Employee Attrition Dataset is a simulated dataset designed for the analysis and prediction of employee attrition. It contains detailed information about various aspects of an employee's profile, including demographics, job-related features, and personal circumstances.\n\nThe dataset comprises 74,498 samples, split into training and testing sets to facilitate model development and evaluation. Each record includes a unique Employee ID and features that influence employee attrition. The goal is to understand the factors contributing to attrition and develop predictive models to identify at-risk employees.\n\nThis dataset is ideal for HR analytics, machine learning model development, and demonstrating advanced data analysis techniques. It provides a comprehensive and realistic view of the factors affecting employee retention, making it a valuable resource for researchers and practitioners in the field of human resources and organizational development.\n\n**FEATURES:**\n\n**Employee ID**:  A unique identifier assigned to each employee.\n**Age:** The age of the employee, ranging from 18 to 60 years.\n**Gender:** The gender of the employee\n**Years at Company:** The number of years the employee has been working at the company.\n**Monthly Income:** The monthly salary of the employee, in dollars.\n**Job Role:** The department or role the employee works in, encoded into categories such as Finance, Healthcare, Technology, Education, and Media.\n**Work-Life Balance:** The employee's perceived balance between work and personal life, (Poor, Below Average, Good, Excellent)\n**Job Satisfaction:** The employee's satisfaction with their job: (Very Low, Low, Medium, High)\n**Performance Rating:** The employee's performance rating: (Low, Below Average, Average, High)\n**Number of Promotions:** The total number of promotions the employee has received.\n**Distance from Home:** The distance between the employee's home and workplace, in miles.\n**Education Level:** The highest education level attained by the employee: (High School, Associate Degree, Bachelor’s Degree, Master’s Degree, PhD)\n**Marital Status:** The marital status of the employee: (Divorced, Married, Single)\n**Job Level:** The job level of the employee: (Entry, Mid, Senior)\n**Company Size:** The size of the company the employee works for: (Small,Medium,Large)\n**Company Tenure:** The total number of years the employee has been working in the industry.\n**Remote Work:** Whether the employee works remotely: (Yes or No)\n**Leadership Opportunities:** Whether the employee has leadership opportunities: (Yes or No)\n**Innovation Opportunities:** Whether the employee has opportunities for innovation:  (Yes or No)\n**Company Reputation:** The employee's perception of the company's reputation: (Very Poor, Poor,Good, Excellent)\n**Employee Recognition:** The level of recognition the employee receives:(Very Low, Low, Medium, High)\n\n**Attrition:** Whether the employee has left the company, encoded as 0 (stayed) and 1 (Left).",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "test.csv",
+      "recordset_description": "70K+ Samples",
+      "results": [
+        {
+          "key": "Employee ID",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "direct in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "direct in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Years at Company",
+          "sensitivity": 30,
+          "reason": "weak/indirect proxy for Age",
+          "is_categorical": false
+        },
+        {
+          "key": "Job Role",
+          "sensitivity": 60,
+          "reason": "strong proxy/encoding of Socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Monthly Income",
+          "sensitivity": 90,
+          "reason": "direct proxy/encoding of Socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "Work-Life Balance",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Job Satisfaction",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Performance Rating",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Number of Promotions",
+          "sensitivity": 10,
+          "reason": "might show Socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "Overtime",
+          "sensitivity": 10,
+          "reason": "might show Socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "Distance from Home",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Education Level",
+          "sensitivity": 70,
+          "reason": "strong proxy/encoding of Socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Marital Status",
+          "sensitivity": 100,
+          "reason": "direct in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Number of Dependents",
+          "sensitivity": 90,
+          "reason": "direct proxy of Family & civil status",
+          "is_categorical": false
+        },
+        {
+          "key": "Job Level",
+          "sensitivity": 30,
+          "reason": "weak proxy of Socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Company Size",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Company Tenure",
+          "sensitivity": 50,
+          "reason": "weak/indirect proxy of Age",
+          "is_categorical": false
+        },
+        {
+          "key": "Remote Work",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Leadership Opportunities",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Innovation Opportunities",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Company Reputation",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Employee Recognition",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Attrition",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 1148.762754999996
+    },
+    {
+      "recordset_name": "train.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Employee ID",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "direct in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "direct in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Years at Company",
+          "sensitivity": 30,
+          "reason": "weak/indirect proxy for Age",
+          "is_categorical": false
+        },
+        {
+          "key": "Job Role",
+          "sensitivity": 60,
+          "reason": "strong proxy/encoding of Socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Monthly Income",
+          "sensitivity": 90,
+          "reason": "direct proxy/encoding of Socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "Work-Life Balance",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Job Satisfaction",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Performance Rating",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Number of Promotions",
+          "sensitivity": 10,
+          "reason": "might show Socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "Overtime",
+          "sensitivity": 10,
+          "reason": "might show Socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "Distance from Home",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Education Level",
+          "sensitivity": 70,
+          "reason": "strong proxy/encoding of Socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Marital Status",
+          "sensitivity": 100,
+          "reason": "direct in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Number of Dependents",
+          "sensitivity": 90,
+          "reason": "direct proxy of Family & civil status",
+          "is_categorical": false
+        },
+        {
+          "key": "Job Level",
+          "sensitivity": 30,
+          "reason": "weak proxy of Socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Company Size",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Company Tenure",
+          "sensitivity": 50,
+          "reason": "weak/indirect proxy of Age",
+          "is_categorical": false
+        },
+        {
+          "key": "Remote Work",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Leadership Opportunities",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Innovation Opportunities",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Company Reputation",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Employee Recognition",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Attrition",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 385.8438266000012
+    }
+  ]
+}

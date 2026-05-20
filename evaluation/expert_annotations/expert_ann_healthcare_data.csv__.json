@@ -1,0 +1,101 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/datarspectrum/healthcare-data-csv/croissant/download",
+  "dataset_name": "healthcare_data.csv",
+  "description": "This dataset is a synthetic healthcare dataset created for educational and training purposes by Datarspectrum Technology Training Center.\nIt contains **17489** patient records with demographic, clinical, and hospital information.\n\nThe dataset is designed for practicing **data analysis**, **SQL queries**, **machine learning preprocessing**, and **healthcare analytics**.\n\n\n**Features**\n\n**patient_id** – Unique patient identifier\n\n**first_name, last_name** – Patient’s name details\n\n**age** – Patient’s age (1–90 years)\n\n**gender **– Gender (Male, Female, Other)\n\n**phone, email **– Patient contact information\n\n**department** – Department of consultation (Cardiology, Neurology, Orthopedics, etc.)\n\n**diagnosis** – Patient’s medical condition (Diabetes, Hypertension, Asthma, etc.)\n\n**treatment** – Treatment type (Medication, Surgery, Therapy, etc.)\n\n**admission_date** – Date of hospital admission\n\n**discharge_date** – Date of discharge\n\n**status** – Patient’s hospital status (Admitted, Discharged, Under Treatment)\n\n**bill_amount **– Total bill amount in INR",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "healthcare_data.csv",
+      "recordset_description": "**healthcare_data.csv**\n\n**Rows:** 500\n\n**Columns:** 14\n\n**Format**: CSV (comma-separated values)\n\n**Clean Data:** No missing values, consistent formatting\n\nThis file contains patient demographic, clinical, and billing details suitable for healthcare-related analytics and projects.",
+      "results": [
+        {
+          "key": "patient_id",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "first_name",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "last_name",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "phone",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "email",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "department",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "diagnosis",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "treatment",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "admission_date",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "discharge_date",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "status",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "bill_amount",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 541.0950351999998
+    }
+  ]
+}

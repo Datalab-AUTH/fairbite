@@ -1,0 +1,59 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/jaceprater/smokers-health-data/croissant/download",
+  "dataset_name": "Smoker's Health Data",
+  "description": "Data filtered from a Hypertension Risk Dataset by Md Raihan Kahn. I was more interested in looking for health effects of smokers versus non-smokers here, but in the end I was the most surprised by the age groups of the heaviest smokers that were polled.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "smoking_health_data_final.csv",
+      "recordset_description": "Table of a few metrics of smokers cleaned and transformed in Excel and SQL from an existing hypertension risk dataset.",
+      "results": [
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "sex",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "current_smoker",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "heart_rate",
+          "sensitivity": 10,
+          "reason": "might relate to health conditions",
+          "is_categorical": false
+        },
+        {
+          "key": "blood_pressure",
+          "sensitivity": 10,
+          "reason": "might relate to health conditions",
+          "is_categorical": false
+        },
+        {
+          "key": "cigs_per_day",
+          "sensitivity": 0,
+          "reason": "not ins cope",
+          "is_categorical": false
+        },
+        {
+          "key": "chol",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 103.75727699999698
+    }
+  ]
+}

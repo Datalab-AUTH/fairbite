@@ -1,0 +1,101 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/shyamalb2/animal-dataset-csv/croissant/download",
+  "dataset_name": "animal dataset csv",
+  "description": "No dataset description found.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "animal_dataset.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Animal_ID",
+          "sensitivity": 0,
+          "reason": "An identifier for an animal, not encoding any human sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Species",
+          "sensitivity": 0,
+          "reason": "Refers to animal species, not human racial or ethnic origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "Average_Lifespan (Years)",
+          "sensitivity": 0,
+          "reason": "Refers to animal species' average lifespan, not human age or life stage.",
+          "is_categorical": false
+        },
+        {
+          "key": "Weight (kg)",
+          "sensitivity": 0,
+          "reason": "A physical characteristic of an animal, not encoding any human sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Height (cm)",
+          "sensitivity": 0,
+          "reason": "A physical characteristic of an animal, not encoding any human sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Diet_Type",
+          "sensitivity": 0,
+          "reason": "A biological characteristic of an animal, not encoding any human sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Habitat",
+          "sensitivity": 0,
+          "reason": "Refers to an animal's natural environment, not human racial/ethnic origin or national origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "Conservation_Status",
+          "sensitivity": 0,
+          "reason": "An ecological status for animal species, not encoding any human sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Domesticated",
+          "sensitivity": 0,
+          "reason": "A characteristic of an animal species, not encoding any human sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Primary_Region",
+          "sensitivity": 0,
+          "reason": "Refers to an animal's primary geographical distribution, not human racial/ethnic origin or national origin.",
+          "is_categorical": true
+        },
+        {
+          "key": "Nocturnal",
+          "sensitivity": 0,
+          "reason": "A behavioral characteristic of an animal, not encoding any human sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Speed (km/h)",
+          "sensitivity": 0,
+          "reason": "A physical characteristic of an animal, not encoding any human sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "Intelligence_Level",
+          "sensitivity": 0,
+          "reason": "Refers to animal intelligence, not encoding any human sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "Endangered_Level (1-5)",
+          "sensitivity": 0,
+          "reason": "An ecological status for animal species, not encoding any human sensitive characteristic.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 14.47144290000142
+    }
+  ]
+}

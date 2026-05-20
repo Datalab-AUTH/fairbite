@@ -1,0 +1,77 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/amrmaree/student-performance-prediction/croissant/download",
+  "dataset_name": "Student Performance Prediction",
+  "description": "# **Student Performance Prediction Dataset** 🎓📊  \n\n## **Overview**  \nThis dataset contains information about students' academic performance, study habits, and external factors affecting their final exam scores. It is designed for predictive modeling, data visualization, and educational analytics.  \n\n## **Dataset Purpose**  \nThis dataset is useful for:  \n- Predicting student final exam scores 📈  \n- Identifying key factors that impact academic performance 🎯  \n- Exploring feature importance in education-related datasets 📊  \n- Building machine learning models for regression and classification 🤖  \n\n## **Columns Description**  \n| Column Name                  | Description |\n|------------------------------|-------------|\n| **Student_ID**               | Unique identifier for each student. |\n| **Gender**                   | Gender of the student (Male/Female). |\n| **Study_Hours_per_Week**      | Average number of study hours per week. |\n| **Attendance_Rate**           | Attendance percentage (50% - 100%). |\n| **Past_Exam_Scores**          | Average score of previous exams (50 - 100). |\n| **Parental_Education_Level**  | Education level of parents (High School, Bachelors, Masters, PhD). |\n| **Internet_Access_at_Home**   | Whether the student has internet access at home (Yes/No). |\n| **Extracurricular_Activities** | Whether the student participates in extracurricular activities (Yes/No). |\n| **Final_Exam_Score (Target)** | The final exam score of the student (50 - 100, integer values). |\n| **Pass_Fail (Target)**        | The student status (Pass/Fail). |\n\n## **Ideas for Notebooks 📑**  \n1. **Regression Analysis** – Predict final exam scores using machine learning models (Linear Regression, Random Forest, XGBoost).  \n2. **Feature Importance** – Analyze which factors contribute the most to student performance.  \n3. **Exploratory Data Analysis (EDA)** – Visualize the impact of study hours, attendance, and other features.  \n4. **Classification** – Convert scores into categories (Pass/Fail, A/B/C/D) and build classification models.  \n\n## **License & Usage**  \nThis dataset is open for public use. Feel free to use it for learning, research, and model-building! 🚀\n\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "student_performance_dataset.csv",
+      "recordset_description": "📁 \"A tabular dataset containing student performance data, including study habits, attendance, and final exam scores.\"",
+      "results": [
+        {
+          "key": "Student_ID",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Study_Hours_per_Week",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Attendance_Rate",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Past_Exam_Scores",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Parental_Education_Level",
+          "sensitivity": 80,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Internet_Access_at_Home",
+          "sensitivity": 60,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "Extracurricular_Activities",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Final_Exam_Score",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Pass_Fail",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 190.10348539985716
+    }
+  ]
+}

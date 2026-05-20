@@ -1,0 +1,149 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/nabihazahid/loan-prediction-dataset-2025/croissant/download",
+  "dataset_name": "Loan Prediction Dataset 2025",
+  "description": "**1. Borrower’s Demographics**\n\nage (int64) – Borrower's age (in years).\n\ngender (category) – Borrower's gender (Male/Female).\n\nmarital_status (category) – Marital status (Single, Married, Divorced).\n\neducation_level (category) – Education level (High School, Bachelor, Master, PhD).\n\n**2. Financial Information**\n\nannual_income (float64) – Borrower's yearly income.\n\nmonthly_income (float64) – Borrower's monthly income.\n\nemployment_status (category) – Current employment type (Employed, Self-Employed, Unemployed).\n\ndebt_to_income_ratio (float64) – Ratio of borrower’s debt to their income. Lower = better.\n\ncredit_score (int64) – Credit bureau score (e.g., FICO). Higher = less risky.\n\n**3. Loan Information**\n\nloan_amount (float64) – Amount of loan taken.\n\nloan_purpose (category) – Loan purpose (Car, Education, Home, Medical, etc.).\n\ninterest_rate (float64) – Loan par annual interest rate (%).\n\nloan_term (int64) – Loan repayment duration (months, e.g., 36 or 60).\n\ninstallment (float64) – Monthly installment .\n\ngrade_subgrade (category) – Risk category assigned to loan (A1, B2, etc.).\n\n**4. Borrower’s Credit History**\n\nnum_of_open_accounts (int64) – Total active credit accounts.\n\ntotal_credit_limit (float64) – Borrower's total available credit limit.\n\ncurrent_balance (float64) – Borrower's outstanding balance (loan + credit card).\n\ndelinquency_history (int64) – Count of late payments in borrower’s history.\n\npublic_records (int64) – Negative public records (e.g., bankruptcies, legal actions).\n\nnum_of_delinquencies (int64) – Total delinquencies (missed payments).\n\n**5. Target Variable**\n\nloan_paid_back (int64) – Target variable:\n\n1 → Borrower paid loan in full.\n\n0 → Borrower defaulted (did not repay fully).",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "loan_dataset_20000.csv",
+      "recordset_description": "The dataset is completely cleaned and organized (no missing values), making it suitable for both beginners and advanced analysts to perform EDA and build machine learning models.",
+      "results": [
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Age' from the IN-SCOPE list.",
+          "is_categorical": false
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Gender' from the IN-SCOPE list.",
+          "is_categorical": true
+        },
+        {
+          "key": "marital_status",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Marital status' from the IN-SCOPE list (Family & civil status).",
+          "is_categorical": true
+        },
+        {
+          "key": "education_level",
+          "sensitivity": 70,
+          "reason": "Strong proxy for 'Socioeconomic status' (social class/origin).",
+          "is_categorical": true
+        },
+        {
+          "key": "annual_income",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Socioeconomic status' (social origin/class).",
+          "is_categorical": false
+        },
+        {
+          "key": "monthly_income",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Socioeconomic status' (social origin/class).",
+          "is_categorical": false
+        },
+        {
+          "key": "employment_status",
+          "sensitivity": 90,
+          "reason": "Strong proxy for 'Socioeconomic status' (social origin/class).",
+          "is_categorical": true
+        },
+        {
+          "key": "debt_to_income_ratio",
+          "sensitivity": 75,
+          "reason": "Strong proxy for 'Socioeconomic status' as it reflects financial stability and is derived from income.",
+          "is_categorical": false
+        },
+        {
+          "key": "credit_score",
+          "sensitivity": 75,
+          "reason": "Strong proxy for 'Socioeconomic status' as it reflects financial health and access to resources.",
+          "is_categorical": false
+        },
+        {
+          "key": "loan_amount",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": false
+        },
+        {
+          "key": "loan_purpose",
+          "sensitivity": 15,
+          "reason": "Primarily transactional; 'Medical' purpose could be a very weak, indirect proxy for 'Health conditions'.",
+          "is_categorical": true
+        },
+        {
+          "key": "interest_rate",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": false
+        },
+        {
+          "key": "loan_term",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": false
+        },
+        {
+          "key": "installment",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": false
+        },
+        {
+          "key": "grade_subgrade",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        },
+        {
+          "key": "num_of_open_accounts",
+          "sensitivity": 20,
+          "reason": "Not a direct sensitive characteristic; very weak, indirect correlation with 'Socioeconomic status'.",
+          "is_categorical": false
+        },
+        {
+          "key": "total_credit_limit",
+          "sensitivity": 75,
+          "reason": "Strong proxy for 'Socioeconomic status' as it reflects financial resources and access to credit.",
+          "is_categorical": false
+        },
+        {
+          "key": "current_balance",
+          "sensitivity": 75,
+          "reason": "Strong proxy for 'Socioeconomic status' as it reflects financial health and obligations.",
+          "is_categorical": false
+        },
+        {
+          "key": "delinquency_history",
+          "sensitivity": 75,
+          "reason": "Strong proxy for 'Socioeconomic status' as it reflects financial behavior and stability.",
+          "is_categorical": false
+        },
+        {
+          "key": "public_records",
+          "sensitivity": 90,
+          "reason": "Strong proxy for 'Socioeconomic status' as it reflects significant financial distress and legal issues.",
+          "is_categorical": false
+        },
+        {
+          "key": "num_of_delinquencies",
+          "sensitivity": 75,
+          "reason": "Strong proxy for 'Socioeconomic status' as it reflects financial behavior and stability.",
+          "is_categorical": false
+        },
+        {
+          "key": "loan_paid_back",
+          "sensitivity": 0,
+          "reason": "Not an IN-SCOPE sensitive characteristic or a proxy for one.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 22.744465400000024
+    }
+  ]
+}

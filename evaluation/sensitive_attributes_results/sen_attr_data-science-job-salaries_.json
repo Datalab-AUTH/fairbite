@@ -1,0 +1,109 @@
+{
+  "croissant_url": "https://huggingface.co/api/datasets/hugginglearners/data-science-job-salaries/croissant",
+  "dataset_name": "data-science-job-salaries",
+  "description": "\n\t\n\t\t\n\t\tDataset Card for Data Science Job Salaries\n\t\n\n\n\t\n\t\t\n\t\tDataset Summary\n\t\n\n\n\t\n\t\t\n\t\tContent\n\t\n\n\n\t\n\t\t\nColumn\nDescription\n\n\n\t\t\nwork_year\nThe year the salary was paid.\n\n\nexperience_level\nThe experience level in the job during the year with the following possible values: EN Entry-level / Junior MI Mid-level / Intermediate SE Senior-level / Expert EX Executive-level / Director\n\n\nemployment_type\nThe type of employement for the role: PT Part-time FT Full-time CT Contract FL Freelance\n\n\njob_title… See the full description on the dataset page: https://huggingface.co/datasets/hugginglearners/data-science-job-salaries.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "default_splits",
+      "recordset_description": "Splits for the default config.",
+      "results": [
+        {
+          "key": "split_name",
+          "sensitivity": 0,
+          "reason": "Refers to a technical data split name (e.g., train, test), not related to any IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 2.164371500024572
+    },
+    {
+      "recordset_name": "default",
+      "recordset_description": "hugginglearners/data-science-job-salaries - 'default' subset",
+      "results": [
+        {
+          "key": "default/split",
+          "sensitivity": 0,
+          "reason": "This column indicates a dataset split, which is not related to any sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/Unnamed__0",
+          "sensitivity": 0,
+          "reason": "This appears to be an arbitrary identifier or index, not related to any sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "default/work_year",
+          "sensitivity": 0,
+          "reason": "This column represents the year a salary was paid, not a person's age or date of birth.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/experience_level",
+          "sensitivity": 30,
+          "reason": "Experience level can be an indirect proxy for 'Age', as it often correlates with years in the workforce.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/employment_type",
+          "sensitivity": 0,
+          "reason": "This column describes the type of employment, which is not a sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/job_title",
+          "sensitivity": 0,
+          "reason": "This column describes a professional role, not a sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/salary",
+          "sensitivity": 90,
+          "reason": "Salary is a direct indicator of 'Socioeconomic status'.",
+          "is_categorical": false
+        },
+        {
+          "key": "default/salary_currency",
+          "sensitivity": 0,
+          "reason": "This column indicates the currency type, which is not a sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/salary_in_usd",
+          "sensitivity": 90,
+          "reason": "Salary in USD is a direct indicator of 'Socioeconomic status'.",
+          "is_categorical": false
+        },
+        {
+          "key": "default/employee_residence",
+          "sensitivity": 70,
+          "reason": "Employee residence is a strong proxy for 'Racial & ethnic origin' (national origin, nationality).",
+          "is_categorical": true
+        },
+        {
+          "key": "default/remote_ratio",
+          "sensitivity": 0,
+          "reason": "This column describes the remote work arrangement, which is not a sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/company_location",
+          "sensitivity": 0,
+          "reason": "This column refers to the company's location, not the individual employee's, and is not a sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "default/company_size",
+          "sensitivity": 0,
+          "reason": "This column describes the company's size, not the individual employee's socioeconomic status or any other sensitive characteristic.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 9.126923599978909
+    }
+  ]
+}

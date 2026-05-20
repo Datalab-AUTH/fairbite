@@ -1,0 +1,137 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/miadul/personal-finance-ml-dataset/croissant/download",
+  "dataset_name": "Personal Finance ML Dataset",
+  "description": "This dataset is a synthetic but realistic collection of 32,424 individual financial records, representing real-world personal finance behaviors across income groups, regions, and loan statuses. It is ideal for EDA, financial modeling, credit risk prediction, and machine learning tasks.\n\nThe data includes attributes like:\n\nDemographics (age, gender, education, employment status)\n\nFinancial indicators (monthly income, expenses, savings)\n\nLoan-related details (loan type, amount, term, EMI, interest rate)\n\nCredit score & ratios (DTI, savings-to-income)\n\nTimestamps and regions\n\nEach row represents a unique individual from one of several global regions, with varying income levels and loan behaviors. The dataset was generated using statistical distributions and realistic assumptions to mirror global financial trends.\n\n📊 Columns & Description\nColumn Name\tDescription\nuser_id\tUnique user identifier\nage\tAge of individual (18–70)\ngender\tGender (Male/Female/Other)\neducation_level\tHighest education level\nemployment_status\tEmployment type (e.g. Employed, Student)\njob_title\tJob title or role\nmonthly_income_usd\tApprox. monthly income in USD\nmonthly_expenses_usd\tApprox. monthly expenses in USD\nsavings_usd\tTotal savings\nhas_loan\tWhether individual has a loan (Yes/No)\nloan_type\tType of loan (if any)\nloan_amount_usd\tLoan principal amount\nloan_term_months\tDuration of loan\nmonthly_emi_usd\tMonthly installment (EMI)\nloan_interest_rate_pct\tInterest rate on loan (%)\ndebt_to_income_ratio\tRatio of debt payments to income\ncredit_score\tSynthetic credit score (300–850)\nsavings_to_income_ratio\tRatio of savings to annual income\nregion\tGeographic region\nrecord_date\tRecord creation date\n\n💡 Potential Use Cases\nFinancial health segmentation\n\nLoan eligibility modeling\n\nCredit scoring prediction\n\nExpense analysis & savings recommendation\n\nDebt-to-income clustering\n\nData visualization dashboards\n\nTeaching finance-related machine learning\n\n📌 Dataset Highlights\n✅ 100% synthetic (privacy-safe)\n\n📅 Covers records from Jan 2020 to Jul 2024\n\n🌎 Includes diverse global regions\n\n🧠 Designed for machine learning, EDA, and teaching\n\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "synthetic_personal_finance_dataset.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "user_id",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "education_level",
+          "sensitivity": 80,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "employment_status",
+          "sensitivity": 80,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "job_title",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "monthly_income_usd",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "monthly_expenses_usd",
+          "sensitivity": 40,
+          "reason": "weak proxy for socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "savings_usd",
+          "sensitivity": 60,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "has_loan",
+          "sensitivity": 10,
+          "reason": "could correlate to socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "loan_type",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "loan_amount_usd",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "loan_term_months",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "monthly_emi_usd",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "loan_interest_rate_pct",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "debt_to_income_ratio",
+          "sensitivity": 50,
+          "reason": "weak proxy for socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "credit_score",
+          "sensitivity": 60,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "savings_to_income_ratio",
+          "sensitivity": 50,
+          "reason": "weak proxy for socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "region",
+          "sensitivity": 80,
+          "reason": "strong proxy for ethnic origin",
+          "is_categorical": true
+        },
+        {
+          "key": "record_date",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 697.1430185000008
+    }
+  ]
+}

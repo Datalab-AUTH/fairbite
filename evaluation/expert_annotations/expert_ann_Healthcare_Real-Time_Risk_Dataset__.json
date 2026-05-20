@@ -1,0 +1,77 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/alekhyaabburi/healthcare/croissant/download",
+  "dataset_name": "Healthcare Real-Time Risk Dataset",
+  "description": "This dataset contains synthetically generated real-time healthcare data intended for machine learning applications such as patient risk prediction, early diagnosis modeling, and health outcome analysis. The dataset simulates 1,000 patient records with 10 meaningful medical and demographic attributes including age, gender, heart rate, blood pressure, respiratory rate, oxygen saturation, glucose levels, smoking status, diabetes history, and a computed health risk score.\n\n",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "healthcare_real_time_dataset.csv",
+      "recordset_description": "No description found",
+      "results": [
+        {
+          "key": "Age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "Gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "BMI",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": false
+        },
+        {
+          "key": "Smoking Status",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": true
+        },
+        {
+          "key": "Alcohol Consumption (per week)",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": false
+        },
+        {
+          "key": "Physical Activity (hours/week)",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": false
+        },
+        {
+          "key": "Sleep Duration (hours/day)",
+          "sensitivity": 10,
+          "reason": "could correlate with health conditions",
+          "is_categorical": false
+        },
+        {
+          "key": "Chronic Disease History",
+          "sensitivity": 90,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "Stress Level (1-10)",
+          "sensitivity": 20,
+          "reason": "could correlate with health conditions",
+          "is_categorical": true
+        },
+        {
+          "key": "Health Risk Level",
+          "sensitivity": 50,
+          "reason": "weak proxy for health condition",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 155.36377670000002
+    }
+  ]
+}

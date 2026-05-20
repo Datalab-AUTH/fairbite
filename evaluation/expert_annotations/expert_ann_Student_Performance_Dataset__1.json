@@ -1,0 +1,113 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/kundanbedmutha/student-performance-dataset/croissant/download",
+  "dataset_name": "Student Performance Dataset",
+  "description": "This dataset provides a comprehensive and realistic representation of various factors associated with student performance in an educational environment. It captures demographic details, family background, study habits, school-related characteristics, and academic scores across key subjects. The purpose of this dataset is to offer a structured and versatile resource for anyone interested in understanding patterns, behaviors, and influences that contribute to student outcomes.\n\nThe dataset includes rich information such as parental education, access to learning resources, attendance, study duration, extracurricular involvement, and preferred study methods. These aspects help outline a broader context of a student's academic journey, beyond mere scores. The subject-wise marks in Mathematics, Science, and English, along with a computed overall performance score and final grade, provide a complete view of student achievements.\n\nThis dataset can be used for:\n\nEducational research\nInstitutional planning and analysis\nUnderstanding learning behavior trends\nExamining the relationship between lifestyle and academic outcomes\nExploratory studies on attendance, study habits, or parental background\nGeneral-purpose data exploration and visualization\n\nBecause the data is synthetically generated, it avoids any privacy or ethical issues typically associated with student datasets. It reflects realistic patterns without containing personally identifiable information. The structure is designed to be clear, readable, and ready for analysis across all experience levels—from beginners exploring data for the first time to professionals conducting in-depth educational studies.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "Student_Performance.csv",
+      "recordset_description": "Filename: Student_Performance.csv\nRows: 15,000\nColumns: 16\n\nThis file contains individually structured student records, where each row represents a single student along with their demographic profile, educational background, learning habits, and academic performance. The dataset combines behavioral, environmental, and academic factors, making it suitable for a wide range of educational and analytical applications.\n\nThe file includes information on:\n\nDemographics: age, gender, school type\nFamily background: parent education level\nStudy-related habits: daily study hours, study method, internet access\nSchool engagement: attendance percentage, travel time, participation in extra activities\nAcademic records: marks in Math, Science, and English\nFinal outcomes: overall performance score and assigned grade\n\nAll values follow consistent formatting, column naming conventions, and realistic ranges to ensure ease of use. The dataset is clean, balanced, and ready for immediate download and analysis.",
+      "results": [
+        {
+          "key": "student_id",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "school_type",
+          "sensitivity": 60,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "parent_education",
+          "sensitivity": 80,
+          "reason": "strong proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "study_hours",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "attendance_percentage",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "internet_access",
+          "sensitivity": 50,
+          "reason": "indirect proxy for socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "travel_time",
+          "sensitivity": 20,
+          "reason": "could correlate with socioeconomic status",
+          "is_categorical": false
+        },
+        {
+          "key": "extra_activities",
+          "sensitivity": 10,
+          "reason": "could correlate with socioeconomic status",
+          "is_categorical": true
+        },
+        {
+          "key": "study_method",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": true
+        },
+        {
+          "key": "math_score",
+          "sensitivity": 0,
+          "reason": "noy in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "science_score",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "english_score",
+          "sensitivity": 0,
+          "reason": "not in cope",
+          "is_categorical": false
+        },
+        {
+          "key": "overall_score",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        },
+        {
+          "key": "final_grade",
+          "sensitivity": 0,
+          "reason": "not in scope",
+          "is_categorical": false
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 441.4394642000552
+    }
+  ]
+}

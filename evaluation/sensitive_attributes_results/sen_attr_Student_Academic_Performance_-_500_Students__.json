@@ -1,0 +1,83 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/mubashirsidiki/student-academic-performance-500-students/croissant/download",
+  "dataset_name": "Student Academic Performance - 500 Students",
+  "description": "I created this dataset to practice ML classification and regression. It has 500 records of students with their study habits, demographics and exam results.\n\nColumns include stuff like study hours per week, attendance rate, parent education level, previous scores and final scores. The target variable can be `final_score` for regression or `passed` for classification (pass = score >= 50).\n\nSome things to note:\n- This is synthetic data I generated, not real student records\n- No missing values or duplicates\n- Final scores are somewhat correlated with study hours and attendance (as you'd expect)\n- Good for beginners who want to practice EDA, classification or regression\n\nFeel free to use it however you want, it's public domain.",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "student_performance.csv",
+      "recordset_description": "Simulated dataset of 500 high school students with demographic info, study habits, and academic performance. Useful for classification (predict pass/fail), regression (predict final score), and exploring how factors like study hours and attendance relate to outcomes.",
+      "results": [
+        {
+          "key": "student_id",
+          "sensitivity": 0,
+          "reason": "Personally Identifiable Information, explicitly OUT OF SCOPE.",
+          "is_categorical": false
+        },
+        {
+          "key": "gender",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Gender & sexual identity'.",
+          "is_categorical": true
+        },
+        {
+          "key": "age",
+          "sensitivity": 100,
+          "reason": "Directly represents 'Age'.",
+          "is_categorical": false
+        },
+        {
+          "key": "study_hours_per_week",
+          "sensitivity": 10,
+          "reason": "Not directly sensitive. Very weak, indirect correlation with socioeconomic status.",
+          "is_categorical": false
+        },
+        {
+          "key": "attendance_rate",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "parent_education",
+          "sensitivity": 80,
+          "reason": "Strong proxy for 'Socioeconomic status' (social origin/class).",
+          "is_categorical": true
+        },
+        {
+          "key": "internet_access",
+          "sensitivity": 70,
+          "reason": "Strong proxy for 'Socioeconomic status' (access to resources, property/ownership type).",
+          "is_categorical": true
+        },
+        {
+          "key": "extracurricular",
+          "sensitivity": 10,
+          "reason": "Not directly sensitive. Very weak, indirect correlation with socioeconomic status.",
+          "is_categorical": true
+        },
+        {
+          "key": "previous_score",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "final_score",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "passed",
+          "sensitivity": 0,
+          "reason": "Not sensitive and not a meaningful proxy for any IN-SCOPE characteristic. It's an outcome.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 8.250086199957877
+    }
+  ]
+}

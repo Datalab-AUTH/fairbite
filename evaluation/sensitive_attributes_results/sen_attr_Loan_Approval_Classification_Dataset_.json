@@ -1,0 +1,101 @@
+{
+  "croissant_url": "https://www.kaggle.com/datasets/taweilo/loan-approval-classification-data/croissant/download",
+  "dataset_name": "Loan Approval Classification Dataset",
+  "description": "## 1. **Data Source**\nThis dataset is a synthetic version inspired by the original [Credit Risk dataset on Kaggle](https://www.kaggle.com/datasets/laotse/credit-risk-dataset) and enriched with additional variables based on [Financial Risk for Loan Approval data](https://www.kaggle.com/datasets/lorenzozoppelletto/financial-risk-for-loan-approval). SMOTENC was used to simulate new data points to enlarge the instances. The dataset is structured for both categorical and continuous features.\n\n## 2. **Metadata**\nThe dataset contains 45,000 records and 14 variables, each described below:\n\n| Column                         | Description                                          | Type        |  \n|--------------------------------|------------------------------------------------------|-------------|  \n| `person_age`                   | Age of the person                                    | Float       |  \n| `person_gender`                | Gender of the person                                 | Categorical |  \n| `person_education`             | Highest education level                              | Categorical |  \n| `person_income`                | Annual income                                        | Float       |  \n| `person_emp_exp`               | Years of employment experience                       | Integer     |  \n| `person_home_ownership`        | Home ownership status (e.g., rent, own, mortgage)    | Categorical |  \n| `loan_amnt`                    | Loan amount requested                                | Float       |  \n| `loan_intent`                  | Purpose of the loan                                  | Categorical |  \n| `loan_int_rate`                | Loan interest rate                                   | Float       |  \n| `loan_percent_income`          | Loan amount as a percentage of annual income         | Float       |  \n| `cb_person_cred_hist_length`   | Length of credit history in years                    | Float       |  \n| `credit_score`                 | Credit score of the person                           | Integer     |  \n| `previous_loan_defaults_on_file` | Indicator of previous loan defaults               | Categorical |  \n| `loan_status` (target variable)                    | Loan approval status: 1 = approved; 0 = rejected              | Integer     |  \n\n## 3. **Data Usage**\nThe dataset can be used for multiple purposes:\n\n- **Exploratory Data Analysis (EDA)**: Analyze key features, distribution patterns, and relationships to understand credit risk factors.\n- **Classification**: Build predictive models to classify the `loan_status` variable (approved/not approved) for potential applicants.\n- **Regression**: Develop regression models to predict the `credit_score` variable based on individual and loan-related attributes. \n\n**Mind the data issue from the original data, such as the instance &gt; 100-year-old as age.** \n\nThis dataset provides a rich basis for understanding financial risk factors and simulating predictive modeling processes for loan approval and credit scoring. \n\n## Feel free to leave comments on the discussion. I'd appreciate your upvote if you find my dataset useful! 😀",
+  "data_biases": "No data biases found.",
+  "sensitive_information": "No personal sensitive information found.",
+  "recordsets": [
+    {
+      "recordset_name": "loan_data.csv",
+      "recordset_description": "Loan approval dataset. \"Loan Status\" : 1 = approved; 0 = rejected",
+      "results": [
+        {
+          "key": "person_age",
+          "sensitivity": 95,
+          "reason": "Directly represents 'Age' from the IN-SCOPE list.",
+          "is_categorical": false
+        },
+        {
+          "key": "person_gender",
+          "sensitivity": 95,
+          "reason": "Directly represents 'Gender' from the IN-SCOPE list.",
+          "is_categorical": true
+        },
+        {
+          "key": "person_education",
+          "sensitivity": 40,
+          "reason": "Can be an indirect proxy for 'Socioeconomic status', though not explicitly listed as sensitive.",
+          "is_categorical": true
+        },
+        {
+          "key": "person_income",
+          "sensitivity": 75,
+          "reason": "Strong proxy for 'Socioeconomic status' from the IN-SCOPE list.",
+          "is_categorical": false
+        },
+        {
+          "key": "person_emp_exp",
+          "sensitivity": 40,
+          "reason": "Can be an indirect proxy for 'Age', but not a direct sensitive attribute.",
+          "is_categorical": false
+        },
+        {
+          "key": "person_home_ownership",
+          "sensitivity": 95,
+          "reason": "Directly represents 'property/ownership type' under 'Socioeconomic status' from the IN-SCOPE list.",
+          "is_categorical": true
+        },
+        {
+          "key": "loan_amnt",
+          "sensitivity": 0,
+          "reason": "Represents a financial transaction detail, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "loan_intent",
+          "sensitivity": 20,
+          "reason": "Could potentially reveal sensitive information depending on the specific intent, but not inherently sensitive.",
+          "is_categorical": true
+        },
+        {
+          "key": "loan_int_rate",
+          "sensitivity": 0,
+          "reason": "Represents a financial transaction detail, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": false
+        },
+        {
+          "key": "loan_percent_income",
+          "sensitivity": 50,
+          "reason": "Derived from 'person_income', which is a strong proxy for 'Socioeconomic status', making this an indirect proxy.",
+          "is_categorical": false
+        },
+        {
+          "key": "cb_person_cred_hist_length",
+          "sensitivity": 40,
+          "reason": "Can be an indirect proxy for 'Age', but not a direct sensitive attribute.",
+          "is_categorical": false
+        },
+        {
+          "key": "credit_score",
+          "sensitivity": 50,
+          "reason": "Reflects financial standing, which is an indirect proxy for 'Socioeconomic status'.",
+          "is_categorical": false
+        },
+        {
+          "key": "previous_loan_defaults_on_file",
+          "sensitivity": 0,
+          "reason": "Represents a financial behavior indicator, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        },
+        {
+          "key": "loan_status",
+          "sensitivity": 0,
+          "reason": "Represents a decision outcome, not an IN-SCOPE sensitive characteristic.",
+          "is_categorical": true
+        }
+      ],
+      "error": null,
+      "execution_time_seconds": 10.773846499971114
+    }
+  ]
+}
