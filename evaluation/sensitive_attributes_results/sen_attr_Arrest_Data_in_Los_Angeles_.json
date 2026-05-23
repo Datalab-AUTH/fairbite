@@ -4,6 +4,7 @@
   "description": "This dataset contains arrest records from Los Angeles, covering incidents from 2020 to the present. It is sourced from the Los Angeles Open Data Portal and provides detailed information about arrests, including the date, time, location, demographic details of the arrested individuals, and the charges filed.\n\n**Context & Inspiration**\nWith growing interest in public safety, law enforcement practices, and criminal justice transparency, this dataset can help analysts, researchers, and policymakers explore:\n\n- Crime trends over time – Are certain offenses becoming more common?\n- Demographic patterns in arrests – Are there disparities based on age, gender, or race?\n- Geographic distribution of arrests – Where do most arrests occur in Los Angeles?\n- Law enforcement practices – Are there trends in how different charges are handled?\n- This dataset can serve as a valuable resource for data visualization, machine learning models, and policy analysis to gain insights into crime prevention, public safety, and law enforcement strategies.",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "law_and_criminal_justice",
   "recordsets": [
     {
       "recordset_name": "Arrest_Data_from_2020_to_Present.csv",

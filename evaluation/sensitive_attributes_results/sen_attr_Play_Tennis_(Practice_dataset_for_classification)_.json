@@ -4,6 +4,7 @@
   "description": "The Play Tennis Dataset is a synthetic, expanded classification dataset inspired by the classic “Play Tennis” example widely used in machine learning and data mining education.\n\nThis dataset models the relationship between weather conditions and the decision to play tennis, making it ideal for practicing supervised learning algorithms. It includes multiple categorical features such as weather outlook, temperature, humidity, and wind strength, with a binary target variable indicating whether tennis is played.\n\nThe dataset has been expanded to include a larger number of records while preserving realistic feature combinations and class balance. It is well-suited for beginners and intermediate learners to explore data preprocessing, categorical encoding, probabilistic models, and decision-based algorithms.\n\n**Use Cases**\n\n- Naive Bayes classification\n- Decision Tree (ID3 / C4.5)\n- Entropy & Information Gain calculation\n- Feature encoding practice\n- ML coursework, labs, and demonstrations",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "out_of_context",
   "recordsets": [
     {
       "recordset_name": "playtennis.csv",

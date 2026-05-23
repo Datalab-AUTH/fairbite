@@ -4,6 +4,7 @@
   "description": "This dataset is a synthetic healthcare dataset created for educational and training purposes by Datarspectrum Technology Training Center.\nIt contains **17489** patient records with demographic, clinical, and hospital information.\n\nThe dataset is designed for practicing **data analysis**, **SQL queries**, **machine learning preprocessing**, and **healthcare analytics**.\n\n\n**Features**\n\n**patient_id** – Unique patient identifier\n\n**first_name, last_name** – Patient’s name details\n\n**age** – Patient’s age (1–90 years)\n\n**gender **– Gender (Male, Female, Other)\n\n**phone, email **– Patient contact information\n\n**department** – Department of consultation (Cardiology, Neurology, Orthopedics, etc.)\n\n**diagnosis** – Patient’s medical condition (Diabetes, Hypertension, Asthma, etc.)\n\n**treatment** – Treatment type (Medication, Surgery, Therapy, etc.)\n\n**admission_date** – Date of hospital admission\n\n**discharge_date** – Date of discharge\n\n**status** – Patient’s hospital status (Admitted, Discharged, Under Treatment)\n\n**bill_amount **– Total bill amount in INR",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "health_care",
   "recordsets": [
     {
       "recordset_name": "healthcare_data.csv",

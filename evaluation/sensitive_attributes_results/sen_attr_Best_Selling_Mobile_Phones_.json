@@ -4,6 +4,7 @@
   "description": "This is the raw data of the best-selling smartphones as of February 2024. Not pre-processed and scraped using beautifulSoup. Pre-processing will be required as per user requirements.",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "out_of_context",
   "recordsets": [
     {
       "recordset_name": "top_selling_mobile_phones.csv",

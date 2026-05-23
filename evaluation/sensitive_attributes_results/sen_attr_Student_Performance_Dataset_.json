@@ -4,6 +4,7 @@
   "description": "The Student Academic Performance Dataset is a synthetic educational dataset designed to analyze and predict student outcomes based on academic, demographic, and behavioral factors. It contains records of 5,000 students with attributes such as age, gender, class level, study hours per day, attendance percentage, parental education, internet access, and participation in extracurricular activities. Academic performance is measured through subject-wise scores in Mathematics, Science, and English, along with a calculated final percentage, performance level, and pass/fail status.\n\n",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "education",
   "recordsets": [
     {
       "recordset_name": "Student_Performance_Dataset.csv",

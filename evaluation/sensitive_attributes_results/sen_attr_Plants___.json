@@ -4,6 +4,7 @@
   "description": "## It is a dataset regarding different conditions affecting the plants growth. The following features/columns are:\n\n\n**Soil Moisture**: It is having details regarding different soil moisture.\n\n**Temperature**: Temperature of the soil.\n\n**Soil Humidity**: It is having  the details of soil humidity.\n\n**Air Temperature**: It is having the details of the air temp.\n\n**Wind Speed**: It is having the details of speed of wind.\n\n**Air Humidity**: It is having the details of air humidity.\n\n**Wind Gust**: It is having the details of wind gust.\n\n**Pressure**: It is having the details of air pressure (in KPa).\n\n**ph**: It is having details of the ph of soil.\n\n",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "out_of_context",
   "recordsets": [
     {
       "recordset_name": "TARP.csv",

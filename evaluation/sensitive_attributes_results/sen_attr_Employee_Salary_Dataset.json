@@ -4,6 +4,7 @@
   "description": "This dataset provides structured information on employees across various departments, including their experience, education level, age, city, and monthly salary. It is designed to help data analysts and machine learning practitioners explore salary prediction, HR analytics, compensation patterns, workforce demographics, and EDA-based insights.",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "employment",
   "recordsets": [
     {
       "recordset_name": "employee_salary_dataset.csv",

@@ -4,6 +4,7 @@
   "description": "This dataset titled \"Programming Languages Search over Time\" provides weekly search interest scores for three prominent programming languages - Python, Java, and C++ - over a period spanning from April 21, 2019, to April 23, 2024. The search interest scores represent the relative popularity of each programming language as determined by search engine queries.\n\nThis dataset can be used to analyze and visualize trends and patterns in the popularity of these programming languages over time, providing valuable insights into their usage and adoption in the software development community.",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "out_of_context",
   "recordsets": [
     {
       "recordset_name": "programming language trend over time.csv",

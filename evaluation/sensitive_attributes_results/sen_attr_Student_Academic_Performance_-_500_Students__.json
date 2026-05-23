@@ -4,6 +4,7 @@
   "description": "I created this dataset to practice ML classification and regression. It has 500 records of students with their study habits, demographics and exam results.\n\nColumns include stuff like study hours per week, attendance rate, parent education level, previous scores and final scores. The target variable can be `final_score` for regression or `passed` for classification (pass = score >= 50).\n\nSome things to note:\n- This is synthetic data I generated, not real student records\n- No missing values or duplicates\n- Final scores are somewhat correlated with study hours and attendance (as you'd expect)\n- Good for beginners who want to practice EDA, classification or regression\n\nFeel free to use it however you want, it's public domain.",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "education",
   "recordsets": [
     {
       "recordset_name": "student_performance.csv",

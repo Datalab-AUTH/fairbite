@@ -4,6 +4,7 @@
   "description": "This dataset is a purely synthetic dataset created to help educators and researchers understand fairness definitions. It is a convenient way to illustrate differences between different definitions, such as fairness through unawareness, group fairness, statistical parity, predictive parity equalised odds or treatment equality. \nThe dataset contains multiple sensitive features: age, gender and lives-near-by. These can be combined to define many different sensitive groups. \nThe dataset contains the decisions of five example decisions methods that can be evaluated. When using this dataset, you do not need to train your own methods. Instead you can focus on evaluation the existing models. \n\nThis dataset is described and analysed in the following paper. Please cite this paper when using this dataset:\n\n*Burda, P and Van Otterloo, S. 2024. *\n**Fairness definitions explained and illustrated with examples.** \nComputers and Society Research Journal, 2025 (2). [https://doi.org/10.54822/PASR6281 ]\n",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "employment",
   "recordsets": [
     {
       "recordset_name": "2025-fairness-recruitment-dataset.csv",

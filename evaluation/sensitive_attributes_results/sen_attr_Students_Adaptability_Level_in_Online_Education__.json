@@ -4,6 +4,7 @@
   "description": "### Context\nSince as a beginner in machine learning it would be a great opportunity to try some techniques to predict the outcome of Students’ Adaptability Level Prediction in Online Education using Machine Learning Approaches\n\n### Content\n**The target feature is**\nAdaptivity level\n\n**The feature sets are:**\nGender\nAge\nEducation Level\nInstitution Type\nIT Student\nLocation in Town\nLoad-shedding\nFinancial Condition\nInternet Type\nNetwork Type\nClass Duration\nSelf LMS\nDevice\n\n### Acknowledgements\nYou are free to use this dataset for any analysis or research purpose but please cite the original research paper. [Students' Adaptability Level Prediction in Online Education using Machine Learning Approaches](https://www.researchgate.net/publication/355891881_Students'_Adaptability_Level_Prediction_in_Online_Education_using_Machine_Learning_Approaches) or DOI: **10.1109/ICCCNT51525.2021.9579741**\n\n### Inspiration\nTo get an idea about the effectiveness of online education\n\n",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "education",
   "recordsets": [
     {
       "recordset_name": "students_adaptability_level_online_education.csv",

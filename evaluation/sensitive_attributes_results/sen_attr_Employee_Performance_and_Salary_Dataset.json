@@ -4,6 +4,7 @@
   "description": "Employee Performance and Salary Dataset has following columns.\n\n**ID:** Unique identifier (e.g., 1, 2, 3).\n**Name:** Textual data (e.g., names of individuals or products).\n**Age:** Numerical data (e.g., 18–65).\n**Gender:** Categorical data (e.g., Male, Female, Other).\n**Department:** Categorical data (e.g., Sales, HR, IT).\n**Salary:**Numerical data (e.g., 2000–10000).\n**Joining Date:** Date (e.g., 2020-01-15).\n**Performance Score:** Numerical data with missing values (e.g., 1–5 with some NaN).\n**Experience:** Numerical data with some repeated values (e.g., 2, 3, 5).\n**Status:** Text data (e.g., Active, Inactive).\n**Location:** Categorical (e.g., New York, Los Angeles, Chicago).\n**Session:** Categorical with repeating values (e.g., Morning, Evening, Night).\n\n***A file containing 50 tasks to practice on this dataset is already added in pdf format.***",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "employment",
   "recordsets": [
     {
       "recordset_name": "Employe_Performance_dataset.csv",

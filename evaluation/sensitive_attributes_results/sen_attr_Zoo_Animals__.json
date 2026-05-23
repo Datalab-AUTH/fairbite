@@ -4,6 +4,7 @@
   "description": "A simple database containing 17 Boolean-valued attributes describing animals. The \"type\" attribute appears to be the class attribute.\n\nNotes:\n\nI find it unusual that there are 2 instances of \"frog\" and one of \"girl\"!\nfeature 'animal' is an identifier (though not unique) and should be ignored when modeling",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "out_of_context",
   "recordsets": [
     {
       "recordset_name": "zoo.csv",

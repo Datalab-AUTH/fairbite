@@ -4,6 +4,7 @@
   "description": "This dataset compiles self-reported information from individuals to examine how professional background, work habits, stress patterns, and personal coping mechanisms influence mental health and emotional well-being. The data highlights the complex relationship between workplace engagement, lifestyle behavior, and mental resilience.\n\nEach observation includes the following categories:\n\nDemographic Attributes:\nGender, Country, and Occupation\n\nEmployment & Family Context:\nEmployment type (SelfEmployed) and FamilyHistory of mental health conditions\n\nLifestyle & Behavioral Factors:\nDaysIndoors, HabitsChange, and CopingStruggles representing lifestyle balance and adaptation to stress\n\nMental Health Indicators:\nMentalHealthHistory, IncreasingStress, MoodSwings, WorkInterest, and SocialWeakness reflecting individual emotional and psychological states\n\nAwareness & Support Dimensions:\nMentalHealthInterview and CareOptions, indicating whether participants had discussions or access to mental health support and care resources\n\nThis dataset is well-suited for data analysis, visualization, and predictive modeling, offering valuable insights into how lifestyle, work environment, and psychological factors collectively shape mental health outcomes.",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "health_care",
   "recordsets": [
     {
       "recordset_name": "Mental Health dataset1.csv",

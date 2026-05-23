@@ -4,6 +4,7 @@
   "description": "This dataset contains 200,000 rows of arraignment records from a metropolitan court system.\n\nIt includes demographic details (age, gender), criminal history (prior arrests, convictions), offense severity, charge type, arraignment decisions (bail, detention, release), and final court outcomes.\n\nSensitive attributes such as race and zip code have been intentionally excluded to prevent direct discrimination.",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "law_and_criminal_justice",
   "recordsets": [
     {
       "recordset_name": "Criminal_Justice_Dataset.csv",

@@ -4,6 +4,7 @@
   "description": "📝 Description:\nThis dataset consists of 100 student records generated using a custom Python script. Each entry captures various academic and demographic features such as:\n\nStudent Name\n\nGender\n\nAge\n\nStudy Hours\n\nAttendance Percentage\n\nGrades (Midterm, Final, and Average)\n\nParental Education\n\nInternet Access\n\nExtra-Curricular Participation\n\n📌 Use Cases:\n\nMachine Learning model training (e.g., grade prediction)\n\nData preprocessing and cleaning exercises\n\nExploratory data analysis and visualization\n\nEducational dashboards and Power BI demonstrations\n\n💡 Ideal for students and educators aiming to practice regression, classification, data cleaning, and insight generation using a compact, readable dataset.\n\n📂 Note: The dataset is balanced for gender and contains a variety of typical academic performance patterns.",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "education",
   "recordsets": [
     {
       "recordset_name": "student_data_100 (1).csv",

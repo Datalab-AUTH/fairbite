@@ -4,6 +4,7 @@
   "description": "This dataset contains records of 1000 patients treated at a hospital, including demographic information, medical conditions, treatments administered, medical expenses incurred, and current health status. Explore various patterns, trends, and insights in patient care, recovery rates, and treatment efficacy using this rich dataset.\nIdeal for exploratory data analysis, predictive modeling, and healthcare research.",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "health_care",
   "recordsets": [
     {
       "recordset_name": "hospital data analysis.csv",
