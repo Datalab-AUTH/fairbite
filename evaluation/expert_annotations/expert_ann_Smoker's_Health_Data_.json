@@ -4,6 +4,7 @@
   "description": "Data filtered from a Hypertension Risk Dataset by Md Raihan Kahn. I was more interested in looking for health effects of smokers versus non-smokers here, but in the end I was the most surprised by the age groups of the heaviest smokers that were polled.",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "health_care",
   "recordsets": [
     {
       "recordset_name": "smoking_health_data_final.csv",

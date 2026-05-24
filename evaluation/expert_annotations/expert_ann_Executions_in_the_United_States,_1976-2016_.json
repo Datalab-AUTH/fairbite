@@ -4,6 +4,7 @@
   "description": "# Content\n\nThe execution database includes records of every execution performed in the United States since the Supreme Court reinstated the death penalty in 1976. Federal executions are indicated by FE in the state field and included in the region in which the crime occurred. The information in this database was obtained from news reports, the Department of Corrections in each state, and the NAACP Legal Defense Fund.\n\n\n# Acknowledgements\n\nThe execution database was compiled and published by the Death Penalty Information Center. Victim details, including quantity, sex, and race, were acquired from the Criminal Justice Project's Death Row USA report.",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "law_and_criminal_justice",
   "recordsets": [
     {
       "recordset_name": "database.csv",

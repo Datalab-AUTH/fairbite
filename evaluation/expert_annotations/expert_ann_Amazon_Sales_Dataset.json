@@ -4,6 +4,7 @@
   "description": "This dataset contains 100,000 synthetic Amazon-style e-commerce sales transactions, designed to closely resemble real-world online retail behavior. With 20 clean and well-structured columns, it captures detailed information about customers, products, pricing, payments, logistics, and order outcomes.\n\nAlthough the data is artificially generated, it reflects realistic patterns such as:\n\nDynamic product pricing\n\nVarying discounts and taxes\n\nMultiple product categories & brands\n\nSeasonal order trends\n\nPayment method diversity\n\nRealistic customer names & locations\n\nOrder statuses like Delivered, Cancelled, Shipped, Returned\n\nThis makes the dataset highly suitable for analytics, machine learning, data visualization, dashboards, and business case studies.\n\n📊 Column Overview\n\nThe dataset includes:\n\n🧾 Order Details\n\nOrderID\n\nOrderDate\n\nOrderStatus\n\nSellerID\n\n👤 Customer Information\n\nCustomerID\n\nCustomerName\n\nCity, State, Country\n\n📦 Product Information\n\nProductID\n\nProductName\n\nCategory\n\nBrand\n\nQuantity\n\n💰 Pricing & Revenue Metrics\n\nUnitPrice\n\nDiscount\n\nTax\n\nShippingCost\n\nTotalAmount\n\n💳 Payment Details\n\nPaymentMethod",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "finance_and_consumer_behavior",
   "recordsets": [
     {
       "recordset_name": "Amazon.csv",

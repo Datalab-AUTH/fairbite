@@ -4,6 +4,7 @@
   "description": "This dataset contains synthetically generated real-time healthcare data intended for machine learning applications such as patient risk prediction, early diagnosis modeling, and health outcome analysis. The dataset simulates 1,000 patient records with 10 meaningful medical and demographic attributes including age, gender, heart rate, blood pressure, respiratory rate, oxygen saturation, glucose levels, smoking status, diabetes history, and a computed health risk score.\n\n",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "health_care",
   "recordsets": [
     {
       "recordset_name": "healthcare_real_time_dataset.csv",

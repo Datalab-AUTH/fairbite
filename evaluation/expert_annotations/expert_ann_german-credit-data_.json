@@ -4,6 +4,7 @@
   "description": "\n\t\n\t\t\n\t\tGerman Credit Data (Teeny-Tiny Castle)\n\t\n\nThis dataset is part of a tutorial tied to the Teeny-Tiny Castle, an open-source repository containing educational tools for AI Ethics and Safety research. \n\n\t\n\t\t\n\t\tHow to Use\n\t\n\nfrom datasets import load_dataset\n\ndataset = load_dataset(\"AiresPucrs/german-credit-data\", split = 'train')\n\n",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "finance_and_consumer_behavior",
   "recordsets": [
     {
       "recordset_name": "default_splits",

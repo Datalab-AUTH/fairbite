@@ -4,6 +4,7 @@
   "description": "A comprehensive dataset analyzing employee attrition, demographics, job roles, performance ratings, and work-life balance factors.\n\nHR Analytics, Employee Attrition, Workforce Management, Employee Performance, Business Travel, Work-Life Balance, Job Satisfaction, Employee Retention, Human Resources, Organizational Behavior",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "employment",
   "recordsets": [
     {
       "recordset_name": "Generalized_Job_Applicant_Dataset.csv",

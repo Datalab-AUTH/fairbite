@@ -4,6 +4,7 @@
   "description": "A STATISTICAL RESEARCH ON THE EFFECTS OF MENTAL HEALTH ON STUDENTS’ CGPA dataset\nThis Data set was collected by a survey conducted by Google forms from University student in order to examine their current academic situation and mental health.\n\nAll the data was based on Malaysia and collected from Iium (International Islamic University Malaysia).",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "education",
   "recordsets": [
     {
       "recordset_name": "Student Mental health.csv",

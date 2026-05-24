@@ -4,6 +4,7 @@
   "description": "No dataset description found.",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "out_of_context",
   "recordsets": [
     {
       "recordset_name": "soil_quality_dataset.csv",

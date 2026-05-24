@@ -4,6 +4,7 @@
   "description": "This dataset provides an extensive record of worldwide video game sales and rankings, featuring individual entries for over 45000 titles released across multiple platforms such as PC, PlayStation, Xbox, and Nintendo consoles. Each record includes the game's name, platform, year of release, genre, publisher, and sales figures from North America, Europe, Japan, other regions, and the global total. Intended for analytics and market research, the dataset enables detailed exploration of sales trends by year, platform, region, or genre, and supports comparative studies of publishers' market impact and global video game popularity over the decades. It is ideal for machine learning, business intelligence, and historical analysis tasks related to the video game industry",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "out_of_context",
   "recordsets": [
     {
       "recordset_name": "video_games_sales.csv",

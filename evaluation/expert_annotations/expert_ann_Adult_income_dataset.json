@@ -4,6 +4,7 @@
   "description": "An individual’s annual income results from various factors. Intuitively, it is influenced by the individual’s education level, age, gender, occupation, and etc. \n\nThis is a widely cited KNN dataset. I encountered it during my course, and I wish to share it here because it is a good starter example for data pre-processing and machine learning practices. \n\n**Fields**\nThe dataset contains 16 columns\nTarget filed: Income\n-- The income is divide into two classes: <=50K and >50K  \nNumber of attributes: 14\n-- These are the demographics and other features to describe a person\n\nWe can explore the possibility in predicting income level based on the individual’s personal information.\n\n**Acknowledgements**\nThis dataset named “adult” is found in the UCI machine learning repository\n[http://www.cs.toronto.edu/~delve/data/adult/desc.html][1]\n\nThe detailed description on the dataset can be found in the original UCI documentation\n[http://www.cs.toronto.edu/~delve/data/adult/adultDetail.html][2]\n\n  [1]: http://www.cs.toronto.edu/~delve/data/adult/desc.html\n  [2]: http://www.cs.toronto.edu/~delve/data/adult/adultDetail.html",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "finance_and_consumer_behavior",
   "recordsets": [
     {
       "recordset_name": "adult.csv",

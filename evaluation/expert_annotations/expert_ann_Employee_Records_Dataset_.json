@@ -4,6 +4,7 @@
   "description": "Overview\nThis dataset contains 30,000 synthetic employee records, including key details like names, ages, departments, positions, salaries, and joining dates. It is designed for HR analytics, salary trend analysis, and machine learning applications.\n\nColumns\nEmployee_ID – Unique identifier for each employee\nEmployee_Name – Randomly generated full name\nAge – Employee's age (22 to 60 years)\nCountry – Country of employment (chosen from 10 countries)\nDepartment – Assigned department (HR, Finance, Engineering, etc.)\nPosition – Employee's job role (Manager, Developer, Analyst, etc.)\nSalary – Annual salary (randomly generated between $30,000 and $150,000)\nJoining_Date – Employee's start date (randomly selected from the past 10 years)\n\nUse Cases\nHR analytics – Analyze workforce demographics and department distributions\nSalary trend analysis – Study compensation patterns across roles and regions\nEmployee attrition prediction – Build machine learning models for retention insights\nWorkforce planning – Simulate hiring and salary forecasting scenarios\n\nThis dataset is entirely synthetic and is meant for educational, research, and analytical purposes.",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "employment",
   "recordsets": [
     {
       "recordset_name": "employee_records.csv",

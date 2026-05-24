@@ -4,6 +4,7 @@
   "description": "Description:\nThis dataset contains simulated medical records for 2000 patients, each described by demographic information, symptoms, sensor readings, diagnosis, severity, and a suggested treatment plan. It can be used for developing machine learning models or rule-based systems for disease prediction and healthcare analytics.\n\nKey Features:\nPatient Information: Age and gender of the patient.\nSymptoms: Three common symptoms per patient, randomly selected from a predefined list.\nSensor Data:\nHeart Rate (bpm): Heart rate values in beats per minute.\nBody Temperature (Celsius): Body temperature readings.\nBlood Pressure (mmHg): Systolic and diastolic blood pressure values.\nOxygen Saturation (%): Oxygen saturation levels in the blood.\nDiagnosis: A rule-based diagnosis generated from symptoms and sensor data, including conditions like Pneumonia, Flu, Bronchitis, Cold, and Healthy.\nSeverity: Classification of the condition's severity into Mild, Moderate, and Severe.\nTreatment Plan: Suggested treatment based on the severity of the diagnosis (e.g., rest, medication, or hospitalization).",
   "data_biases": "No data biases found.",
   "sensitive_information": "No personal sensitive information found.",
+  "category": "health_care",
   "recordsets": [
     {
       "recordset_name": "disease_diagnosis.csv",
