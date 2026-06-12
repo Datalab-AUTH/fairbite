@@ -14,9 +14,17 @@ from app.service import process_dataset_only, run_rep_audit_only
 
 app = FastAPI(title="FairBite Backend", version="0.2")
 
+DEFAULT_CORS_ORIGINS = "http://localhost:3000,http://127.0.0.1:3000"
+
+
+def get_cors_origins():
+    origins = os.getenv("CORS_ALLOW_ORIGINS", DEFAULT_CORS_ORIGINS)
+    return [origin.strip() for origin in origins.split(",") if origin.strip()]
+
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=get_cors_origins(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

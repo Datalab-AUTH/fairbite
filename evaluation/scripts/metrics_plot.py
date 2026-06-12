@@ -50,8 +50,6 @@ FALLBACK_CATEGORY_COLORS = [
 DATASET_LABEL_FONTSIZE = 30
 VALUE_LABEL_FONTSIZE = 30
 AXIS_LABEL_FONTSIZE = 30
-TITLE_FONTSIZE = 32
-GLOBAL_TITLE_FONTSIZE = 48
 LEGEND_FONTSIZE = 30
 TICK_LABEL_FONTSIZE = 25
 
@@ -59,6 +57,23 @@ BAR_HEIGHT = 0.52
 OVERVIEW_BAR_WIDTH = 0.78
 MAX_DATASET_LABEL_WIDTH = 36
 MAX_CATEGORY_LABEL_WIDTH = 22
+CONFUSION_AX_POSITION = [0.13, 0.14, 0.64, 0.64]
+CONFUSION_CBAR_POSITION = [0.82, 0.14, 0.035, 0.64]
+BEESWARM_EXCLUDED_CATEGORIES = {
+    "qwk": {"out_of_context"},
+}
+BEESWARM_BIN_WIDTHS = {
+    "mae_category": 0.025,
+    "f1_macro": 0.025,
+    "qwk": 0.025,
+}
+BEESWARM_OFFSET_STEP = 0.12
+BEESWARM_POINT_SIZE = 260
+BEESWARM_MEAN_MARKER_SIZE = 620
+BEESWARM_LABEL_FONTSIZE = 44
+BEESWARM_LABEL_WIDTH = 24
+BEESWARM_MEAN_VALUE_FONTSIZE = 40
+BEESWARM_OVERALL_MEAN_LINEWIDTH = 3.2
 
 plt.rcParams.update({
     "font.family": "serif",
@@ -66,7 +81,6 @@ plt.rcParams.update({
     "axes.spines.right": False,
     "axes.edgecolor": "0.25",
     "axes.linewidth": 0.8,
-    "axes.titlesize": TITLE_FONTSIZE,
     "axes.labelsize": AXIS_LABEL_FONTSIZE,
     "xtick.labelsize": TICK_LABEL_FONTSIZE,
     "ytick.labelsize": DATASET_LABEL_FONTSIZE,
@@ -320,8 +334,36 @@ def add_vertical_bar_value_labels(ax, bars, values):
         )
 
 
-def save_figure(fig, out_path):
-    fig.savefig(out_path, bbox_inches="tight")
+def beeswarm_offsets(values, bin_width, offset_step):
+    values = np.asarray(values, dtype=float)
+    offsets = np.zeros(len(values), dtype=float)
+
+    if len(values) == 0:
+        return offsets
+
+    bins = np.floor((values - np.nanmin(values)) / bin_width).astype(int)
+
+    for bin_id in np.unique(bins):
+        bin_indices = np.where(bins == bin_id)[0]
+        bin_indices = bin_indices[np.argsort(values[bin_indices])]
+
+        for position, row_idx in enumerate(bin_indices):
+            if position == 0:
+                offsets[row_idx] = 0
+                continue
+
+            layer = (position + 1) // 2
+            sign = 1 if position % 2 else -1
+            offsets[row_idx] = sign * layer * offset_step
+
+    return offsets
+
+
+def save_figure(fig, out_path, tight=True):
+    if tight:
+        fig.savefig(out_path, bbox_inches="tight")
+    else:
+        fig.savefig(out_path)
     plt.close(fig)
     print(f"[OK] Saved: {out_path}")
 
@@ -377,12 +419,6 @@ def plot_metric_for_category(df, dataset_category, metric, out_dir, category_col
         label=f"{format_name(dataset_category)} average = {average:.3f}",
     )
 
-    ax.set_title(
-        metric["title"],
-        fontsize=TITLE_FONTSIZE,
-        fontweight="bold",
-        pad=18,
-    )
     ax.set_xlabel(metric["xlabel"], fontsize=AXIS_LABEL_FONTSIZE)
     ax.grid(axis="x", linestyle=":", linewidth=0.8, alpha=0.45)
     ax.set_axisbelow(True)
@@ -401,14 +437,7 @@ def plot_metric_for_category(df, dataset_category, metric, out_dir, category_col
         ncol=1,
     )
 
-    fig.suptitle(
-        format_name(dataset_category),
-        fontsize=GLOBAL_TITLE_FONTSIZE,
-        fontweight="heavy",
-        y=0.94,
-    )
-
-    plt.subplots_adjust(left=0.32, right=0.96, top=0.84, bottom=0.18)
+    plt.subplots_adjust(left=0.32, right=0.96, top=0.94, bottom=0.18)
 
     out_path = out_dir / (
         f"{clean_filename(dataset_category)}_{metric['filename']}.pdf"
@@ -467,12 +496,6 @@ def plot_metric_overview(df, metric, out_dir, dataset_categories, category_color
         label=f"Overall average = {overall_average:.3f}",
     )
 
-    ax.set_title(
-        f"Average {metric['title']} by Dataset Category",
-        fontsize=TITLE_FONTSIZE,
-        fontweight="bold",
-        pad=18,
-    )
     ax.set_ylabel(metric["xlabel"], fontsize=AXIS_LABEL_FONTSIZE)
     ax.grid(axis="y", linestyle=":", linewidth=0.8, alpha=0.45)
     ax.set_axisbelow(True)
@@ -491,11 +514,195 @@ def plot_metric_overview(df, metric, out_dir, dataset_categories, category_color
         ncol=1,
     )
 
-    plt.subplots_adjust(left=0.08, right=0.98, top=0.86, bottom=0.28)
+    plt.subplots_adjust(left=0.08, right=0.98, top=0.94, bottom=0.28)
 
     out_path = out_dir / f"overview_{metric['filename']}_by_dataset_category.pdf"
     save_figure(fig, out_path)
     return out_path
+
+
+def plot_metric_beeswarm(df, metric, out_dir, dataset_categories, category_colors):
+    column = metric["column"]
+    excluded_categories = BEESWARM_EXCLUDED_CATEGORIES.get(column, set())
+    plot_categories = [
+        category
+        for category in dataset_categories
+        if category not in excluded_categories
+    ]
+
+    metric_df = df[
+        df["dataset_category"].isin(plot_categories)
+        & df[column].notna()
+    ].copy()
+
+    if metric_df.empty:
+        print(
+            f"[SKIP] {metric['title']} beeswarm: "
+            "no numeric values available."
+        )
+        return None
+
+    fig_height = max(11, len(plot_categories) * 2.15)
+    fig, ax = plt.subplots(figsize=(30, fig_height))
+
+    y_positions = np.arange(len(plot_categories)) * 1.65
+    label_lookup = dict(zip(plot_categories, y_positions))
+    all_values = metric_df[column].tolist()
+    overall_mean = metric_df[column].mean()
+    bin_width = BEESWARM_BIN_WIDTHS.get(column, 0.025)
+
+    ax.axvline(
+        overall_mean,
+        color=OVERALL_MEAN_COLOR,
+        linestyle="--",
+        linewidth=BEESWARM_OVERALL_MEAN_LINEWIDTH,
+        label=f"Overall mean = {overall_mean:.3f}",
+        zorder=2,
+    )
+
+    for idx, dataset_category in enumerate(plot_categories):
+        category_df = (
+            metric_df[metric_df["dataset_category"] == dataset_category]
+            .sort_values([column, "dataset"])
+            .reset_index(drop=True)
+        )
+
+        if category_df.empty:
+            continue
+
+        values = category_df[column].to_numpy(dtype=float)
+        y_base = label_lookup[dataset_category]
+        offsets = beeswarm_offsets(
+            values,
+            bin_width=bin_width,
+            offset_step=BEESWARM_OFFSET_STEP,
+        )
+        base_color = category_colors[dataset_category]
+
+        if idx % 2 == 0:
+            ax.axhspan(
+                y_base - 0.7,
+                y_base + 0.7,
+                color="#F7F7F7",
+                zorder=0,
+            )
+
+        ax.hlines(
+            y_base,
+            values.min(),
+            values.max(),
+            color=base_color,
+            linewidth=9,
+            alpha=0.22,
+            zorder=1,
+        )
+
+        ax.scatter(
+            values,
+            y_base + offsets,
+            s=BEESWARM_POINT_SIZE,
+            color=base_color,
+            edgecolors="white",
+            linewidths=1.8,
+            alpha=0.92,
+            label="Dataset value" if idx == 0 else None,
+            zorder=3,
+        )
+
+        mean_value = values.mean()
+        ax.scatter(
+            mean_value,
+            y_base,
+            s=BEESWARM_MEAN_MARKER_SIZE,
+            marker="D",
+            color=base_color,
+            edgecolors=AVERAGE_LINE_COLOR,
+            linewidths=2.4,
+            label="Domain mean" if idx == 0 else None,
+            zorder=4,
+        )
+
+        ax.text(
+            mean_value,
+            y_base - 0.48,
+            f"{mean_value:.3f}",
+            va="center",
+            ha="center",
+            fontsize=BEESWARM_MEAN_VALUE_FONTSIZE,
+            fontweight="bold",
+            color=AVERAGE_LINE_COLOR,
+            bbox={
+                "facecolor": "white",
+                "edgecolor": "none",
+                "alpha": 0.85,
+                "pad": 2.5,
+            },
+            clip_on=False,
+            zorder=5,
+        )
+
+    data_min = min(all_values)
+    data_max = max(all_values)
+    span = max(data_max - data_min, 0.1)
+    x_min = data_min - span * 0.08 if data_min < 0 else 0
+    if metric["bounded_score"]:
+        x_max = max(1.03, data_max + span * 0.08)
+    else:
+        x_max = data_max + span * 0.12 if data_max > 0 else 1
+    ax.set_xlim(x_min, x_max)
+
+    ax.set_yticks(y_positions)
+    ax.set_yticklabels(
+        [
+            wrap_label(format_name(category), BEESWARM_LABEL_WIDTH)
+            for category in plot_categories
+        ],
+        fontsize=BEESWARM_LABEL_FONTSIZE,
+        ha="right",
+    )
+    ax.set_ylim(y_positions[-1] + 0.95, y_positions[0] - 0.95)
+
+    ax.set_xlabel(metric["xlabel"], fontsize=AXIS_LABEL_FONTSIZE)
+    ax.grid(axis="x", linestyle=":", linewidth=0.9, alpha=0.45)
+    ax.set_axisbelow(True)
+    ax.tick_params(axis="x", labelsize=TICK_LABEL_FONTSIZE)
+    ax.tick_params(axis="y", length=0, pad=6)
+
+    ax.legend(
+        loc="upper center",
+        bbox_to_anchor=(0.5, -0.12),
+        fontsize=LEGEND_FONTSIZE,
+        frameon=True,
+        framealpha=0.9,
+        ncol=3,
+    )
+
+    plt.subplots_adjust(left=0.25, right=0.97, top=0.95, bottom=0.22)
+
+    out_path = out_dir / (
+        f"{metric['filename']}_dataset_beeswarm_by_dataset_category.pdf"
+    )
+    save_figure(fig, out_path)
+    return out_path
+
+
+def plot_dataset_beeswarms(df, out_dir, dataset_categories, category_colors):
+    beeswarm_columns = ("mae_category", "f1_macro", "qwk")
+    saved_paths = []
+
+    for column in beeswarm_columns:
+        metric = next(metric for metric in METRICS if metric["column"] == column)
+        path = plot_metric_beeswarm(
+            df=df,
+            metric=metric,
+            out_dir=out_dir,
+            dataset_categories=dataset_categories,
+            category_colors=category_colors,
+        )
+        if path is not None:
+            saved_paths.append(path)
+
+    return saved_paths
 
 
 def format_confusion_tick(label):
@@ -515,11 +722,13 @@ def load_confusion_matrix(path):
     return cm, x_labels, y_labels
 
 
-def plot_confusion_heatmap(cm, x_labels, y_labels, title, out_path, cmap):
-    fig, ax = plt.subplots(figsize=(12, 10))
+def plot_confusion_heatmap(cm, x_labels, y_labels, out_path, cmap):
+    fig = plt.figure(figsize=(12, 10))
+    ax = fig.add_axes(CONFUSION_AX_POSITION)
+    cax = fig.add_axes(CONFUSION_CBAR_POSITION)
     image = ax.imshow(cm, cmap=cmap)
 
-    colorbar = fig.colorbar(image, ax=ax, fraction=0.046, pad=0.04)
+    colorbar = fig.colorbar(image, cax=cax)
     colorbar.ax.tick_params(labelsize=18)
 
     ax.set_xticks(np.arange(len(x_labels)))
@@ -529,12 +738,6 @@ def plot_confusion_heatmap(cm, x_labels, y_labels, title, out_path, cmap):
 
     ax.set_xlabel("Predicted Category", fontsize=26, labelpad=15)
     ax.set_ylabel("True Category", fontsize=26, labelpad=15)
-    ax.set_title(
-        title,
-        fontsize=32,
-        fontweight="bold",
-        pad=24,
-    )
 
     max_value = cm.max() if cm.size else 0
     threshold = max_value * 0.60
@@ -554,9 +757,8 @@ def plot_confusion_heatmap(cm, x_labels, y_labels, title, out_path, cmap):
             )
 
     ax.tick_params(axis="both", length=0)
-    plt.tight_layout(pad=2)
 
-    save_figure(fig, out_path)
+    save_figure(fig, out_path, tight=False)
     return out_path
 
 
@@ -572,7 +774,6 @@ def plot_confusion_matrix(confusion_matrix_path, out_dir):
         cm=cm,
         x_labels=x_labels,
         y_labels=y_labels,
-        title="Confusion Matrix - All Datasets",
         out_path=out_path,
         cmap="Blues",
     )
@@ -642,7 +843,6 @@ def plot_category_confusion_matrices(
             cm=cm_total,
             x_labels=x_labels,
             y_labels=y_labels,
-            title=f"Confusion Matrix - {format_name(dataset_category)}",
             out_path=out_path,
             cmap=cmap,
         )
@@ -724,6 +924,15 @@ def main():
         )
         if path is not None:
             saved_paths.append(path)
+
+    saved_paths.extend(
+        plot_dataset_beeswarms(
+            df=df,
+            out_dir=args.output_dir,
+            dataset_categories=dataset_categories,
+            category_colors=category_colors,
+        )
+    )
 
     path = plot_confusion_matrix(
         confusion_matrix_path=args.confusion_matrix,

@@ -55,6 +55,39 @@ Create a `.env` file in `fairbite-backend/` or set the environment variable dire
 $env:GEMINI_API_KEY = "your_api_key_here"
 ```
 
+For Docker, you can copy `fairbite-backend/.env.example` to `fairbite-backend/.env`
+and put the same key there.
+
+## Running With Docker
+
+The Docker setup uses only `fairbite-backend/` and `fairbite-frontend/` as build
+contexts. The `evaluation/` directory is not copied into either image.
+
+From the repository root:
+
+```powershell
+docker compose up --build
+```
+
+Then open:
+
+- Frontend: `http://localhost:3000`
+- Backend health check: `http://localhost:8000/health`
+
+The frontend image is built with `REACT_APP_API_BASE=http://localhost:8000` by
+default. To point it at a different backend URL, rebuild with:
+
+```powershell
+$env:REACT_APP_API_BASE = "http://your-backend-host:8000"
+docker compose up --build
+```
+
+To stop the app:
+
+```powershell
+docker compose down
+```
+
 ## Developing
 
 ### Start backend

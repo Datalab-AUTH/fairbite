@@ -1,4 +1,4 @@
-from typing import Any, Dict
+from typing import Any, Dict, Tuple
 
 from sensitive_characteristics_search import process_single_dataset
 from representation_bias_audit import run_representation_audit
