@@ -977,7 +977,7 @@ body {
   padding: 0;
   padding-left: 25px;
   width: 100%;
-  max-width: 700px;
+  max-width: 900px;
   height: 60px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   /* Soft shadow */
@@ -994,6 +994,7 @@ body {
 
 .home-search-input {
   flex: 1;
+  min-width: 0;
   border: none;
   background: transparent;
   font-size: 1.1rem;

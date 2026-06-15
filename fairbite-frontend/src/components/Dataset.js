@@ -916,21 +916,6 @@ const RecordsetAuditResult = ({ recordsetData }) => {
                                             </tr>
                                         );
                                     })}
-                                    <tr className="rep-audit-total-row">
-                                        <td className="rep-audit-td rep-audit-td-label"><strong>Total</strong></td>
-                                        <td className="rep-audit-td rep-audit-td-not-rep">
-                                            <strong>{totalSummary.not_represented} ({totalSummary.total > 0 ? Math.round((totalSummary.not_represented / totalSummary.total) * 100) : 0}%)</strong>
-                                        </td>
-                                        <td className="rep-audit-td rep-audit-td-under-rep">
-                                            <strong>{totalSummary.under_represented} ({totalSummary.total > 0 ? Math.round((totalSummary.under_represented / totalSummary.total) * 100) : 0}%)</strong>
-                                        </td>
-                                        <td className="rep-audit-td rep-audit-td-well-rep">
-                                            <strong>{totalSummary.well_represented} ({totalSummary.total > 0 ? Math.round((totalSummary.well_represented / totalSummary.total) * 100) : 0}%)</strong>
-                                        </td>
-                                        <td className="rep-audit-td rep-audit-td-over-rep">
-                                            <strong>{totalSummary.over_represented} ({totalSummary.total > 0 ? Math.round((totalSummary.over_represented / totalSummary.total) * 100) : 0}%)</strong>
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
