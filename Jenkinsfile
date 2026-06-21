@@ -10,9 +10,9 @@ pipeline {
   environment {
     backend_dockertag = 'fairbite-backend'
     frontend_dockertag = 'fairbite-frontend'
-    registry = 'https://registry.csd.auth.gr'
-    registry_credentials = 'datalab-registry'
-    REACT_APP_API_BASE = 'http://localhost:8000'
+    registry = 'https://registry.hub.docker.com'
+    registry_credentials = 'dockerhub'
+    REACT_APP_API_BASE = 'https://fairbite.csd.auth.gr/api'
   }
 
   // you probably don't need to edit anything below this line
