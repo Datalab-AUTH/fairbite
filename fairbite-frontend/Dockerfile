@@ -12,7 +12,7 @@ ENV REACT_APP_API_BASE=$REACT_APP_API_BASE
 
 RUN npm run build
 
-FROM nginx:1.27-alpine
+FROM nginx:stable-alpine
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/build /usr/share/nginx/html
