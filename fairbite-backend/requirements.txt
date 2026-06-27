@@ -5,5 +5,8 @@ pandas
 matplotlib
 mlcroissant
 google-genai
+openai
+anthropic
+ollama
 python-multipart
 python-dotenv

@@ -12,7 +12,7 @@ This repository is a monorepo containing:
 - `fairbite-backend/` — FastAPI backend for dataset ingestion, sensitive characteristic analysis, and representation audit orchestration.
 - `evaluation/` — expert annotations, sensitive attribute evaluation artifacts, and evaluation results.
 
-FairBite uses Google Geminis's model `gemini-2.5-flash` to identify and score sensitive dataset columns during the backend data-processing pipeline.
+FairBite uses a configurable LLM to identify and score sensitive dataset columns during the backend data-processing pipeline. The provider, model, and API key are set via environment variables — no code changes needed to switch between providers.
 
 ## Installing / Getting started
 
@@ -20,7 +20,7 @@ FairBite uses Google Geminis's model `gemini-2.5-flash` to identify and score se
 
 - Node.js and npm for frontend development.
 - Python 3.11+ for the backend.
-- A Google GenAI API key stored in `GEMINI_API_KEY`.
+- An API key for your chosen LLM provider (not required for Ollama).
 
 ### Setup
 
@@ -49,14 +49,23 @@ npm install
 
 ### Environment
 
-Create a `.env` file in `fairbite-backend/` or set the environment variable directly:
+Copy `fairbite-backend/.env.example` to `fairbite-backend/.env` and fill in the values for your chosen provider:
 
 ```powershell
-$env:GEMINI_API_KEY = "your_api_key_here"
+cp fairbite-backend/.env.example fairbite-backend/.env
 ```
 
-For Docker, you can copy `fairbite-backend/.env.example` to `fairbite-backend/.env`
-and put the same key there.
+The required variables are:
+
+| Variable | Description |
+|---|---|
+| `LLM_PROVIDER` | Provider name: `gemini`, `openai`, `anthropic`, or `ollama` |
+| `LLM_MODEL` | Model name as accepted by the provider (e.g. `gemini-2.5-flash`, `gpt-4o`, `mistral`) |
+| `LLM_API_KEY` | API key for the provider — not required for Ollama |
+| `LLM_TEMPERATURE` | Sampling temperature (default: `0`) |
+| `OLLAMA_BASE_URL` | Ollama server URL (default: `http://localhost:11434`) — only for Ollama |
+
+See `fairbite-backend/.env.example` for ready-to-use examples for each provider.
 
 ## Running With Docker
 
@@ -138,12 +147,51 @@ Key backend endpoints:
 - `GET /representation-audits/{audit_id}` — check audit status.
 - `GET /representation-audits/{audit_id}/results` — retrieve audit results.
 
-## Model and AI usage
+## LLM configuration
 
-FairBite’s backend uses the Google Gemini model `gemini-2.5-flash` for sensitive characteristic detection. This exact model is configured in `fairbite-backend/sensitive_characteristics_search.py` and powers the dataset column scoring workflow.
+FairBite supports multiple LLM providers out of the box: **Google Gemini**, **OpenAI**, **Anthropic**, and **Ollama** (local). The provider is selected at runtime via the `LLM_PROVIDER` environment variable — no code changes needed.
+
+### Switching providers
+
+Edit `fairbite-backend/.env` and set `LLM_PROVIDER`, `LLM_MODEL`, and `LLM_API_KEY`. Restart the backend.
+
+### Adding a new provider
+
+If the provider you want is not in the list above, you can add it in two steps inside `fairbite-backend/llm_provider.py`:
+
+**1. Create a class that extends `LLMProvider`:**
+
+```python
+class MyProvider(LLMProvider):
+    def __init__(self):
+        # Initialize your client here using os.environ values
+        self._client = MySDK(api_key=os.environ["LLM_API_KEY"])
+        self._model = os.environ["LLM_MODEL"]
+
+    def _generate(self, prompt: str, system_msg: str) -> str:
+        # Call your provider’s API and return the raw response as a string
+        response = self._client.complete(model=self._model, prompt=prompt)
+        return response.text
+```
+
+Note: implement `_generate`, not `generate_content`. The base class wraps `_generate` to automatically strip `<think>...</think>` blocks produced by reasoning models.
+
+**2. Register it in the `PROVIDERS` dict:**
+
+```python
+PROVIDERS = {
+    "gemini": GeminiProvider,
+    "openai": OpenAIProvider,
+    "anthropic": AnthropicProvider,
+    "ollama": OllamaProvider,
+    "myprovider": MyProvider,  # add your entry here
+}
+```
+
+Then set `LLM_PROVIDER=myprovider` in `.env` and restart.
 
 ## Notes
 
 - This repository is intentionally structured as a monorepo.
 - The frontend and backend are developed and run separately.
-- The backend requires a valid Google GenAI key to call `gemini-2.5-flash`.
+- When using Ollama with Docker, set `OLLAMA_BASE_URL=http://host.docker.internal:11434` so the container can reach the host.

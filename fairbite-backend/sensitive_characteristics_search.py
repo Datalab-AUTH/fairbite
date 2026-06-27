@@ -5,11 +5,10 @@ import pandas as pd
 import mlcroissant as mlc
 from typing import Dict, List, Tuple, Optional
 
-from google import genai
-from google.genai import types as genai_types
+from llm_provider import get_provider
 
 
-GEMINI_CLIENT = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+_LLM_PROVIDER = get_provider()
 
 
 # Keep as key the name with fallback to id
@@ -17,12 +16,10 @@ def field_key(x):
     return getattr(x, "name", None) or getattr(x, "id", None)
 
 
-def detect_sensitive_characteristics(
-        ds_name, ds_description, rs, model: str = "gemini-2.5-flash"
-):
+def detect_sensitive_characteristics(ds_name, ds_description, rs):
     """
     For a given Croissant record set:
-    - Ask Google's Gemini model to assign, for EACH column, a sensitivity percentage (0–100)
+    - Ask the configured LLM to assign, for EACH column, a sensitivity percentage (0–100)
       based on discrimination/fairness-relevant attributes.
     - Also ask for a brief natural-language reason per column.
     - Returns: list[dict] with keys: "key", "sensitivity", "reason".
@@ -130,19 +127,7 @@ def detect_sensitive_characteristics(
     - 'is_categorical' MUST be a boolean.
     """.strip()
 
-    # -------- Gemini call --------
-    response = GEMINI_CLIENT.models.generate_content(
-        model=model,
-        contents=prompt,
-        config=genai_types.GenerateContentConfig(
-            temperature=0,
-            top_p=1,
-            response_mime_type="application/json",
-            system_instruction=system_msg,
-        ),
-    )
-
-    raw = response.text
+    raw = _LLM_PROVIDER.generate_content(prompt, system_msg)
 
     # Parse and validate
     try:
