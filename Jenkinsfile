@@ -8,8 +8,8 @@ pipeline {
   agent any
 
   environment {
-    backend_dockertag = 'fairbite-backend'
-    frontend_dockertag = 'fairbite-frontend'
+    backend_dockertag = 'datalabauth/fairbite-backend'
+    frontend_dockertag = 'datalabauth/fairbite-frontend'
     registry = 'https://registry.hub.docker.com'
     registry_credentials = 'dockerhub'
     REACT_APP_API_BASE = 'https://fairbite.csd.auth.gr/api'
