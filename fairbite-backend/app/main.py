@@ -12,7 +12,11 @@ load_dotenv()
 
 from app.service import process_dataset_only, run_rep_audit_only
 
-app = FastAPI(title="FairBite Backend", version="0.2")
+app = FastAPI(
+        title="FairBite Backend",
+        version="0.2",
+        root_path=os.environ.get("ROOT_PATH", "")
+)
 
 DEFAULT_CORS_ORIGINS = "http://localhost:3000,http://127.0.0.1:3000"
 
