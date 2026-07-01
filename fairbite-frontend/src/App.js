@@ -6,6 +6,7 @@ import Help from './components/Help';
 import Dataset from './components/Dataset';
 import XIcon from './icons/X.svg';
 import FairBiteIcon from './icons/FairBiteIcon.svg';
+import DataLabLogo from './images/DataLab_Logo.png';
 import HomeIcon from './icons/Home.svg';
 import InfoIcon from './icons/Info.svg';
 import HelpIcon from './icons/Help_circle.svg';
@@ -118,6 +119,9 @@ function App() {
       <div className="title-bar">
         <img src={FairBiteIcon} alt="Logo" className="app-logo" />
         <span>FairBite</span>
+        <a href="https://datalab.csd.auth.gr/" target="_blank" rel="noopener noreferrer" className="datalab-link">
+          <img src={DataLabLogo} alt="DataLab" className="datalab-logo" />
+        </a>
       </div>
       <div className="tabs-header">
         {tabs.map(tab => (

@@ -37,13 +37,25 @@ body {
   display: flex;
   align-items: center;
   font-weight: bold;
-  font-size: 1.2rem;
-  height: 40px;
+  font-size: 1.8rem;
+  height: 65px;
+}
+
+.datalab-link {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.datalab-logo {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
 }
 
 .app-logo {
-  height: 35px;
-  margin-right: 5px;
+  height: 55px;
+  margin-right: 8px;
 }
 
 /* Tabs Header */
